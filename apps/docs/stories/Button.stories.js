@@ -1,36 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import { Button } from './Button';
+import { ICON_TYPES } from "../confetti-ds/src/constants";
+import { Button as Component } from "../confetti-ds/src/Button";
 
 export default {
-  title: 'Example/Button',
-  component: Button,
+  title: "Components/Button/Button",
+  component: Component,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    icon: {
+      control: { type: "select", options: ICON_TYPES },
+    },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Component {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Button = Template.bind({});
+Button.args = {
+  text: "Button",
+  onClick: () => alert("Button was clicked"),
 };
