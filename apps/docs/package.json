@@ -1,0 +1,28 @@
+{
+  "name": "confetti-storybook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 8000",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/react": "^6.1.15",
+    "babel-loader": "^8.2.2",
+    "node-sass": "^5.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "sass-loader": "^10.1.1"
+  },
+  "dependencies": {}
+}
