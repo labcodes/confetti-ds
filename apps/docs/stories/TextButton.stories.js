@@ -4,7 +4,7 @@ import { ICON_TYPES } from "../confetti-ds/src/constants";
 import { TextButton as Component } from "../confetti-ds/src/Button";
 
 export default {
-  title: "Components/Button/TextButton",
+  title: "Button/TextButton",
   component: Component,
   argTypes: {
     icon: {
@@ -13,9 +13,7 @@ export default {
   },
 };
 
-const Template = (args) => <Component {...args} />;
-
-export const TextButton = Template.bind({});
+export const TextButton = (args) => <Component {...args} />;
 TextButton.args = {
   text: "Text Button",
   onClick: () => alert("TextButton was clicked"),
