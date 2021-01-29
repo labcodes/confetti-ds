@@ -1,0 +1,47 @@
+// Toggle
+$toggle-teal-theme: (
+  "background-color-off": $teal-10,
+  "background-color-on": $teal-60,
+  "slider-border-color-off": $teal-40,
+  "slider-border-color-on": $teal-60,
+  "focus-border-color": $teal-30,
+);
+
+$toggle-purple-theme: (
+  "background-color-off": $purple-10,
+  "background-color-on": $purple-60,
+  "slider-border-color-off": $purple-40,
+  "slider-border-color-on": $purple-60,
+  "focus-border-color": $purple-30,
+);
+
+// Tags
+$tag-main-colors: (
+  "teal": $teal-palette,
+  "purple": $purple-palette,
+  "mineral": $mineral-palette,
+);
+
+$tag-all-colors: (
+  "green": map-get($messages-palette, "green"),
+  "red": map-get($messages-palette, "red"),
+  "yellow": map-get($messages-palette, "yellow"),
+  "cyan": map-get($support-palette, "cyan"),
+  "pink": map-get($support-palette, "pink"),
+  "orange": map-get($support-palette, "orange"),
+);
+
+// Card
+$card-colors: (
+  "teal": $teal-palette,
+  "purple": $purple-palette,
+  "mineral": $mineral-palette,
+  "white": $white-palette,
+);
+//Sidebar
+$sidebar-colors: (
+  "teal": $teal-palette,
+  "coral": $coral-palette,
+  "purple": $purple-palette,
+  "mineral": $mineral-palette,
+);

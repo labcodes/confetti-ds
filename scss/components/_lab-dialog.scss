@@ -1,0 +1,407 @@
+@use 'sass:map';
+
+// Transitions
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-o-keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@-ms-keyframes slideUp {
+  0% {
+    -ms-transform: translateY(100%);
+  }
+  100% {
+    -ms-transform: translateY(0);
+  }
+}
+
+// Modal overlay
+.lab-dialog-overlay {
+  z-index: 9;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: $black-50;
+  -webkit-animation: fadeIn ease 0.2s;
+  -moz-animation: fadeIn ease 0.2s;
+  -ms-animation: fadeIn ease 0.2s;
+  -o-animation: fadeIn ease 0.2s;
+  animation: fadeIn ease 0.2s;
+}
+
+// Global style
+.lab-dialog {
+  z-index: 9;
+  position: fixed;
+  font-family: $font-primary;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lab-dialog--standard {
+  width: 100%;
+  max-height: 90%;
+  bottom: 0;
+  left: 0;
+
+  -webkit-animation: slideUp ease-in $duration-fast;
+  -moz-animation: slideUp ease-in $duration-fast;
+  -ms-animation: slideUp ease-in $duration-fast;
+  -o-animation: slideUp ease-in $duration-fast;
+  animation: slideUp ease-in $duration-fast;
+
+  @include from($tablet) {
+    width: 520px;
+    top: 50%;
+    bottom: unset;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%, -50%);
+
+    -webkit-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+    -moz-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+    -ms-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+    -o-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+    animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+  }
+}
+
+.lab-dialog--message {
+  width: 90%;
+  max-height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+
+  -webkit-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+  -moz-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+  -ms-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+  -o-animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+  animation: fadeIn cubic-bezier(0.95, 0.05, 0.8, 0.04) $duration-base;
+
+  @include from($tablet) {
+    width: 520px;
+  }
+}
+
+// Standard
+.lab-dialog__content {
+  border-top-left-radius: $radius-04;
+  border-top-right-radius: $radius-04;
+  padding: $spacing-06 28px; // missing token
+  background-color: $white;
+  box-shadow: 0 0 28px 0 $black-20; // missing token
+
+  @include from($tablet) {
+    border-radius: $radius-04;
+  }
+}
+
+// Message
+.lab-dialog__content--message {
+  border-radius: $radius-04;
+  padding: $spacing-06 28px; // missing token
+  background-color: $white;
+  box-shadow: 0 0 28px 0 $black-20; // missing token
+}
+
+@include from($tablet) {
+  .lab-dialog--large {
+    width: 768px;
+  }
+}
+
+// Global elements
+.lab-dialog__close-button {
+  display: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: unset;
+  border: none;
+
+  &.lab-dialog__close-button--message {
+    display: flex;
+    align-items: center;
+  }
+
+  &:focus {
+    border-radius: $radius-02;
+    box-shadow: 0 0 0 2px $teal-30;
+    background-color: transparent;
+    outline: unset;
+
+    .lab-dialog__close-button-icon {
+      background-color: $teal-60;
+    }
+  }
+
+  &:hover {
+    border-radius: $radius-02;
+    background-color: $teal-10;
+
+    .lab-dialog__close-button-icon {
+      background-color: $teal-60;
+    }
+  }
+
+  .lab-dialog__close-button-icon {
+    background-color: $mineral-60;
+  }
+
+  &:active {
+    border-radius: $radius-02;
+    box-shadow: 0 0 0 2px $teal-30;
+    background-color: $teal-20;
+    outline: unset;
+
+    .lab-dialog__close-button-icon {
+      background-color: $teal-70;
+    }
+  }
+
+  @include from($tablet) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.lab-dialog__mobile-close-button {
+  display: flex;
+  justify-content: center;
+  margin-top: -$spacing-06;
+  margin-bottom: $spacing-01;
+  width: 100%;
+  height: 24px;
+  background-color: unset;
+  border: none;
+
+  .lab-icon {
+    background-color: $mineral-60;
+  }
+
+  &.lab-dialog__mobile-close-button--message {
+    display: none;
+  }
+
+  &:focus {
+    border-radius: $radius-02;
+    box-shadow: 0 0 0 2px $teal-30;
+    background-color: transparent;
+    outline: unset;
+
+    .lab-icon {
+      background-color: $teal-60;
+    }
+  }
+
+  &:hover {
+    border-radius: $radius-02;
+    background-color: $teal-10;
+
+    .lab-icon {
+      background-color: $teal-60;
+    }
+  }
+
+  .lab-icon {
+    background-color: $mineral-60;
+  }
+
+  &:active {
+    border-radius: $radius-02;
+    box-shadow: 0 0 0 2px $teal-30;
+    background-color: $teal-20;
+    outline: unset;
+
+    .lab-icon {
+      background-color: $teal-70;
+    }
+  }
+
+  @include from($tablet) {
+    display: none;
+  }
+}
+
+.lab-dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lab-dialog__title {
+  margin: 0;
+  color: $teal-60;
+  font-weight: $weight-bold;
+  font-size: $font-size-5;
+  line-height: $spacing-07;
+  text-align: center;
+
+  @include from($tablet) {
+    font-size: $font-size-6;
+  }
+}
+
+.lab-dialog__body {
+  overflow-x: auto;
+  margin-top: $spacing-04;
+  margin-bottom: 28px; // missing token
+  min-width: 100%;
+  color: $black-75;
+  font-size: $font-size-4;
+  font-weight: $weight-medium;
+  line-height: $spacing-06;
+}
+
+.lab-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0;
+  margin-left: -28px; // missing token
+  margin-right: -28px; // missing token
+  margin-bottom: -$spacing-06;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  padding: $spacing-06 28px; // missing token
+  background-color: $mineral-10;
+
+  :nth-child(2) {
+    margin-left: $spacing-04;
+  }
+}
+
+// Message Dialog elements
+.lab-dialog__icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -$spacing-07;
+  margin-bottom: $spacing-03;
+  height: 72px;
+}
+
+.lab-dialog__icon {
+  transform: scale(3);
+  background-color: $mineral-70;
+}
+
+.lab-dialog__close-button--message {
+  display: block;
+}
+
+.lab-dialog__header--message {
+  justify-content: flex-end;
+}
+
+.lab-dialog__title--message {
+  display: flex;
+  justify-content: center;
+  font-size: $font-size-6;
+  line-height: 28px; // missing token
+  font-weight: $weight-semibold;
+  text-transform: uppercase;
+}
+
+.lab-dialog__body--message {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-06;
+  margin-bottom: 28px; // missing token
+  font-size: $font-size-3;
+  text-align: center;
+}
+
+.lab-dialog__footer--message {
+  align-items: stretch;
+  padding-top: 0;
+  padding-bottom: $spacing-08;
+  background-color: unset;
+
+  button {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,210 @@
+$search-button-idle-filled: map-get($search-theme, "60");
+$search-button-active-filled: map-get($search-theme, "80");
+$search-button-focus: map-get($search-theme, "70");
+$search-button-hover: map-get($search-theme, "10");
+$search-button-focus-hover: map-get($search-theme, "80");
+
+$search-button-idle: $mineral-40;
+$search-button-disabled: $mineral-20;
+$search-button-active: $mineral-70;
+$search-separator-disabled: $mineral-10;
+
+$remove-icon-focus: map-get($search-theme, "30");
+
+// Abstract Search
+// Uses Abstract Text Input's styles in order to have consistency between components.
+
+.lab-search__wrapper {
+  @extend .lab-input;
+}
+
+.lab-search__borders {
+  @extend .lab-input__borders;
+}
+
+.lab-search__remove-icon {
+  @extend .lab-input__icon;
+  display: none;
+
+  &:focus {
+    @include border-shadow(focus, $input-shadow-filled-focus);
+  }
+}
+
+.lab-search--disabled {
+  background-color: $mineral-10;
+  border-radius: $radius-02;
+}
+
+.lab-search__field {
+  @extend .lab-input__field;
+  padding-right: $spacing-01;
+
+  &:not(:placeholder-shown) ~ .lab-search__remove-icon {
+    opacity: 1;
+    cursor: pointer;
+    display: unset;
+  }
+
+  &:disabled ~ .lab-search__remove-icon,
+  &[aria-disabled] ~ .lab-search__remove-icon {
+    display: none;
+  }
+}
+
+//Standard Search
+
+// Wrapper div around Standard search
+.lab-standard-search {
+  @include remove-delete-icon-search-input;
+  position: relative;
+  z-index: 99;
+  width: 320px;
+  margin-top: $spacing-03;
+  box-sizing: border-box;
+  border-radius: $radius-02;
+
+  .lab-search__remove-icon {
+    margin-right: $spacing-09;
+    opacity: 0;
+    cursor: none;
+  }
+}
+
+.lab-standard-search__button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 36px;
+  padding: 0px;
+  background-color: $search-button-idle;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  .lab-standard-search__icon {
+    margin-left: 10px;
+  }
+
+  .lab-search__field:not(:placeholder-shown) ~ &:hover {
+    background-color: $search-button-active-filled;
+  }
+
+  .lab-search__field:focus ~ &,
+  .lab-search__field:not(:placeholder-shown):focus ~ & {
+    background-color: $search-button-focus;
+  }
+
+  .lab-search__field:not(:placeholder-shown) ~ &,
+  .lab-search__field:not(:placeholder-shown):hover ~ & {
+    background-color: $search-button-idle-filled;
+  }
+
+  .lab-search__field:not(:placeholder-shown):focus:hover ~ & {
+    background-color: $search-button-focus-hover;
+  }
+
+  .lab-search__field:not(:placeholder-shown) ~ &:focus {
+    background-color: $search-button-focus;
+    box-shadow: 0px 0px 1px 1px $white inset;
+    transition-duration: 0.05s;
+  }
+
+  &:disabled,
+  .lab-search__field:hover ~ &:disabled,
+  .lab-search__field:not(:placeholder-shown) ~ &:disabled,
+  &[aria-disabled],
+  .lab-search__field:hover ~ &[aria-disabled],
+  .lab-search__field:not(:placeholder-shown) ~ &[aria-disabled] {
+    background-color: $search-button-disabled;
+    border: none;
+    pointer-events: none;
+  }
+
+  &:active {
+    background-color: $search-button-active;
+    box-shadow: 0px 0px 1px 1px $white inset;
+  }
+
+  .lab-search__field:not(:placeholder-shown) ~ &:active {
+    background-color: $search-button-active-filled;
+  }
+}
+
+.lab-standard-search__separator {
+  position: absolute;
+  top: 2px;
+  right: 38px;
+  bottom: 3px;
+  width: 8px;
+  height: 36px;
+  background-color: $white;
+  border-radius: $radius-02;
+
+  .lab-search__field:disabled ~ &, .lab-search__field[aria-disabled] ~ & {
+    background-color: $search-separator-disabled;
+  }
+}
+
+// Inline Search
+
+// Wrapper div around Inline search
+.lab-inline-search {
+  @include remove-delete-icon-search-input;
+  position: relative;
+  width: 320px;
+  margin-top: $spacing-03;
+  box-sizing: border-box;
+  border-radius: $radius-02;
+
+  .lab-search__field {
+    padding-left: $spacing-09;
+  }
+}
+
+.lab-inline-search__icon {
+  position: absolute;
+  top: 8px;
+  left: $spacing-02;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  border: none;
+
+  & ~ .lab-search__field {
+    padding-left: $spacing-06;
+    padding-right: $spacing-07;
+  }
+
+  .lab-search__field:focus ~ & {
+    background-color: $search-button-focus;
+  }
+
+  .lab-search__field:not(:placeholder-shown) ~ & {
+    background-color: $search-button-idle-filled;
+  }
+
+  .lab-search__field:not(:placeholder-shown):focus ~ & {
+    background-color: $search-button-focus;
+  }
+
+  .lab-search__field:not(:placeholder-shown):hover ~ & {
+    background-color: $search-button-idle-filled;
+  }
+
+  .lab-search__field:not(:placeholder-shown):focus:hover ~ & {
+    background-color: $search-button-focus-hover;
+  }
+}
+
+.lab-search__field:not(:placeholder-shown) ~ .lab-inline-search__icon--disabled,
+.lab-search__field:not(:placeholder-shown)
+  ~ .lab-inline-search__icon--disabled:hover,
+.lab-search__field:not(:placeholder-shown):hover
+  ~ .lab-inline-search__icon--disabled {
+  background-color: $search-button-idle;
+}

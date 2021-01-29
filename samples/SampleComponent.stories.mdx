@@ -1,0 +1,73 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+<!--- 
+Import all related components and assets here. Ex: 
+
+import { SimpleTag, TogglableTag, RemovableTag, DropdownTag } from "../labsystem/src/Tags";
+import TagPlayground from "../playgrounds/TagPlayground";
+import { thumbSrcOptions, iconOptions } from "../playgrounds/assets";
+--->
+
+<Meta title="Components/Sample" />
+
+
+<div className="docs-title docs-title--with-tab">
+  <div>
+    <h1 className="docs-title__text">Sample Component</h1>
+  </div>
+</div>
+
+<div className="docs-content">
+  <div className="simple-tab-wrapper"></div>
+  <input className="simple-tab" type="radio" name="type-tab" id="tab1" defaultChecked/>
+  <label htmlFor="tab1">Code</label>
+
+  <input className="simple-tab" type="radio" name="type-tab" id="tab2" />
+  <label htmlFor="tab2">Usage</label>
+
+  <div className="simple-tab__content content1">
+  <h2>Overview</h2>
+  <p>Will display what is this component about with a simple intro text like: "Radio is a type of selector that is used when we have a list of options, and only one option can be selected."</p>
+  <div className="doc-anatomy-block">
+    {/* Add the component's anatomy here ex:
+    <img src="docs/sample-component/sample-anatomy.png" alt="Alternate text for the image" />
+    <ol>
+      <li>Item description</li>
+      <li>Item description</li>
+    </ol>
+    <div className="doc-em-block">
+      <p>You may use special blocks to emphasize information</p>
+    </div> */}
+  </div>
+
+  <h2>Interactive demo</h2>
+  <p>This demo let you preview the component, its variations, and configuration options.</p>
+  {/* <SamplePlayground /> */}
+
+  <h2>Prop API</h2>
+  <p>Go to <a href="/?path=/docs/getting-started-setup-confetti--page">Setup</a> for instructions on how to import the component.</p>
+  {/* <ArgsTable of={SampleComponent} /> */}
+
+  <h2>Accessibility</h2>
+  <p>Add only code relate guidelines here.</p>
+  </div>
+
+  <div className="simple-tab__content content2">
+  <h2>Variations</h2>
+  <p>Displays variations through types, sometimes viewports, and their purposes. Tags and Buttons are good examples using the component itself as an example.</p>
+  <h3>Type 1</h3>
+  <p>Add the purpose of this type.</p>
+  {/* <SampleComponentType1 /> */}
+  <h3>Type 2</h3>
+  <p>Add the purpose of this type.</p>
+  {/* <SampleComponentType2 /> */}
+
+  <h2>Theming</h2> 
+  <p>When using a purple theme, the component will be styled accordingly.</p>
+  {/* <img src="/docs/sample-component/sample-theme.png" /> */}
+
+  <h2>Special Guidelines</h2>
+  <p>Any special guidelines related to the component, if any. Two good examples of special guidelines are tooltip's “placement settings” and “long texts”. You may add headings to title subsections.</p>
+  </div>
+</div>

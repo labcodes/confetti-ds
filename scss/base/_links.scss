@@ -1,0 +1,53 @@
+$link-color: map-get($link-theme, "30");
+$link-bg: map-get($link-theme, "10");
+
+a {
+  position: relative;
+  z-index: 1;
+  display: inline-block; 
+  padding: 0 2px;
+  margin: 0 2px;
+  font-family: $font-primary;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  color: $mineral-80;
+  text-decoration: none;
+  vertical-align: top;
+  cursor: pointer;
+  outline: none;
+  transition: all $duration-base;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 4px;
+    background: $link-color;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  &:hover::before {
+    bottom: 0px;
+    height: 100%;
+  }
+
+  &:focus::before {
+    @include border-shadow(focus, $link-color);
+    bottom: 0;
+    height: 100%;
+    background: transparent;
+  }
+
+  &:focus:hover::before {
+    @include border-shadow(focus, $link-color);
+    bottom: 0;
+    height: 100%;
+    background: $link-bg;
+  }
+}

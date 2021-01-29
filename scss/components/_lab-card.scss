@@ -1,0 +1,381 @@
+@use "sass:map";
+
+$card-default-padding: $spacing-05;
+$card-compact-padding: $spacing-03 $spacing-04;
+
+// Layout
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: $card-default-padding;
+  border-radius: $radius-04;
+  border: $border-01;
+
+  &.lab-card--compact {
+    padding: $card-compact-padding;
+
+    .lab-card-image {
+      &:first-child {
+        margin-top: -#{nth($card-compact-padding, 1)};
+        margin-left: -#{nth($card-compact-padding, 2)};
+        margin-right: -#{nth($card-compact-padding, 2)};
+      }
+
+      &.lab-card-image--overflowed {
+        border-radius: unset;
+        max-width: calc(100% + 2 * #{$card-compact-padding});
+      }
+    }
+
+    &.lab-card-divider--overflowed {
+      width: calc(100% + 2 * #{$card-compact-padding});
+    }
+
+    .lab-card-header--overlay {
+      margin-top: -#{nth($card-compact-padding, 1)};
+      margin-left: -#{nth($card-compact-padding, 2)};
+      margin-right: -#{nth($card-compact-padding, 2)};
+      padding: $card-compact-padding;
+    }
+  }
+
+  @include from($tablet) {
+    &.lab-card--horizontal {
+      display: block;
+      padding-left: calc(33% + 2 * #{$card-default-padding});
+
+      .lab-card-image {
+        border-radius: $radius-03;
+        position: absolute;
+        margin: 0;
+        max-width: calc(33%);
+        left: $card-default-padding;
+        top: $card-default-padding;
+        height: calc(100% - 2 * #{$card-default-padding});
+        object-fit: cover;
+      }
+
+      .lab-card-image--overflowed {
+        top: 0;
+        left: 0;
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+        border-bottom-left-radius: $radius-03;
+        max-width: calc(33% + #{$card-default-padding});
+        height: 100%;
+        margin: 0;
+      }
+
+      &.lab-card--compact {
+        .lab-card-image {
+          margin: 0;
+          height: calc(100% - 2 * #{nth($card-compact-padding, 1)});
+          left: nth($card-compact-padding, 2);
+          top: nth($card-compact-padding, 1);
+        }
+
+        .lab-card-image--overflowed {
+          left: 0;
+          top: 0;
+          height: 100%;
+          border-top-left-radius: $radius-03;
+          border-bottom-left-radius: $radius-03;
+        }
+      }
+    }
+  }
+}
+
+// Elements
+.lab-card-image {
+  border-radius: $radius-03;
+  max-width: 100%;
+  margin-bottom: $spacing-03;
+
+  &:first-child {
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    max-width: calc(100% + 2 * #{$card-default-padding});
+    margin-top: -$card-default-padding;
+    margin-left: -$card-default-padding;
+    margin-right: -$card-default-padding;
+  }
+}
+
+.lab-card-header {
+  margin-bottom: $spacing-03;
+
+  &.lab-card-header--overlay {
+    position: absolute;
+    width: 100%;
+    border-top-left-radius: $radius-03;
+    border-top-right-radius: $radius-03;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.87) 0%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    margin-top: -$card-default-padding;
+    margin-left: -$card-default-padding;
+    margin-right: -$card-default-padding;
+    padding: $card-default-padding;
+  }
+
+  .lab-card-category {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: $spacing-01;
+
+    .lab-icon {
+      margin-right: $spacing-01;
+    }
+
+    .lab-card-category__color {
+      width: 16px;
+      height: 8px;
+      margin-right: $spacing-02;
+      border-radius: $radius-02;
+
+      @each $name, $palette in $all-colors {
+        &.lab-card-category__color--#{$name} {
+          background-color: map-get($palette, "60");
+        }
+      }
+    }
+
+    .lab-card-category__text {
+      margin-right: $spacing-01;
+      font-size: $font-size-2;
+      font-weight: $weight-bold;
+      line-height: $spacing-06;
+      text-transform: uppercase;
+      color: $mineral-80;
+    }
+  }
+
+  .lab-card-title {
+    font-size: $font-size-4;
+    font-weight: $weight-bold;
+    color: $mineral-80;
+    line-height: $spacing-05;
+    margin-top: 0;
+    margin-bottom: $spacing-01;
+  }
+
+  .lab-card-subtitle {
+    font-size: $font-size-3;
+    font-weight: $weight-medium;
+    color: $black-75;
+    line-height: $spacing-06;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Body
+.lab-card
+  p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
+  margin-top: unset;
+  margin-bottom: $spacing-03;
+}
+
+.lab-card:not(.lab-card--vivid)
+  p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
+  color: $black-75;
+}
+
+.lab-card-divider {
+  width: 100%;
+  border: 1px solid $mineral-20;
+  margin: 0;
+
+  &.lab-card-divider--overflowed {
+    width: calc(100% + 2 * #{$card-default-padding});
+    margin-left: -$card-default-padding;
+    margin-right: -$card-default-padding;
+  }
+}
+
+// Actions
+.lab-card-link-action {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-05;
+  margin-bottom: $spacing-03;
+  font-size: $font-size-4;
+  color: $mineral-80;
+
+  &.lab-card-link-action--normal {
+    font-size: $font-size-4;
+  }
+
+  &.lab-card-link-action--small {
+    font-size: $font-size-3;
+  }
+
+  &.lab-card-link-action--large {
+    font-size: $font-size-5;
+  }
+}
+
+.lab-card-double-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: $spacing-04;
+  font-size: $font-size-4;
+  color: $mineral-80;
+
+  .lab-btn:first-child {
+    margin-bottom: $spacing-03;
+  }
+
+  &.lab-card-double-action--horizontal {
+    flex-direction: row;
+
+    .lab-btn {
+      flex-grow: 1;
+
+      &:first-child {
+        order: 1;
+        margin-left: $spacing-01;
+      }
+
+      &:last-child {
+        margin-right: $spacing-01;
+      }
+    }
+  }
+}
+
+// Colors
+@each $name, $palette in $card-colors {
+  // Pale outlineCard Layout
+  .lab-card--#{$name} {
+    @if $name != "white" {
+      &.lab-card--outline {
+        border-color: map-get($palette, "10");
+
+        // Vivid outlineCard Layout
+        &.lab-card--vivid {
+          @if $name == "mineral" {
+            border-color: map-get($palette, "90");
+          } @else if $name == "teal" {
+            border-color: map-get($palette, "40");
+          } @else if $name == "purple" {
+            border-color: map-get($palette, "60");
+          }
+        }
+      }
+    }
+
+    // Pale outlineCard Elements
+    .lab-card-category .lab-icon {
+      background-color: map-get($palette, "80");
+    }
+
+    .lab-card-header .lab-card-category__text,
+    .lab-card-title {
+      color: map-get($palette, "80");
+    }
+
+    .lab-card-header--overlay {
+      .lab-card-category__text,
+      .lab-card-title,
+      .lab-card-subtitle {
+        color: $white;
+      }
+
+      .lab-card-category .lab-icon {
+        background-color: $white;
+      }
+    }
+
+    @if $name != "white" {
+      .lab-card-divider {
+        border-color: map-get($palette, "20");
+      }
+    }
+
+    @if $name == "purple" {
+      .lab-card-link-action a::before {
+        background-color: map-get($palette, "30");
+      }
+    }
+
+    // Pale filledCard Layout
+    &.lab-card--filled {
+      @if $name != "white" {
+        background-color: map-get($palette, "10");
+        border-color: map-get($palette, "10");
+      } @else if $name == "white" {
+        border-color: map-get($palette, "87");
+        background-color: map-get($palette, "87");
+      }
+
+      // Vivid filledCard Layout
+      &.lab-card--vivid {
+        @if $name == "mineral" {
+          border-color: map-get($palette, "90");
+          background-color: map-get($palette, "90");
+        } @else if $name == "teal" {
+          border-color: map-get($palette, "60");
+          background-color: map-get($palette, "60");
+        } @else if $name == "purple" {
+          border-color: map-get($palette, "60");
+          background-color: map-get($palette, "60");
+        } @else if $name == "white" {
+          border-color: $white;
+          background-color: $white;
+        }
+
+        // Vivid filledCard Elements
+        @if $name != "white" {
+          .lab-card-category .lab-icon {
+            background-color: map-get($palette, "10");
+          }
+
+          .lab-card-category__text,
+          .lab-card-title {
+            color: map-get($palette, "10");
+          }
+
+          p {
+            color: $white-87;
+          }
+
+          .lab-card-link-action a {
+            color: $white;
+
+            &:hover {
+              color: map-get($palette, "80");
+            }
+          }
+
+          .lab-card-header--overlay {
+            .lab-card-category__text,
+            .lab-card-title,
+            .lab-card-subtitle {
+              color: $white;
+            }
+
+            .lab-card-category .lab-icon {
+              background-color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    // outlineFilled Card Layout
+    &.lab-card--filled.lab-card--outline {
+      @if $name == "mineral" {
+        border-color: map-get($palette, "90");
+      } @else if $name != "mineral" {
+        border-color: map-get($palette, "80");
+      }
+    }
+  }
+}

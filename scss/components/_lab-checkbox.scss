@@ -1,0 +1,123 @@
+@use 'sass:map';
+
+$checkbox-idle-color-main: $mineral-60;
+$checkbox-idle-shadow-hover: $mineral-10;
+$checkbox-idle-shadow-focus: $mineral-30;
+$checkbox-checked-color-main: map-get($checkbox-theme, "60");
+$checkbox-checked-shadow-hover: map-get($checkbox-theme, "10");
+$checkbox-checked-shadow-focus: map-get($checkbox-theme, "30");
+
+$checkbox-bg-disabled: $mineral-20;
+
+// Wrapper div around input element. All inputs must have it.
+.lab-checkbox__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid $checkbox-idle-color-main;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: $spacing-02 $spacing-03 $spacing-02 $spacing-02;
+  transition: all 0.2s ease;
+}
+
+.lab-checkbox {
+  position: absolute;
+  opacity: 0;
+
+  + .lab-checkbox__label {
+    position: relative;
+    display: inline-flex;
+    font-family: $font-primary;
+    font-size: $font-size-3;
+    font-weight: $weight-medium;
+    align-items: center;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  // Checkbox checked
+  &:checked + .lab-checkbox__label,
+  &:indeterminate + .lab-checkbox__label {
+    .lab-checkbox__box {
+      background-color: $checkbox-checked-color-main;
+      border: 2px solid $checkbox-checked-color-main;
+
+      .lab-checkbox__icon {
+        display: inline-block;
+      }
+    }
+  }
+
+  &:checked:hover + .lab-checkbox__label,
+  &:indeterminate:hover + .lab-checkbox__label {
+    .lab-checkbox__box {
+      outline: none;
+      @include border-shadow(hover, $checkbox-checked-shadow-hover);
+    }
+  }
+
+  &:checked:focus:not([aria-disabled]) + .lab-checkbox__label,
+  &:indeterminate:focus:not([aria-disabled]) + .lab-checkbox__label {
+    .lab-checkbox__box {
+      outline: none;
+      @include border-shadow(focus, $checkbox-checked-shadow-focus);
+    }
+  }
+
+  &:checked:hover:focus:not([aria-disabled]) + .lab-checkbox__label,
+  &:indeterminate:hover:focus:not([aria-disabled]) + .lab-checkbox__label {
+    .lab-checkbox__box {
+      outline: none;
+      @include border-shadow(focus-hover, $checkbox-checked-shadow-focus, $checkbox-checked-shadow-hover);
+    }
+  }
+
+  // Checkbox Idle
+  &:focus + .lab-checkbox__label {
+    .lab-checkbox__box {
+      outline: none;
+      @include border-shadow(focus, $checkbox-idle-shadow-focus);
+    }
+  }
+
+  &:hover + .lab-checkbox__label {
+    .lab-checkbox__box {
+      outline: none;
+      @include border-shadow(hover, $checkbox-idle-shadow-hover);
+    }
+  }
+
+  &:hover:focus + .lab-checkbox__label {
+    .lab-checkbox__box {
+      outline: none;
+      @include border-shadow(focus-hover, $checkbox-idle-shadow-focus, $checkbox-idle-shadow-hover);
+    }
+  }
+
+  // Checkbox Disabled
+  &:disabled + .lab-checkbox__label, &:disabled:hover + .lab-checkbox__label,
+  &[aria-disabled] + .lab-checkbox__label, &[aria-disabled]:hover + .lab-checkbox__label {
+    cursor: default;
+
+    .lab-checkbox__box {
+      cursor: default;
+      background: $white;
+      border-color: $checkbox-bg-disabled;
+      box-shadow: none;
+    }
+  }
+
+  &:disabled:checked + .lab-checkbox__label,
+  &[aria-disabled]:checked + .lab-checkbox__label {
+    .lab-checkbox__box {
+      background: $checkbox-bg-disabled;
+      border-color: $checkbox-bg-disabled;
+    }
+  }
+
+}

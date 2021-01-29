@@ -1,0 +1,155 @@
+@use "sass:map";
+
+/* The the box around the slider */
+.lab-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+
+  /* Hide default HTML checkbox */
+  .lab-toggle__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .lab-toggle__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: $duration-slow;
+    transition: $duration-slow;
+    border-radius: 34px;
+    border: $border-01;
+    background-color: map-get($map: $toggle-theme, $key: "background-color-off");
+    border-color: map-get($map: $toggle-theme, $key: "slider-border-color-off");
+    box-sizing: border-box;
+
+    /* The circle that slides */
+    &:before {
+      position: absolute;
+      box-sizing: border-box;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: -2px;
+      bottom: -2px;
+      background-color: white;
+      -webkit-transition: $duration-slow;
+      transition: $duration-slow;
+      border-radius: 50%;
+      border: $border-01;
+      border-color: map-get($map: $toggle-theme, $key: "background-color-on");
+    }
+  }
+
+  .lab-toggle__input:checked + .lab-toggle__slider {
+    background-color: map-get($map: $toggle-theme, $key: "background-color-on");
+    border-color: map-get($map: $toggle-theme, $key: "slider-border-color-on");
+
+
+    &:before {
+      -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+      transform: translateX(20px);
+    }
+  }
+
+  .lab-toggle__input:hover + .lab-toggle__slider:before {
+    -webkit-transform: translateX(4px);
+    -ms-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+
+  .lab-toggle__input:hover:checked + .lab-toggle__slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+
+  .lab-toggle__input:focus + .lab-toggle__slider {
+    box-shadow: 0 0 0 2px map-get($map: $toggle-theme, $key: "focus-border-color");
+  }
+
+  /* TEAL */
+  &.lab-toggle--teal {
+    .lab-toggle__slider{
+      background-color: map-get($map: $toggle-teal-theme, $key: "background-color-off");
+      border-color: map-get($map: $toggle-teal-theme, $key: "slider-border-color-off");
+    }
+
+    .lab-toggle__slider:before {
+      border-color: map-get($map: $toggle-teal-theme, $key: "background-color-on");
+    }
+
+    .lab-toggle__input:checked + .lab-toggle__slider {
+      background-color: map-get($map: $toggle-teal-theme, $key: "background-color-on");
+      border-color: map-get($map: $toggle-teal-theme, $key: "slider-border-color-on");
+    }
+
+    .lab-toggle__input:focus + .lab-toggle__slider {
+      box-shadow: 0 0 0 2px map-get($map: $toggle-teal-theme, $key: "focus-border-color");
+    }
+  }
+
+  /* PURPLE */
+  &.lab-toggle--purple {
+    .lab-toggle__slider{
+      background-color: map-get($map: $toggle-purple-theme, $key: "background-color-off");
+      border-color: map-get($map: $toggle-purple-theme, $key: "slider-border-color-off");
+    }
+
+    .lab-toggle__slider:before {
+      border-color: map-get($map: $toggle-purple-theme, $key: "background-color-on");
+    }
+
+    .lab-toggle__input:checked + .lab-toggle__slider {
+      background-color: map-get($map: $toggle-purple-theme, $key: "background-color-on");
+      border-color: map-get($map: $toggle-purple-theme, $key: "slider-border-color-on");
+    }
+
+    .lab-toggle__input:focus + .lab-toggle__slider {
+      box-shadow: 0 0 0 2px map-get($map: $toggle-purple-theme, $key: "focus-border-color");
+    }
+  }
+
+  /* DISABLED */
+  &.lab-toggle--disabled {
+    .lab-toggle__slider{
+      background-color: #ffffff;
+      border-color: $mineral-20;
+    }
+
+    .lab-toggle__slider:before {
+      border-color: $mineral-20;
+    }
+
+    .lab-toggle__input:checked + .lab-toggle__slider {
+      background-color: $mineral-20;
+      border-color: $mineral-20;
+    }
+
+    .lab-toggle__input:focus + .lab-toggle__slider {
+      box-shadow: 0 0 0 2px $mineral-20;
+    }
+
+    .lab-toggle__input:hover + .lab-toggle__slider:before {
+      -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+
+    .lab-toggle__input:checked:hover + .lab-toggle__slider:before  {
+      -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+      transform: translateX(20px);
+    }
+  }
+
+}
+

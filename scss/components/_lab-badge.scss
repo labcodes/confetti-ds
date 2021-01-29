@@ -1,0 +1,66 @@
+$icon-size: 1.5rem !default;
+$badge-bg-color: map-get($icon-theme, "60") !default;
+$badge-color: white !default;
+
+.lab-badge {
+  -webkit-mask-image: url($badges-svg);
+  mask-image: url($badges-svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  height: $icon-size;
+  width: $icon-size;
+  font-size: $icon-size;
+  line-height: 1;
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: $badge-color;
+
+    /* Color modifiers.
+   * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
+   * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
+   * Each ones sets a different background color. */
+   &--black { background-color: $black; }
+   &--white { background-color: $white; }
+
+   @each $key, $palette in $all-colors {
+     @each $color-palette, $color in $palette {
+       &--#{$key}-#{$color-palette} {
+           background-color: $color;
+       }
+     }
+   }
+
+  /* Type modifiers */
+  &--harvest { @include icon-position(0, 0); }
+  &--star { @include icon-position(0, 1); }
+  &--ponto { @include icon-position(1, 0); }
+  &--floating-add { @include icon-position(1, 1); }
+  &--meta { @include icon-position(2, 0); }
+
+}
+
+.lab-badge__wrapper {
+  height: $icon-size;
+  width: $icon-size;
+  display: inline-block;
+  border-radius: 0.25rem;
+  margin: 0.125rem;
+  flex-shrink: 0;
+  background-color: $badge-bg-color;
+
+    /* Color modifiers.
+   * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
+   * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
+   * Each ones sets a different background color. */
+   &--black { background-color: $black; }
+   &--white { background-color: $white; }
+
+  @each $key, $palette in $all-colors {
+    @each $color-palette, $color in $palette {
+      &--#{$key}-#{$color-palette} {
+          background-color: $color;
+      }
+    }
+  }
+
+}

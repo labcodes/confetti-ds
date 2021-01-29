@@ -1,0 +1,30 @@
+@mixin icon-position($left, $top) {
+  -webkit-mask-position: left $icon-size*-$left top $icon-size*-$top;
+  mask-position: left $icon-size*-$left top $icon-size*-$top;
+}
+
+@mixin border-shadow($type, $color1, $color2 : none) {
+  @if $type != "hover" and $type != "focus" and $type != "focus-hover" {
+    @error "Property #{$type} must be either hover, focus or focus-hover.";
+  }
+  @if $type == "hover" {
+    box-shadow: 0 0 0 6px $color1;
+  }
+  @else if $type == "focus" {
+    box-shadow: 0 0 0 2px $color1;
+  }
+  @else if $type == "focus-hover" {
+    box-shadow: 0 0 0 2px $color1, 0 0 0 6px $color2;
+  }
+}
+
+@mixin remove-delete-icon-search-input() {
+  /* clears the ‘X’ from Internet Explorer */
+  input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+  input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+  /* clears the ‘X’ from Chrome */
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration { display: none; }
+}

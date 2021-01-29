@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DoubleAction renders buttons with dark skin 1`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--normal
+              
+              
+            "
+>
+  <button
+    className="lab-btn lab-btn--default lab-btn--normal lab-btn--dark"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--outline lab-btn--normal lab-btn--dark"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;
+
+exports[`DoubleAction renders buttons with dark skin 2`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--normal
+              
+              
+            "
+>
+  <button
+    className="lab-btn lab-btn--default lab-btn--normal lab-btn--dark"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--outline lab-btn--normal lab-btn--dark"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;
+
+exports[`DoubleAction renders buttons with light skin 1`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--normal
+              
+              
+            "
+>
+  <button
+    className="lab-btn lab-btn--default lab-btn--normal lab-btn--light"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--outline lab-btn--normal lab-btn--light"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;
+
+exports[`DoubleAction renders with base props 1`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--normal
+              
+              
+            "
+>
+  <button
+    className="lab-btn lab-btn--default lab-btn--normal"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--outline lab-btn--normal"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;
+
+exports[`DoubleAction renders with isHorizontal 1`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--normal
+              
+               lab-card-double-action--horizontal
+            "
+>
+  <button
+    className="lab-btn lab-btn--default lab-btn--normal"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--outline lab-btn--normal"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;
+
+exports[`DoubleAction renders with size 1`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--small
+              
+              
+            "
+>
+  <button
+    className="lab-btn lab-btn--default lab-btn--small"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--outline lab-btn--small"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;
+
+exports[`DoubleAction renders with text buttons 1`] = `
+<section
+  className="lab-card-double-action lab-card-double-action--normal
+               lab-card-double-action--text
+              
+            "
+>
+  <button
+    className="lab-btn lab-btn--text lab-btn--normal"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 1
+  </button>
+  <button
+    className="lab-btn lab-btn--text lab-btn--normal"
+    onClick={[Function]}
+    type="button"
+  >
+    
+    Action 2
+  </button>
+</section>
+`;

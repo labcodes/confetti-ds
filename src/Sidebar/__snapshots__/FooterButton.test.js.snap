@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterButton renders with base props 1`] = `
+<button
+  className="lab-narrow-sidebar__item"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="lab-narrow-sidebar__item-label"
+  >
+    Test button
+  </span>
+</button>
+`;
+
+exports[`FooterButton renders with icon 1`] = `
+<button
+  className="lab-narrow-sidebar__item"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="lab-icon lab-icon--star lab-icon--mineral-60 lab-narrow-sidebar__item-icon"
+  />
+  <span
+    className="lab-narrow-sidebar__item-label"
+  >
+    Test button
+  </span>
+</button>
+`;

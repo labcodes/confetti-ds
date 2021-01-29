@@ -1,0 +1,438 @@
+@use 'sass:map';
+
+/* For being able to do the input animation in CSS,
+we used the placeholder only as a indicator of the field status, and it
+must remain always blank.
+For the animation to work, we use the label as a placeholder, and
+change it position depending on the pseudo-classe state.
+We also use the :placeholder-shown pseudo-class to help to make a more
+complex animation using only this style-sheet.
+
+`:placeholder-shown` means placeholder is showing, so input is EMPTY.
+`:not(:placeholder-shown)` means placeholder is NOT showing, so input is FILLED.
+*/
+
+$input-height: 40px;
+$input-padding: 10px;
+$input-font-size: 16px;
+$input-font-weight: 500;
+$input-prefix-suffix-height: 36px;
+
+$input-icon-size: 24px;
+
+$input-border-unfilled-idle: $mineral-40;
+$input-shadow-unfilled-hover: $mineral-10;
+
+$input-text-color: map-get($input-theme, "60");
+$input-border-filled-idle: map-get($input-theme, "60");
+$input-border-filled-focus: map-get($input-theme, "70");
+$input-border-filled-focus-hover: map-get($input-theme, "80");
+$input-background-prefix-filled: map-get($input-theme, "10");
+$input-shadow-filled-hover: map-get($input-theme, "10");
+$input-shadow-filled-focus: map-get($input-theme, "30");
+
+$input-shadow-invalid-focus: $coral-20;
+$input-main-invalid: $coral-70;
+$input-background-invalid: $coral-10;
+$input-background-invalid-prefix: $coral-20;
+$input-border-disabled: $mineral-30;
+
+// Wrapper div around everything.
+.lab-input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.lab-input--disabled {
+  background-color: $mineral-10;
+  border-radius: $radius-02;
+}
+
+.lab-input--invalid {
+  background-color: $input-background-invalid;
+  border-radius: $radius-02;
+
+  .lab-input__field:invalid {
+    background-color: $input-background-invalid;
+    box-shadow: none;
+  }
+
+  // Input invalid
+  .lab-input__field:invalid + .lab-input__borders {
+    color: $input-main-invalid;
+    border-color: $input-main-invalid;
+  }
+
+  // Input filled and not filled invalid focus
+  .lab-input__field:invalid:focus + .lab-input__borders,
+  .lab-input__field:invalid:not(:placeholder-shown):focus
+    + .lab-input__borders {
+    @include border-shadow(focus, $input-shadow-invalid-focus);
+    border: $border-01 $input-main-invalid;
+    outline: none;
+  }
+
+  // Input invalid focus-hover
+  .lab-input__field:invalid:hover:focus + .lab-input__borders {
+    @include border-shadow(
+      focus-hover,
+      $input-shadow-invalid-focus,
+      $input-background-invalid
+    );
+    border: $border-01 $input-main-invalid;
+  }
+
+  // Input invalid hover
+  .lab-input__field:invalid:hover + .lab-input__borders {
+    @include border-shadow(hover, $input-background-invalid);
+  }
+
+  //Change label when input is invalid or when is filled and invalid
+  .lab-input__field:focus:invalid ~ .lab-input__label-wrapper .lab-input__label,
+  .lab-input__field:not(:placeholder-shown):invalid
+    ~ .lab-input__label-wrapper
+    .lab-input__label {
+    color: $input-main-invalid;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      360deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 1) 30%
+    );
+  }
+
+  // Input filled invalid on all states
+  .lab-input__field:invalid ~ .lab-input__required-icon,
+  .lab-input__field:not(:placeholder-shown):invalid:hover
+    ~ .lab-input__required-icon,
+  .lab-input__field:not(:placeholder-shown):invalid:focus
+    ~ .lab-input__required-icon,
+  .lab-input__field:not(:placeholder-shown):invalid:focus:hover
+    ~ .lab-input__required-icon {
+    background-color: $input-main-invalid;
+  }
+
+  // Prefix/Sufix
+  .lab-input__field--prefixed:invalid ~ .lab-input__prefix,
+  .lab-input__field--suffixed:invalid ~ .lab-input__suffix {
+    background-color: $input-background-invalid-prefix;
+    color: $input-main-invalid;
+  }
+
+  // Message
+  .lab-input__field:not(:placeholder-shown):invalid
+    ~ .lab-input__message--error {
+    opacity: 1;
+  }
+}
+
+//Input tag
+.lab-input__field {
+  // width: 100%;
+  height: $input-height;
+  padding: 0 $input-padding;
+  margin: 0;
+  font-family: $font-primary;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+  color: $black-75;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  flex: 1;
+
+  // because browsers have different defaults for an input's min-width
+  // we are forcing it to be zero, so that the input fills the available space
+  min-width: 0;
+
+  &:disabled,
+  &[aria-disabled] {
+    color: $black-75;
+    background-color: $mineral-10;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &--suffixed {
+    padding-right: 0;
+  }
+}
+
+// Changes borders and shadows according to input's states
+.lab-input__borders {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $input-height;
+  border: $border-01 $input-border-unfilled-idle;
+  border-radius: $radius-02;
+  pointer-events: none;
+  transition: border $duration-base ease, box-shadow $duration-base ease;
+  // Input filled
+  .lab-input__field:not(:placeholder-shown) + & {
+    border-color: $input-border-filled-idle;
+  }
+  // Input not filled hover
+  .lab-input__field:hover + & {
+    @include border-shadow(hover, $input-shadow-unfilled-hover);
+  }
+  // Input filled hover
+  .lab-input__field:not(:placeholder-shown):hover + & {
+    @include border-shadow(hover, $input-shadow-filled-hover);
+  }
+  // Input filled and not filled focus
+  .lab-input__field:focus + &,
+  .lab-input__field:not(:placeholder-shown):focus + & {
+    @include border-shadow(focus, $input-shadow-filled-focus);
+    border: 2px solid $input-border-filled-focus;
+    outline: none;
+  }
+
+  // Input focus hover
+  .lab-input__field:hover:focus + & {
+    border: 2px solid $input-border-filled-focus-hover;
+    @include border-shadow(
+      focus-hover,
+      $input-shadow-filled-focus,
+      $input-shadow-filled-hover
+    );
+  }
+
+  // Input disabled
+  .lab-input__field:disabled + &,
+  .lab-input__field:not(:placeholder-shown):disabled + &,
+  .lab-input__field[aria-disabled] + &,
+  .lab-input__field:not(:placeholder-shown)[aria-disabled] + & {
+    color: $black-75;
+    border: $border-01 $input-border-disabled;
+    box-shadow: none;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+// Wrapper around label and prefix placeholder.
+// Label animation and position when input is filled starts here.
+.lab-input__label-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  display: flex;
+  pointer-events: none;
+  align-items: center;
+  transition: $duration-slow all;
+
+  .lab-input__field--prefixed ~ & {
+    top: 2px;
+  }
+
+  .lab-input__prefix {
+    opacity: 0;
+    transition: $duration-slow all;
+  }
+
+  .lab-input__field:focus ~ &,
+  .lab-input__field:not(:placeholder-shown) ~ & {
+    top: -$spacing-03;
+    left: $spacing-02;
+
+    .lab-input__prefix {
+      height: 0;
+      max-width: 0;
+      padding: 0;
+      line-height: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+.lab-input__label {
+  z-index: 1;
+  margin-left: $input-padding;
+  font-family: $font-primary;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+  color: $black-75;
+  transition: $duration-slow all;
+
+  //Change label when input is focused or when is filled
+  .lab-input__field:focus ~ .lab-input__label-wrapper &,
+  .lab-input__field:not(:placeholder-shown) ~ .lab-input__label-wrapper & {
+    padding: 2px;
+    margin-left: 0;
+    font-size: 12px;
+    color: $input-text-color;
+    background: white;
+  }
+
+  //Change label when prefixed input is focused or when is filled
+  .lab-input__field--prefixed:not(:placeholder-shown)
+    ~ .lab-input__label-wrapper
+    &,
+  .lab-input__field--prefixed:focus ~ .lab-input__label-wrapper & {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      360deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 1) 30%
+    );
+  }
+
+  //Change label when input is disabled
+  .lab-input__field:not(:placeholder-shown):disabled
+    ~ .lab-input__label-wrapper
+    &,
+  .lab-input__field:not(:placeholder-shown)[aria-disabled]
+    ~ .lab-input__label-wrapper
+    & {
+    color: $input-border-unfilled-idle;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      360deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 1) 30%
+    );
+  }
+}
+
+// Icon that goes inside the field
+.lab-input__icon {
+  z-index: 1;
+  width: $input-icon-size;
+  height: $input-icon-size;
+  padding: 0px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  background-color: transparent;
+  margin: 0 $spacing-02;
+  &:focus {
+    @include border-shadow(focus, $input-shadow-filled-focus);
+  }
+
+  .lab-input__field:not(:placeholder-shown):disabled ~ &:focus,
+  .lab-input__field:not(:placeholder-shown)[aria-disabled] ~ &:focus {
+    cursor: default;
+    box-shadow: none;
+  }
+}
+
+// When there is no function associated to the Icon
+.lab-input__icon--disabled:focus {
+  cursor: default;
+  box-shadow: none;
+}
+
+// Required icon
+// The icon color change according to it's input state.
+.lab-input__required-icon {
+  position: absolute;
+  top: -$spacing-02;
+  right: -$spacing-02;
+  z-index: 2;
+  display: inline-block;
+  width: $input-icon-size;
+  height: $input-icon-size;
+  background-color: $mineral-40;
+  border-radius: 100%;
+
+  // Input not filled focused
+  .lab-input__field:focus ~ & {
+    background-color: $input-border-filled-focus;
+  }
+
+  // Input filled idle
+  .lab-input__field:not(:placeholder-shown) ~ & {
+    background-color: $input-border-filled-idle;
+  }
+
+  // Input filled focus
+  .lab-input__field:not(:placeholder-shown):focus ~ & {
+    background-color: $input-border-filled-focus;
+  }
+
+  // Input filled focus hover
+  .lab-input__field:not(:placeholder-shown):focus:hover ~ & {
+    background-color: $input-border-filled-focus-hover;
+  }
+}
+
+// Input message
+.lab-input__message {
+  padding: 4px 0 0 10px;
+  font-family: $font-primary;
+  font-size: 12px;
+  font-weight: $input-font-weight;
+  opacity: 1;
+  transition: opacity $duration-base ease;
+
+  &--error {
+    color: $input-main-invalid;
+
+    .lab-input__field:not(:placeholder-shown):invalid ~ & {
+      opacity: 1;
+    }
+  }
+
+  &--required {
+    color: $input-text-color;
+    opacity: 1; //Show required message
+
+    .lab-input__field:placeholder-shown + & {
+      opacity: 0; //Hide required message when input is empty
+    }
+
+    .lab-input__field:focus ~ & {
+      opacity: 1;
+    }
+  }
+}
+
+// Prefix and sufix
+.lab-input__prefix,
+.lab-input__suffix {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  height: $input-prefix-suffix-height;
+  padding: 0 10px;
+  font-family: $font-primary;
+  font-weight: $input-font-weight;
+  font-size: $input-font-size;
+  line-height: $input-prefix-suffix-height;
+  text-align: center;
+  pointer-events: none;
+  background-color: $mineral-10;
+  border-radius: $radius-01;
+
+  .lab-input__field--prefixed:focus ~ &,
+  .lab-input__field--suffixed:focus ~ & {
+    background-color: $input-background-prefix-filled;
+  }
+
+  .lab-input__field--prefixed:not(:placeholder-shown) ~ &,
+  .lab-input__field--suffixed:not(:placeholder-shown) ~ & {
+    background-color: $input-background-prefix-filled;
+  }
+
+  .lab-input__field--prefixed[aria-disabled] ~ &,
+  .lab-input__field--suffixed[aria-disabled] ~ &,
+  .lab-input__field--prefixed:disabled ~ &,
+  .lab-input__field--suffixed:disabled ~ & {
+    background-color: $mineral-20;
+    color: $black-75;
+  }
+}
+
+.lab-input__prefix {
+  left: 2px;
+  order: -1;
+}
+
+.lab-input__suffix {
+  right: 2px;
+  order: 99;
+}

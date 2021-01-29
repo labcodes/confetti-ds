@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownTag render as outline 1`] = `
+<span
+  className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--pale"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Test render outline DropdownTag
+  <span
+    className="lab-tag__dropdown-icon-wrapper"
+  >
+    <span
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+    />
+  </span>
+</span>
+`;
+
+exports[`DropdownTag renders as disabled 1`] = `
+<span
+  className="lab-tag lab-tag--dropdown lab-tag--disabled lab-tag--pale"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Test render disabled DropdownTag
+  <span
+    className="lab-tag__dropdown-icon-wrapper"
+  >
+    <span
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+    />
+  </span>
+</span>
+`;
+
+exports[`DropdownTag renders with a pink color 1`] = `
+<span
+  className="lab-tag lab-tag--dropdown lab-tag--pink-pale"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Test render pink DropdownTag
+  <span
+    className="lab-tag__dropdown-icon-wrapper"
+  >
+    <span
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+    />
+  </span>
+</span>
+`;
+
+exports[`DropdownTag renders with base props 1`] = `
+<span
+  className="lab-tag lab-tag--dropdown lab-tag--pale"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Test render DropdownTag
+  <span
+    className="lab-tag__dropdown-icon-wrapper"
+  >
+    <span
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+    />
+  </span>
+</span>
+`;
