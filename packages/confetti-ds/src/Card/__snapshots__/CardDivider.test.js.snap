@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardDivider renders with base props 1`] = `
+<hr
+  className="lab-card-divider
+          
+        "
+/>
+`;
+
+exports[`CardDivider renders with isOverflowed 1`] = `
+<hr
+  className="lab-card-divider
+           lab-card-divider--overflowed
+        "
+/>
+`;

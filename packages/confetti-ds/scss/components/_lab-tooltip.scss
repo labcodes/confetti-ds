@@ -1,0 +1,125 @@
+@use 'sass:map';
+
+$tooltip-background-color: map-get($tooltip-theme, "70");
+$tooltip-border-color: map-get($tooltip-theme, "80");
+
+@if $tooltip-theme == $mineral-palette {
+  $tooltip-background-color: map-get($tooltip-theme, "80");
+  $tooltip-border-color: map-get($tooltip-theme, "90");
+}
+
+
+.lab-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.lab-tooltip:hover,
+.lab-tooltip:focus-within {
+  & .lab-tooltip__text {
+      display: inline-flex;
+      align-content: center;
+  }
+}
+
+.lab-tooltip__text {
+    padding: $spacing-01 $spacing-03;
+    box-sizing: border-box;
+    border-radius: $radius-02;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    cursor: unset;
+
+    width: max-content;
+    width: -moz-max-content;
+    max-width: 450px;
+
+    font-family: $family-sans-serif;
+    font-style: normal;
+    font-weight: $weight-bold;
+    font-size: $font-size-2;
+    line-height: $font-size-3;
+    text-align: center;
+
+    /* Using theme color defined in _settings.scss */
+    border: 2px solid $tooltip-border-color;
+    background: $tooltip-background-color;
+    color: $white;
+
+
+    /* Placement modifiers */
+
+    &.lab-tooltip--top-start {
+        top: calc(-50% - #{$spacing-02});
+        left: 0;
+    }
+
+    &.lab-tooltip--top {
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+
+        top: calc(-50% - #{$spacing-02});
+        left: 50%;
+    }
+
+    &.lab-tooltip--top-end {
+        top: calc(-50% - #{$spacing-02});
+        right: 0;
+    }
+
+    &.lab-tooltip--right-start {
+        top: 0;
+        left: calc(100% + #{$spacing-02});
+    }
+
+    &.lab-tooltip--right {
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+
+        top: 50%;
+        left: calc(100% + #{$spacing-02});
+    }
+
+    &.lab-tooltip--right-end {
+        left: calc(100% + #{$spacing-02});
+        bottom: 0;
+    }
+
+    &.lab-tooltip--left-start {
+        top: 0;
+        right: calc(100% + #{$spacing-02});
+    }
+
+    &.lab-tooltip--left {
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+
+        top: 50%;
+        right: calc(100% + #{$spacing-02});
+    }
+
+    &.lab-tooltip--left-end {
+        right: calc(100% + #{$spacing-02});
+        bottom: 0;
+    }
+
+    &.lab-tooltip--bottom-start {
+        left: 0;
+        bottom: calc(-50% - #{$spacing-02});
+    }
+
+    &.lab-tooltip--bottom {
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+
+        left: 50%;
+        bottom: calc(-50% - #{$spacing-02});
+    }
+
+    &.lab-tooltip--bottom-end {
+        right: 0;
+        bottom: calc(-50% - #{$spacing-02});
+    }
+
+}

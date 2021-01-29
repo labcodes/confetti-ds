@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OutlineCard renders with base props 1`] = `
+<article
+  className="lab-card lab-card--outline lab-card--teal lab-card--pale
+          
+          
+        "
+>
+  Content
+</article>
+`;
+
+exports[`OutlineCard renders with isCompact 1`] = `
+<article
+  className="lab-card lab-card--outline lab-card--teal lab-card--pale
+           lab-card--compact
+          
+        "
+>
+  Content
+</article>
+`;
+
+exports[`OutlineCard renders with isHorizontal 1`] = `
+<article
+  className="lab-card lab-card--outline lab-card--teal lab-card--pale
+          
+           lab-card--horizontal
+        "
+>
+  Content
+</article>
+`;

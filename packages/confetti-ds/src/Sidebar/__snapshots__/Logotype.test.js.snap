@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logotype renders with base props 1`] = `
+<div
+  className="lab-narrow-sidebar__logo"
+>
+  <img
+    alt="text"
+    src="src"
+  />
+</div>
+`;

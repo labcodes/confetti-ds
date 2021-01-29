@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip renders with base props 1`] = `
+<span
+  className="lab-tooltip"
+>
+  <button
+    type="button"
+  >
+    Display short text
+  </button>
+  <span
+    className="lab-tooltip__text lab-tooltip--top"
+    id="testTooltip"
+  >
+    Test Tooltip
+  </span>
+</span>
+`;

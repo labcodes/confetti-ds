@@ -1,0 +1,101 @@
+// Titles, subtitles and paragraphs
+
+$font-primary: $family-sans-serif !default;
+$font-secondary: $family-serif !default;
+$font-code: $family-monospace !default;
+
+$title-weight: $weight-medium !default;
+$title-strong-weight: $weight-bold !default;
+$title-margin: $spacing-06 !default;
+
+$paragraph-margin: $font-size-3 !default;
+$paragraph-weight: $weight-medium !default;
+$paragraph-strong-weight: $weight-bold !default;
+$paragraph-default-size: $font-size-4 !default;
+$paragraph-sizes: (
+  "large": $font-size-5,
+  "small": $font-size-3,
+  "petit": $font-size-2,
+  "tiny": $font-size-1,
+);
+
+h1, h2, h3, h4, h5, h6 {
+  margin-block-start: $title-margin;
+  margin-block-end: $title-margin;
+  font-family: $font-primary;
+  font-weight: $title-weight;
+  line-height: 1.1;
+  color: inherit;
+  text-rendering: $render-mode;
+  letter-spacing: $letter-spacing;
+
+  strong {
+    font-weight: $title-strong-weight;
+  }
+}
+
+h1 {
+  font-size: $font-size-10;
+
+  &.headline--display {
+    font-weight: $weight-bold;
+    font-family: $font-secondary;
+  }
+}
+
+h2 {
+  font-size: $font-size-9;
+}
+
+h3 {
+  font-size: $font-size-8;
+  line-height: 1.125;
+}
+
+h4 {
+  font-size: $font-size-7;
+  line-height: 1.14;
+}
+
+h5 {
+  font-size: $font-size-6;
+  font-weight: $weight-semibold;
+  line-height: 1.16;
+}
+
+h6 {
+  font-size: $font-size-4;
+  font-weight: $weight-semibold;
+
+  &:first-of-type{
+    margin-top: 0;
+  }
+}
+
+
+p {
+  margin-block-start: $paragraph-margin;
+  margin-block-end: $paragraph-margin;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-family: $family-sans-serif;
+  font-size: $paragraph-default-size;
+  font-weight: $paragraph-weight;
+  line-height: 1.5rem;
+  text-rendering: $render-mode;
+  letter-spacing: $letter-spacing;
+  
+  strong {
+    font-weight: $title-strong-weight;
+  }
+}
+
+@each $name, $size in $paragraph-sizes {
+  .paragraph-#{$name} {
+    font-size: $size;
+  }
+}
+
+.u--uppercase {
+  text-transform: uppercase;
+}

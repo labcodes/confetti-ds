@@ -1,0 +1,127 @@
+@use 'sass:map';
+
+$radio-idle-color-main: $mineral-60;
+$radio-idle-shadow-hover: $mineral-10;
+$radio-idle-shadow-focus: $mineral-30;
+$radio-checked-color-main: map-get($radio-theme, "60");
+$radio-checked-shadow-hover: map-get($radio-theme, "10");
+$radio-checked-shadow-focus: map-get($radio-theme, "30");
+
+$radio-bg-disabled: $mineral-20;
+
+.lab-radio__container  {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: $spacing-02 $spacing-03 $spacing-02 $spacing-02;
+  background: $white;
+  border: 2px solid $radio-idle-color-main;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+// Wrapper div around radio element. All inputs must have it.
+.lab-radio {
+    position: absolute;
+    opacity: 0;
+
+    + .lab-radio__label {
+        font-family: $font-primary;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.4;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+  // Radio checked
+  &:checked {
+    + .lab-radio__label {
+      .lab-radio__container  {
+        background-color: $radio-checked-color-main;
+        border: 2px solid $radio-checked-color-main;
+        box-shadow: inset 0 0 0 2px $white;
+      }
+    }
+  }
+  &:focus:checked {
+    + .lab-radio__label {
+      .lab-radio__container  {
+        outline: none;
+        box-shadow: 0 0 0 2px $radio-checked-shadow-focus, inset 0 0 0 2px $white;
+      }
+    }
+  }
+
+  &:hover:checked {
+    + .lab-radio__label {
+      .lab-radio__container  {
+        outline: none;
+        box-shadow: 0 0 0 6px $radio-checked-shadow-hover, inset 0 0 0 2px $white;
+      }
+    }
+  }
+
+  &:hover:focus:checked {
+    + .lab-radio__label {
+      .lab-radio__container  {
+        outline: none;
+        box-shadow: 0 0 0 2px $radio-checked-shadow-focus, 0 0 0 6px $radio-checked-shadow-hover, inset 0 0 0 2px $white;
+      }
+    }
+  }
+
+  &:disabled:checked {
+    + .lab-radio__label {
+      .lab-radio__container  {
+        background: $radio-bg-disabled;
+        border-color: $radio-bg-disabled;
+        box-shadow: inset 0 0 0 2px $white;
+      }
+    }
+  }
+
+  //Radio Idle
+
+  &:focus {
+    + .lab-radio__label {
+      .lab-radio__container  {
+        outline: none;
+        box-shadow: 0 0 0 2px $radio-idle-shadow-focus;
+      }
+    }
+  }
+
+  &:hover {
+      + .lab-radio__label {
+        .lab-radio__container  {
+          outline: none;
+          box-shadow: 0 0 0 6px $radio-idle-shadow-hover, inset 0 0 0 2px $white;
+        }
+      }
+    }
+
+  &:disabled {
+    + .lab-radio__label {
+      cursor: default;
+
+      .lab-radio__container  {
+        cursor: default;
+        border-color: $radio-bg-disabled;
+        box-shadow: inset 0 0 0 2px $white;
+      }
+    }
+  }
+  + .lab-radio__label {
+    &:empty {
+      .lab-radio__container  {
+        margin-right: 0px;
+      }
+    }
+  }
+
+}

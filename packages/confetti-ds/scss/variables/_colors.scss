@@ -1,0 +1,212 @@
+// COLORS
+
+// Logo - Teal
+$teal-10: #DEF7F7;
+$teal-20: #A8F0F0;
+$teal-30: #54DEDC;
+$teal-40: #009699;
+$teal-60: #007B7D;
+$teal-70: #005F61;
+$teal-80: #004748;
+$teal: $teal-40;
+
+// Secondary - Purple
+$purple-10: #F7F0FF;
+$purple-20: #E3D1FA;
+$purple-30: #C7A3F5;
+$purple-40: #935FD3;
+$purple-60: #5A3489;
+$purple-70: #3D235C;
+$purple-80: #201230;
+$purple: $purple-60;
+
+// Additional - Mustard
+$mustard-10: #FDF8ED;
+$mustard-20: #FCE9CF;
+$mustard-30: #FFC978;
+$mustard-40: #E9A449;
+$mustard-60: #935E25;
+$mustard-70: #663F19;
+$mustard-80: #38210A;
+$mustard: $mustard-40;
+
+// Logo - Coral
+$coral-10: #FFF1F0;
+$coral-20: #FCD4D0;
+$coral-30: #FFACA4;
+$coral-40: #EC6056;
+$coral-60: #BC442F;
+$coral-70: #A2331C;
+$coral-80: #751F0E;
+$coral: $coral-40;
+
+// Opacity - Black
+$black-87: rgba(0, 0, 0, .87);
+$black-75: rgba(0, 0, 0, .75);
+$black-50: rgba(0, 0, 0, .5);
+$black-35: rgba(0, 0, 0, .35);
+$black-20: rgba(0, 0, 0, .2);
+$black-10: rgba(0, 0, 0, .1);
+
+// Opacity - White
+$white-87: rgba(255, 255, 255, .87);
+$white-75: rgba(255, 255, 255, .75);
+$white-50: rgba(255, 255, 255, .5);
+$white-35: rgba(255, 255, 255, .35);
+$white-20: rgba(255, 255, 255, .2);
+$white-10: rgba(255, 255, 255, .1);
+
+// Minerals
+$white: #FFFFFF;
+$mineral-10: #E8EFF3;
+$mineral-20: #CDDBE4;
+$mineral-30: #97AEBE;
+$mineral-40: #8095A3;
+$mineral-60: #576975;
+$mineral-70: #414F58;
+$mineral-80: #2E3942;
+$mineral-90: #1B2327;
+$black: #000000;
+
+// Message
+$green-20: #AEEAC9;
+$green-60: #16884B;
+$red-20: #F9C3C3;
+$red-60: #C22929;
+$yellow-20: #FFEA99;
+$yellow-60: #F1BC04;
+
+// Support
+$cyan-20: #A4D0F4;
+$cyan-60: #0077CC;
+$pink-20: #F8B9D6;
+$pink-60: #CC005C;
+$orange-20: #FFC499;
+$orange-60: #BA5D00;
+
+$main-palette: (
+  primary: $teal,
+  secondary: $coral,
+  support: $purple,
+  additional: $mustard,
+  neutral: $mineral-80,
+  success: $green-60,
+  danger: $red-60,
+  warning: $yellow-60,
+);
+
+// Color maps
+$teal-palette: (
+  "10": $teal-10,
+  "20": $teal-20,
+  "30": $teal-30,
+  "40": $teal-40,
+  "60": $teal-60,
+  "70": $teal-70,
+  "80": $teal-80,
+);
+
+$purple-palette: (
+  "10": $purple-10,
+  "20": $purple-20,
+  "30": $purple-30,
+  "40": $purple-40,
+  "60": $purple-60,
+  "70": $purple-70,
+  "80": $purple-80,
+);
+
+$mustard-palette: (
+  "10": $mustard-10,
+  "20": $mustard-20,
+  "30": $mustard-30,
+  "40": $mustard-40,
+  "60": $mustard-60,
+  "70": $mustard-70,
+  "80": $mustard-80,
+);
+
+$coral-palette: (
+  "10": $coral-10,
+  "20": $coral-20,
+  "30": $coral-30,
+  "40": $coral-40,
+  "60": $coral-60,
+  "70": $coral-70,
+  "80": $coral-80,
+);
+
+$black-palette: (
+  "87": $black-87,
+  "75": $black-75,
+  "50": $black-50,
+  "35": $black-35,
+  "20": $black-20,
+  "10": $black-10,
+);
+
+$white-palette: (
+  "87": $white-87,
+  "75": $white-75,
+  "50": $white-50,
+  "35": $white-35,
+  "20": $white-20,
+  "10": $white-10,
+);
+
+$mineral-palette: (
+  "10": $mineral-10,
+  "20": $mineral-20,
+  "30": $mineral-30,
+  "40": $mineral-40,
+  "60": $mineral-60,
+  "70": $mineral-70,
+  "80": $mineral-80,
+  "90": $mineral-90,
+);
+
+$messages-palette: (
+  "green": (
+    "20": $green-20,
+    "60": $green-60
+  ),
+  "red": (
+    "20": $red-20,
+    "60": $red-60
+  ),
+  "yellow": (
+    "20": $yellow-20,
+    "60": $yellow-60
+  ),
+);
+
+$support-palette: (
+  "cyan": (
+    "20": $cyan-20,
+    "60": $cyan-60
+  ),
+  "pink": (
+    "20": $pink-20,
+    "60": $pink-60
+  ),
+  "orange": (
+    "20": $orange-20,
+    "60": $orange-60
+  ),
+);
+
+$all-colors: (
+  "teal": $teal-palette,
+  "coral": $coral-palette,
+  "purple": $purple-palette,
+  "mustard": $mustard-palette,
+  "mineral": $mineral-palette,
+  "black": $black-palette,
+  "white": $white-palette,
+  "green": map-get($messages-palette, "green"),
+  "red": map-get($messages-palette, "red"),
+  "yellow": map-get($messages-palette, "yellow"),
+  "cyan": map-get($support-palette, "cyan"),
+  "pink": map-get($support-palette, "pink"),
+  "orange": map-get($support-palette, "orange"),
+);

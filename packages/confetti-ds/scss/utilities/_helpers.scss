@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+//Text color helpers
+.u-{
+  @each $key, $palette in $all-colors {
+      @each $color-palette, $color in $palette {
+        &color-#{$key}-#{$color-palette} {
+            color: $color !important;
+        }
+
+        &bg-#{$key}-#{$color-palette} {
+            background-color: $color;
+        }
+      }
+  }
+}
+
+.u-{
+  &color-black { color: $black; }
+  &bg-black { background-color: $black; }
+  &color-white { color: $white; }
+  &bg-white { background-color: $white; }
+}
