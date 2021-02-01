@@ -1,33 +1,38 @@
 // SPACING
+$baseline: 4px;
 
 /*
 Spacing variables for components
+Tokens using calc on baseline 4px grid
 */
-$spacing-01: 0.25rem; //4px
-$spacing-02: 0.5rem; //8px
-$spacing-03: 0.75rem; //12px
-$spacing-04: 1rem; //16px
-$spacing-05: 1.25rem; //20px
-$spacing-06: 1.5rem; //24px
-$spacing-07: 2rem; //32px
-$spacing-08: 2.5rem; //40px
-$spacing-09: 3.25rem; //52px
-$spacing-10: 3.75rem; //60px
+$spacing-1: $baseline; // 4px
+$spacing-2: (2 * $baseline); // 8px
+$spacing-3: (3 * $baseline); // 12px
+$spacing-4: (4 * $baseline); // 16px
+$spacing-5: (5 * $baseline); // 20px
+$spacing-6: (6 * $baseline); // 24px
+$spacing-7: (7 * $baseline); // 28px
+$spacing-8: (8 * $baseline); // 32px
+$spacing-9: (9 * $baseline); // 36px
+$spacing-10: (10 * $baseline); // 40px
+$spacing-12: (12 * $baseline); // 48px
+$spacing-13: (13 * $baseline); // 52px
+$spacing-15: (15 * $baseline); // 60px
 
 /*
 Spacing variables for layouts
 */
-$layout-01: 0.75rem; //12px
-$layout-02: 1rem; //16px
-$layout-03: 1.25rem; //20px
-$layout-04: 1.5rem; //24px
-$layout-05: 2rem; //32px
-$layout-06: 2.5rem; //40px
-$layout-07: 2.75rem; // 44px
-$layout-08: 3.25rem; //52px
-$layout-09: 4rem; //64px
-$layout-10: 4.5rem; //72px
-$layout-11: 5.75rem; //92px
-$layout-12: 6.25rem; //100px
-$layout-13: 7.75rem; //124px
-$layout-14: 8.85rem; //140px
+$layout-3: (3 * $baseline); // 12px
+$layout-4: (4 * $baseline); // 16px
+$layout-5: (5 * $baseline); // 20px
+$layout-6: (6 * $baseline); // 24px
+$layout-8: (8 * $baseline); // 32px
+$layout-10: (10 * $baseline); // 40px
+$layout-11: (11 * $baseline); // 44px
+$layout-13: (13 * $baseline); // 52px
+$layout-16: (16 * $baseline); // 64px
+$layout-18: (18 * $baseline); // 72px
+$layout-23: (23 * $baseline); // 92px
+$layout-25: (25 * $baseline); // 100px
+$layout-31: (31 * $baseline); // 124px
+$layout-35: (35 * $baseline); // 140px

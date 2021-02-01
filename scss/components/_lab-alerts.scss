@@ -9,8 +9,8 @@ $alerts-line-height: 20px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  margin: $spacing-01 0;
-  padding: $spacing-03 $spacing-04;
+  margin: $spacing-1 0;
+  padding: $spacing-3 $spacing-4;
   color: $mineral-70;
   border-radius: 8px;
 
@@ -42,7 +42,7 @@ $alerts-line-height: 20px;
 
 // Elements
 .lab-alert__icon {
-  margin-right: $spacing-04;
+  margin-right: $spacing-4;
   display: none;
 
   @include from($tablet) {
@@ -66,11 +66,11 @@ $alerts-line-height: 20px;
 }
 
 .lab-alert__button {
-  margin-top: $spacing-01;
+  margin-top: $spacing-1;
 
   @include from($tablet) {
     margin-top: unset;
-    margin-left: $spacing-04;
+    margin-left: $spacing-4;
   }
 }
 
@@ -80,7 +80,7 @@ $alerts-line-height: 20px;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-  padding: $spacing-03;
+  padding: $spacing-3;
   color: $white;
   position: sticky;
   position: -webkit-sticky;

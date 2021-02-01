@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 $radius-default: 60px;
-$border-default: $border-01;
+$border-default: $border-2;
 
 // Default Colors (Pale)
 $item-focus-color: map-get($narrow-sidebar-theme, "30");
@@ -139,7 +139,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   color: $mineral-60;
   background-color: transparent;
   border: $border-default transparent;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
   line-height: 1;
   padding: 8px 10px;
   align-items: center;
@@ -170,7 +170,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   width: 100%;
   flex-direction: column;
   flex-grow: 1;
-  padding: $spacing-01 0;
+  padding: $spacing-1 0;
   margin-top: 76px;
   border-top: $border-default transparent;
   border-bottom: $border-default transparent;
@@ -192,10 +192,10 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   cursor: pointer;
   border: none;
   background-color: transparent;
-  padding: $spacing-04 $spacing-05;
+  padding: $spacing-4 $spacing-5;
   margin-left: 28px;
-  margin-right: -$spacing-02;
-  border-radius: $spacing-03;
+  margin-right: -$spacing-2;
+  border-radius: $spacing-3;
 
   @include from($tablet) {
     display: flex;
@@ -203,13 +203,13 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     align-items: center;
     text-align: center;
     font-size: $font-size-1;
-    padding: $spacing-04;
+    padding: $spacing-4;
     margin: 0;
     border-radius: 0;
   }
 
   .lab-narrow-sidebar__item-icon {
-    margin-right: $spacing-02;
+    margin-right: $spacing-2;
 
     @include from($tablet) {
       margin: 0;
@@ -224,12 +224,12 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
       display: block;
       border: $border-default $item-focus-color;
       position: absolute;
-      margin-right: $spacing-02;
+      margin-right: $spacing-2;
       top: 6px;
       left: 6px;
       right: 6px;
       bottom: 6px;
-      border-radius: $radius-03;
+      border-radius: $radius-2;
 
       @include from($tablet) {
         margin-right: 0;
@@ -268,7 +268,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
 .lab-narrow-sidebar__footer {
   display: flex;
   width: 100%;
-  margin: $spacing-06 0 $spacing-06;
+  margin: $spacing-6 0 $spacing-6;
   flex-direction: column;
   flex-grow: 0;
 
@@ -289,21 +289,21 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   display: flex;
   width: 60%;
   box-sizing: border-box;
-  margin-bottom: $spacing-01;
+  margin-bottom: $spacing-1;
   text-align: center;
   font-family: $font-primary;
   font-weight: $weight-medium;
   color: $footer-button-color;
   background-color: transparent;
   border: $border-default transparent;
-  padding: $spacing-01 $spacing-03;
+  padding: $spacing-1 $spacing-3;
   margin-left: 28px;
-  border-radius: $radius-03;
+  border-radius: $radius-2;
   font-size: $font-size-4;
 
   @include from($tablet) {
     cursor: pointer;
-    padding: $spacing-01;
+    padding: $spacing-1;
     width: 76%;
     margin-left: 0;
     align-items: center;
@@ -336,10 +336,10 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
 
 .lab-narrow-sidebar__footer-icon {
   background-color: $footer-button-color;
-  margin-right: $spacing-02;
+  margin-right: $spacing-2;
 
   @include from($tablet) {
-    margin-right: $spacing-01;
+    margin-right: $spacing-1;
   }
 }
 

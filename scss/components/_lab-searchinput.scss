@@ -33,12 +33,12 @@ $remove-icon-focus: map-get($search-theme, "30");
 
 .lab-search--disabled {
   background-color: $mineral-10;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
 }
 
 .lab-search__field {
   @extend .lab-input__field;
-  padding-right: $spacing-01;
+  padding-right: $spacing-1;
 
   &:not(:placeholder-shown) ~ .lab-search__remove-icon {
     opacity: 1;
@@ -60,12 +60,12 @@ $remove-icon-focus: map-get($search-theme, "30");
   position: relative;
   z-index: 99;
   width: 320px;
-  margin-top: $spacing-03;
+  margin-top: $spacing-3;
   box-sizing: border-box;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
 
   .lab-search__remove-icon {
-    margin-right: $spacing-09;
+    margin-right: $spacing-13;
     opacity: 0;
     cursor: none;
   }
@@ -143,7 +143,7 @@ $remove-icon-focus: map-get($search-theme, "30");
   width: 8px;
   height: 36px;
   background-color: $white;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
 
   .lab-search__field:disabled ~ &, .lab-search__field[aria-disabled] ~ & {
     background-color: $search-separator-disabled;
@@ -157,27 +157,27 @@ $remove-icon-focus: map-get($search-theme, "30");
   @include remove-delete-icon-search-input;
   position: relative;
   width: 320px;
-  margin-top: $spacing-03;
+  margin-top: $spacing-3;
   box-sizing: border-box;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
 
   .lab-search__field {
-    padding-left: $spacing-09;
+    padding-left: $spacing-13;
   }
 }
 
 .lab-inline-search__icon {
   position: absolute;
   top: 8px;
-  left: $spacing-02;
+  left: $spacing-2;
   z-index: 1;
   width: 24px;
   height: 24px;
   border: none;
 
   & ~ .lab-search__field {
-    padding-left: $spacing-06;
-    padding-right: $spacing-07;
+    padding-left: $spacing-6;
+    padding-right: $spacing-8;
   }
 
   .lab-search__field:focus ~ & {

@@ -47,12 +47,12 @@ $input-border-disabled: $mineral-30;
 
 .lab-input--disabled {
   background-color: $mineral-10;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
 }
 
 .lab-input--invalid {
   background-color: $input-background-invalid;
-  border-radius: $radius-02;
+  border-radius: $radius-1;
 
   .lab-input__field:invalid {
     background-color: $input-background-invalid;
@@ -70,7 +70,7 @@ $input-border-disabled: $mineral-30;
   .lab-input__field:invalid:not(:placeholder-shown):focus
     + .lab-input__borders {
     @include border-shadow(focus, $input-shadow-invalid-focus);
-    border: $border-01 $input-main-invalid;
+    border: $border-2 $input-main-invalid;
     outline: none;
   }
 
@@ -81,7 +81,7 @@ $input-border-disabled: $mineral-30;
       $input-shadow-invalid-focus,
       $input-background-invalid
     );
-    border: $border-01 $input-main-invalid;
+    border: $border-2 $input-main-invalid;
   }
 
   // Input invalid hover
@@ -167,8 +167,8 @@ $input-border-disabled: $mineral-30;
   right: 0;
   left: 0;
   height: $input-height;
-  border: $border-01 $input-border-unfilled-idle;
-  border-radius: $radius-02;
+  border: $border-2 $input-border-unfilled-idle;
+  border-radius: $radius-1;
   pointer-events: none;
   transition: border $duration-base ease, box-shadow $duration-base ease;
   // Input filled
@@ -207,7 +207,7 @@ $input-border-disabled: $mineral-30;
   .lab-input__field[aria-disabled] + &,
   .lab-input__field:not(:placeholder-shown)[aria-disabled] + & {
     color: $black-75;
-    border: $border-01 $input-border-disabled;
+    border: $border-2 $input-border-disabled;
     box-shadow: none;
     pointer-events: none;
     cursor: default;
@@ -236,8 +236,8 @@ $input-border-disabled: $mineral-30;
 
   .lab-input__field:focus ~ &,
   .lab-input__field:not(:placeholder-shown) ~ & {
-    top: -$spacing-03;
-    left: $spacing-02;
+    top: -$spacing-3;
+    left: $spacing-2;
 
     .lab-input__prefix {
       height: 0;
@@ -308,7 +308,7 @@ $input-border-disabled: $mineral-30;
   outline: none;
   border-radius: 2px;
   background-color: transparent;
-  margin: 0 $spacing-02;
+  margin: 0 $spacing-2;
   &:focus {
     @include border-shadow(focus, $input-shadow-filled-focus);
   }
@@ -330,8 +330,8 @@ $input-border-disabled: $mineral-30;
 // The icon color change according to it's input state.
 .lab-input__required-icon {
   position: absolute;
-  top: -$spacing-02;
-  right: -$spacing-02;
+  top: -$spacing-2;
+  right: -$spacing-2;
   z-index: 2;
   display: inline-block;
   width: $input-icon-size;
@@ -406,7 +406,7 @@ $input-border-disabled: $mineral-30;
   text-align: center;
   pointer-events: none;
   background-color: $mineral-10;
-  border-radius: $radius-01;
+  border-radius: $radius-05;
 
   .lab-input__field--prefixed:focus ~ &,
   .lab-input__field--suffixed:focus ~ & {

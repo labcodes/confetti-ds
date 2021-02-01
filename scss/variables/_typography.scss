@@ -7,6 +7,25 @@ $family-monospace: "IBM Plex Mono", monospace;
 $render-mode: optimizeLegibility !default;
 $letter-spacing: 0 !default;
 
+/*
+ * The font-variant-numeric property controls the usage of alternate glyphs for numbers, fractions, and ordinal markers.
+ * Values:
+ * ordinal: Ordinals. Replaces characters with ordinal forms for use after numbers.
+ *
+ * <numeric-figure-values>: These values control the figures used for numbers. Two values are possible:
+ *   lining-nums activating the set of figures where numbers are all lying on the baseline. It corresponds to the OpenType values lnum.
+ *   oldstyle-nums activating the set of figures where some numbers, like 3, 4, 7, 9 have descenders. It corresponds to the OpenType values onum.
+ *
+ * <numeric-spacing-values>: These values controls the sizing of figures used for numbers. Two values are possible:
+ *   proportional-nums activating the set of figures where numbers are not all of the same size. It corresponds to the OpenType values pnum.
+ *   tabular-nums activating the set of figures where numbers are all of the same size, allowing them to be easily aligned like in tables. It corresponds to the OpenType values tnum.
+*/
+$font-aligned-numbers: lining-nums;
+$font-oldstyle-numbers: oldstyle-nums;
+$font-tabular-numbers: tabular-nums;
+$font-proportional-numbers: proportional-nums;
+$font-ordinal-numbers: ordinal;
+
 $font-size-1: 0.75rem !default; //12px
 $font-size-2: 0.875rem !default; //14px
 $font-size-3: 1rem !default; //16px
