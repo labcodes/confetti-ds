@@ -1,7 +1,7 @@
 @use "sass:map";
 
-$card-default-padding: $spacing-05;
-$card-compact-padding: $spacing-03 $spacing-04;
+$card-default-padding: $spacing-5;
+$card-compact-padding: $spacing-3 $spacing-4;
 
 // Layout
 .lab-card {
@@ -9,8 +9,8 @@ $card-compact-padding: $spacing-03 $spacing-04;
   flex-direction: column;
   position: relative;
   padding: $card-default-padding;
-  border-radius: $radius-04;
-  border: $border-01;
+  border-radius: $radius-3;
+  border: $border-2;
 
   &.lab-card--compact {
     padding: $card-compact-padding;
@@ -40,13 +40,13 @@ $card-compact-padding: $spacing-03 $spacing-04;
     }
   }
 
-  @include from($tablet) {
+  @include from($tablet){
     &.lab-card--horizontal {
       display: block;
       padding-left: calc(33% + 2 * #{$card-default-padding});
 
       .lab-card-image {
-        border-radius: $radius-03;
+        border-radius: $radius-2;
         position: absolute;
         margin: 0;
         max-width: calc(33%);
@@ -61,7 +61,7 @@ $card-compact-padding: $spacing-03 $spacing-04;
         left: 0;
         border-top-right-radius: unset;
         border-bottom-right-radius: unset;
-        border-bottom-left-radius: $radius-03;
+        border-bottom-left-radius: $radius-2;
         max-width: calc(33% + #{$card-default-padding});
         height: 100%;
         margin: 0;
@@ -79,8 +79,8 @@ $card-compact-padding: $spacing-03 $spacing-04;
           left: 0;
           top: 0;
           height: 100%;
-          border-top-left-radius: $radius-03;
-          border-bottom-left-radius: $radius-03;
+          border-top-left-radius: $radius-2;
+          border-bottom-left-radius: $radius-2;
         }
       }
     }
@@ -89,9 +89,9 @@ $card-compact-padding: $spacing-03 $spacing-04;
 
 // Elements
 .lab-card-image {
-  border-radius: $radius-03;
+  border-radius: $radius-2;
   max-width: 100%;
-  margin-bottom: $spacing-03;
+  margin-bottom: $spacing-3;
 
   &:first-child {
     border-bottom-left-radius: unset;
@@ -104,18 +104,14 @@ $card-compact-padding: $spacing-03 $spacing-04;
 }
 
 .lab-card-header {
-  margin-bottom: $spacing-03;
+  margin-bottom: $spacing-3;
 
   &.lab-card-header--overlay {
     position: absolute;
     width: 100%;
-    border-top-left-radius: $radius-03;
-    border-top-right-radius: $radius-03;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.87) 0%,
-      rgba(0, 0, 0, 0.1) 100%
-    );
+    border-top-left-radius: $radius-2;
+    border-top-right-radius: $radius-2;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.87) 0%, rgba(0, 0, 0, 0.1) 100%);
     margin-top: -$card-default-padding;
     margin-left: -$card-default-padding;
     margin-right: -$card-default-padding;
@@ -126,17 +122,17 @@ $card-compact-padding: $spacing-03 $spacing-04;
     display: flex;
     align-items: center;
     margin-top: 0;
-    margin-bottom: $spacing-01;
+    margin-bottom: $spacing-1;
 
     .lab-icon {
-      margin-right: $spacing-01;
+      margin-right: $spacing-1;
     }
 
     .lab-card-category__color {
       width: 16px;
       height: 8px;
-      margin-right: $spacing-02;
-      border-radius: $radius-02;
+      margin-right: $spacing-2;
+      border-radius: $radius-1;
 
       @each $name, $palette in $all-colors {
         &.lab-card-category__color--#{$name} {
@@ -146,10 +142,10 @@ $card-compact-padding: $spacing-03 $spacing-04;
     }
 
     .lab-card-category__text {
-      margin-right: $spacing-01;
+      margin-right: $spacing-1;
       font-size: $font-size-2;
       font-weight: $weight-bold;
-      line-height: $spacing-06;
+      line-height: $spacing-6;
       text-transform: uppercase;
       color: $mineral-80;
     }
@@ -159,31 +155,26 @@ $card-compact-padding: $spacing-03 $spacing-04;
     font-size: $font-size-4;
     font-weight: $weight-bold;
     color: $mineral-80;
-    line-height: $spacing-05;
+    line-height: $spacing-5;
     margin-top: 0;
-    margin-bottom: $spacing-01;
+    margin-bottom: $spacing-1;
   }
 
   .lab-card-subtitle {
     font-size: $font-size-3;
     font-weight: $weight-medium;
     color: $black-75;
-    line-height: $spacing-06;
+    line-height: $spacing-6;
     margin-top: 0;
     margin-bottom: 0;
   }
 }
 
 // Body
-.lab-card
-  p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
-  margin-top: unset;
-  margin-bottom: $spacing-03;
-}
-
-.lab-card:not(.lab-card--vivid)
-  p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
+.lab-card p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
   color: $black-75;
+  margin-top: unset;
+  margin-bottom: $spacing-3;
 }
 
 .lab-card-divider {
@@ -202,8 +193,8 @@ $card-compact-padding: $spacing-03 $spacing-04;
 .lab-card-link-action {
   display: flex;
   justify-content: center;
-  margin-top: $spacing-05;
-  margin-bottom: $spacing-03;
+  margin-top: $spacing-5;
+  margin-bottom: $spacing-3;
   font-size: $font-size-4;
   color: $mineral-80;
 
@@ -224,12 +215,12 @@ $card-compact-padding: $spacing-03 $spacing-04;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: $spacing-04;
+  margin-top: $spacing-4;
   font-size: $font-size-4;
   color: $mineral-80;
 
   .lab-btn:first-child {
-    margin-bottom: $spacing-03;
+    margin-bottom: $spacing-3;
   }
 
   &.lab-card-double-action--horizontal {
@@ -240,11 +231,11 @@ $card-compact-padding: $spacing-03 $spacing-04;
 
       &:first-child {
         order: 1;
-        margin-left: $spacing-01;
+        margin-left: $spacing-1;
       }
 
       &:last-child {
-        margin-right: $spacing-01;
+        margin-right: $spacing-1;
       }
     }
   }
@@ -252,6 +243,7 @@ $card-compact-padding: $spacing-03 $spacing-04;
 
 // Colors
 @each $name, $palette in $card-colors {
+
   // Pale outlineCard Layout
   .lab-card--#{$name} {
     @if $name != "white" {
@@ -276,8 +268,7 @@ $card-compact-padding: $spacing-03 $spacing-04;
       background-color: map-get($palette, "80");
     }
 
-    .lab-card-header .lab-card-category__text,
-    .lab-card-title {
+    .lab-card-header .lab-card-category__text, .lab-card-title {
       color: map-get($palette, "80");
     }
 
@@ -337,8 +328,7 @@ $card-compact-padding: $spacing-03 $spacing-04;
             background-color: map-get($palette, "10");
           }
 
-          .lab-card-category__text,
-          .lab-card-title {
+          .lab-card-category__text, .lab-card-title {
             color: map-get($palette, "10");
           }
 

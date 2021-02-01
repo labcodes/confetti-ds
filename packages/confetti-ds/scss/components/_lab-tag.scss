@@ -25,8 +25,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 // BASE TAG STRUCTURE
 .lab-tag {
   height: 24px;
-  margin: $spacing-01; //think if this should be here or not
-  padding: 0 $spacing-04;
+  margin: $spacing-1; //think if this should be here or not
+  padding: 0 $spacing-4;
   font-size: $tag-font-size;
   line-height: $tag-line-heigt;
   font-weight: $weight-bold;
@@ -61,7 +61,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
   width: 24px;
   height: 24px;
   border-radius: 12px;
-  margin-right: calc(#{$spacing-02} - #{$tag-border});
+  margin-right: calc(#{$spacing-2} - #{$tag-border});
 }
 
 /* 
@@ -70,12 +70,12 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 * It can be a custom icon or a check icon for the selected togglable tag.
 */
 .lab-tag--has-left-icon {
-  padding-left: $spacing-01;
+  padding-left: $spacing-1;
 }
 
 .lab-tag--left-icon {
   display: flex;
-  margin-right: $spacing-01;
+  margin-right: $spacing-1;
 }
 
 .lab-tag--check-icon {
@@ -109,7 +109,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: $spacing-02;
+  margin-left: $spacing-2;
   width: 16px;
   height: 16px;
   background-color: white;
@@ -129,7 +129,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 
 .lab-tag--removable,
 .lab-tag--dropdown {
-  padding-right: calc(#{$spacing-01} - #{$tag-border});
+  padding-right: calc(#{$spacing-1} - #{$tag-border});
 }
 
 // SKINS
@@ -269,7 +269,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 // STATES
 // Togglable selected. Exists only for togglable tag and has the same colors as vivid skin.
 .lab-tag--selected {
-  padding-left: $spacing-01;
+  padding-left: $spacing-1;
 }
 .lab-tag--pale {
   &.lab-tag--selected {

@@ -1,10 +1,18 @@
 // Borders
-$border-01: 2px solid;
-$border-02: 4px solid;
-$border-03: 6px solid;
+$border-2: 2px solid;
+$border-4: 4px solid;
+$border-6: 6px solid;
 
 // Radius
-$radius-01: 2px;
-$radius-02: 4px;
-$radius-03: 8px;
-$radius-04: 12px;
+$radius-05: ($baseline / 2); //2px
+$radius-1: $baseline; //4px
+$radius-2: (2 * $baseline); //8px
+$radius-3: (3 * $baseline); //12px
+
+// For mobile and smaller objects
+$radius-15: (15 * $baseline); // 60px
+$radius-20: (20 * $baseline); // 80px
+
+// For bigger objects
+$radius-30: (30 * $baseline); // 120px
+$radius-40: (40 * $baseline); // 160px

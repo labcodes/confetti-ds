@@ -169,23 +169,23 @@
 
 // Standard
 .lab-dialog__content {
-  border-top-left-radius: $radius-04;
-  border-top-right-radius: $radius-04;
-  padding: $spacing-06 28px; // missing token
+  border-top-left-radius: $radius-3;
+  border-top-right-radius: $radius-3;
+  padding: $spacing-6 $spacing-7;
   background-color: $white;
-  box-shadow: 0 0 28px 0 $black-20; // missing token
+  box-shadow: 0 0 $spacing-7 0 $black-20;
 
   @include from($tablet) {
-    border-radius: $radius-04;
+    border-radius: $radius-3;
   }
 }
 
 // Message
 .lab-dialog__content--message {
-  border-radius: $radius-04;
-  padding: $spacing-06 28px; // missing token
+  border-radius: $radius-3;
+  padding: $spacing-6 $spacing-7;
   background-color: $white;
-  box-shadow: 0 0 28px 0 $black-20; // missing token
+  box-shadow: 0 0 $spacing-7 0 $black-20;
 }
 
 @include from($tablet) {
@@ -209,7 +209,7 @@
   }
 
   &:focus {
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     box-shadow: 0 0 0 2px $teal-30;
     background-color: transparent;
     outline: unset;
@@ -220,7 +220,7 @@
   }
 
   &:hover {
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     background-color: $teal-10;
 
     .lab-dialog__close-button-icon {
@@ -233,7 +233,7 @@
   }
 
   &:active {
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     box-shadow: 0 0 0 2px $teal-30;
     background-color: $teal-20;
     outline: unset;
@@ -252,8 +252,8 @@
 .lab-dialog__mobile-close-button {
   display: flex;
   justify-content: center;
-  margin-top: -$spacing-06;
-  margin-bottom: $spacing-01;
+  margin-top: -$spacing-6;
+  margin-bottom: $spacing-1;
   width: 100%;
   height: 24px;
   background-color: unset;
@@ -268,7 +268,7 @@
   }
 
   &:focus {
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     box-shadow: 0 0 0 2px $teal-30;
     background-color: transparent;
     outline: unset;
@@ -279,7 +279,7 @@
   }
 
   &:hover {
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     background-color: $teal-10;
 
     .lab-icon {
@@ -292,7 +292,7 @@
   }
 
   &:active {
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     box-shadow: 0 0 0 2px $teal-30;
     background-color: $teal-20;
     outline: unset;
@@ -318,7 +318,7 @@
   color: $teal-60;
   font-weight: $weight-bold;
   font-size: $font-size-5;
-  line-height: $spacing-07;
+  line-height: $spacing-8;
   text-align: center;
 
   @include from($tablet) {
@@ -328,29 +328,29 @@
 
 .lab-dialog__body {
   overflow-x: auto;
-  margin-top: $spacing-04;
-  margin-bottom: 28px; // missing token
+  margin-top: $spacing-4;
+  margin-bottom: $spacing-7;
   min-width: 100%;
   color: $black-75;
   font-size: $font-size-4;
   font-weight: $weight-medium;
-  line-height: $spacing-06;
+  line-height: $spacing-6;
 }
 
 .lab-dialog__footer {
   display: flex;
   justify-content: flex-end;
   margin-top: 0;
-  margin-left: -28px; // missing token
-  margin-right: -28px; // missing token
-  margin-bottom: -$spacing-06;
+  margin-left: -$spacing-7;
+  margin-right: -$spacing-7;
+  margin-bottom: -$spacing-6;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
-  padding: $spacing-06 28px; // missing token
+  padding: $spacing-6 $spacing-7;
   background-color: $mineral-10;
 
   :nth-child(2) {
-    margin-left: $spacing-04;
+    margin-left: $spacing-4;
   }
 }
 
@@ -359,8 +359,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -$spacing-07;
-  margin-bottom: $spacing-03;
+  margin-top: -$spacing-8;
+  margin-bottom: $spacing-3;
   height: 72px;
 }
 
@@ -381,7 +381,7 @@
   display: flex;
   justify-content: center;
   font-size: $font-size-6;
-  line-height: 28px; // missing token
+  line-height: $spacing-7;
   font-weight: $weight-semibold;
   text-transform: uppercase;
 }
@@ -389,8 +389,8 @@
 .lab-dialog__body--message {
   display: flex;
   justify-content: center;
-  margin-top: $spacing-06;
-  margin-bottom: 28px; // missing token
+  margin-top: $spacing-6;
+  margin-bottom: $spacing-7;
   font-size: $font-size-3;
   text-align: center;
 }
@@ -398,7 +398,7 @@
 .lab-dialog__footer--message {
   align-items: stretch;
   padding-top: 0;
-  padding-bottom: $spacing-08;
+  padding-bottom: $spacing-10;
   background-color: unset;
 
   button {

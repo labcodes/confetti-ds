@@ -23,9 +23,9 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
 }
 
 .lab-tooltip__text {
-    padding: $spacing-01 $spacing-03;
+    padding: $spacing-1 $spacing-3;
     box-sizing: border-box;
-    border-radius: $radius-02;
+    border-radius: $radius-1;
     display: none;
     position: absolute;
     z-index: 1;
@@ -51,7 +51,7 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
     /* Placement modifiers */
 
     &.lab-tooltip--top-start {
-        top: calc(-50% - #{$spacing-02});
+        top: calc(-50% - #{$spacing-2});
         left: 0;
     }
 
@@ -59,18 +59,18 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
         transform: translateX(-50%);
         -webkit-transform: translateX(-50%);
 
-        top: calc(-50% - #{$spacing-02});
+        top: calc(-50% - #{$spacing-2});
         left: 50%;
     }
 
     &.lab-tooltip--top-end {
-        top: calc(-50% - #{$spacing-02});
+        top: calc(-50% - #{$spacing-2});
         right: 0;
     }
 
     &.lab-tooltip--right-start {
         top: 0;
-        left: calc(100% + #{$spacing-02});
+        left: calc(100% + #{$spacing-2});
     }
 
     &.lab-tooltip--right {
@@ -78,17 +78,17 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
         -webkit-transform: translateY(-50%);
 
         top: 50%;
-        left: calc(100% + #{$spacing-02});
+        left: calc(100% + #{$spacing-2});
     }
 
     &.lab-tooltip--right-end {
-        left: calc(100% + #{$spacing-02});
+        left: calc(100% + #{$spacing-2});
         bottom: 0;
     }
 
     &.lab-tooltip--left-start {
         top: 0;
-        right: calc(100% + #{$spacing-02});
+        right: calc(100% + #{$spacing-2});
     }
 
     &.lab-tooltip--left {
@@ -96,17 +96,17 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
         -webkit-transform: translateY(-50%);
 
         top: 50%;
-        right: calc(100% + #{$spacing-02});
+        right: calc(100% + #{$spacing-2});
     }
 
     &.lab-tooltip--left-end {
-        right: calc(100% + #{$spacing-02});
+        right: calc(100% + #{$spacing-2});
         bottom: 0;
     }
 
     &.lab-tooltip--bottom-start {
         left: 0;
-        bottom: calc(-50% - #{$spacing-02});
+        bottom: calc(-50% - #{$spacing-2});
     }
 
     &.lab-tooltip--bottom {
@@ -114,12 +114,12 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
         -webkit-transform: translateX(-50%);
 
         left: 50%;
-        bottom: calc(-50% - #{$spacing-02});
+        bottom: calc(-50% - #{$spacing-2});
     }
 
     &.lab-tooltip--bottom-end {
         right: 0;
-        bottom: calc(-50% - #{$spacing-02});
+        bottom: calc(-50% - #{$spacing-2});
     }
 
 }
