@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ICON_TYPES } from "../confetti-ds/src/constants";
+import { ICON_TYPES, ICON_COLORS } from "../confetti-ds/src/constants";
 import { Icon as Component } from "../confetti-ds/src";
 
 export default {
@@ -10,6 +10,9 @@ export default {
     type: {
       control: { type: "select", options: ICON_TYPES },
     },
+    color:{
+      control: { type: "select", options: ICON_COLORS },
+    }
   },
 };
 
