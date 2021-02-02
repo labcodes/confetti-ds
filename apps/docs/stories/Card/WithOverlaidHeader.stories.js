@@ -7,6 +7,7 @@ import {
   CardDivider,
   DoubleAction,
 } from "../../confetti-ds/src/Card";
+import { outlineCardChoices } from "../../confetti-ds/src/Card/propTypes";
 
 import { DoubleAction as DoubleActionStory } from "./subcomponents/DoubleAction.stories";
 import { CardDivider as CardDividerStory } from "./subcomponents/CardDivider.stories";
@@ -17,6 +18,14 @@ export default {
   title: "Card/With Overlaid Header",
   component: Component,
   subcomponents: { CardImage, CardHeader, CardDivider, DoubleAction },
+  argTypes: {
+    color: {
+      control: { type: "radio", options: outlineCardChoices.color },
+    },
+    skin: {
+      control: { type: "radio", options: outlineCardChoices.skin },
+    },
+  },
 };
 
 export const WithOverlaidHeader = (args) => (
