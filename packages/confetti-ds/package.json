@@ -3,8 +3,14 @@
   "version": "0.1.0-alpha",
   "description": "Labcodes' design system, focused on accessibility and ease to use",
   "main": "dist/index.js",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
+  },
   "scripts": {
     "test": "jest",
+    "lint": "eslint ./src --no-eslintrc -c ./.eslintrc.js",
     "prepack": "babel src -d dist --ignore 'src/**/*.test.js'",
     "postpack": "rm -rf dist"
   },
@@ -34,6 +40,14 @@
     "babel-loader": "^8.0.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^4.3.8",
     "jest": "^25.1.0",
     "jest-prop-type-error": "^1.1.0",
     "react-dom": "^16.13.1",
