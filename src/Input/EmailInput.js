@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import AbstractTextInput from "./AbstractTextInput";
+import { ICON_TYPES, ICON_COLORS } from "../constants";
 
 export default class EmailInput extends React.Component {
   static propTypes = {
@@ -18,9 +19,9 @@ export default class EmailInput extends React.Component {
     /** Value that will be rendered inside the Input field. */
     value: PropTypes.string,
     /** Defines an icon type to display inside the input. */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOf(ICON_TYPES),
     /** Defines the Icon color. */
-    iconColor: PropTypes.string,
+    iconColor: PropTypes.oneOf(ICON_COLORS),
     /** Defines if the Input is required. */
     required: PropTypes.bool,
     /** Text that will be displayed as a help message below the input. */
