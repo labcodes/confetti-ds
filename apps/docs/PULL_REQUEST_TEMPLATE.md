@@ -10,7 +10,7 @@ Also provide the following information:
 
 **Link to task:**
 
-**Staging app:** https://your-branch--labstorybook-master.netlify.app/
+**Staging app:** https://your-branch--confetti-storybook.netlify.app/
 
 **How to test:**
 
