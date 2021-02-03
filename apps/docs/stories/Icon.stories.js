@@ -4,7 +4,7 @@ import { ICON_TYPES, ICON_COLORS } from "../confetti-ds/src/constants";
 import { Icon as Component } from "../confetti-ds/src";
 
 export default {
-  title: "System Messages/Icon",
+  title: "Icons & Badges/Icon",
   component: Component,
   argTypes: {
     type: {

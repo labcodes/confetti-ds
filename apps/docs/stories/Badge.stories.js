@@ -3,7 +3,7 @@ import React from "react";
 import { Badge as Component } from "../confetti-ds/src";
 
 export default {
-  title: "System Messages/Badge",
+  title: "Icons & Badges/Badge",
   component: Component,
 };
 
