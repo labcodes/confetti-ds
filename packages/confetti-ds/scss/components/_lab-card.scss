@@ -24,12 +24,12 @@ $card-compact-padding: $spacing-3 $spacing-4;
 
       &.lab-card-image--overflowed {
         border-radius: unset;
-        max-width: calc(100% + 2 * #{$card-compact-padding});
+        max-width: calc(100% + 2 * #{nth($card-compact-padding, 2)});
       }
     }
 
     &.lab-card-divider--overflowed {
-      width: calc(100% + 2 * #{$card-compact-padding});
+      width: calc(100% + 2 * #{nth($card-compact-padding, 2)});
     }
 
     .lab-card-header--overlay {
