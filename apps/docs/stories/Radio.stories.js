@@ -15,10 +15,25 @@ export default {
   }
 };
 
-export const Radio = (args) => <Component {...args} />;
-Radio.args = {
-  id: "demo-radio",
-  name: "Demo radio",
-  label: "Demo radio",
-  value: "bool",
-};
+export const Radio = (args) => (
+  <fieldset>
+    <Component
+      id="demo-radio-1"
+      name="demo-radio"
+      label="radio 1"
+      value="bool"
+    />
+    <Component
+      id="demo-radio-2"
+      name="demo-radio"
+      label="radio 2"
+      value="bool"
+    />
+    <Component
+      id="demo-radio-3"
+      name="demo-radio"
+      label="radio 3"
+      value="bool"
+    />
+  </fieldset>
+);
