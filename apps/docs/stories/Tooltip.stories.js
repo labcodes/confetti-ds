@@ -5,6 +5,11 @@ import { Tooltip as Component, Button } from "../confetti-ds/src";
 export default {
   title: "Tooltip/Tooltip",
   component: Component,
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
 };
 
 export const Tooltip = (args) => (
