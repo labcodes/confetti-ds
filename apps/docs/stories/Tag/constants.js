@@ -46,7 +46,6 @@ export const TAG_THUMBS = [
 export const TAG_SKINS = ["pale", "vivid"];
 
 export const TAG_COLORS = [
-  "",
   "mineral",
   "teal",
   "purple",
