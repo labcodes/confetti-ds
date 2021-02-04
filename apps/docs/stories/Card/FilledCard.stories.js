@@ -25,6 +25,9 @@ export default {
     skin: {
       control: { type: "radio", options: filledCardChoices.skin },
     },
+    children: {
+      control: false,
+    },
   },
 };
 
@@ -45,5 +48,5 @@ export const FilledCard = (args) => (
 
 FilledCard.args = {
   color: "mineral",
-  skin: "pale"
-}
+  skin: "pale",
+};
