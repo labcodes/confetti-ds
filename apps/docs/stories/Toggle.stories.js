@@ -10,5 +10,5 @@ export default {
 export const Toggle = (args) => <Component {...args} />;
 Toggle.args = {
   id: "demo-toggle",
-  name: "Demo toggle",
+  name: "demo-toggle",
 };
