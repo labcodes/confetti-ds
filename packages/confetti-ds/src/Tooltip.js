@@ -19,6 +19,7 @@ export default class Tooltip extends React.Component {
       "left-start",
       "left",
       "left-end",
+      "bottom-start",
       "bottom",
       "bottom-end",
     ]),
