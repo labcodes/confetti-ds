@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import Icon from "../Icon";
 import DialogWrapper from "./DialogWrapper";
 import { Button, OutlineButton } from "../Button";
-import Icon from "../Icon";
+import { ICON_TYPES } from "../constants";
 
 export default class MessageDialog extends React.Component {
   static propTypes = {
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.oneOf(ICON_TYPES).isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     buttonProps: PropTypes.exact({
