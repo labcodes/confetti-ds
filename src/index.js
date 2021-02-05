@@ -2,6 +2,7 @@ import { Button, OutlineButton, TextButton } from "./Button";
 import { TextInput, PasswordInput, EmailInput } from "./Input";
 import { StandardSearch, InlineSearch } from "./Search";
 import { SimpleTag, TogglableTag, RemovableTag, DropdownTag } from "./Tags";
+import { StandardDialog, MessageDialog } from "./Dialog";
 
 import NarrowSidebar from "./Sidebar";
 import Alert from "./Alert";
@@ -35,4 +36,6 @@ export {
   Radio,
   Toggle,
   Tooltip,
+  StandardDialog,
+  MessageDialog,
 };
