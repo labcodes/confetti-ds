@@ -16,5 +16,4 @@ export default {
 export const TogglableTag = (args) => <Component {...args} />;
 TogglableTag.args = {
   text: "demo tag",
-  onClick: () => alert("Tag toggled"),
 };

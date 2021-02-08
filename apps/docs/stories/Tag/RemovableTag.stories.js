@@ -25,5 +25,4 @@ export default {
 export const RemovableTag = (args) => <Component {...args} />;
 RemovableTag.args = {
   text: "demo tag",
-  onClick: () => alert("Tag removed"),
 };
