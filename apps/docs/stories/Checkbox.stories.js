@@ -10,17 +10,17 @@ export default {
 export const Checkbox = (args) => (
   <fieldset>
     <legend>Checkbox group</legend>
-    <Component
+    <Component {...args}
       id="demo-checkbox-1"
       name="demo-checkbox"
       label="checkbox 1"
     />
-    <Component
+    <Component {...args}
       id="demo-checkbox-2"
       name="demo-checkbox"
       label="checkbox 2"
     />
-    <Component
+    <Component {...args}
       id="demo-checkbox-3"
       name="demo-checkbox"
       label="checkbox 3"
