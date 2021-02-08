@@ -1,7 +1,7 @@
 import React from "react";
 
 import { TAG_ICONS, TAG_THUMBS, TAG_SKINS, TAG_COLORS } from "./constants";
-import { RemovableTag as Component } from "../../confetti-ds/src";
+import { Button, RemovableTag as Component } from "../../confetti-ds/src";
 
 export default {
   title: "Tag/Removable Tag",
@@ -22,7 +22,22 @@ export default {
   },
 };
 
-export const RemovableTag = (args) => <Component {...args} />;
+export const RemovableTag = (args) => {
+  const [showTag, setShowTag] = React.useState(true);
+
+  return (
+    <React.Fragment>
+      { showTag ?
+        <Component {...args} onClick={() => setShowTag(false)} />
+        : null
+      }
+
+      <div style={{ marginTop: "16px" }}>
+        <Button text="Restore tag" onClick={() => setShowTag(true)} size="small"/>
+      </div>
+    </React.Fragment>
+  )
+}
 RemovableTag.args = {
   text: "demo tag",
 };
