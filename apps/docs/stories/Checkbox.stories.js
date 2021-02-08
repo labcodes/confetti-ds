@@ -5,18 +5,11 @@ import { Checkbox as Component  } from "../confetti-ds/src";
 export default {
   title: "Checkbox/Checkbox",
   component: Component,
-  argTypes: {
-    value: {
-      control: {
-        type: "select",
-        options: ["string", "number", "bool"]
-      }
-    }
-  }
 };
 
 export const Checkbox = (args) => (
   <fieldset>
+    <legend>Checkbox group</legend>
     <Component
       id="demo-checkbox-1"
       name="demo-checkbox"
