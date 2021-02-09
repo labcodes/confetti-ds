@@ -10,7 +10,7 @@ export default class TogglableTag extends React.Component {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
     /** Sets Tag's color. */
-    color: PropTypes.oneOf(TAG_COLORS),
+    color: PropTypes.oneOf(["", ...TAG_COLORS]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
     /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
