@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import { TAG_COLORS } from "../constants";
+import { ICON_TYPES, TAG_COLORS } from "../constants";
 
 export default class DropdownTag extends React.Component {
   static propTypes = {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOf(ICON_TYPES),
     /** Sets Tag's color. */
     color: PropTypes.oneOf(TAG_COLORS),
     /** Skin of the the rendered Tag. */
