@@ -22,6 +22,9 @@ export default {
     color: {
       control: { type: "radio", options: outlineFilledCardChoices.color },
     },
+    children: {
+      control: false,
+    },
   },
 };
 
