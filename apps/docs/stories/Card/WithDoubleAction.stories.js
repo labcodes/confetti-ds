@@ -25,6 +25,9 @@ export default {
     skin: {
       control: { type: "radio", options: outlineCardChoices.skin },
     },
+    children: {
+      control: false,
+    },
   },
 };
 
