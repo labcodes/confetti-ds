@@ -75,7 +75,7 @@ $radio-bg-disabled: $mineral-20;
     }
   }
 
-  &:disabled:checked {
+  &:disabled:checked, &[aria-disabled]:checked {
     + .lab-radio__label {
       .lab-radio__container  {
         background: $radio-bg-disabled;
@@ -105,8 +105,11 @@ $radio-bg-disabled: $mineral-20;
       }
     }
 
-  &:disabled {
+  &:disabled, &[aria-disabled] {
+    pointer-events: none;
+
     + .lab-radio__label {
+      pointer-events: none;
       cursor: default;
 
       .lab-radio__container  {
