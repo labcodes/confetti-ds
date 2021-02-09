@@ -17,7 +17,7 @@ export default class RemovableTag extends React.Component {
     /** Sets Tag's color. */
     color: PropTypes.oneOf(TAG_COLORS),
     /** Skin of the the rendered Tag. */
-    skin: PropTypes.string,
+    skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
     /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
