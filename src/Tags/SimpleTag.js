@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
+
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
+import { TAG_COLORS } from "../constants";
 
 export default class SimpleTag extends React.Component {
   static propTypes = {
@@ -13,7 +15,7 @@ export default class SimpleTag extends React.Component {
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
     icon: PropTypes.string,
     /** Sets Tag's color. */
-    color: PropTypes.string,
+    color: PropTypes.oneOf(TAG_COLORS),
     /** Skin of the the rendered Tag. */
     skin: PropTypes.string,
     /** Sets an outline style. */
