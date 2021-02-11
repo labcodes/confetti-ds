@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
+import { ICON_TYPES } from "../constants";
 
 export default class FooterButton extends React.Component {
   static propTypes = {
     /** This is the button label. */
     label: PropTypes.string.isRequired,
     /** Sets the icon related to the button label. Default state: no icon. */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOf(ICON_TYPES),
     /** Callback action to be executed when the FooterButton is clicked. */
     onClick: PropTypes.func.isRequired,
   };
