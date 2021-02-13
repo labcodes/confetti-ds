@@ -13,9 +13,9 @@ export default class SimpleTag extends React.Component {
     /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. */
     thumbSrc: PropTypes.string,
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-    icon: PropTypes.oneOf(["", ...ICON_TYPES]),
+    icon: PropTypes.oneOf(ICON_TYPES),
     /** Sets Tag's color. */
-    color: PropTypes.oneOf(["", ...TAG_COLORS]),
+    color: PropTypes.oneOf(TAG_COLORS),
     /** Skin of the the rendered Tag. */
     skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
@@ -24,10 +24,10 @@ export default class SimpleTag extends React.Component {
 
   static defaultProps = {
     thumbSrc: "",
-    icon: "",
+    icon: undefined,
     isOutline: false,
     skin: "pale",
-    color: "",
+    color: undefined,
   };
 
   constructor(props) {
