@@ -10,9 +10,9 @@ export default class DropdownTag extends React.Component {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-    icon: PropTypes.oneOf(["", ...ICON_TYPES]),
+    icon: PropTypes.oneOf(ICON_TYPES),
     /** Sets Tag's color. */
-    color: PropTypes.oneOf(["", ...TAG_COLORS]),
+    color: PropTypes.oneOf(TAG_COLORS),
     /** Skin of the the rendered Tag. */
     skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
@@ -26,8 +26,8 @@ export default class DropdownTag extends React.Component {
   };
 
   static defaultProps = {
-    icon: "",
-    color: "",
+    icon: undefined,
+    color: undefined,
     skin: "pale",
     isOutline: false,
     disabled: false,
