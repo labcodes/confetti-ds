@@ -14,7 +14,7 @@ export default {
       control: { type: "select", options: TAG_COLORS },
     },
     skin: {
-      control: { type: "inline-radio", options: ["pale", "vivid"] },
+      control: { type: "inline-radio" },
     },
   },
 };
