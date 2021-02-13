@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { isUndefined } from "lodash";
+
 import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
+import { ICON_TYPES } from "./constants";
 
 export default class Banner extends React.Component {
   static propTypes = {
@@ -11,7 +13,7 @@ export default class Banner extends React.Component {
     /** Type of the Banner. */
     type: PropTypes.oneOf(["info", "warn", "error"]),
     /** Sets the icon related to the banner’s message. */
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.oneOf(ICON_TYPES).isRequired,
     /** Ojbect with information about the Banners's button. */
     buttonProps: PropTypes.shape({
       /** Banner's text button label. */
