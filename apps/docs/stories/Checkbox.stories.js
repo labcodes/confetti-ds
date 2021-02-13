@@ -5,6 +5,20 @@ import { Checkbox as Component  } from "../confetti-ds/src";
 export default {
   title: "Checkbox/Checkbox",
   component: Component,
+  argTypes: {
+    id: {
+      control: false,
+    },
+    name: {
+      control: false,
+    },
+    label: {
+      control: false,
+    },
+    value: {
+      control: false,
+    },
+  },
 };
 
 export const Checkbox = (args) => (
