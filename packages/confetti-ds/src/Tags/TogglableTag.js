@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
+import { TAG_COLORS } from "../constants";
 
 export default class TogglableTag extends React.Component {
   static propTypes = {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
     /** Sets Tag's color. */
-    color: PropTypes.string,
+    color: PropTypes.oneOf(TAG_COLORS),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
     /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
@@ -22,7 +24,7 @@ export default class TogglableTag extends React.Component {
   };
 
   static defaultProps = {
-    color: "",
+    color: undefined,
     isOutline: false,
     disabled: false,
     ariaDisabled: false,
