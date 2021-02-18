@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
+
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
+import { ICON_TYPES, TAG_COLORS } from "../constants";
 
 export default class SimpleTag extends React.Component {
   static propTypes = {
@@ -11,21 +13,21 @@ export default class SimpleTag extends React.Component {
     /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. */
     thumbSrc: PropTypes.string,
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOf(ICON_TYPES),
     /** Sets Tag's color. */
-    color: PropTypes.string,
+    color: PropTypes.oneOf(TAG_COLORS),
     /** Skin of the the rendered Tag. */
-    skin: PropTypes.string,
+    skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
   };
 
   static defaultProps = {
     thumbSrc: "",
-    icon: "",
+    icon: undefined,
     isOutline: false,
     skin: "pale",
-    color: "",
+    color: undefined,
   };
 
   constructor(props) {

@@ -55,3 +55,15 @@ export const ICON_COLORS = [
   "purple-60",
   "purple-70",
 ];
+
+export const TAG_COLORS = [
+  "mineral",
+  "teal",
+  "purple",
+  "green",
+  "red",
+  "yellow",
+  "cyan",
+  "orange",
+  "pink",
+];
