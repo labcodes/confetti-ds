@@ -5,6 +5,20 @@ import { Radio as Component } from "../confetti-ds/src";
 export default {
   title: "Radio/Radio",
   component: Component,
+  argTypes: {
+    id: {
+      control: false,
+    },
+    name: {
+      control: false,
+    },
+    label: {
+      control: false,
+    },
+    value: {
+      control: false,
+    },
+  },
 };
 
 export const Radio = (args) => (
