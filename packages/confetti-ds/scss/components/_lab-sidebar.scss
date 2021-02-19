@@ -61,11 +61,8 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
 .lab-narrow-sidebar__header {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  width: 80%;
   padding: 16px 28px;
   flex-grow: 0;
-  z-index: 1;
   border-top-right-radius: $radius-default;
   background-color: $white;
   box-sizing: border-box;
@@ -93,6 +90,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
 .lab-narrow-sidebar__avatar {
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   &-photo {
     width: 48px;
@@ -111,6 +109,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    max-width: 50%;
     color: $teal-70;
     font-weight: $weight-bold;
     font-family: $font-primary;
@@ -118,11 +117,11 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
 
     @include from($tablet) {
       display: none;
+      max-width: none;
     }
   }
 
   &-caption {
-    display: inline-flex;
     font-family: $font-primary;
     color: $black-50;
     font-weight: $weight-medium;
@@ -171,7 +170,6 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   flex-direction: column;
   flex-grow: 1;
   padding: $spacing-1 0;
-  margin-top: 76px;
   border-top: $border-default transparent;
   border-bottom: $border-default transparent;
 
@@ -256,11 +254,16 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   }
 }
 
+.lab-narrow-sidebar__avatar-text span,
 .lab-narrow-sidebar__item-label,
 .lab-narrow-sidebar__footer-label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.lab-narrow-sidebar__item-label,
+.lab-narrow-sidebar__footer-label {
   max-width: 100%;
 }
 
