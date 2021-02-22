@@ -2,6 +2,7 @@
 Before submitting this pull request, make sure these boxes are checked. Thanks!
 
 - [ ] Review your code and QA it as the user. Double check if it does everything that was asked on the task.
+- [ ] Check your features both in Firefox **and** in a Chromium-based browser (Chrome, Brave, Chromium, Edge).
 - [ ] Merge the target branch into your branch and fix conflicts.
 - [ ] Look for forgotten comments, prints, console.log and typos.
 - [ ] YAGNI (You ain’t gonna need it) - Don’t do things that you don’t need yet.

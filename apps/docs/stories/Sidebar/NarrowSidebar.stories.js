@@ -11,9 +11,6 @@ import { UserAvatar as UserAvatarStory } from "./subcomponents/UserAvatar.storie
 export default {
   title: "Sidebar/Narrow Sidebar",
   component: Component,
-  parameters: {
-    backgrounds: { default: "dark" },
-  },
   argTypes: {
     children: {
       control: false,
