@@ -10,9 +10,9 @@ export default class SimpleTag extends React.Component {
   static propTypes = {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
-    /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. */
+    /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
     thumbSrc: PropTypes.string,
-    /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+    /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
     icon: PropTypes.oneOf(ICON_TYPES),
     /** Sets Tag's color. */
     color: PropTypes.oneOf(TAG_COLORS),
