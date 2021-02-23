@@ -1,10 +1,10 @@
 import React from "react";
 
-import { TAG_COLORS } from "../../confetti-ds/src/constants";
-import { Button, RemovableTag as Component } from "../../confetti-ds/src";
+import { TAG_COLORS } from "../../../../confetti-ds/src/constants";
+import { Button, RemovableTag as Component } from "../../../../confetti-ds/src";
 
 export default {
-  title: "Tag/Removable Tag",
+  title: "Content/Tag/Removable Tag/Removable Tag",
   component: Component,
   argTypes: {
     color: {

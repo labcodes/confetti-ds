@@ -1,10 +1,10 @@
 import React from "react";
 
 import sampleImage from "./card-image.jpg";
-import { CardImage as Component } from "../../../confetti-ds/src/Card";
+import { CardImage as Component } from "../../../../confetti-ds/src/Card";
 
 export default {
-  title: "Card/Subcomponents/Card Image",
+  title: "Content/Card/Card Subcomponents/Card Image",
   component: Component,
   parameters: {
     viewport: {

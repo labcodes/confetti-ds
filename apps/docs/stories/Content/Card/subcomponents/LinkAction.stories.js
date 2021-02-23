@@ -1,9 +1,9 @@
 import React from "react";
 
-import { LinkAction as Component } from "../../../confetti-ds/src/Card";
+import { LinkAction as Component } from "../../../../confetti-ds/src/Card";
 
 export default {
-  title: "Card/Subcomponents/Link Action",
+  title: "Content/Card/Card Subcomponents/Link Action",
   component: Component,
 };
 

@@ -1,13 +1,13 @@
 import React from "react";
 
 import {
-  OutlineFilledCard as Component,
+  OutlineCard as Component,
   CardHeader,
   CardImage,
   CardDivider,
   DoubleAction,
-} from "../../confetti-ds/src/Card";
-import { outlineFilledCardChoices } from "../../confetti-ds/src/Card/propTypes";
+} from "../../../confetti-ds/src/Card";
+import { outlineCardChoices } from "../../../confetti-ds/src/Card/propTypes";
 
 import { DoubleAction as DoubleActionStory } from "./subcomponents/DoubleAction.stories";
 import { CardDivider as CardDividerStory } from "./subcomponents/CardDivider.stories";
@@ -15,12 +15,15 @@ import { CardImage as CardImageStory } from "./subcomponents/CardImage.stories";
 import { CardHeader as CardHeaderStory } from "./subcomponents/CardHeader.stories";
 
 export default {
-  title: "Card/Outline Filled Card",
+  title: "Content/Card/With Double Action",
   component: Component,
   subcomponents: { CardImage, CardHeader, CardDivider, DoubleAction },
   argTypes: {
     color: {
-      control: { type: "radio", options: outlineFilledCardChoices.color },
+      control: { type: "radio", options: outlineCardChoices.color },
+    },
+    skin: {
+      control: { type: "radio", options: outlineCardChoices.skin },
     },
     children: {
       control: false,
@@ -28,7 +31,7 @@ export default {
   },
 };
 
-export const OutlineFilledCard = (args) => (
+export const WithDoubleAction = (args) => (
   <div className="ignore-this-div" style={{ width: "400px", margin: "0 auto" }}>
     <Component {...args}>
       <CardHeaderStory {...CardHeaderStory.args} />
@@ -43,6 +46,7 @@ export const OutlineFilledCard = (args) => (
   </div>
 );
 
-OutlineFilledCard.args = {
+WithDoubleAction.args = {
   color: "mineral",
+  skin: "pale"
 }

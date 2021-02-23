@@ -6,8 +6,8 @@ import {
   CardImage,
   CardDivider,
   DoubleAction,
-} from "../../confetti-ds/src/Card";
-import { outlineCardChoices } from "../../confetti-ds/src/Card/propTypes";
+} from "../../../confetti-ds/src/Card";
+import { outlineCardChoices } from "../../../confetti-ds/src/Card/propTypes";
 
 import { DoubleAction as DoubleActionStory } from "./subcomponents/DoubleAction.stories";
 import { CardDivider as CardDividerStory } from "./subcomponents/CardDivider.stories";
@@ -15,7 +15,7 @@ import { CardImage as CardImageStory } from "./subcomponents/CardImage.stories";
 import { CardHeader as CardHeaderStory } from "./subcomponents/CardHeader.stories";
 
 export default {
-  title: "Card/With Overflowed Image",
+  title: "Content/Card/Outline Card",
   component: Component,
   subcomponents: { CardImage, CardHeader, CardDivider, DoubleAction },
   argTypes: {
@@ -31,22 +31,22 @@ export default {
   },
 };
 
-export const WithOverflowedImage = (args) => (
+export const OutlineCard = (args) => (
   <div className="ignore-this-div" style={{ width: "400px", margin: "0 auto" }}>
     <Component {...args}>
-      <CardImageStory {...CardImageStory.args} isOverflowed={true} />
       <CardHeaderStory {...CardHeaderStory.args} />
 
       <p>This HTML is inside the card body, below the image and header.</p>
       <p>We'd recommend for it to not be too long.</p>
 
+      <CardImageStory {...CardImageStory.args} />
       <CardDividerStory {...CardDividerStory.args} />
       <DoubleAction {...DoubleActionStory.args} />
     </Component>
   </div>
 );
 
-WithOverflowedImage.args = {
+OutlineCard.args = {
   color: "mineral",
   skin: "pale"
 }

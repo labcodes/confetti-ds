@@ -1,10 +1,10 @@
 import React from "react";
 
-import { TAG_COLORS } from "../../confetti-ds/src/constants";
-import { SimpleTag as Component } from "../../confetti-ds/src";
+import { TAG_COLORS } from "../../../../confetti-ds/src/constants";
+import { SimpleTag as Component } from "../../../../confetti-ds/src";
 
 export default {
-  title: "Tag/Simple Tag",
+  title: "Content/Tag/Simple Tag/Simple Tag",
   component: Component,
   argTypes: {
     color: {

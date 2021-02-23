@@ -1,10 +1,10 @@
 import React from "react";
 
-import { DoubleAction as Component } from "../../../confetti-ds/src/Card";
-import { CardContext } from "../../../confetti-ds/src/Card/contexts";
+import { DoubleAction as Component } from "../../../../confetti-ds/src/Card";
+import { CardContext } from "../../../../confetti-ds/src/Card/contexts";
 
 export default {
-  title: "Card/Subcomponents/Double Action",
+  title: "Content/Card/Card Subcomponents/Double Action",
   component: Component,
   parameters: {
     viewport: {
