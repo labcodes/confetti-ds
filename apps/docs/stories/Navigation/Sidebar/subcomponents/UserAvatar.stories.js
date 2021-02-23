@@ -1,11 +1,11 @@
 import React from "react";
 
-import { NarrowSidebar } from "../../../confetti-ds/src";
+import { NarrowSidebar } from "../../../../confetti-ds/src";
 import mrgeraldo from "./MrGeraldo.png";
 const { UserAvatar: Component } = NarrowSidebar;
 
 export default {
-  title: "Sidebar/Subcomponents/User Avatar",
+  title: "Navigation/Sidebar/Narrow Subcomponents/User Avatar",
   component: Component,
   parameters: {
     viewport: {

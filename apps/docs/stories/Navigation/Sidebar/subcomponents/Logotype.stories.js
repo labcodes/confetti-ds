@@ -1,11 +1,11 @@
 import React from "react";
 
-import { NarrowSidebar } from "../../../confetti-ds/src";
+import { NarrowSidebar } from "../../../../confetti-ds/src";
 import logo from "./logo.png";
 const { Logotype: Component } = NarrowSidebar;
 
 export default {
-  title: "Sidebar/Subcomponents/Logotype",
+  title: "Navigation/Sidebar/Narrow Subcomponents/Logotype",
   component: Component,
   parameters: {
     viewport: {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NarrowSidebar as Component } from "../../confetti-ds/src";
+import { NarrowSidebar as Component } from "../../../confetti-ds/src";
 
 import { CollapseButton as CollapseButtonStory } from "./subcomponents/CollapseButton.stories";
 import { FooterButton as FooterButtonStory } from "./subcomponents/FooterButton.stories";
@@ -10,7 +10,7 @@ import { Logotype as LogotypeStory } from "./subcomponents/Logotype.stories";
 import { UserAvatar as UserAvatarStory } from "./subcomponents/UserAvatar.stories";
 
 export default {
-  title: "Sidebar/Narrow Sidebar With Footer Avatar",
+  title: "Navigation/Sidebar/Narrow With Footer Avatar",
   component: Component,
   argTypes: {
     children: {
@@ -29,7 +29,7 @@ export default {
   },
 };
 
-export const NarrowSidebarWithFooterAvatar = (args) => (
+export const NarrowWithFooterAvatar = (args) => (
   <Component {...args} isOpenOnMobile>
     <Component.Header {...HeaderStory.args}>
       <Component.Logotype {...LogotypeStory.args} />
@@ -48,6 +48,3 @@ export const NarrowSidebarWithFooterAvatar = (args) => (
     </Component.Footer>
   </Component>
 );
-
-NarrowSidebarWithFooterAvatar.args = {
-};

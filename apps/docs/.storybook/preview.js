@@ -54,6 +54,22 @@ export const parameters = {
             'Password Input',
           ]
         ],
+        'Navigation', [
+          'Sidebar', [
+            'Narrow',
+            'Narrow With Footer Avatar',
+            'Narrow Subcomponents', [
+              'Body',
+              'Collapse Button',
+              'Footer',
+              'Footer Button',
+              'Header',
+              'Item',
+              'Logotype',
+              'User Avatar',
+            ],
+          ],
+        ],
       ],
     },
   },

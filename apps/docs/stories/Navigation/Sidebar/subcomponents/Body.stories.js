@@ -1,10 +1,10 @@
 import React from "react";
 
-import { NarrowSidebar } from "../../../confetti-ds/src";
+import { NarrowSidebar } from "../../../../confetti-ds/src";
 const { Body: Component } = NarrowSidebar;
 
 export default {
-  title: "Sidebar/Subcomponents/Body",
+  title: "Navigation/Sidebar/Narrow Subcomponents/Body",
   component: Component,
   argTypes: {
     children: {
