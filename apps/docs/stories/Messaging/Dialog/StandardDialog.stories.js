@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Button, StandardDialog as Component } from "../../confetti-ds/src";
-import { usePrevious } from "../hooks";
+import { Button, StandardDialog as Component } from "../../../confetti-ds/src";
+import { usePrevious } from "../../hooks";
 
 export default {
-  title: "Dialog/Standard Dialog",
+  title: "Messaging/Dialog/Standard",
   component: Component,
   argTypes: {
     buttonProps: {
@@ -19,7 +19,7 @@ export default {
   },
 };
 
-export const StandardDialog = (args) => {
+export const Standard = (args) => {
   const { isModal } = args;
   const [isOpen, setIsOpen] = React.useState(false);
   const prevIsModal = usePrevious(isModal);
@@ -42,7 +42,7 @@ export const StandardDialog = (args) => {
   );
 };
 
-StandardDialog.args = {
+Standard.args = {
   title: "Sample Standard Dialog",
   content:
     "This is the main content of a Standard Dialog. You may want to put as much content as you want, as long as it's a string.",

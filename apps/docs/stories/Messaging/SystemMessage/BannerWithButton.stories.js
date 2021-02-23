@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON_TYPES } from "../../confetti-ds/src/constants";
-import { Banner as Component } from "../../confetti-ds/src";
+import { ICON_TYPES } from "../../../confetti-ds/src/constants";
+import { Banner as Component } from "../../../confetti-ds/src";
 
 export default {
-  title: "System Message/Banner With Button",
+  title: "Messaging/System Messages/Banner With Button",
   component: Component,
   argTypes: {
     icon: {

@@ -70,6 +70,18 @@ export const parameters = {
             ],
           ],
         ],
+        'Messaging', [
+          'Dialog', [
+            'Standard',
+            'Message',
+          ],
+          'System Messages', [
+            'Alert With Button',
+            'Alert Without Button',
+            'Banner With Button',
+            'Banner Without Button',
+          ],
+        ],
       ],
     },
   },

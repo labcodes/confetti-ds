@@ -1,11 +1,11 @@
 import React from "react";
 
-import { ICON_TYPES } from "../../confetti-ds/src/constants";
-import { Button, MessageDialog as Component } from "../../confetti-ds/src";
-import { usePrevious } from "../hooks";
+import { ICON_TYPES } from "../../../confetti-ds/src/constants";
+import { Button, MessageDialog as Component } from "../../../confetti-ds/src";
+import { usePrevious } from "../../hooks";
 
 export default {
-  title: "Dialog/Message Dialog",
+  title: "Messaging/Dialog/Message",
   component: Component,
   argTypes: {
     buttonProps: {
@@ -23,7 +23,7 @@ export default {
   },
 };
 
-export const MessageDialog = (args) => {
+export const Message = (args) => {
   const { isModal } = args;
   const [isOpen, setIsOpen] = React.useState(false);
   const prevIsModal = usePrevious(isModal);
@@ -46,7 +46,7 @@ export const MessageDialog = (args) => {
   );
 };
 
-MessageDialog.args = {
+Message.args = {
   title: "Sample Message Dialog",
   icon: "star",
   content:
