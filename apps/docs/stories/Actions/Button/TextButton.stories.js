@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON_TYPES } from "../confetti-ds/src/constants";
-import { TextButton as Component } from "../confetti-ds/src/Button";
+import { ICON_TYPES } from "../../../confetti-ds/src/constants";
+import { TextButton as Component } from "../../../confetti-ds/src/Button";
 
 export default {
-  title: "Button/TextButton",
+  title: "Actions/Button/Text Button",
   component: Component,
   argTypes: {
     icon: {
@@ -18,4 +18,3 @@ TextButton.args = {
   text: "Text Button",
   onClick: () => alert("TextButton was clicked"),
 };
-TextButton.storyName = "TextButton";

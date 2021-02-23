@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON_TYPES } from "../confetti-ds/src/constants";
-import { OutlineButton as Component } from "../confetti-ds/src/Button";
+import { ICON_TYPES } from "../../../confetti-ds/src/constants";
+import { OutlineButton as Component } from "../../../confetti-ds/src/Button";
 
 export default {
-  title: "Button/OutlineButton",
+  title: "Actions/Button/Outline Button",
   component: Component,
   argTypes: {
     icon: {
@@ -18,4 +18,3 @@ OutlineButton.args = {
   text: "Outline Button",
   onClick: () => alert("OutlineButton was clicked"),
 };
-OutlineButton.storyName = "OutlineButton";

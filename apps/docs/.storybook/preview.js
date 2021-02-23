@@ -5,7 +5,20 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   options: {
     storySort: {
-      order: ['Elements'],
+      order: [
+        'Elements', [
+          'Icon',
+          'Badge',
+        ],
+        'Actions', [
+          'Button', [
+            'Button',
+            'Outline Button',
+            'Text Button',
+          ],
+          'Toggle',
+        ],
+      ],
     },
   },
 }
