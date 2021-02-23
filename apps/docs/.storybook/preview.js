@@ -41,6 +41,19 @@ export const parameters = {
             'Removable Tag',
           ],
         ],
+        'Data Inputs', [
+          'Checkbox',
+          'Radio',
+          'Search', [
+            'Inline Search',
+            'Standard Search',
+          ],
+          'Text Input', [
+            'Text Input',
+            'Email Input',
+            'Password Input',
+          ]
+        ],
       ],
     },
   },

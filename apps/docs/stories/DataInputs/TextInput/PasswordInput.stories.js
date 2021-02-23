@@ -1,9 +1,9 @@
 import React from "react";
 
-import { PasswordInput as Component } from "../../confetti-ds/src/Input";
+import { PasswordInput as Component } from "../../../confetti-ds/src/Input";
 
 export default {
-  title: "Text Input/Password Input",
+  title: "Data Inputs/Text Input/Password Input",
   component: Component,
 };
 

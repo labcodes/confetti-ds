@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Radio as Component } from "../confetti-ds/src";
+import { Radio as Component } from "../../confetti-ds/src";
 
 export default {
-  title: "Radio/Radio",
+  title: "Data Inputs/Radio",
   component: Component,
   argTypes: {
     id: {

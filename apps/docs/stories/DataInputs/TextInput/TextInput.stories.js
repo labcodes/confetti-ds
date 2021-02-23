@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON_TYPES, ICON_COLORS } from "../../confetti-ds/src/constants";
-import { EmailInput as Component } from "../../confetti-ds/src/Input";
+import { ICON_TYPES, ICON_COLORS } from "../../../confetti-ds/src/constants";
+import { TextInput as Component } from "../../../confetti-ds/src/Input";
 
 export default {
-  title: "Text Input/Email Input",
+  title: "Data Inputs/Text Input/Text Input",
   component: Component,
   argTypes: {
     icon: {
@@ -16,8 +16,8 @@ export default {
   },
 };
 
-export const EmailInput = (args) => <Component {...args} />;
-EmailInput.args = {
+export const TextInput = (args) => <Component {...args} />;
+TextInput.args = {
   id: "demo-input",
   label: "Demo label",
   onChange: (event) => console.log(event),

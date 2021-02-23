@@ -1,9 +1,9 @@
 import React from "react";
 
-import { InlineSearch as Component } from "../../confetti-ds/src";
+import { InlineSearch as Component } from "../../../confetti-ds/src";
 
 export default {
-  title: "Search/Inline Search",
+  title: "Data Inputs/Search/Inline Search",
   component: Component,
 };
 

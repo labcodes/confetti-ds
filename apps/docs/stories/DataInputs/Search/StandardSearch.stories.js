@@ -1,9 +1,9 @@
 import React from "react";
 
-import { StandardSearch as Component } from "../../confetti-ds/src";
+import { StandardSearch as Component } from "../../../confetti-ds/src";
 
 export default {
-  title: "Search/Standard Search",
+  title: "Data Inputs/Search/Standard Search",
   component: Component,
 };
 
