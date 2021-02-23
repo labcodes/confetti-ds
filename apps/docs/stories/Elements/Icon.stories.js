@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON_TYPES, ICON_COLORS } from "../confetti-ds/src/constants";
-import { Icon as Component } from "../confetti-ds/src";
+import { ICON_TYPES, ICON_COLORS } from "../../confetti-ds/src/constants";
+import { Icon as Component } from "../../confetti-ds/src";
 
 export default {
-  title: "Icons & Badges/Icon",
+  title: "Elements/Icon",
   component: Component,
   argTypes: {
     type: {

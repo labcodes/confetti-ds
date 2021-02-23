@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Badge as Component } from "../confetti-ds/src";
+import { Badge as Component } from "../../confetti-ds/src";
 
 export default {
-  title: "Icons & Badges/Badge",
+  title: "Elements/Badge",
   component: Component,
 };
 
