@@ -31,7 +31,7 @@ export default class AbstractTag extends React.Component {
     renderSuffix: undefined,
     className: "",
     isOutline: false,
-    color: "",
+    color: undefined,
     skin: "pale",
     disabled: false,
     ariaDisabled: false,
