@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Tooltip as Component, Button } from "../confetti-ds/src";
+import { Tooltip as Component, Button } from "../../confetti-ds/src";
 
 export default {
-  title: "Tooltip/Tooltip",
+  title: "Messaging/Tooltip",
   component: Component,
   argTypes: {
     children: {
