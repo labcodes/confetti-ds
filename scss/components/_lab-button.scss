@@ -28,6 +28,7 @@ $text-bg-active: map-get($button-theme, "20");
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
   line-height: $btn-line-heigt;
+  font-variant-numeric: $font-aligned-numbers;
   text-decoration: none;
   vertical-align: top;
   cursor: pointer;

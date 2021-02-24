@@ -43,6 +43,7 @@ $input-border-disabled: $mineral-30;
   display: flex;
   width: 100%;
   align-items: center;
+  font-variant-numeric: $font-aligned-numbers;
 }
 
 .lab-input--disabled {
@@ -142,6 +143,7 @@ $input-border-disabled: $mineral-30;
   outline: none;
   box-shadow: none;
   flex: 1;
+  font-variant-numeric: $font-aligned-numbers;
 
   // because browsers have different defaults for an input's min-width
   // we are forcing it to be zero, so that the input fills the available space
@@ -368,6 +370,7 @@ $input-border-disabled: $mineral-30;
   font-weight: $input-font-weight;
   opacity: 1;
   transition: opacity $duration-base ease;
+  font-variant-numeric: $font-aligned-numbers;
 
   &--error {
     color: $input-main-invalid;

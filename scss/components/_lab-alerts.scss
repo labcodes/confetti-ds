@@ -13,6 +13,7 @@ $alerts-line-height: 20px;
   padding: $spacing-3 $spacing-4;
   color: $mineral-70;
   border-radius: 8px;
+  font-variant-numeric: $font-aligned-numbers;
 
   &--info {
     @extend .lab-alert;
@@ -84,6 +85,7 @@ $alerts-line-height: 20px;
   color: $white;
   position: sticky;
   position: -webkit-sticky;
+  font-variant-numeric: $font-aligned-numbers;
 
   top: 0;
   z-index: 5;

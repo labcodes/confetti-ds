@@ -11,6 +11,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
   padding: $card-default-padding;
   border-radius: $radius-3;
   border: $border-2;
+  font-variant-numeric: $font-aligned-numbers;
 
   &.lab-card--compact {
     padding: $card-compact-padding;
@@ -105,6 +106,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
 
 .lab-card-header {
   margin-bottom: $spacing-3;
+  font-variant-numeric: $font-aligned-numbers;
 
   &.lab-card-header--overlay {
     position: absolute;

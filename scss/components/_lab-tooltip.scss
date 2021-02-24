@@ -41,6 +41,7 @@ $tooltip-border-color: map-get($tooltip-theme, "80");
     font-size: $font-size-2;
     line-height: $font-size-3;
     text-align: center;
+    font-variant-numeric: $font-aligned-numbers;
 
     /* Using theme color defined in _settings.scss */
     border: 2px solid $tooltip-border-color;
