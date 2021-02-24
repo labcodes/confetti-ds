@@ -1,10 +1,10 @@
 import React from "react";
 
-import { TAG_COLORS } from "../../confetti-ds/src/constants";
+import { ICON_TYPES, TAG_COLORS } from "../../confetti-ds/src/constants";
 import { Button, RemovableTag as Component } from "../../confetti-ds/src";
 
 export default {
-  title: "Tag/Removable Tag",
+  title: "Tag/Removable Tag With Icon",
   component: Component,
   argTypes: {
     color: {
@@ -14,7 +14,7 @@ export default {
       control: { type: "inline-radio" },
     },
     icon: {
-      control: false,
+      control: { type: "select", options: ICON_TYPES },
     },
     thumbSrc: {
       control: false,
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const RemovableTag = (args) => {
+export const RemovableTagWithIcon = (args) => {
   const [showTag, setShowTag] = React.useState(true);
 
   return (
@@ -36,6 +36,7 @@ export const RemovableTag = (args) => {
     </React.Fragment>
   )
 }
-RemovableTag.args = {
+RemovableTagWithIcon.args = {
   text: "demo tag",
+  icon: "coin",
 };

@@ -4,7 +4,7 @@ import { TAG_COLORS } from "../../confetti-ds/src/constants";
 import { Button, RemovableTag as Component } from "../../confetti-ds/src";
 
 export default {
-  title: "Tag/Removable Tag",
+  title: "Tag/Removable Tag With Thumb",
   component: Component,
   argTypes: {
     color: {
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const RemovableTag = (args) => {
+export const RemovableTagWithThumb = (args) => {
   const [showTag, setShowTag] = React.useState(true);
 
   return (
@@ -36,6 +36,7 @@ export const RemovableTag = (args) => {
     </React.Fragment>
   )
 }
-RemovableTag.args = {
+RemovableTagWithThumb.args = {
   text: "demo tag",
+  thumbSrc: "http://avatars3.githubusercontent.com/u/1887591",
 };

@@ -4,7 +4,7 @@ import { TAG_COLORS } from "../../confetti-ds/src/constants";
 import { SimpleTag as Component } from "../../confetti-ds/src";
 
 export default {
-  title: "Tag/Simple Tag",
+  title: "Tag/Simple Tag With Thumb",
   component: Component,
   argTypes: {
     color: {
@@ -14,7 +14,7 @@ export default {
       control: { type: "inline-radio" },
     },
     icon: {
-      control: false,
+      control: false, 
     },
     thumbSrc: {
       control: false,
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const SimpleTag = (args) => {
+export const SimpleTagWithThumb = (args) => {
   return (
     <React.Fragment>
       <Component {...args} />
@@ -30,6 +30,7 @@ export const SimpleTag = (args) => {
   )
 };
 
-SimpleTag.args = {
+SimpleTagWithThumb.args = {
   text: "demo tag",
+  thumbSrc: "http://avatars3.githubusercontent.com/u/1887591",
 };

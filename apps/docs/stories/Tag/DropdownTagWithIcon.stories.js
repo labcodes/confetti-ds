@@ -1,26 +1,27 @@
 import React from "react";
 
-import { TAG_COLORS } from "../../confetti-ds/src/constants";
+import { ICON_TYPES, TAG_COLORS } from "../../confetti-ds/src/constants";
 import { DropdownTag as Component  } from "../../confetti-ds/src";
 
 export default {
-  title: "Tag/Dropdown Tag",
+  title: "Tag/Dropdown Tag With Icon",
   component: Component,
   argTypes: {
+    icon: {
+      control: { type: "select", options: ICON_TYPES },
+    },
     color: {
       control: { type: "select", options: TAG_COLORS },
     },
     skin: {
       control: { type: "inline-radio" },
     },
-    icon: {
-      control: false,
-    },
   },
 };
 
-export const DropdownTag = (args) => <Component {...args} />;
+export const DropdownTagWithIcon = (args) => <Component {...args} />;
 
-DropdownTag.args = {
+DropdownTagWithIcon.args = {
   text: "demo tag",
+  icon: "coin",
 };
