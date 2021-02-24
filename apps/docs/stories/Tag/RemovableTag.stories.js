@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ICON_TYPES, TAG_COLORS } from "../../confetti-ds/src/constants";
+import { TAG_COLORS } from "../../confetti-ds/src/constants";
 import { Button, RemovableTag as Component } from "../../confetti-ds/src";
 
 export default {
