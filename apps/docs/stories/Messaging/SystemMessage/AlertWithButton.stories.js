@@ -4,7 +4,7 @@ import { ICON_TYPES } from "../../../confetti-ds/src/constants";
 import { Alert as Component } from "../../../confetti-ds/src";
 
 export default {
-  title: "Messaging/System Messages/Alert With Button",
+  title: "Messaging/System Messages/Alert",
   component: Component,
   argTypes: {
     icon: {
