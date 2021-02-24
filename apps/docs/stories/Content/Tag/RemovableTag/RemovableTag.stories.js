@@ -4,7 +4,7 @@ import { TAG_COLORS } from "../../../../confetti-ds/src/constants";
 import { Button, RemovableTag as Component } from "../../../../confetti-ds/src";
 
 export default {
-  title: "Content/Tag/Removable Tag/Removable Tag",
+  title: "Content/Tag/Removable Tag",
   component: Component,
   argTypes: {
     color: {

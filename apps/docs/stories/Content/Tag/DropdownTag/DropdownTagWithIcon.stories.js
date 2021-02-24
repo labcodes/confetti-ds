@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON_TYPES, TAG_COLORS } from "../../confetti-ds/src/constants";
-import { DropdownTag as Component  } from "../../confetti-ds/src";
+import { ICON_TYPES, TAG_COLORS } from "../../../../confetti-ds/src/constants";
+import { DropdownTag as Component  } from "../../../../confetti-ds/src";
 
 export default {
-  title: "Tag/Dropdown Tag With Icon",
+  title: "Content/Tag/Dropdown Tag",
   component: Component,
   argTypes: {
     icon: {

@@ -4,7 +4,7 @@ import { TAG_COLORS } from "../../../../confetti-ds/src/constants";
 import { DropdownTag as Component  } from "../../../../confetti-ds/src";
 
 export default {
-  title: "Content/Tag/Dropdown Tag/Dropdown Tag",
+  title: "Content/Tag/Dropdown Tag",
   component: Component,
   argTypes: {
     color: {
