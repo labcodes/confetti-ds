@@ -8,4 +8,10 @@ fieldset {
 legend {
   margin: 0;
   padding: 0;
+  font-family: $family-sans-serif;
+  font-size: $font-size-3;
+  font-weight: $weight-semibold;
+  text-rendering: $render-mode;
+  letter-spacing: $letter-spacing;
+  font-variant-numeric: $font-aligned-numbers;
 }
