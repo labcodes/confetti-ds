@@ -44,9 +44,9 @@ describe("CardHeader", () => {
     expect(renderedComponent).toMatchSnapshot();
   });
 
-  it("renders with categoryLabelText", async () => {
+  it("renders with categoryTagText", async () => {
     const renderedComponent = renderer
-      .create(<CardHeader categoryLabelText="test" />)
+      .create(<CardHeader categoryTagText="test" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
