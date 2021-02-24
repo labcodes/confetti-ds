@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
   text-rendering: $render-mode;
   letter-spacing: $letter-spacing;
+  font-variant-numeric: $font-aligned-numbers;
 
   strong {
     font-weight: $title-strong-weight;
@@ -84,6 +85,7 @@ p {
   line-height: 1.5rem;
   text-rendering: $render-mode;
   letter-spacing: $letter-spacing;
+  font-variant-numeric: $font-aligned-numbers;
   
   strong {
     font-weight: $title-strong-weight;
