@@ -11,7 +11,9 @@ export default {
       control: { type: "select", options: ICON_TYPES },
     },
     buttonProps: {
-      control: false,
+      table: {
+        disable: true,
+      },
     },
   }
 }
