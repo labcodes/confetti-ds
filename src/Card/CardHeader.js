@@ -15,14 +15,16 @@ export default class CardHeader extends React.Component {
     subtitle: PropTypes.string,
     /** Sets a className for card's subtitle. */
     subtitleClassName: PropTypes.string,
-    /** Sets card's category. */
+    /** Adds a category text in the Card Header. Used to define the group of which the Card is part of. May use a categoryIcon OR categoryColor to the left as visual support for its content. */
     categoryText: PropTypes.string,
-    /** Sets card's label. */
-    categoryLabelText: PropTypes.string,
-    /** Sets card's category icon. */
+    /** Sets a SimpleTag's text in the Card Header. Can be used instead of categoryText to highlight the group of which the Card is part of OR together with categoryText as a sub-category. Only use if categoryColor is not present.  */
+    categoryTagText: PropTypes.string,
+    /** Always used with categoryTagText to set SimpleTag's color in the Card Header. If unset the Tag will be displayed with its default color. */
+    categoryTagColor: PropTypes.string,
+    /** Defines an Icon as visual support to categoryText in the Card Header. It must not be used together with categoryColor. */
     categoryIcon: PropTypes.oneOf(ICON_TYPES),
-    /** Sets card's category badge color. */
-    categoryColor: PropTypes.oneOf(["mineral", "teal", "purple"]),
+    /** Defines a Color as visual support to categoryText in the Card Header. It must not be used together with categoryIcon. */
+    categoryColor: PropTypes.string,
     /** Sets whether the header will go over the image or not. */
     isOverlay: PropTypes.bool,
   };
@@ -33,7 +35,8 @@ export default class CardHeader extends React.Component {
     subtitle: undefined,
     subtitleClassName: undefined,
     categoryText: undefined,
-    categoryLabelText: undefined,
+    categoryTagText: undefined,
+    categoryTagColor: undefined,
     categoryIcon: undefined,
     categoryColor: undefined,
     isOverlay: undefined,
@@ -64,7 +67,8 @@ export default class CardHeader extends React.Component {
       subtitle,
       subtitleClassName,
       categoryText,
-      categoryLabelText,
+      categoryTagText,
+      categoryTagColor,
       categoryIcon,
       categoryColor,
       isOverlay,
@@ -76,7 +80,7 @@ export default class CardHeader extends React.Component {
           isOverlay ? " lab-card-header--overlay" : ""
         }`}
       >
-        {categoryIcon || categoryColor || categoryText || categoryLabelText ? (
+        {categoryIcon || categoryColor || categoryText || categoryTagText ? (
           <p className="lab-card-category">
             {categoryIcon ? <Icon type={categoryIcon} /> : null}
             {categoryColor ? (
@@ -87,7 +91,9 @@ export default class CardHeader extends React.Component {
             {categoryText ? (
               <span className="lab-card-category__text">{categoryText}</span>
             ) : null}
-            {categoryLabelText ? <SimpleTag text={categoryLabelText} /> : null}
+            {categoryTagText ? (
+              <SimpleTag text={categoryTagText} color={categoryTagColor} />
+            ) : null}
           </p>
         ) : null}
         {title ? (
