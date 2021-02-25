@@ -34,7 +34,7 @@ exports[`CardHeader renders with categoryIcon 1`] = `
 </article>
 `;
 
-exports[`CardHeader renders with categoryLabelText 1`] = `
+exports[`CardHeader renders with categoryTagText 1`] = `
 <article
   className="lab-card-header"
 >
