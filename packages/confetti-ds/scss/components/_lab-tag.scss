@@ -33,6 +33,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
   border-radius: 12px;
   border: $tag-border solid;
   text-decoration: none;
+  font-variant-numeric: $font-aligned-numbers;
   transition: all $duration-base;
   outline: none;
   font-family: $font-primary;

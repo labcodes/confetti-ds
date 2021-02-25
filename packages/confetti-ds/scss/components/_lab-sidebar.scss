@@ -260,6 +260,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-variant-numeric: $font-aligned-numbers;
 }
 
 .lab-narrow-sidebar__item-label,

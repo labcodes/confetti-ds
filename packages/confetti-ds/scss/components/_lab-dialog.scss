@@ -116,6 +116,7 @@
   position: fixed;
   font-family: $font-primary;
   -webkit-font-smoothing: antialiased;
+  font-variant-numeric: $font-aligned-numbers;
 }
 
 .lab-dialog--standard {
