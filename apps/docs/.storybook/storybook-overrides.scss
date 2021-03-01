@@ -4,3 +4,9 @@
     position: static;
   }
 }
+
+.sbdocs {
+  a::before {
+    display: none;
+  }
+}
