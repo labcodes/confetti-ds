@@ -2,17 +2,13 @@
 
 ### Installing
 
-Since currently all our codebase is inside the same repo, if you want to use our desing system by itself in outside projects, you'll need to ask Luciano (luciano@labcodes.com.br) to generate a package for you.
+To install the latest version of `@labcodes/confetti-ds`, just install it normally via npm:
 
-He'll send you a compressed version of the transpiled components, together with the scss files you'll need to use them in your project. The compressed file should be named `labsystem-0.1.0.tgz` or something similar.
-
-With the compressed file at hand, copy it to your project and install it by running `npm install labsystem-0.1.0.tgz`. That will make the components and scss files to be unpacked and available inside the `node_modules` folder.
-
-Note: this installation process will change soon, when we separate the Confetti package from the storybook and publish it to npm.
+`npm install @labcodes/confetti-ds`
 
 ### Importing the styles
 
-To be able to use our styles, you'll have to have scss and svg support in your react project. If you do, just import our main scss file into yours by adding `@import '~labsystem/scss/main';` to your main scss file.
+To be able to use our styles, you'll have to have scss and svg support in your react project. If you do, just import our main scss file into yours by adding `@import '~@labcodes/confetti-ds/scss/main';` to your main scss file.
 
 ### Importing the fonts
 
@@ -31,24 +27,24 @@ Our styles already reference the fonts, so after importing them, everything shou
 
 Our design system accepts theming via scss variables. To change a theme for a component, you'll just need to override the corresponding theme variable.
 
-To do that, take a look at which are the default themes in our [_settings.scss](https://github.com/labcodes/labstorybook/blob/master/labsystem/scss/variables/_settings.scss) file, and which themes are available for the components in the [_colors.scss](https://github.com/labcodes/labstorybook/blob/master/labsystem/scss/variables/_colors.scss) file.
+To do that, take a look at which are the default themes in our [_settings.scss](https://github.com/labcodes/confetti-ds/blob/main/scss/variables/_settings.scss) file, and which themes are available for the components in the [_colors.scss](https://github.com/labcodes/confetti-ds/blob/main/scss/variables/_colors.scss) file.
 
 To change the themes, you may need to import our variables files before overwriting. To properly overwrite the Button theme, for example, you may need to do something like this:
 
 ```scss
 // first, import the variables file
-@import "~labsystem/scss/variables/_all";
+@import "~@labcodes/confetti-ds/scss/variables/_all";
 // then, overwrite the variable
 $button-theme: $purple-palette;
 // finally, import the rest of the styles
-@import "~labsystem/scss/main";`
+@import "~@labcodes/confetti-ds/scss/main";`
 ```
 
 ### Using the components
 
-To use any of our components, you just need to import them directly from `labsystem/dist/[component]`.
+To use any of our components, you just need to import them directly from `@labcodes/confetti-ds`.
 
-If you want to use the Alert component, for example, open your react component file, put `import Alert from "labsystem/dist/Alert";` on the top of the file, then use it inside your `render` method, as you would do for any other component.
+If you want to use the Alert component, for example, open your react component file, put `import { Alert } from "@labcodes/confetti-ds";` on the top of the file, then use it inside your `render` method, as you would do for any other component.
 
 For example, if you render the Alert with `<Alert text="Testing alerts!" icon="eye-opened" />` in the Welcome page from our [Django boilerplate](https://github.com/labcodes/django-react-webpack/), you'll probably be looking at something like this:
 
@@ -60,6 +56,6 @@ For example, if you render the Alert with `<Alert text="Testing alerts!" icon="e
 
 ### Where do I get more information on components?
 
-To know where to import the components from, explore our [folder structure for components](https://github.com/labcodes/labstorybook/tree/master/labsystem/src). The compressed package's `dist` folder uses the same structure as the `src` folder from our source code, so if you, for example, want to import the Button component, you'll import it with `import { Button } from "labsystem/dist/Button/";` or `import Button from "labsystem/dist/Button/Button";`, because the source code for the Button component is inside the `labsystem/src/Button` folder.
+To know where to import the components from, explore our [folder structure for components](https://github.com/labcodes/confetti-ds/tree/main/src). The compressed package's `dist` folder uses the same structure as the `src` folder from our source code, so if you, for example, want to import the Button component, you'll import it with `import { Button } from "@labcodes/confetti-ds";` or `import Button from "@labcodes/confetti-ds/dist/Button/Button";`, because the source code for the Button component is inside the `src/Button` folder.
 
 For information on props and their types, just check the prop tabels inside each component's docs.
