@@ -2,13 +2,13 @@
 
 ### Installing
 
-To install the latest version of `@labcodes/confetti-ds`, just install it normally via npm:
+Install the latest version of `@labcodes/confetti-ds` via npm:
 
 `npm install @labcodes/confetti-ds`
 
 ### Importing the styles
 
-To be able to use our styles, you'll have to have scss and svg support in your react project. If you do, just import our main scss file into yours by adding `@import '~@labcodes/confetti-ds/scss/main';` to your main scss file.
+To be able to use our styles, you'll have to have `scss` and `svg` support in your react project. If you do, just import our main `scss` file into yours by adding `@import '~@labcodes/confetti-ds/scss/main';` to your main `scss` file.
 
 ### Importing the fonts
 
@@ -44,7 +44,7 @@ $button-theme: $purple-palette;
 
 To use any of our components, you just need to import them directly from `@labcodes/confetti-ds`.
 
-If you want to use the Alert component, for example, open your react component file, put `import { Alert } from "@labcodes/confetti-ds";` on the top of the file, then use it inside your `render` method, as you would do for any other component.
+If you want to use the `Alert` component, for example, open your react component file, put `import { Alert } from "@labcodes/confetti-ds";` on the top of the file, then use it inside your `render` method, as you would do for any other component.
 
 For example, if you render the Alert with `<Alert text="Testing alerts!" icon="eye-opened" />` in the Welcome page from our [Django boilerplate](https://github.com/labcodes/django-react-webpack/), you'll probably be looking at something like this:
 
@@ -56,6 +56,6 @@ For example, if you render the Alert with `<Alert text="Testing alerts!" icon="e
 
 ### Where do I get more information on components?
 
-To know where to import the components from, explore our [folder structure for components](https://github.com/labcodes/confetti-ds/tree/main/src). The compressed package's `dist` folder uses the same structure as the `src` folder from our source code, so if you, for example, want to import the Button component, you'll import it with `import { Button } from "@labcodes/confetti-ds";` or `import Button from "@labcodes/confetti-ds/dist/Button/Button";`, because the source code for the Button component is inside the `src/Button` folder.
+To know where to import the components from, explore our [folder structure for components](https://github.com/labcodes/confetti-ds/tree/main/src). The compressed package's `dist` folder uses the same structure as the `src` folder from our source code, so if you, for example, want to import the `Button` component, you'll import it with `import { Button } from "@labcodes/confetti-ds";` or `import Button from "@labcodes/confetti-ds/dist/Button/Button";`, because the source code for the `Button` component is inside the `src/Button` folder.
 
 For information on props and their types, just check the prop tabels inside each component's docs.
