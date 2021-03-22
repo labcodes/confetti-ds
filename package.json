@@ -1,6 +1,6 @@
 {
-  "name": "confetti-ds",
-  "version": "0.1.0-alpha",
+  "name": "@labcodes/confetti-ds",
+  "version": "0.1.0-alpha.1",
   "description": "Labcodes' design system, focused on accessibility and ease to use",
   "main": "dist/index.js",
   "husky": {
@@ -11,11 +11,14 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ./src --no-eslintrc -c ./.eslintrc.js",
+    "prepublishOnly": "npm run lint && npm test",
     "prepack": "babel src -d dist --ignore 'src/**/*.test.js'",
-    "postpack": "rm -rf dist"
+    "postpack": "rm -rf dist",
+    "publish-alpha": "npm publish --tag alpha",
+    "publish-beta": "npm publish --tag beta"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["confetti", "design system", "react", "scss", "labcodes"],
+  "author": "Labcodes Software Studio",
   "jest": {
     "setupFilesAfterEnv": [
       "./setupTests.js"
@@ -24,7 +27,10 @@
       "jest-prop-type-error"
     ]
   },
-  "license": "ISC",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.8.7",
