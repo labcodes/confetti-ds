@@ -32,4 +32,15 @@ describe("OutlineFilledCard", () => {
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
+
+  it("renders with extra className", async () => {
+    const renderedComponent = renderer
+      .create(
+        <OutlineFilledCard color="teal" skin="pale" className="test-classname">
+          Content
+        </OutlineFilledCard>
+      )
+      .toJSON();
+    expect(renderedComponent).toMatchSnapshot();
+  });
 });
