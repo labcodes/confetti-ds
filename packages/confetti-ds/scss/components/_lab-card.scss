@@ -41,48 +41,46 @@ $card-compact-padding: $spacing-3 $spacing-4;
     }
   }
 
-  @include from($tablet) {
-    &.lab-card--horizontal {
-      display: block;
-      padding-left: calc(33% + 2 * #{$card-default-padding});
+  &.lab-card--horizontal {
+    display: block;
+    padding-left: calc(33% + 2 * #{$card-default-padding});
 
+    .lab-card-image {
+      border-radius: $radius-2;
+      position: absolute;
+      margin: 0;
+      max-width: calc(33%);
+      left: $card-default-padding;
+      top: $card-default-padding;
+      height: calc(100% - 2 * #{$card-default-padding});
+      object-fit: cover;
+    }
+
+    .lab-card-image--overflowed {
+      top: 0;
+      left: 0;
+      border-top-right-radius: unset;
+      border-bottom-right-radius: unset;
+      border-bottom-left-radius: $radius-2;
+      max-width: calc(33% + #{$card-default-padding});
+      height: 100%;
+      margin: 0;
+    }
+
+    &.lab-card--compact {
       .lab-card-image {
-        border-radius: $radius-2;
-        position: absolute;
         margin: 0;
-        max-width: calc(33%);
-        left: $card-default-padding;
-        top: $card-default-padding;
-        height: calc(100% - 2 * #{$card-default-padding});
-        object-fit: cover;
+        height: calc(100% - 2 * #{nth($card-compact-padding, 1)});
+        left: nth($card-compact-padding, 2);
+        top: nth($card-compact-padding, 1);
       }
 
       .lab-card-image--overflowed {
-        top: 0;
         left: 0;
-        border-top-right-radius: unset;
-        border-bottom-right-radius: unset;
-        border-bottom-left-radius: $radius-2;
-        max-width: calc(33% + #{$card-default-padding});
+        top: 0;
         height: 100%;
-        margin: 0;
-      }
-
-      &.lab-card--compact {
-        .lab-card-image {
-          margin: 0;
-          height: calc(100% - 2 * #{nth($card-compact-padding, 1)});
-          left: nth($card-compact-padding, 2);
-          top: nth($card-compact-padding, 1);
-        }
-
-        .lab-card-image--overflowed {
-          left: 0;
-          top: 0;
-          height: 100%;
-          border-top-left-radius: $radius-2;
-          border-bottom-left-radius: $radius-2;
-        }
+        border-top-left-radius: $radius-2;
+        border-bottom-left-radius: $radius-2;
       }
     }
   }
