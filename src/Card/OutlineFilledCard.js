@@ -14,15 +14,18 @@ export default class OutlineFilledCard extends React.Component {
     isHorizontal: PropTypes.bool,
     /** Reduces paddings and margins on Card layout. */
     isCompact: PropTypes.bool,
+    /** Add a class name to make custom changes */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     isHorizontal: false,
     isCompact: false,
+    className: undefined,
   };
 
   render() {
-    const { children, color, isCompact, isHorizontal } = this.props;
+    const { children, color, isCompact, isHorizontal, className } = this.props;
 
     return (
       <CardContext.Provider value={{ color, cardType: "outlineFilled" }}>
@@ -30,6 +33,7 @@ export default class OutlineFilledCard extends React.Component {
           className={`lab-card lab-card--outline lab-card--filled lab-card--${color}
           ${isCompact ? " lab-card--compact" : ""}
           ${isHorizontal ? " lab-card--horizontal" : ""}
+          ${className ? ` ${className}` : ""}
         `}
         >
           {children}
