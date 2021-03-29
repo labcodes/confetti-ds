@@ -16,15 +16,25 @@ export default class FilledCard extends React.Component {
     isHorizontal: PropTypes.bool,
     /** Reduces paddings and margins on Card layout. */
     isCompact: PropTypes.bool,
+    /** Add a class name to make custom changes */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     isHorizontal: false,
     isCompact: false,
+    className: undefined,
   };
 
   render() {
-    const { children, color, skin, isCompact, isHorizontal } = this.props;
+    const {
+      children,
+      color,
+      skin,
+      isCompact,
+      isHorizontal,
+      className,
+    } = this.props;
 
     return (
       <CardContext.Provider value={{ color, skin, cardType: "filled" }}>
@@ -32,6 +42,7 @@ export default class FilledCard extends React.Component {
           className={`lab-card lab-card--filled lab-card--${color} lab-card--${skin}
           ${isCompact ? " lab-card--compact" : ""}
           ${isHorizontal ? " lab-card--horizontal" : ""}
+          ${className ? ` ${className}` : ""}
         `}
         >
           {children}

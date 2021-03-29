@@ -36,4 +36,15 @@ describe("OutlineCard", () => {
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
+
+  it("renders with extra className", async () => {
+    const renderedComponent = renderer
+      .create(
+        <OutlineCard color="teal" skin="pale" className="test-classname">
+          Content
+        </OutlineCard>
+      )
+      .toJSON();
+    expect(renderedComponent).toMatchSnapshot();
+  });
 });

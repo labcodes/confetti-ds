@@ -5,6 +5,19 @@ exports[`FilledCard renders with base props 1`] = `
   className="lab-card lab-card--filled lab-card--teal lab-card--pale
           
           
+          
+        "
+>
+  Content
+</article>
+`;
+
+exports[`FilledCard renders with extra className 1`] = `
+<article
+  className="lab-card lab-card--filled lab-card--teal lab-card--pale
+          
+          
+           test-classname
         "
 >
   Content
@@ -15,6 +28,7 @@ exports[`FilledCard renders with isCompact 1`] = `
 <article
   className="lab-card lab-card--filled lab-card--teal lab-card--pale
            lab-card--compact
+          
           
         "
 >
@@ -27,6 +41,7 @@ exports[`FilledCard renders with isHorizontal 1`] = `
   className="lab-card lab-card--filled lab-card--teal lab-card--pale
           
            lab-card--horizontal
+          
         "
 >
   Content
