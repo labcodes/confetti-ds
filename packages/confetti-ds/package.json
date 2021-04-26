@@ -1,6 +1,6 @@
 {
   "name": "@labcodes/confetti-ds",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Labcodes' design system, focused on accessibility and ease to use",
   "main": "dist/index.js",
   "husky": {
@@ -60,7 +60,7 @@
     "react-test-renderer": "^16.13.0"
   },
   "dependencies": {
-    "bulma": "^0.9.1",
+    "bulma": "^0.9.2",
     "focus-trap-react": "^8.3.0",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
