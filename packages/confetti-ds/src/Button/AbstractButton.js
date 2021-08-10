@@ -36,6 +36,8 @@ export default class AbstractButton extends React.Component {
     onClick: PropTypes.func,
     /** Makes the button expand to its container's full width. */
     fullWidth: PropTypes.bool,
+    /* Sets the order of which the elements will be focused on. Default value: 0. */
+    tabIndex: PropTypes.string,
   };
 
   static defaultProps = {
@@ -48,6 +50,7 @@ export default class AbstractButton extends React.Component {
     ariaDisabled: false,
     onClick: () => {},
     fullWidth: false,
+    tabIndex: "0",
   };
 
   icon = () => {
@@ -81,6 +84,7 @@ export default class AbstractButton extends React.Component {
       disabled,
       fullWidth,
       ariaDisabled,
+      tabIndex,
     } = this.props;
     return (
       <button
@@ -95,6 +99,7 @@ export default class AbstractButton extends React.Component {
         onClick={!ariaDisabled ? this.handleOnClick : () => {}}
         disabled={(!ariaDisabled && disabled) || undefined}
         aria-disabled={ariaDisabled || undefined}
+        tabIndex={tabIndex}
       >
         {this.icon()}
         {text}
