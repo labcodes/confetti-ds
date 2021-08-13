@@ -50,7 +50,7 @@ export default class AbstractButton extends React.Component {
     ariaDisabled: false,
     onClick: () => {},
     fullWidth: false,
-    tabIndex: "0",
+    tabIndex: undefined,
   };
 
   icon = () => {
@@ -99,7 +99,7 @@ export default class AbstractButton extends React.Component {
         onClick={!ariaDisabled ? this.handleOnClick : () => {}}
         disabled={(!ariaDisabled && disabled) || undefined}
         aria-disabled={ariaDisabled || undefined}
-        tabIndex={tabIndex}
+        {...(tabIndex ? { tabIndex } : undefined)}
       >
         {this.icon()}
         {text}

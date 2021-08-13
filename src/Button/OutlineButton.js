@@ -37,7 +37,7 @@ export default class OutlineButton extends React.Component {
     ariaDisabled: false,
     onClick: () => {},
     fullWidth: false,
-    tabIndex: "0",
+    tabIndex: undefined,
   };
 
   render() {
