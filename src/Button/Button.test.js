@@ -77,4 +77,14 @@ describe("Button", () => {
     );
     expect(mountedComponent.find(".lab-btn--block")).toHaveLength(1);
   });
+
+  it("renders as expected when tabIndex is passed", async () => {
+    const renderedComponent = renderer
+      .create(
+        // eslint-disable-next-line jsx-a11y/tabindex-no-positive
+        <Button text="Test tabIndex" fullWidth tabIndex="1" />
+      )
+      .toJSON();
+    expect(renderedComponent).toMatchSnapshot();
+  });
 });

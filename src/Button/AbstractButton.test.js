@@ -40,4 +40,17 @@ describe("AbstractButton", () => {
     shallowComponent.find("button").simulate("click");
     expect(mockOnClick.mock.calls.length).toEqual(0);
   });
+  it("renders as expected when tabIndex is passed", async () => {
+    const renderedComponent = renderer
+      .create(
+        <AbstractButton
+          variant="default"
+          text="Test tabIndex"
+          // eslint-disable-next-line jsx-a11y/tabindex-no-positive
+          tabIndex="1"
+        />
+      )
+      .toJSON();
+    expect(renderedComponent).toMatchSnapshot();
+  });
 });
