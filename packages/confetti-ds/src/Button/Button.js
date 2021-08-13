@@ -46,7 +46,7 @@ export default class Button extends React.Component {
     ariaDisabled: false,
     onClick: () => {},
     fullWidth: false,
-    tabIndex: "0",
+    tabIndex: undefined,
   };
 
   render() {
