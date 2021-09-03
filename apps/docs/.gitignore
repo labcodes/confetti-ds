@@ -113,3 +113,6 @@ dist
 
 # VIM swap files
 *.swp
+
+# IntelliJ IDEA files
+.idea
