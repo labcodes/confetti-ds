@@ -1,6 +1,6 @@
 {
   "name": "@labcodes/confetti-ds",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "description": "Labcodes' design system, focused on accessibility and ease to use",
   "main": "dist/index.js",
   "husky": {
