@@ -103,7 +103,7 @@ export default class StandardDialog extends React.Component {
           <div className="lab-dialog__header">
             <div className="lab-dialog__title">{title}</div>
             <button
-              className="lab-dialog__close-button"
+              className="lab-dialog__close-button lab-dialog__close-button--message"
               type="button"
               onClick={handleClose}
               {...(isModal ? { tabIndex: "2" } : undefined)}
