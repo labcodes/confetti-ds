@@ -111,6 +111,7 @@ export default class MessageDialog extends React.Component {
             <button
               className="lab-dialog__close-button lab-dialog__close-button--message"
               type="button"
+              {...(isModal ? { tabIndex: "2" } : undefined)}
               onClick={handleClose}
             >
               <Icon type="remove" className="lab-dialog__close-button-icon" />
@@ -135,6 +136,7 @@ export default class MessageDialog extends React.Component {
                 size="normal"
                 text={outlineButtonProps.text}
                 onClick={outlineButtonProps.onClick}
+                {...(isModal ? { tabIndex: "3" } : undefined)}
               />
             ) : undefined}
             <Button
@@ -142,6 +144,7 @@ export default class MessageDialog extends React.Component {
               {...(outlineButtonProps ? undefined : { fullWidth: true })}
               text={buttonProps.text}
               onClick={buttonProps.onClick}
+              {...(isModal ? { tabIndex: "1" } : undefined)}
             />
           </div>
         </div>

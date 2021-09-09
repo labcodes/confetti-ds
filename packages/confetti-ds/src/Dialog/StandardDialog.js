@@ -106,6 +106,7 @@ export default class StandardDialog extends React.Component {
               className="lab-dialog__close-button"
               type="button"
               onClick={handleClose}
+              {...(isModal ? { tabIndex: "2" } : undefined)}
             >
               <Icon type="remove" className="lab-dialog__close-button-icon" />
             </button>
@@ -119,12 +120,14 @@ export default class StandardDialog extends React.Component {
                 size="normal"
                 text={outlineButtonProps.text}
                 onClick={outlineButtonProps.onClick}
+                {...(isModal ? { tabIndex: "3" } : undefined)}
               />
             ) : undefined}
             <Button
               size="normal"
               text={buttonProps.text}
               onClick={buttonProps.onClick}
+              {...(isModal ? { tabIndex: "1" } : undefined)}
             />
           </div>
         </div>

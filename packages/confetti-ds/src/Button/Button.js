@@ -33,6 +33,8 @@ export default class Button extends React.Component {
     onClick: PropTypes.func,
     /** Makes the button expand to its container's full width. */
     fullWidth: PropTypes.bool,
+    /* Sets the order of which the elements will be focused on. Default value: 0. */
+    tabIndex: PropTypes.string,
   };
 
   static defaultProps = {
@@ -44,6 +46,7 @@ export default class Button extends React.Component {
     ariaDisabled: false,
     onClick: () => {},
     fullWidth: false,
+    tabIndex: undefined,
   };
 
   render() {
@@ -57,6 +60,7 @@ export default class Button extends React.Component {
       onClick,
       fullWidth,
       ariaDisabled,
+      tabIndex,
     } = this.props;
     return (
       <AbstractButton
@@ -70,6 +74,7 @@ export default class Button extends React.Component {
         ariaDisabled={ariaDisabled}
         onClick={onClick}
         fullWidth={fullWidth}
+        tabIndex={tabIndex}
       />
     );
   }
