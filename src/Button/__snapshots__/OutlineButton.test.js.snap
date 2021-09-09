@@ -58,6 +58,18 @@ exports[`OutlineButton renders as expected when passing disabled as true 1`] = `
 </button>
 `;
 
+exports[`OutlineButton renders as expected when tabIndex is passed 1`] = `
+<button
+  className="lab-btn lab-btn--outline lab-btn--normal"
+  onClick={[Function]}
+  tabIndex="1"
+  type="button"
+>
+  
+  Test tabIndex
+</button>
+`;
+
 exports[`OutlineButton renders with base props 1`] = `
 <button
   className="lab-btn lab-btn--outline lab-btn--normal"

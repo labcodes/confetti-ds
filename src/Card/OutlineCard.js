@@ -27,14 +27,8 @@ export default class OutlineCard extends React.Component {
   };
 
   render() {
-    const {
-      children,
-      color,
-      skin,
-      isCompact,
-      isHorizontal,
-      className,
-    } = this.props;
+    const { children, color, skin, isCompact, isHorizontal, className } =
+      this.props;
 
     return (
       <CardContext.Provider value={{ color, skin, cardType: "outline" }}>
