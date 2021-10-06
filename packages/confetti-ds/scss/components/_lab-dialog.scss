@@ -197,18 +197,14 @@
 
 // Global elements
 .lab-dialog__close-button {
-  display: none;
+  display: flex;
   cursor: pointer;
   width: 40px;
   height: 40px;
   background-color: unset;
   border: none;
-
-  &.lab-dialog__close-button--message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  align-items: center;
+  justify-content: center;
 
   &:focus {
     border-radius: $radius-1;
@@ -369,10 +365,6 @@
 .lab-dialog__icon {
   transform: scale(3);
   background-color: $mineral-70;
-}
-
-.lab-dialog__close-button--message {
-  display: block;
 }
 
 .lab-dialog__header--message {
