@@ -20,9 +20,9 @@
     "@storybook/addon-links": "^6.1.15",
     "@storybook/react": "^6.1.15",
     "babel-loader": "^8.2.2",
-    "node-sass": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "sass": "^1.49.7",
     "sass-loader": "^10.1.1"
   },
   "dependencies": {
