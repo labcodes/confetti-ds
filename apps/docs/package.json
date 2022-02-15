@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run storybook",
     "build:netlify": "NODE_PATH=. cd confetti-ds && npm i -D && cd .. && npm run build",
-    "storybook": "start-storybook -p 8000 -s ./.storybook/static",
-    "build": "build-storybook -s ./.storybook/static"
+    "storybook": "start-storybook -p 8000",
+    "build": "build-storybook"
   },
   "keywords": [],
   "author": "",
