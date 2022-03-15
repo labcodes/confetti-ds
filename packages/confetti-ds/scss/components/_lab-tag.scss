@@ -47,6 +47,11 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
   }
 }
 
+.lab-ta--tag-item {
+  width: auto;
+  cursor: pointer;
+}
+
 // ELEMENTS
 /*
 * Thumbnail
@@ -118,7 +123,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
   transition: all $duration-base;
 }
 
-// TAG VARIANTS 
+// TAG VARIANTS
 /*
 * Variants are togglable, removable or dropdown.
 */
@@ -149,7 +154,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
   }
 
   .lab-tag--remove-icon {
-    background-color: $tag-vivid-color
+    background-color: $tag-vivid-color;
   }
 
   &.lab-tag--togglable,
@@ -162,7 +167,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
     }
 
     &:focus:hover {
-      box-shadow: 0 0 0 2px $tag-focus-shadow-color, 0 0 0 4px $tag-hover-shadow-color;
+      box-shadow: 0 0 0 2px $tag-focus-shadow-color,
+        0 0 0 4px $tag-hover-shadow-color;
     }
   }
 }
@@ -193,7 +199,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
     }
 
     &:focus:hover {
-      box-shadow: 0 0 0 2px $tag-focus-shadow-color, 0 0 0 4px $tag-hover-shadow-color;
+      box-shadow: 0 0 0 2px $tag-focus-shadow-color,
+        0 0 0 4px $tag-hover-shadow-color;
     }
   }
 
@@ -257,7 +264,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 
       &:focus:hover {
         box-shadow: 0 0 0 2px $tag-focus-shadow-color,
-                    0 0 0 4px $tag-hover-shadow-color;
+          0 0 0 4px $tag-hover-shadow-color;
       }
     }
 
@@ -288,8 +295,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
     }
 
     &:focus:hover {
-      box-shadow: 0 0 0 2px $tag-vivid-color,
-                  0 0 0 4px $tag-hover-shadow-color;
+      box-shadow: 0 0 0 2px $tag-vivid-color, 0 0 0 4px $tag-hover-shadow-color;
     }
   }
 }
@@ -363,7 +369,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 
       &:focus:hover {
         box-shadow: 0 0 0 2px map-get($palette, "30"),
-                    0 0 0 4px map-get($palette, "20");
+          0 0 0 4px map-get($palette, "20");
       }
 
       &:focus {
@@ -407,7 +413,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
         }
         &:focus:hover {
           box-shadow: 0 0 0 2px $tag-vivid-color,
-                      0 0 0 4px $tag-hover-shadow-color;
+            0 0 0 4px $tag-hover-shadow-color;
         }
       }
     }
@@ -426,7 +432,9 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
 
     .lab-tag--remove-icon {
       background-color: map-get($palette, "60");
-      @if $name == "mineral" { background-color: map-get($palette, "70"); }
+      @if $name == "mineral" {
+        background-color: map-get($palette, "70");
+      }
     }
 
     &.lab-tag--togglable,
@@ -439,7 +447,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
       }
 
       &:focus:hover {
-        box-shadow: 0 0 0 2px map-get($palette, "30"), 0 0 0 4px map-get($palette, "20");
+        box-shadow: 0 0 0 2px map-get($palette, "30"),
+          0 0 0 4px map-get($palette, "20");
       }
     }
 
@@ -487,7 +496,7 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
         &:focus:hover {
           border-color: map-get($palette, "40");
           box-shadow: 0 0 0 2px map-get($palette, "30"),
-                      0 0 0 4px map-get($palette, "20");
+            0 0 0 4px map-get($palette, "20");
         }
       }
     }
@@ -531,7 +540,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
         box-shadow: 0 0 0 2px map-get($palette, "60");
       }
       &:focus:hover {
-        box-shadow: 0 0 0 2px map-get($palette, "60"), 0 0 0 4px map-get($palette, "20");
+        box-shadow: 0 0 0 2px map-get($palette, "60"),
+          0 0 0 4px map-get($palette, "20");
       }
     }
 
@@ -539,11 +549,15 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
       background-color: map-get($palette, "60");
       border-color: map-get($palette, "60");
       color: white;
-      @if $name == "yellow" { color: $mustard-70; }
+      @if $name == "yellow" {
+        color: $mustard-70;
+      }
 
       .lab-tag--check-icon {
         background-color: white;
-        @if $name == "yellow" { background-color: $mustard-70; }
+        @if $name == "yellow" {
+          background-color: $mustard-70;
+        }
       }
 
       &:hover {
@@ -558,7 +572,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
       }
 
       &:focus:hover {
-        box-shadow: 0 0 0 2px map-get($palette, "20"), 0 0 0 4px map-get($palette, "60");
+        box-shadow: 0 0 0 2px map-get($palette, "20"),
+          0 0 0 4px map-get($palette, "60");
       }
 
       &:focus {
@@ -569,14 +584,18 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
     &.lab-tag--outline {
       background-color: white;
       color: map-get($palette, "60");
-      @if $name == "yellow" { color: $mustard-70; }
+      @if $name == "yellow" {
+        color: $mustard-70;
+      }
 
       .lab-tag--left-icon,
       .lab-tag--check-icon,
       .lab-tag--dropdown-icon,
       .lab-tag--remove-icon {
         background-color: map-get($palette, "60");
-        @if $name == "yellow" { background-color: $mustard-70; }
+        @if $name == "yellow" {
+          background-color: $mustard-70;
+        }
       }
 
       .lab-tag__remove-icon-wrapper {
@@ -595,11 +614,15 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
         background-color: map-get($palette, "20");
         border-color: map-get($palette, "60");
         color: mix(map-get($palette, "60"), black, 70%);
-        @if $name == "yellow" { color: $mustard-70; }
+        @if $name == "yellow" {
+          color: $mustard-70;
+        }
 
         .lab-tag--check-icon {
           background-color: mix(map-get($palette, "60"), black, 70%);
-          @if $name == "yellow" { background-color: $mustard-70; }
+          @if $name == "yellow" {
+            background-color: $mustard-70;
+          }
         }
       }
     }
@@ -609,19 +632,23 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
     background-color: map-get($palette, "60");
     border-color: map-get($palette, "60");
     color: white;
-    @if $name == "yellow" { color: $black-75; }
+    @if $name == "yellow" {
+      color: $black-75;
+    }
 
     .lab-tag--left-icon,
     .lab-tag--check-icon,
     .lab-tag--dropdown-icon {
       background-color: white;
-      @if $name == "yellow" { background-color: $black-75; }
+      @if $name == "yellow" {
+        background-color: $black-75;
+      }
     }
 
     .lab-tag--remove-icon {
       background-color: $black-75;
     }
-    
+
     &.lab-tag--togglable,
     &.lab-tag--removable,
     &.lab-tag--dropdown {
@@ -639,7 +666,8 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
       }
 
       &:focus:hover {
-        box-shadow: 0 0 0 2px map-get($palette, "20"), 0 0 0 4px map-get($palette, "60");
+        box-shadow: 0 0 0 2px map-get($palette, "20"),
+          0 0 0 4px map-get($palette, "60");
       }
     }
 
@@ -651,14 +679,18 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
       background-color: white;
       border-color: map-get($palette, "60");
       color: map-get($palette, "60");
-      @if $name == "yellow" { color: $mustard-70; }
+      @if $name == "yellow" {
+        color: $mustard-70;
+      }
 
       .lab-tag--left-icon,
       .lab-tag--check-icon,
       .lab-tag--dropdown-icon,
       .lab-tag--remove-icon {
         background-color: map-get($palette, "60");
-        @if $name == "yellow" { background-color: $mustard-70; }
+        @if $name == "yellow" {
+          background-color: $mustard-70;
+        }
       }
 
       .lab-tag__remove-icon-wrapper {
@@ -677,21 +709,25 @@ $tag-vivid-hover-color: mix($tag-vivid-color, black, 50%);
           border-color: map-get($palette, "60");
           color: map-get($palette, "60");
           box-shadow: 0 0 0 4px map-get($palette, "60");
-          @if $name == "yellow" { color: $mustard-70; }
+          @if $name == "yellow" {
+            color: $mustard-70;
+          }
 
           .lab-tag--left-icon,
           .lab-tag--check-icon,
           .lab-tag--dropdown-icon,
           .lab-tag--remove-icon {
             background-color: map-get($palette, "60");
-            @if $name == "yellow" { background-color: $mustard-70; }
+            @if $name == "yellow" {
+              background-color: $mustard-70;
+            }
           }
         }
 
         &:focus:hover {
           border-color: map-get($palette, "60");
           box-shadow: 0 0 0 2px map-get($palette, "20"),
-                      0 0 0 4px map-get($palette, "60");
+            0 0 0 4px map-get($palette, "60");
         }
       }
 
