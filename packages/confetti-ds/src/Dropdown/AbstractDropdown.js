@@ -59,8 +59,18 @@ export default class AbstractDropdown extends Component {
     this.setState((prev) => ({ ...prev, isOpen: false, value, text }));
   };
 
+  onBlur = (event) => {
+    const { relatedTarget, currentTarget } = event;
+
+    /** hasNoRelatedTarget helps to avoid blur inside the component */
+    const hasNoRelatedTarget = !currentTarget.contains(relatedTarget);
+
+    if (hasNoRelatedTarget)
+      this.setState((prev) => ({ ...prev, isOpen: false }));
+  };
+
   render() {
-    const { onClick, onSelect } = this;
+    const { onClick, onSelect, onBlur } = this;
     const { children, color, text, dropdownType } = this.props;
     const { isOpen, value } = this.state;
 
@@ -73,7 +83,7 @@ export default class AbstractDropdown extends Component {
     const renderTrigger = trigger[dropdownType];
 
     return (
-      <div className="lab-dropdown">
+      <div className="lab-dropdown" onBlur={onBlur}>
         <div
           role="button"
           tabIndex={-1}
