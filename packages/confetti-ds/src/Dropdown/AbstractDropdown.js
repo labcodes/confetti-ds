@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { DropdownTag } from "../Tags";
-import SectionTitle from "./SectionTitle";
 import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
+import SectionTitle from "./SectionTitle";
+import TriggerWithCustomEvents from "../DropdownTestes/TriggerWithCustomEvents";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
@@ -34,9 +35,27 @@ export default class AbstractDropdown extends Component {
     };
   }
 
+  isOpening = () => {
+    const { isOpen } = this.state;
+    return !isOpen;
+  };
+
+  onClick = () => {
+    const { isOpening } = this;
+    const { isOpen } = this.state;
+    const { onClose, onOpen } = this.props;
+
+    if (isOpening()) onOpen();
+    else onClose();
+
+    this.setState({ isOpen: !isOpen });
+  };
+
   render() {
     const { children, color, text, dropdownType } = this.props;
     const { isOpen } = this.state;
+
+    const { onClick } = this;
 
     const isOpenClass = isOpen ? "lab-dropdown--is-open" : "";
 
@@ -55,7 +74,9 @@ export default class AbstractDropdown extends Component {
           className="lab-dropdown__trigger"
           id="lab-dropdown__trigger"
         >
-          {renderTrigger}
+          <TriggerWithCustomEvents onClickEvent={onClick}>
+            {renderTrigger}
+          </TriggerWithCustomEvents>
         </div>
 
         <div
