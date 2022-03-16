@@ -33,8 +33,7 @@ export default class AbstractDropdown extends Component {
 
     this.state = {
       isOpen: false,
-      value: "",
-      text: "",
+      selectedOption: {},
     };
   }
 
@@ -55,8 +54,11 @@ export default class AbstractDropdown extends Component {
   };
 
   onSelect = (selectedOption) => {
-    const { value, text } = selectedOption;
-    this.setState((prev) => ({ ...prev, isOpen: false, value, text }));
+    this.setState((prev) => ({
+      ...prev,
+      isOpen: false,
+      selectedOption,
+    }));
   };
 
   onBlur = (event) => {
@@ -72,13 +74,13 @@ export default class AbstractDropdown extends Component {
   render() {
     const { onClick, onSelect, onBlur } = this;
     const { children, color, text, dropdownType } = this.props;
-    const { isOpen, value } = this.state;
+    const { isOpen, selectedOption } = this.state;
 
     const isOpenClass = isOpen ? "lab-dropdown--is-open" : "";
 
     const trigger = {
-      button: <Button text={text} />,
-      tag: <DropdownTag text={text} color={color} />,
+      button: <Button text={selectedOption.text || text} />,
+      tag: <DropdownTag text={selectedOption.text || text} color={color} />,
     };
     const renderTrigger = trigger[dropdownType];
 
@@ -111,7 +113,7 @@ export default class AbstractDropdown extends Component {
               <OptionWithCustomEvents
                 onSelect={onSelect}
                 color={color}
-                selectedValue={value}
+                selectedOption={selectedOption}
               >
                 {child}
               </OptionWithCustomEvents>

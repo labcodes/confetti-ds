@@ -8,7 +8,7 @@ export default class OptionWithCustomEvents extends Component {
     children: PropTypes.node.isRequired,
     // props
     color: PropTypes.string,
-    selectedValue: PropTypes.string.isRequired,
+    selectedOption: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -25,17 +25,19 @@ export default class OptionWithCustomEvents extends Component {
         props: { value, text },
       },
     } = this.props;
-    const selectedOption = { value, text };
-    onSelect(selectedOption);
+
+    const childSelected = { value, text };
+
+    onSelect(childSelected);
   };
 
   render() {
-    const { getValue, isOvering } = this;
+    const { getValue } = this;
 
-    const { children, color, selectedValue } = this.props;
+    const { children, color, selectedOption } = this.props;
     const { value } = children.props;
 
-    const isSelected = selectedValue === value;
+    const isSelected = selectedOption && selectedOption.value === value;
 
     return (
       <div
@@ -47,7 +49,6 @@ export default class OptionWithCustomEvents extends Component {
         aria-selected="false"
         onClick={getValue}
         onKeyPress={getValue}
-        onFocus={isOvering}
       >
         {React.cloneElement(children, {
           ...children.props,
