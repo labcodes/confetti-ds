@@ -6,6 +6,7 @@ import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
 import SectionTitle from "./SectionTitle";
 import TriggerWithCustomEvents from "../DropdownTestes/TriggerWithCustomEvents";
+import OptionWithCustomEvents from "../DropdownTestes/OptionWithCustomEvents";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
@@ -32,6 +33,8 @@ export default class AbstractDropdown extends Component {
 
     this.state = {
       isOpen: false,
+      value: "",
+      text: "",
     };
   }
 
@@ -51,11 +54,15 @@ export default class AbstractDropdown extends Component {
     this.setState({ isOpen: !isOpen });
   };
 
-  render() {
-    const { children, color, text, dropdownType } = this.props;
-    const { isOpen } = this.state;
+  onSelect = (selectedOption) => {
+    const { value, text } = selectedOption;
+    this.setState((prev) => ({ ...prev, isOpen: false, value, text }));
+  };
 
-    const { onClick } = this;
+  render() {
+    const { onClick, onSelect } = this;
+    const { children, color, text, dropdownType } = this.props;
+    const { isOpen, value } = this.state;
 
     const isOpenClass = isOpen ? "lab-dropdown--is-open" : "";
 
@@ -82,7 +89,7 @@ export default class AbstractDropdown extends Component {
         <div
           role="listbox"
           tabIndex={0}
-          className={`lab-dropdown__content  ${isOpenClass}`}
+          className={`lab-dropdown__content lab-dropdown__listbox ${isOpenClass}`}
           id="lab-dropdown__listbox"
         >
           {React.Children.map(children, (child) => {
@@ -90,7 +97,15 @@ export default class AbstractDropdown extends Component {
             if (isSectionTitle)
               return <child.type {...child.props} color={color} />;
 
-            return child;
+            return (
+              <OptionWithCustomEvents
+                onSelect={onSelect}
+                color={color}
+                selectedValue={value}
+              >
+                {child}
+              </OptionWithCustomEvents>
+            );
           })}
         </div>
       </div>
