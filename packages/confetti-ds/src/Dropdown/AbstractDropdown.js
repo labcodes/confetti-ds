@@ -5,8 +5,8 @@ import { DropdownTag } from "../Tags";
 import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
 import SectionTitle from "./SectionTitle";
-import TriggerWithCustomEvents from "../DropdownTestes/TriggerWithCustomEvents";
-import OptionWithCustomEvents from "../DropdownTestes/OptionWithCustomEvents";
+import TriggerWithCustomEvents from "./TriggerWithCustomEvents";
+import OptionWithCustomEvents from "./OptionWithCustomEvents";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
@@ -62,13 +62,16 @@ export default class AbstractDropdown extends Component {
   };
 
   onBlur = (event) => {
+    const { onClose } = this.props;
     const { relatedTarget, currentTarget } = event;
 
     /** hasNoRelatedTarget helps to avoid blur inside the component */
     const hasNoRelatedTarget = !currentTarget.contains(relatedTarget);
 
-    if (hasNoRelatedTarget)
+    if (hasNoRelatedTarget) {
       this.setState((prev) => ({ ...prev, isOpen: false }));
+      onClose();
+    }
   };
 
   render() {
