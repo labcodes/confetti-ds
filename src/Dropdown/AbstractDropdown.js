@@ -74,12 +74,16 @@ export default class AbstractDropdown extends Component {
     }
   };
 
+  setDefaultOption = (defaultOption) => {
+    this.setState({ selectedOption: defaultOption });
+  };
+
   render() {
-    const { onClick, onSelect, onBlur } = this;
+    const { onClick, onSelect, onBlur, setDefaultOption } = this;
     const { children, color, text, dropdownType } = this.props;
     const { isOpen, selectedOption } = this.state;
 
-    const isOpenClass = isOpen ? "lab-dropdown--is-open" : "";
+    const isOpenClass = isOpen ? "lab-dropdown__content--is-open" : "";
 
     const trigger = {
       button: <Button text={selectedOption.text || text} />,
@@ -117,6 +121,7 @@ export default class AbstractDropdown extends Component {
                 onSelect={onSelect}
                 color={color}
                 selectedOption={selectedOption}
+                setDefaultOption={setDefaultOption}
               >
                 {child}
               </OptionWithCustomEvents>

@@ -5,17 +5,29 @@ export default class OptionWithCustomEvents extends Component {
   static propTypes = {
     // functions
     onSelect: PropTypes.func,
+    setDefaultOption: PropTypes.func,
     children: PropTypes.node.isRequired,
     // props
-    color: PropTypes.string,
     selectedOption: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
     // functions
     onSelect: () => {},
-    // props
-    color: "teal",
+    setDefaultOption: () => {},
+  };
+
+  componentDidMount() {
+    const { setDefault } = this;
+
+    setDefault();
+  }
+
+  setDefault = () => {
+    const { children, setDefaultOption } = this.props;
+    const { text, value, selected } = children.props;
+    const defaultOption = { text, value };
+    if (selected) setDefaultOption(defaultOption);
   };
 
   getValue = () => {
@@ -34,16 +46,16 @@ export default class OptionWithCustomEvents extends Component {
   render() {
     const { getValue } = this;
 
-    const { children, color, selectedOption } = this.props;
+    const { children, selectedOption } = this.props;
     const { value } = children.props;
 
     const isSelected = selectedOption && selectedOption.value === value;
-
+    const skin = isSelected ? "vivid" : "pale";
     return (
       <div
-        className={`lab-dropdown__option lab-dropdown__option--color-${color} ${
-          isSelected && `lab-dropdown__option--selected-${color}`
-        }`}
+        className="lab-dropdown__option"
+        id={`lab-dropdown__option--${value}`}
+        key={value}
         tabIndex={-1}
         role="option"
         aria-selected="false"
@@ -52,6 +64,7 @@ export default class OptionWithCustomEvents extends Component {
       >
         {React.cloneElement(children, {
           ...children.props,
+          skin,
         })}
       </div>
     );

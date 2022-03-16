@@ -7,7 +7,7 @@
   &__listbox {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
   }
 
@@ -17,28 +17,27 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
     cursor: pointer;
 
-    &:hover {
-      // background-color: $teal-10;
-      @each $name, $palette in $all-colors {
-        &.lab-dropdown__option--color-#{$name} {
-          background-color: map-get($palette, "10");
+    &:focus {
+      & > span {
+        @extend .lab-tag:focus;
+      }
+      @each $name, $palette in $tag-main-colors {
+        & > span.lab-tag--#{$name}-vivid {
+          @extend .lab-tag--#{$name}-vivid:focus;
         }
       }
     }
 
-    @each $name, $palette in $all-colors {
-      &.lab-dropdown__option--selected-#{$name} {
-        background-color: map-get($palette, "10");
+    &:hover {
+      & > span {
+        @extend .lab-tag:focus;
       }
-    }
-
-    &:active {
-      // background-color: $teal-10;
-      @each $name, $palette in $all-colors {
-        &.lab-dropdown__option--color-#{$name} {
-          background-color: map-get($palette, "20");
+      @each $name, $palette in $tag-main-colors {
+        & > span.lab-tag--#{$name}-vivid {
+          @extend .lab-tag--#{$name}-vivid:focus;
         }
       }
     }
@@ -50,7 +49,7 @@
 
     margin-top: 8px;
     user-select: text;
-    min-width: 160px;
+    min-width: max-content;
     max-width: fit-content;
     max-height: 200px;
     overflow: auto;
@@ -70,7 +69,7 @@
     display: block;
   }
 
-  &--is-open {
+  &__content--is-open {
     display: flex;
   }
 
