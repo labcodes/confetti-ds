@@ -58,13 +58,14 @@ export default class OptionWithCustomEvents extends Component {
         key={value}
         tabIndex={-1}
         role="option"
-        aria-selected="false"
+        aria-selected={isSelected}
         onClick={getValue}
         onKeyPress={getValue}
       >
         {React.cloneElement(children, {
           ...children.props,
           skin,
+          isHighlighted: isSelected,
         })}
       </div>
     );
