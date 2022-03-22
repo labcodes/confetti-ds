@@ -37,19 +37,18 @@ export default class AbstractDropdown extends Component {
     };
   }
 
-  isOpening = () => {
-    const { isOpen } = this.state;
-    return !isOpen;
-  };
-
-  onClick = () => {
-    const { isOpening } = this;
+  componentDidUpdate(prevProps, prevState) {
     const { isOpen } = this.state;
     const { onClose, onOpen } = this.props;
 
-    if (isOpening()) onOpen();
-    else onClose();
+    if (isOpen !== prevState.isOpen) {
+      if (isOpen) onOpen();
+      else onClose();
+    }
+  }
 
+  onClick = () => {
+    const { isOpen } = this.state;
     this.setState({ isOpen: !isOpen });
   };
 
@@ -62,7 +61,6 @@ export default class AbstractDropdown extends Component {
   };
 
   onBlur = (event) => {
-    const { onClose } = this.props;
     const { relatedTarget, currentTarget } = event;
 
     /** hasNoRelatedTarget helps to avoid blur inside the component */
@@ -70,7 +68,6 @@ export default class AbstractDropdown extends Component {
 
     if (hasNoRelatedTarget) {
       this.setState((prev) => ({ ...prev, isOpen: false }));
-      onClose();
     }
   };
 
