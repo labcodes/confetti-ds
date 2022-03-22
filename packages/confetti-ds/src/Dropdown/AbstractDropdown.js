@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { DropdownTag } from "../Tags";
+import { DropdownTag, TagItem } from "../Tags";
 import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
 import SectionTitle from "./SectionTitle";
@@ -110,19 +110,24 @@ export default class AbstractDropdown extends Component {
         >
           {React.Children.map(children, (child) => {
             const isSectionTitle = child.type === SectionTitle;
+            // change it to || child.type == OptionItem...
+            const isDropdownItem = child.type === TagItem;
             if (isSectionTitle)
               return <child.type {...child.props} color={color} />;
 
-            return (
-              <OptionWithCustomEvents
-                onSelect={onSelect}
-                color={color}
-                selectedOption={selectedOption}
-                setDefaultOption={setDefaultOption}
-              >
-                {child}
-              </OptionWithCustomEvents>
-            );
+            if (isDropdownItem)
+              return (
+                <OptionWithCustomEvents
+                  onSelect={onSelect}
+                  color={color}
+                  selectedOption={selectedOption}
+                  setDefaultOption={setDefaultOption}
+                >
+                  {child}
+                </OptionWithCustomEvents>
+              );
+
+            return null;
           })}
         </div>
       </div>
