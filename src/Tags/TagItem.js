@@ -10,8 +10,10 @@ export default class TagItem extends React.Component {
   static propTypes = {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
-    /** This is the Tag's text. */
-    value: PropTypes.string.isRequired,
+    /** Disables the Tag. Won't be read by screen readers. */
+    disabled: PropTypes.bool,
+    /** Action to be executed when the Tag is clicked. */
+    onClick: PropTypes.func,
     /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
     thumbSrc: PropTypes.string,
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
@@ -22,8 +24,6 @@ export default class TagItem extends React.Component {
     skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
-    /** Sets onClick function. */
-    onClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -32,6 +32,7 @@ export default class TagItem extends React.Component {
     isOutline: false,
     skin: "pale",
     color: undefined,
+    disabled: false,
     onClick: () => {},
   };
 
@@ -65,7 +66,7 @@ export default class TagItem extends React.Component {
 
   checkThumbAndIcon() {
     const errorMessage =
-      "`TagItem` can't be initialized with both `thumb` and `icon` props.";
+      "`SimpleTag` can't be initialized with both `thumb` and `icon` props.";
     const { thumbSrc, icon } = this.props;
     if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
       throw new Error(errorMessage);
@@ -73,20 +74,20 @@ export default class TagItem extends React.Component {
   }
 
   render() {
-    const { text, thumbSrc, icon, color, skin, isOutline, onClick, value } =
+    const { text, thumbSrc, icon, color, skin, isOutline, onClick, disabled } =
       this.props;
     return (
       <AbstractTag
         text={text}
         className={`${icon ? ` lab-tag--has-left-icon` : ""}${
           thumbSrc ? ` lab-tag--has-thumb` : ""
-        } lab-ta--tag-item`}
-        onClick={onClick}
+        }`}
         isOutline={isOutline}
         skin={skin}
         color={color}
-        value={value}
         renderPrefix={this.icon() || this.thumb()}
+        onClick={onClick}
+        disabled={disabled}
       />
     );
   }
