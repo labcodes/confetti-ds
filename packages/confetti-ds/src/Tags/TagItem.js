@@ -24,6 +24,8 @@ export default class TagItem extends React.Component {
     skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
+
+    tabIndex: PropTypes.string,
   };
 
   static defaultProps = {
@@ -34,6 +36,7 @@ export default class TagItem extends React.Component {
     color: undefined,
     disabled: false,
     onClick: () => {},
+    tabIndex: "0",
   };
 
   constructor(props) {
@@ -74,8 +77,17 @@ export default class TagItem extends React.Component {
   }
 
   render() {
-    const { text, thumbSrc, icon, color, skin, isOutline, onClick, disabled } =
-      this.props;
+    const {
+      text,
+      thumbSrc,
+      icon,
+      color,
+      skin,
+      isOutline,
+      onClick,
+      disabled,
+      tabIndex,
+    } = this.props;
     return (
       <AbstractTag
         text={text}
@@ -88,6 +100,7 @@ export default class TagItem extends React.Component {
         renderPrefix={this.icon() || this.thumb()}
         onClick={onClick}
         disabled={disabled}
+        tabIndex={tabIndex}
       />
     );
   }
