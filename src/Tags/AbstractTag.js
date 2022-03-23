@@ -24,6 +24,9 @@ export default class AbstractTag extends React.Component {
     disabled: PropTypes.bool,
     /** Action to be executed when the Tag is clicked. */
     onClick: PropTypes.func,
+
+    /** Tab index to manage itens position on screen */
+    tabIndex: PropTypes.string,
   };
 
   static defaultProps = {
@@ -36,6 +39,7 @@ export default class AbstractTag extends React.Component {
     disabled: false,
     ariaDisabled: false,
     onClick: () => {},
+    tabIndex: "0",
   };
 
   handleEvent = (event) => {
@@ -59,6 +63,7 @@ export default class AbstractTag extends React.Component {
       renderPrefix,
       renderSuffix,
       className,
+      tabIndex,
     } = this.props;
 
     return (
@@ -72,7 +77,7 @@ export default class AbstractTag extends React.Component {
         onClick={!(ariaDisabled || disabled) ? this.handleEvent : () => {}}
         onKeyPress={this.handleEvent}
         role="button"
-        tabIndex="0"
+        tabIndex={tabIndex}
       >
         {renderPrefix}
         {text}

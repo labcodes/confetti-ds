@@ -43,6 +43,32 @@
         }
       }
     }
+
+    &--disabled {
+      cursor: auto;
+
+      &:focus {
+        & > span {
+          box-shadow: none;
+        }
+        @each $name, $palette in $tag-main-colors {
+          & > span.lab-tag--#{$name}-vivid {
+            box-shadow: none;
+          }
+        }
+      }
+
+      &:hover {
+        & > span {
+          box-shadow: none;
+        }
+        @each $name, $palette in $tag-main-colors {
+          & > span.lab-tag--#{$name}-vivid {
+            box-shadow: none;
+          }
+        }
+      }
+    }
   }
 
   &__content {
