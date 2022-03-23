@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export default class OptionWithCustomEvents extends Component {
   static propTypes = {
     // functions
-    onSelect: PropTypes.func,
+    onSelectEvent: PropTypes.func,
     setDefaultOption: PropTypes.func,
     children: PropTypes.node.isRequired,
     // props
@@ -13,7 +13,7 @@ export default class OptionWithCustomEvents extends Component {
 
   static defaultProps = {
     // functions
-    onSelect: () => {},
+    onSelectEvent: () => {},
     setDefaultOption: () => {},
   };
 
@@ -30,17 +30,17 @@ export default class OptionWithCustomEvents extends Component {
     if (selected) setDefaultOption(defaultOption);
   };
 
-  getValue = () => {
+  getValue = (event) => {
     const {
-      onSelect,
+      onSelectEvent,
       children: {
         props: { value, text },
       },
     } = this.props;
+    const customEvent = { ...event, target: { ...event.target, value, text } };
+    const currentValue = { value, text };
 
-    const childSelected = { value, text };
-
-    onSelect(childSelected);
+    onSelectEvent({ currentValue, event: customEvent });
   };
 
   render() {
@@ -58,6 +58,7 @@ export default class OptionWithCustomEvents extends Component {
         key={value}
         tabIndex={-1}
         role="option"
+        value={value}
         aria-selected={isSelected}
         onClick={getValue}
         onKeyPress={getValue}
