@@ -15,6 +15,7 @@ export default class AbstractDropdown extends Component {
     onClose: PropTypes.func,
     // props
     dropdownType: PropTypes.oneOf(dropdownOptions.types).isRequired,
+    onSelect: PropTypes.func.isRequired,
     color: PropTypes.string,
     text: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
@@ -47,20 +48,23 @@ export default class AbstractDropdown extends Component {
     }
   }
 
-  onClick = () => {
+  onClickEvent = () => {
     const { isOpen } = this.state;
     this.setState({ isOpen: !isOpen });
   };
 
-  onSelect = (selectedOption) => {
+  onSelectEvent = (option) => {
+    const { onSelect } = this.props;
     this.setState((prev) => ({
       ...prev,
       isOpen: false,
-      selectedOption,
+      selectedOption: option.currentValue,
     }));
+
+    onSelect(option.event);
   };
 
-  onBlur = (event) => {
+  onBlurEvent = (event) => {
     const { relatedTarget, currentTarget } = event;
 
     /** hasNoRelatedTarget helps to avoid blur inside the component */
@@ -76,7 +80,7 @@ export default class AbstractDropdown extends Component {
   };
 
   render() {
-    const { onClick, onSelect, onBlur, setDefaultOption } = this;
+    const { onClickEvent, onSelectEvent, onBlurEvent, setDefaultOption } = this;
     const { children, color, text, dropdownType } = this.props;
     const { isOpen, selectedOption } = this.state;
 
@@ -89,7 +93,7 @@ export default class AbstractDropdown extends Component {
     const renderTrigger = trigger[dropdownType];
 
     return (
-      <div className="lab-dropdown" onBlur={onBlur}>
+      <div className="lab-dropdown" onBlur={onBlurEvent}>
         <div
           role="button"
           tabIndex={-1}
@@ -97,7 +101,7 @@ export default class AbstractDropdown extends Component {
           className="lab-dropdown__trigger"
           id="lab-dropdown__trigger"
         >
-          <TriggerWithCustomEvents onClickEvent={onClick}>
+          <TriggerWithCustomEvents onClickEvent={onClickEvent}>
             {renderTrigger}
           </TriggerWithCustomEvents>
         </div>
@@ -118,7 +122,7 @@ export default class AbstractDropdown extends Component {
             if (isDropdownItem)
               return (
                 <OptionWithCustomEvents
-                  onSelect={onSelect}
+                  onSelectEvent={onSelectEvent}
                   color={color}
                   selectedOption={selectedOption}
                   setDefaultOption={setDefaultOption}
