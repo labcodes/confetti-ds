@@ -2,7 +2,8 @@
   position: relative;
   display: block;
   isolation: isolate;
-  width: fit-content;
+  width: max-content;
+  width: -moz-max-content;
   margin: 0;
   padding: 0;
 
@@ -85,6 +86,7 @@
     user-select: text;
     min-width: 160px;
     width: max-content;
+    width: -moz-max-content;
     max-height: 200px;
     overflow: auto;
 
@@ -93,9 +95,7 @@
 
     background: #ffffff;
 
-    border: 2px solid $mineral-30;
-
-    box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 0px 2px $mineral-30, 0px 0px 28px $black-20;
     border-radius: 4px;
   }
 
@@ -123,6 +123,27 @@
         color: map-get($palette, "60");
       }
     }
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #c4c4c4 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
   }
 }
 
