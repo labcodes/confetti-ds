@@ -14,14 +14,20 @@
   }
 
   &__option {
-    padding: 8px 12px;
     width: 100%;
+    height: 40px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    isolation: isolate;
+    padding: 8px 12px;
 
     cursor: pointer;
 
+    & .lab-icon {
+      z-index: 0;
+    }
     &:focus {
       & > span {
         @extend .lab-tag:focus;
@@ -115,6 +121,45 @@
     @each $name, $palette in $all-colors {
       &.lab-dropdown__section-title--color-#{$name} {
         color: map-get($palette, "60");
+      }
+    }
+  }
+}
+
+.lab-dropdown__invisible-button {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  &--disabled {
+    cursor: auto;
+  }
+
+  &:focus {
+    & + span {
+      @extend .lab-tag:focus;
+    }
+    @each $name, $palette in $tag-main-colors {
+      & + span.lab-tag--#{$name}-vivid {
+        @extend .lab-tag--#{$name}-vivid:focus;
+      }
+    }
+  }
+
+  &:hover {
+    & + span {
+      @extend .lab-tag:focus;
+    }
+    @each $name, $palette in $tag-main-colors {
+      & + span.lab-tag--#{$name}-vivid {
+        @extend .lab-tag--#{$name}-vivid:focus;
       }
     }
   }
