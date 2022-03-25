@@ -90,8 +90,6 @@ export default class AbstractDropdown extends Component {
 
       if (hasNoChildren) return;
 
-      this.listBoxRef.scrollTo({ top: 0 });
-
       const validOption = this.listBoxRef.children[currentOption];
       const button = validOption.children[0];
       const isOption =
