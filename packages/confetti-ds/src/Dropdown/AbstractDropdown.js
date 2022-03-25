@@ -115,7 +115,7 @@ export default class AbstractDropdown extends Component {
 
   onKeyUpEvent = (event) => {
     const { optionsIndexes } = this;
-    const { currentOption, isOpen, currentIndex } = this.state;
+    const { currentOption, isOpen, currentIndex, selectedOption } = this.state;
     const [minOptionIndex, maxOptionIndex] = this.optionsRange;
     const { key } = event;
 
@@ -128,10 +128,12 @@ export default class AbstractDropdown extends Component {
       optionsIndexes[maxOptionIndex] === optionsIndexes[currentIndex];
 
     if (notExpectedKey) return;
-
     if (isEsc) {
+      const index = optionsIndexes.findIndex((i) => i === selectedOption.index);
       this.setState({
         isOpen: false,
+        currentOption: selectedOption.index,
+        currentIndex: index,
       });
       return;
     }
