@@ -6,9 +6,12 @@ export default class OptionWithCustomEvents extends Component {
     // functions
     onSelectEvent: PropTypes.func,
     setDefaultOption: PropTypes.func,
-    children: PropTypes.node.isRequired,
+    onKeyUpEvent: PropTypes.func.isRequired,
     // props
     selectedOption: PropTypes.object.isRequired,
+    children: PropTypes.node.isRequired,
+    index: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -24,9 +27,9 @@ export default class OptionWithCustomEvents extends Component {
   }
 
   setDefault = () => {
-    const { children, setDefaultOption } = this.props;
+    const { children, setDefaultOption, index } = this.props;
     const { text, value, selected } = children.props;
-    const defaultOption = { text, value };
+    const defaultOption = { text, value, index };
     if (selected) setDefaultOption(defaultOption);
   };
 
@@ -35,6 +38,7 @@ export default class OptionWithCustomEvents extends Component {
       children: {
         props: { disabled },
       },
+      index,
     } = this.props;
     if (disabled) return;
     const {
@@ -43,8 +47,9 @@ export default class OptionWithCustomEvents extends Component {
         props: { value, text },
       },
     } = this.props;
+
     const customEvent = { ...event, target: { ...event.target, value, text } };
-    const currentValue = { value, text };
+    const currentValue = { value, text, index };
 
     onSelectEvent({ currentValue, event: customEvent });
   };
@@ -52,12 +57,12 @@ export default class OptionWithCustomEvents extends Component {
   render() {
     const { getValue } = this;
 
-    const { children, selectedOption } = this.props;
-    const { value, disabled } = children.props;
+    const { children, selectedOption, onKeyUpEvent, index, id } = this.props;
+    const { text, value, disabled } = children.props;
 
     const isSelected = selectedOption && selectedOption.value === value;
     const skin = isSelected ? "vivid" : "pale";
-    const tabIndex = disabled ? "-1" : "0";
+
     return (
       <div
         className={`lab-dropdown__option ${
@@ -65,19 +70,27 @@ export default class OptionWithCustomEvents extends Component {
         }`}
         id={`lab-dropdown__option--${value}`}
         key={value}
-        tabIndex={-1}
-        role="option"
-        value={value}
-        aria-selected={isSelected}
-        aria-disabled={disabled}
-        onClick={getValue}
-        onKeyPress={getValue}
       >
+        <button
+          className={`lab-dropdown__invisible-button ${
+            disabled ? "lab-dropdown__invisible-button--disabled" : ""
+          }`}
+          role="menuitem"
+          type="button"
+          disabled={disabled}
+          onClick={getValue}
+          tabIndex="-1"
+          onKeyUp={onKeyUpEvent}
+          aria-disabled={disabled}
+          id={`option-${index}--menu--${id}`}
+        >
+          {text}
+        </button>
         {React.cloneElement(children, {
           ...children.props,
           skin,
           isHighlighted: isSelected,
-          tabIndex,
+          tabIndex: "-1",
         })}
       </div>
     );

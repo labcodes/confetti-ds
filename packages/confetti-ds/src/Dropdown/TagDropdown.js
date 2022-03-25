@@ -8,6 +8,7 @@ export default class TagDropdown extends Component {
     children: PropTypes.node.isRequired,
     text: PropTypes.string.isRequired,
     onSelect: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
     color: PropTypes.string,
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
@@ -20,7 +21,7 @@ export default class TagDropdown extends Component {
   };
 
   render() {
-    const { children, text, color, onOpen, onClose, onSelect } = this.props;
+    const { children, text, color, onOpen, onClose, onSelect, id } = this.props;
     return (
       <AbstractDropdown
         dropdownType="tag"
@@ -29,6 +30,7 @@ export default class TagDropdown extends Component {
         onOpen={onOpen}
         onClose={onClose}
         onSelect={onSelect}
+        id={id}
       >
         {children}
       </AbstractDropdown>
