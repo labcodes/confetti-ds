@@ -7,6 +7,7 @@ export default class OptionWithCustomEvents extends Component {
     onSelectEvent: PropTypes.func,
     setDefaultOption: PropTypes.func,
     onKeyUpEvent: PropTypes.func.isRequired,
+    setRef: PropTypes.func.isRequired,
     // props
     selectedOption: PropTypes.object.isRequired,
     children: PropTypes.node.isRequired,
@@ -20,6 +21,15 @@ export default class OptionWithCustomEvents extends Component {
     setDefaultOption: () => {},
   };
 
+  constructor(props) {
+    super(props);
+
+    const { setRef, children } = this.props;
+    const isNotDisabled = !children.props.disabled;
+    this.ref = React.createRef();
+    if (isNotDisabled) setRef(this.ref);
+  }
+
   componentDidMount() {
     const { setDefault } = this;
 
@@ -28,39 +38,34 @@ export default class OptionWithCustomEvents extends Component {
 
   setDefault = () => {
     const { children, setDefaultOption, index } = this.props;
-    const { text, value, selected } = children.props;
-    const defaultOption = { text, value, index };
+    const { text, selected } = children.props;
+    const defaultOption = { text, index, ref: this.ref };
     if (selected) setDefaultOption(defaultOption);
   };
 
-  getValue = (event) => {
-    const {
-      children: {
-        props: { disabled },
-      },
-      index,
-    } = this.props;
+  selectOption = (event) => {
+    const { onSelectEvent, children } = this.props;
+    const { disabled, value, text } = children.props;
+
     if (disabled) return;
-    const {
-      onSelectEvent,
-      children: {
-        props: { value, text },
-      },
-    } = this.props;
 
-    const customEvent = { ...event, target: { ...event.target, value, text } };
-    const currentValue = { value, text, index };
-
-    onSelectEvent({ currentValue, event: customEvent });
+    const customEvent = {
+      ...event,
+      target: { ...event.target, value, name: text },
+    };
+    onSelectEvent({
+      displayText: text,
+      event: customEvent,
+      ref: this.ref,
+    });
   };
 
   render() {
-    const { getValue } = this;
+    const { selectOption } = this;
 
     const { children, selectedOption, onKeyUpEvent, index, id } = this.props;
     const { text, value, disabled } = children.props;
-
-    const isSelected = selectedOption && selectedOption.value === value;
+    const isSelected = selectedOption.ref === this.ref;
     const skin = isSelected ? "vivid" : "pale";
 
     return (
@@ -78,11 +83,12 @@ export default class OptionWithCustomEvents extends Component {
           role="menuitem"
           type="button"
           disabled={disabled}
-          onClick={getValue}
+          onClick={selectOption}
           tabIndex="-1"
           onKeyUp={onKeyUpEvent}
           aria-disabled={disabled}
           id={`option-${index}--menu--${id}`}
+          ref={disabled ? null : this.ref}
         >
           {text}
         </button>
