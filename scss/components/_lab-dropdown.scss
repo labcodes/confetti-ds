@@ -162,6 +162,10 @@
   &--disabled {
     cursor: auto;
   }
+}
+
+.lab-dropdown__invisible-button--option {
+  @extend .lab-dropdown__invisible-button;
 
   &:focus {
     & + span {
@@ -177,6 +181,43 @@
   &:hover {
     & + span {
       @extend .lab-tag:focus;
+    }
+    @each $name, $palette in $tag-main-colors {
+      & + span.lab-tag--#{$name}-vivid {
+        @extend .lab-tag--#{$name}-vivid:focus;
+      }
+    }
+  }
+}
+
+.lab-dropdown__invisible-button--trigger {
+  @extend .lab-dropdown__invisible-button;
+
+  &:focus {
+    & + span {
+      @extend .lab-tag--dropdown:focus;
+    }
+    @each $name, $palette in $tag-main-colors {
+      & + span.lab-tag--#{$name}-vivid {
+        @extend .lab-tag--#{$name}-vivid:focus;
+      }
+    }
+  }
+
+  &:hover {
+    & + span {
+      @extend .lab-tag--dropdown:hover;
+    }
+    @each $name, $palette in $tag-main-colors {
+      & + span.lab-tag--#{$name}-vivid {
+        @extend .lab-tag--#{$name}-vivid:hover;
+      }
+    }
+  }
+
+  &:focus:hover {
+    & + span {
+      @extend .lab-tag--dropdown:focus:hover;
     }
     @each $name, $palette in $tag-main-colors {
       & + span.lab-tag--#{$name}-vivid {

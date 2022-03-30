@@ -27,7 +27,7 @@ export default class TriggerWithCustomEvents extends Component {
     return (
       <div>
         <button
-          className="lab-dropdown__invisible-button"
+          className="lab-dropdown__invisible-button lab-dropdown__invisible-button--trigger"
           aria-controls={`menu--${id}`}
           type="button"
           id={`menu-button--menu--${id}`}

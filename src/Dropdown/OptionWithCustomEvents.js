@@ -78,7 +78,9 @@ export default class OptionWithCustomEvents extends Component {
       >
         <button
           className={`lab-dropdown__invisible-button ${
-            disabled ? "lab-dropdown__invisible-button--disabled" : ""
+            disabled
+              ? "lab-dropdown__invisible-button--disabled"
+              : "lab-dropdown__invisible-button--option"
           }`}
           role="menuitem"
           type="button"
