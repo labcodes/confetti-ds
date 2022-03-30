@@ -6,10 +6,19 @@ export default class TriggerWithCustomEvents extends Component {
     // functions
     onClickEvent: PropTypes.func.isRequired,
     onKeyUpEvent: PropTypes.func.isRequired,
+    setRef: PropTypes.func.isRequired,
     // props
     children: PropTypes.node.isRequired,
     id: PropTypes.string.isRequired,
   };
+
+  constructor(props) {
+    super(props);
+    const { setRef } = this.props;
+
+    this.ref = React.createRef();
+    setRef(this.ref);
+  }
 
   render() {
     const { onClickEvent, onKeyUpEvent, children, id } = this.props;
@@ -25,12 +34,13 @@ export default class TriggerWithCustomEvents extends Component {
           onKeyUp={onKeyUpEvent}
           onClick={onClickEvent}
           aria-haspopup
+          ref={this.ref}
         >
           {text}
         </button>
         {React.cloneElement(children, {
           ...children.props,
-          tabIndex: -1,
+          tabIndex: "-1",
         })}
       </div>
     );

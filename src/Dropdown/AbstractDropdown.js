@@ -13,9 +13,9 @@ export default class AbstractDropdown extends Component {
     // functions
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
+    onSelect: PropTypes.func.isRequired,
     // props
     dropdownType: PropTypes.oneOf(dropdownOptions.types).isRequired,
-    onSelect: PropTypes.func.isRequired,
     color: PropTypes.string,
     text: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
@@ -32,171 +32,126 @@ export default class AbstractDropdown extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       isOpen: false,
-      selectedOption: {},
-      currentOption: 0,
-      currentIndex: 0,
+      refList: [],
+      selected: { ref: null, index: null },
+      focused: { index: null },
+      displayText: props.text,
     };
-
-    this.dropdownRef = React.createRef();
-  }
-
-  componentDidMount() {
-    const { firstChild: trigger, lastChild: listBox } =
-      this.dropdownRef.current || {};
-    this.triggerRef = trigger.firstChild;
-
-    const optionsIndexes = [...listBox.children]
-      .map((item, index) => {
-        const isOption =
-          item.matches(".lab-dropdown__option") &&
-          !item.matches(".lab-dropdown__option--disabled");
-        if (isOption) return index;
-        return null;
-      })
-      .filter((availableIndex) => availableIndex !== null);
-
-    const firstValidOptionIndex = 0;
-    const rangeLimit = optionsIndexes.length - 1;
-
-    this.listBoxRef = listBox;
-
-    this.setState({
-      currentIndex: firstValidOptionIndex,
-      currentOption: optionsIndexes[firstValidOptionIndex],
-    });
-
-    this.optionsRange = [firstValidOptionIndex, rangeLimit];
-    this.optionsIndexes = optionsIndexes;
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { triggerRef } = this;
-    const [minOptionIndex] = this.optionsRange;
-    const hasNoChildren = minOptionIndex === undefined;
-    const { isOpen, currentOption } = this.state;
+
+    const { isOpen, selected, refList } = this.state;
+
     const { onClose, onOpen } = this.props;
 
     if (isOpen !== prevState.isOpen) {
       if (isOpen === false) {
-        triggerRef.focus();
+        triggerRef.current.focus();
+
         onClose();
         return;
       }
 
+      const hasSelectedOption = selected.ref;
+      if (hasSelectedOption) selected.ref.current.focus();
+      else {
+        const firstOption = refList[0];
+        if (firstOption) firstOption.current.focus();
+      }
+
       onOpen();
-
-      if (hasNoChildren) return;
-
-      const validOption = this.listBoxRef.children[currentOption];
-      const button = validOption.children[0];
-      const isOption =
-        button && button.matches(".lab-dropdown__invisible-button");
-      if (isOption) button.focus();
-    }
-
-    if (currentOption !== prevState.currentOption) {
-      if (hasNoChildren) return;
-
-      const validOption = this.listBoxRef.children[currentOption];
-      const button = validOption.children[0];
-      const isOption =
-        button && button.matches(".lab-dropdown__invisible-button");
-      if (isOption) button.focus();
     }
   }
 
   onClickEvent = () => {
-    const { isOpen, selectedOption } = this.state;
-    const currentIndex = this.getSelectedOptionIndex(selectedOption);
-    this.setState({
-      isOpen: !isOpen,
-      currentOption: selectedOption.index,
-      currentIndex,
-    });
+    const { isOpen, selected } = this.state;
+    const focusedIndex = this.getSelectedOptionIndex(selected);
+    this.setState({ isOpen: !isOpen, focused: { index: focusedIndex } });
   };
 
-  getSelectedOptionIndex = (selectedOption) =>
-    this.optionsIndexes.findIndex((i) => i === selectedOption.index);
+  getSelectedOptionIndex = (selected) => {
+    if (!selected.ref) return 0;
+    const { refList } = this.state;
+    const index = refList.findIndex((ref) => ref === selected.ref);
+    return index === -1 ? 0 : index;
+  };
 
   onKeyUpEvent = (event) => {
-    const { optionsIndexes } = this;
-    const { currentOption, isOpen, currentIndex, selectedOption } = this.state;
-    const [minOptionIndex, maxOptionIndex] = this.optionsRange;
+    const { isOpen, refList, selected, focused } = this.state;
     const { key } = event;
 
-    const notExpectedKey = !expectedKeys[key];
-    const isClosed = !isOpen;
     const isEsc = key === "Escape";
-    const isFirstOption =
-      optionsIndexes[minOptionIndex] === optionsIndexes[currentIndex];
-    const isLastOption =
-      optionsIndexes[maxOptionIndex] === optionsIndexes[currentIndex];
+    const isClosed = !isOpen;
+    const notExpectedKey = !expectedKeys[key];
+
+    const maxIndex = refList.length - 1;
+    const firstOptionRef = refList[0];
+    const lastOptionRef = refList[maxIndex];
 
     if (notExpectedKey) return;
+
     if (isEsc) {
-      const index = this.getSelectedOptionIndex(selectedOption);
-      this.setState({
-        isOpen: false,
-        currentOption: selectedOption.index,
-        currentIndex: index,
-      });
+      const focusedIndex = this.getSelectedOptionIndex(selected);
+      this.setState({ isOpen: false, focused: { index: focusedIndex } });
       return;
     }
 
     if (isClosed) {
-      this.setState({
-        currentOption,
-        currentIndex,
-        isOpen: true,
-      });
+      const focusedIndex = this.getSelectedOptionIndex(selected);
+      this.setState({ isOpen: true, focused: { index: focusedIndex } });
       return;
     }
 
-    let newOption;
-    let newIndex;
+    let focusedIndex = focused.index;
+    let focusedOption;
 
     switch (key) {
       case "PageDown":
-        newIndex = maxOptionIndex;
-        newOption = optionsIndexes[newIndex];
+        lastOptionRef.current.focus();
+        focusedIndex = maxIndex;
+        this.setState({ focused: { index: focusedIndex } });
         break;
       case "PageUp":
-        newIndex = minOptionIndex;
-        newOption = optionsIndexes[newIndex];
+        firstOptionRef.current.focus();
+        focusedIndex = 0;
+        this.setState({ focused: { index: focusedIndex } });
         break;
       case "ArrowDown":
-        if (isLastOption) return;
-        newIndex = currentIndex + 1;
-        newOption = optionsIndexes[newIndex];
+        if (focusedIndex === maxIndex) return;
+
+        focusedIndex += 1;
+        focusedOption = refList[focusedIndex];
+        focusedOption.current.focus();
+
+        this.setState({ focused: { index: focusedIndex } });
         break;
       case "ArrowUp":
-        if (isFirstOption) return;
-        newIndex = currentIndex - 1;
-        newOption = optionsIndexes[newIndex];
+        if (focusedIndex === 0) return;
+
+        focusedIndex -= 1;
+        focusedOption = refList[focusedIndex];
+        focusedOption.current.focus();
+
+        this.setState({ focused: { index: focusedIndex } });
         break;
 
       default:
         break;
     }
-
-    this.setState((prev) => ({
-      ...prev,
-      isOpen: true,
-      currentOption: newOption,
-      currentIndex: newIndex,
-    }));
   };
 
   onSelectEvent = (option) => {
     const { onSelect } = this.props;
-    const { event, currentValue } = option;
+    const { event, ref, index } = option;
     this.setState((prev) => ({
       ...prev,
       isOpen: false,
-      selectedOption: currentValue,
+      selected: { ref, index },
+      displayText: event.target.name,
     }));
 
     onSelect(event);
@@ -217,7 +172,15 @@ export default class AbstractDropdown extends Component {
   };
 
   setDefaultOption = (defaultOption) => {
-    this.setState({ selectedOption: defaultOption });
+    const { ref, text, index } = defaultOption;
+    this.setState({ selected: { ref, index }, displayText: text });
+  };
+
+  setOptionsRefs = (ref) =>
+    this.setState((prev) => ({ ...prev, refList: [...prev.refList, ref] }));
+
+  setTriggerRef = (ref) => {
+    this.triggerRef = ref;
   };
 
   render() {
@@ -227,25 +190,28 @@ export default class AbstractDropdown extends Component {
       onBlurEvent,
       onKeyUpEvent,
       setDefaultOption,
-      dropdownRef,
+      setTriggerRef,
+      setOptionsRefs,
     } = this;
-    const { children, color, text, dropdownType, id } = this.props;
-    const { isOpen, selectedOption } = this.state;
+    const { children, color, dropdownType, id } = this.props;
+    const { isOpen, displayText, selected } = this.state;
 
     const isOpenClass = isOpen ? "lab-dropdown__content--is-open" : "";
 
     const trigger = {
-      button: <Button text={selectedOption.text || text} />,
-      tag: <DropdownTag text={selectedOption.text || text} color={color} />,
+      button: <Button text={displayText} />,
+      tag: <DropdownTag text={displayText} color={color} />,
     };
+
     const renderTrigger = trigger[dropdownType];
 
     return (
-      <div className="lab-dropdown" onBlur={onBlurEvent} ref={dropdownRef}>
+      <div className="lab-dropdown" onBlur={onBlurEvent}>
         <TriggerWithCustomEvents
           onClickEvent={onClickEvent}
           onKeyUpEvent={onKeyUpEvent}
           id={id}
+          setRef={setTriggerRef}
         >
           {renderTrigger}
         </TriggerWithCustomEvents>
@@ -270,11 +236,12 @@ export default class AbstractDropdown extends Component {
                 <OptionWithCustomEvents
                   onSelectEvent={onSelectEvent}
                   color={color}
-                  selectedOption={selectedOption}
+                  selectedOption={selected}
                   setDefaultOption={setDefaultOption}
                   onKeyUpEvent={onKeyUpEvent}
                   index={index}
                   id={id}
+                  setRef={setOptionsRefs}
                 >
                   {child}
                 </OptionWithCustomEvents>
