@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import React, { Component } from "react";
 
-export default class TriggerWithCustomEvents extends Component {
+export default class DropdownTrigger extends Component {
   static propTypes = {
     // functions
     onClickEvent: PropTypes.func.isRequired,

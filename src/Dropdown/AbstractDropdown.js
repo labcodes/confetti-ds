@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { DropdownTag, TagItem } from "../Tags";
 import { Button } from "../Button";
 import { dropdownOptions, expectedKeys } from "./propTypes";
-import SectionTitle from "./SectionTitle";
-import TriggerWithCustomEvents from "./TriggerWithCustomEvents";
-import OptionWithCustomEvents from "./OptionWithCustomEvents";
+import DropdownSectionTitle from "./DropdownSectionTitle";
+import DropdownTrigger from "./DropdownTrigger";
+import DropdownOption from "./DropdownOption";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
@@ -223,14 +223,14 @@ export default class AbstractDropdown extends Component {
 
     return (
       <div className="lab-dropdown" onBlur={onBlurEvent}>
-        <TriggerWithCustomEvents
+        <DropdownTrigger
           onClickEvent={onClickEvent}
           onKeyUpEvent={onKeyUpEvent}
           id={id}
           setRef={setTriggerRef}
         >
           {renderTrigger}
-        </TriggerWithCustomEvents>
+        </DropdownTrigger>
 
         <div
           role="menu"
@@ -240,16 +240,16 @@ export default class AbstractDropdown extends Component {
           id={`menu--${id}`}
         >
           {React.Children.map(children, (child, index) => {
-            const isSectionTitle = child.type === SectionTitle;
+            const isDropdownSectionTitle = child.type === DropdownSectionTitle;
             // change it to || child.type == OptionItem...
             const isDropdownItem = child.type === TagItem;
 
-            if (isSectionTitle)
+            if (isDropdownSectionTitle)
               return <child.type {...child.props} color={color} />;
 
             if (isDropdownItem)
               return (
-                <OptionWithCustomEvents
+                <DropdownOption
                   onSelectEvent={onSelectEvent}
                   color={color}
                   selectedOption={selected}
@@ -260,7 +260,7 @@ export default class AbstractDropdown extends Component {
                   setRef={setOptionsRefs}
                 >
                   {child}
-                </OptionWithCustomEvents>
+                </DropdownOption>
               );
 
             return null;

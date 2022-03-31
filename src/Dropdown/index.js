@@ -1,2 +1,2 @@
 export { default as TagDropdown } from "./TagDropdown";
-export { default as SectionTitle } from "./SectionTitle";
+export { default as DropdownSectionTitle } from "./DropdownSectionTitle";

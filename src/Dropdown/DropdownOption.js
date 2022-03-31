@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import React, { Component } from "react";
 
-export default class OptionWithCustomEvents extends Component {
+export default class DropdownOption extends Component {
   static propTypes = {
     // functions
     onSelectEvent: PropTypes.func,
