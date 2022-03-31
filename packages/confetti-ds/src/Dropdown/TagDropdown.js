@@ -6,7 +6,7 @@ import AbstractDropdown from "./AbstractDropdown";
 export default class TagDropdown extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    text: PropTypes.string.isRequired,
+    defaultText: PropTypes.string.isRequired,
     onSelect: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
     color: PropTypes.string,
@@ -21,11 +21,12 @@ export default class TagDropdown extends Component {
   };
 
   render() {
-    const { children, text, color, onOpen, onClose, onSelect, id } = this.props;
+    const { children, defaultText, color, onOpen, onClose, onSelect, id } =
+      this.props;
     return (
       <AbstractDropdown
         dropdownType="tag"
-        text={text}
+        defaultText={defaultText}
         color={color}
         onOpen={onOpen}
         onClose={onClose}
