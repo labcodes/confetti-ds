@@ -44,7 +44,7 @@ export default class AbstractDropdown extends Component {
       isOpen: false,
       refList: [],
       selected: { ref: null, index: null },
-      focused: { index: null },
+      lastFocusedOption: { index: null },
       displayText: props.defaultText,
     };
   }
@@ -94,7 +94,10 @@ export default class AbstractDropdown extends Component {
   handleTriggerClick = () => {
     const { isOpen, selected } = this.state;
     const focusedIndex = this.getSelectedOptionIndex(selected);
-    this.setState({ isOpen: !isOpen, focused: { index: focusedIndex } });
+    this.setState({
+      isOpen: !isOpen,
+      lastFocusedOption: { index: focusedIndex },
+    });
   };
 
   getSelectedOptionIndex = (selected) => {
@@ -111,7 +114,7 @@ export default class AbstractDropdown extends Component {
     const notExpectedKey = !expectedKeys[key];
     if (notExpectedKey) return;
 
-    const { isOpen, refList, selected, focused } = this.state;
+    const { isOpen, refList, selected, lastFocusedOption } = this.state;
     const isEsc = key === "Escape";
     const isClosed = !isOpen;
 
@@ -121,29 +124,35 @@ export default class AbstractDropdown extends Component {
 
     if (isEsc) {
       const focusedIndex = this.getSelectedOptionIndex(selected);
-      this.setState({ isOpen: false, focused: { index: focusedIndex } });
+      this.setState({
+        isOpen: false,
+        lastFocusedOption: { index: focusedIndex },
+      });
       return;
     }
 
     if (isClosed) {
       const focusedIndex = this.getSelectedOptionIndex(selected);
-      this.setState({ isOpen: true, focused: { index: focusedIndex } });
+      this.setState({
+        isOpen: true,
+        lastFocusedOption: { index: focusedIndex },
+      });
       return;
     }
 
-    let focusedIndex = focused.index;
+    let focusedIndex = lastFocusedOption.index;
     let focusedOption;
 
     switch (key) {
       case "PageDown":
         lastOptionRef.current.focus();
         focusedIndex = maxIndex;
-        this.setState({ focused: { index: focusedIndex } });
+        this.setState({ lastFocusedOption: { index: focusedIndex } });
         break;
       case "PageUp":
         firstOptionRef.current.focus();
         focusedIndex = 0;
-        this.setState({ focused: { index: focusedIndex } });
+        this.setState({ lastFocusedOption: { index: focusedIndex } });
         break;
       case "ArrowDown":
         if (focusedIndex === maxIndex) return;
@@ -152,7 +161,7 @@ export default class AbstractDropdown extends Component {
         focusedOption = refList[focusedIndex];
         focusedOption.current.focus();
 
-        this.setState({ focused: { index: focusedIndex } });
+        this.setState({ lastFocusedOption: { index: focusedIndex } });
         break;
       case "ArrowUp":
         if (focusedIndex === 0) return;
@@ -161,7 +170,7 @@ export default class AbstractDropdown extends Component {
         focusedOption = refList[focusedIndex];
         focusedOption.current.focus();
 
-        this.setState({ focused: { index: focusedIndex } });
+        this.setState({ lastFocusedOption: { index: focusedIndex } });
         break;
 
       default:
