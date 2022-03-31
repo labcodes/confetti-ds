@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 
-export default class SectionTitle extends Component {
+export default class DropdownSectionTitle extends Component {
   static propTypes = {
     text: PropTypes.node.isRequired,
     color: PropTypes.string,
