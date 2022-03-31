@@ -17,7 +17,7 @@ export default class AbstractDropdown extends Component {
     // props
     dropdownType: PropTypes.oneOf(dropdownOptions.types).isRequired,
     color: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    defaultText: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
     id: PropTypes.string.isRequired,
   };
@@ -37,7 +37,7 @@ export default class AbstractDropdown extends Component {
       refList: [],
       selected: { ref: null, index: null },
       focused: { index: null },
-      displayText: props.text,
+      displayText: props.defaultText,
     };
   }
 
