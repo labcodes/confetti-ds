@@ -42,13 +42,13 @@ export default class AbstractDropdown extends Component {
   }
 
   componentDidMount() {
-    const { checkChildren } = this;
+    const { checkIfHasChildren } = this;
 
-    checkChildren();
+    checkIfHasChildren();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { triggerRef, checkChildren } = this;
+    const { triggerRef, checkIfHasChildren } = this;
 
     const { isOpen, selected, refList } = this.state;
 
@@ -72,8 +72,16 @@ export default class AbstractDropdown extends Component {
       onOpen();
     }
 
-    checkChildren();
+    checkIfHasChildren();
   }
+
+  checkIfHasChildren = () => {
+    const { children } = this.props;
+
+    const hasNoChildren = !React.Children.count(children);
+    if (hasNoChildren)
+      throw Error("You need to pass children to the dropdown component.");
+  };
 
   onClickEvent = () => {
     const { isOpen, selected } = this.state;
@@ -189,14 +197,6 @@ export default class AbstractDropdown extends Component {
 
   setTriggerRef = (ref) => {
     this.triggerRef = ref;
-  };
-
-  checkChildren = () => {
-    const { children } = this.props;
-
-    const hasNoChildren = !React.Children.count(children);
-    if (hasNoChildren)
-      throw Error("You need to pass children to the dropdown component.");
   };
 
   render() {
