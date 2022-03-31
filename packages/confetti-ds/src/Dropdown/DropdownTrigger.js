@@ -4,8 +4,8 @@ import React, { Component } from "react";
 export default class DropdownTrigger extends Component {
   static propTypes = {
     // functions
-    onClickEvent: PropTypes.func.isRequired,
-    onKeyUpEvent: PropTypes.func.isRequired,
+    handleTriggerClick: PropTypes.func.isRequired,
+    handleKeyUp: PropTypes.func.isRequired,
     setRef: PropTypes.func.isRequired,
     // props
     children: PropTypes.node.isRequired,
@@ -21,7 +21,7 @@ export default class DropdownTrigger extends Component {
   }
 
   render() {
-    const { onClickEvent, onKeyUpEvent, children, id } = this.props;
+    const { handleTriggerClick, handleKeyUp, children, id } = this.props;
     const { text } = children.props;
 
     return (
@@ -31,8 +31,8 @@ export default class DropdownTrigger extends Component {
           aria-controls={`menu--${id}`}
           type="button"
           id={`menu-button--menu--${id}`}
-          onKeyUp={onKeyUpEvent}
-          onClick={onClickEvent}
+          onKeyUp={handleKeyUp}
+          onClick={handleTriggerClick}
           aria-haspopup
           ref={this.ref}
         >

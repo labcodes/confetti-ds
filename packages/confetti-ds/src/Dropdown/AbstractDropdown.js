@@ -83,7 +83,7 @@ export default class AbstractDropdown extends Component {
       throw Error("You need to pass children to the dropdown component.");
   };
 
-  onClickEvent = () => {
+  handleTriggerClick = () => {
     const { isOpen, selected } = this.state;
     const focusedIndex = this.getSelectedOptionIndex(selected);
     this.setState({ isOpen: !isOpen, focused: { index: focusedIndex } });
@@ -96,7 +96,7 @@ export default class AbstractDropdown extends Component {
     return index === -1 ? 0 : index;
   };
 
-  onKeyUpEvent = (event) => {
+  handleKeyUp = (event) => {
     const { isOpen, refList, selected, focused } = this.state;
     const { key } = event;
 
@@ -160,7 +160,7 @@ export default class AbstractDropdown extends Component {
     }
   };
 
-  onSelectEvent = (option) => {
+  handleSelectDropdownOption = (option) => {
     const { onSelect } = this.props;
     const { event, ref, index } = option;
     this.setState((prev) => ({
@@ -173,7 +173,7 @@ export default class AbstractDropdown extends Component {
     onSelect(event);
   };
 
-  onBlurEvent = (event) => {
+  handleBlur = (event) => {
     const { relatedTarget, currentTarget } = event;
 
     /** hasNoRelatedTarget helps to avoid blur inside the component */
@@ -201,10 +201,10 @@ export default class AbstractDropdown extends Component {
 
   render() {
     const {
-      onClickEvent,
-      onSelectEvent,
-      onBlurEvent,
-      onKeyUpEvent,
+      handleTriggerClick,
+      handleKeyUp,
+      handleSelectDropdownOption,
+      handleBlur,
       setDefaultOption,
       setTriggerRef,
       setOptionsRefs,
@@ -222,10 +222,10 @@ export default class AbstractDropdown extends Component {
     const renderTrigger = trigger[dropdownType];
 
     return (
-      <div className="lab-dropdown" onBlur={onBlurEvent}>
+      <div className="lab-dropdown" onBlur={handleBlur}>
         <DropdownTrigger
-          onClickEvent={onClickEvent}
-          onKeyUpEvent={onKeyUpEvent}
+          handleTriggerClick={handleTriggerClick}
+          handleKeyUp={handleKeyUp}
           id={id}
           setRef={setTriggerRef}
         >
@@ -250,11 +250,11 @@ export default class AbstractDropdown extends Component {
             if (isDropdownItem)
               return (
                 <DropdownOption
-                  onSelectEvent={onSelectEvent}
+                  handleSelectDropdownOption={handleSelectDropdownOption}
                   color={color}
                   selectedOption={selected}
                   setDefaultOption={setDefaultOption}
-                  onKeyUpEvent={onKeyUpEvent}
+                  handleKeyUp={handleKeyUp}
                   index={index}
                   id={id}
                   setRef={setOptionsRefs}
