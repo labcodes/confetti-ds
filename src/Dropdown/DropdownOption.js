@@ -4,9 +4,9 @@ import React, { Component } from "react";
 export default class DropdownOption extends Component {
   static propTypes = {
     // functions
-    onSelectEvent: PropTypes.func,
+    handleSelectDropdownOption: PropTypes.func,
     setDefaultOption: PropTypes.func,
-    onKeyUpEvent: PropTypes.func.isRequired,
+    handleKeyUp: PropTypes.func.isRequired,
     setRef: PropTypes.func.isRequired,
     // props
     selectedOption: PropTypes.object.isRequired,
@@ -17,7 +17,7 @@ export default class DropdownOption extends Component {
 
   static defaultProps = {
     // functions
-    onSelectEvent: () => {},
+    handleSelectDropdownOption: () => {},
     setDefaultOption: () => {},
   };
 
@@ -48,7 +48,7 @@ export default class DropdownOption extends Component {
   };
 
   selectOption = (event) => {
-    const { onSelectEvent, children } = this.props;
+    const { handleSelectDropdownOption, children } = this.props;
     const { disabled, value, text } = children.props;
 
     if (disabled) return;
@@ -57,7 +57,8 @@ export default class DropdownOption extends Component {
       ...event,
       target: { ...event.target, value, name: text },
     };
-    onSelectEvent({
+
+    handleSelectDropdownOption({
       displayText: text,
       event: customEvent,
       ref: this.ref,
@@ -74,7 +75,7 @@ export default class DropdownOption extends Component {
   render() {
     const { selectOption } = this;
 
-    const { children, selectedOption, onKeyUpEvent, index, id } = this.props;
+    const { children, selectedOption, handleKeyUp, index, id } = this.props;
     const { text, value, disabled } = children.props;
     const isSelected = selectedOption.ref === this.ref;
     const skin = isSelected ? "vivid" : "pale";
@@ -98,7 +99,7 @@ export default class DropdownOption extends Component {
           disabled={disabled}
           onClick={selectOption}
           tabIndex="-1"
-          onKeyUp={onKeyUpEvent}
+          onKeyUp={handleKeyUp}
           aria-disabled={disabled}
           id={`option-${index}--menu--${id}`}
           ref={disabled ? null : this.ref}
