@@ -327,4 +327,59 @@ describe("AbstractDropdown", () => {
     expect(mockOnOpen.mock.calls.length).toBe(1);
     expect(mockOnClose.mock.calls.length).toBe(1);
   });
+
+  it("arrow up and arrow down events", async () => {
+    const mockOnClose = jest.fn();
+    const mockOnOpen = jest.fn();
+    const onSelectMock = jest.fn();
+    const id = "test_id";
+    const wrapper = mount(
+      <AbstractDropdown
+        dropdownType="tag"
+        text="Click me"
+        onClose={mockOnClose}
+        onOpen={mockOnOpen}
+        onSelect={onSelectMock}
+        id={id}
+      >
+        <SectionTitle text="First Section" />
+        <TagItem value="1" text="One" />
+        <TagItem value="2" text="Two" />
+        <TagItem value="3" text="Three" />
+      </AbstractDropdown>
+    );
+
+    const trigger = wrapper
+      .find(TriggerWithCustomEvents)
+      .find(".lab-dropdown__invisible-button--trigger")
+      .at(0);
+
+    trigger.simulate("keyup", { key: "ArrowDown" });
+    expect(wrapper.state().isOpen).toBe(true);
+    expect(wrapper.state().focused.index).toBe(0);
+
+    trigger.simulate("keyup", { key: "ArrowDown" });
+    expect(wrapper.state().focused.index).toBe(1);
+
+    trigger.simulate("keyup", { key: "ArrowDown" });
+    expect(wrapper.state().focused.index).toBe(2);
+
+    trigger.simulate("keyup", { key: "ArrowDown" });
+    expect(wrapper.state().focused.index).toBe(2);
+
+    trigger.simulate("keyup", { key: "ArrowUp" });
+    expect(wrapper.state().focused.index).toBe(1);
+
+    trigger.simulate("keyup", { key: "ArrowUp" });
+    expect(wrapper.state().focused.index).toBe(0);
+
+    trigger.simulate("keyup", { key: "ArrowUp" });
+    expect(wrapper.state().focused.index).toBe(0);
+
+    trigger.simulate("keyup", { key: "PageDown" });
+    expect(wrapper.state().focused.index).toBe(2);
+
+    trigger.simulate("keyup", { key: "PageUp" });
+    expect(wrapper.state().focused.index).toBe(0);
+  });
 });
