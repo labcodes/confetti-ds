@@ -37,9 +37,13 @@ export default class OptionWithCustomEvents extends Component {
   }
 
   setDefault = () => {
+    const { checkDisabled } = this;
     const { children, setDefaultOption, index } = this.props;
     const { text, selected } = children.props;
     const defaultOption = { text, index, ref: this.ref };
+
+    checkDisabled();
+
     if (selected) setDefaultOption(defaultOption);
   };
 
@@ -58,6 +62,13 @@ export default class OptionWithCustomEvents extends Component {
       event: customEvent,
       ref: this.ref,
     });
+  };
+
+  checkDisabled = () => {
+    const { children } = this.props;
+    const { selected, disabled } = children.props;
+    if (disabled && selected)
+      throw Error("You can't set a disabled option as default.");
   };
 
   render() {
