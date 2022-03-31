@@ -42,7 +42,10 @@ export default class AbstractDropdown extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      refList: [],
+      /** optionsRefList is a Array of refs to valid options.
+          It means if you pass disabled prop to a DropdownOption, its ref will not be in this array.
+      */
+      optionsRefList: [],
       selected: { ref: null, index: null },
       lastFocusedOption: { index: null },
       displayText: props.defaultText,
@@ -58,7 +61,7 @@ export default class AbstractDropdown extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { triggerRef, checkIfHasChildren } = this;
 
-    const { isOpen, selected, refList } = this.state;
+    const { isOpen, selected, optionsRefList } = this.state;
 
     const { onClose, onOpen } = this.props;
 
@@ -73,7 +76,7 @@ export default class AbstractDropdown extends Component {
       const hasSelectedOption = selected.ref;
       if (hasSelectedOption) selected.ref.current.focus();
       else {
-        const firstOption = refList[0];
+        const firstOption = optionsRefList[0];
         if (firstOption) firstOption.current.focus();
       }
 
@@ -102,8 +105,8 @@ export default class AbstractDropdown extends Component {
 
   getSelectedOptionIndex = (selected) => {
     if (!selected.ref) return 0;
-    const { refList } = this.state;
-    const index = refList.findIndex((ref) => ref === selected.ref);
+    const { optionsRefList } = this.state;
+    const index = optionsRefList.findIndex((ref) => ref === selected.ref);
     return index === -1 ? 0 : index;
   };
 
@@ -114,13 +117,13 @@ export default class AbstractDropdown extends Component {
     const notExpectedKey = !expectedKeys[key];
     if (notExpectedKey) return;
 
-    const { isOpen, refList, selected, lastFocusedOption } = this.state;
+    const { isOpen, optionsRefList, selected, lastFocusedOption } = this.state;
     const isEsc = key === "Escape";
     const isClosed = !isOpen;
 
-    const maxIndex = refList.length - 1;
-    const firstOptionRef = refList[0];
-    const lastOptionRef = refList[maxIndex];
+    const maxIndex = optionsRefList.length - 1;
+    const firstOptionRef = optionsRefList[0];
+    const lastOptionRef = optionsRefList[maxIndex];
 
     if (isEsc) {
       const focusedIndex = this.getSelectedOptionIndex(selected);
@@ -158,7 +161,7 @@ export default class AbstractDropdown extends Component {
         if (focusedIndex === maxIndex) return;
 
         focusedIndex += 1;
-        focusedOption = refList[focusedIndex];
+        focusedOption = optionsRefList[focusedIndex];
         focusedOption.current.focus();
 
         this.setState({ lastFocusedOption: { index: focusedIndex } });
@@ -167,7 +170,7 @@ export default class AbstractDropdown extends Component {
         if (focusedIndex === 0) return;
 
         focusedIndex -= 1;
-        focusedOption = refList[focusedIndex];
+        focusedOption = optionsRefList[focusedIndex];
         focusedOption.current.focus();
 
         this.setState({ lastFocusedOption: { index: focusedIndex } });
@@ -211,7 +214,10 @@ export default class AbstractDropdown extends Component {
   };
 
   setOptionsRefs = (ref) =>
-    this.setState((prev) => ({ ...prev, refList: [...prev.refList, ref] }));
+    this.setState((prev) => ({
+      ...prev,
+      optionsRefList: [...prev.optionsRefList, ref],
+    }));
 
   setTriggerRef = (ref) => {
     this.triggerRef = ref;
