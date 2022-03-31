@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { DropdownTag, TagItem } from "../Tags";
 import { Button } from "../Button";
-import { dropdownOptions, expectedKeys } from "./propTypes";
+import { dropdownOptions } from "./propTypes";
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import DropdownTrigger from "./DropdownTrigger";
 import DropdownOption from "./DropdownOption";
@@ -28,6 +28,14 @@ export default class AbstractDropdown extends Component {
     // functions
     onOpen: () => {},
     onClose: () => {},
+  };
+
+  expectedKeys = {
+    ArrowDown: true,
+    ArrowUp: true,
+    PageDown: true,
+    PageUp: true,
+    Escape: true,
   };
 
   constructor(props) {
@@ -97,18 +105,19 @@ export default class AbstractDropdown extends Component {
   };
 
   handleKeyUp = (event) => {
-    const { isOpen, refList, selected, focused } = this.state;
+    const { expectedKeys } = this;
     const { key } = event;
 
+    const notExpectedKey = !expectedKeys[key];
+    if (notExpectedKey) return;
+
+    const { isOpen, refList, selected, focused } = this.state;
     const isEsc = key === "Escape";
     const isClosed = !isOpen;
-    const notExpectedKey = !expectedKeys[key];
 
     const maxIndex = refList.length - 1;
     const firstOptionRef = refList[0];
     const lastOptionRef = refList[maxIndex];
-
-    if (notExpectedKey) return;
 
     if (isEsc) {
       const focusedIndex = this.getSelectedOptionIndex(selected);
