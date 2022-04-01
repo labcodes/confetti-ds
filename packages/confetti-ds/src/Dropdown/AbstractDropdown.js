@@ -11,15 +11,21 @@ import TagItem from "./TagItem";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
-    // functions
+    /** This function fires when user open the dropdown by (or pressing keys of the keyboard) on its trigger. */
     onOpen: PropTypes.func,
+    /** This function fires when user closes the dropdown by clicking (or pressing keys of the keyboard) on its trigger or changing the focus to another component. */
     onClose: PropTypes.func,
+    /** This function fires when user select one valid option. */
     onSelect: PropTypes.func.isRequired,
-    // props
+    /** This is the dropdown type, it can be a tag or button dropdown. */
     dropdownType: PropTypes.oneOf(dropdownOptions.types).isRequired,
+    /** This is the dropdown color, it will be applied on its section title and trigger. */
     color: PropTypes.string,
+    /** This is the dropdown default trigger title. It will mount with this default text until the user select an option */
     defaultText: PropTypes.string.isRequired,
+    /** This is the dropdown children. It can be a TagItem or a SectionTitle, if user doesn't pass a child, it will throw an error. */
     children: PropTypes.node.isRequired,
+    /** This is the dropdown id. It is necessary an unique id */
     id: PropTypes.string.isRequired,
   };
 
@@ -87,6 +93,9 @@ export default class AbstractDropdown extends Component {
     checkIfHasChildren();
   }
 
+  /**
+    This function verifies if the dropdown has no children and throw a error if is the case.
+  */
   checkIfHasChildren = () => {
     const { children } = this.props;
 
@@ -95,6 +104,11 @@ export default class AbstractDropdown extends Component {
       throw Error("You need to pass children to the dropdown component.");
   };
 
+  /**
+    This function is called when user clicks at the DropdownTrigger
+
+    It opens and close the dropdown popup and sets the lastFocusedOption
+  */
   handleTriggerClick = () => {
     const { isOpen, selected } = this.state;
     const focusedIndex = this.getSelectedOptionIndex(selected);
@@ -104,6 +118,13 @@ export default class AbstractDropdown extends Component {
     });
   };
 
+  /**
+    This function gets selected option ref index in the refList state index
+
+    It receives the selected option as param.
+
+    If there is no selected option it returns 0, else it search in the refList for the selected.ref
+  */
   getSelectedOptionIndex = (selected) => {
     if (!selected.ref) return 0;
     const { optionsRefList } = this.state;
@@ -111,6 +132,11 @@ export default class AbstractDropdown extends Component {
     return index === -1 ? 0 : index;
   };
 
+  /**
+    This function is called when user press ArrowDown/Up, PageUp/Down, Escape keys.
+
+    It verifies and sets the lastFocusedOption state
+  */
   handleKeyUp = (event) => {
     const { expectedKeys } = this;
     const { key } = event;
@@ -182,6 +208,11 @@ export default class AbstractDropdown extends Component {
     }
   };
 
+  /**
+    This function is called at the DropdownOption component when the user clicks on an option (if this option is not disabled).
+
+    An option is an object which has an event (a custom event), ref (react ref to the option HTML element), and the index of the option.
+  */
   handleSelectDropdownOption = (option) => {
     const { onSelect } = this.props;
     const { event, ref, index } = option;
@@ -195,6 +226,9 @@ export default class AbstractDropdown extends Component {
     onSelect(event);
   };
 
+  /**
+    This function is called when user clicks outside the dropdown area.
+  */
   handleBlur = (event) => {
     const { relatedTarget, currentTarget } = event;
 
@@ -209,17 +243,30 @@ export default class AbstractDropdown extends Component {
     }
   };
 
+  /**
+    This function is called at the DropdownOption component when it has the 'selected' prop marked as true
+  */
   setDefaultOption = (defaultOption) => {
     const { ref, text, index } = defaultOption;
     this.setState({ selected: { ref, index }, displayText: text });
   };
 
+  /**
+    This function is called at the DropdownOption component
+
+    It sets React Refs to refList state when the option does not have the disabled prop marked as true
+  */
   setOptionsRefs = (ref) =>
     this.setState((prev) => ({
       ...prev,
       optionsRefList: [...prev.optionsRefList, ref],
     }));
 
+  /**
+    This function is called at the DropdownTrigger component
+
+    It sets React Ref to the trigger button
+  */
   setTriggerRef = (ref) => {
     this.triggerRef = ref;
   };
