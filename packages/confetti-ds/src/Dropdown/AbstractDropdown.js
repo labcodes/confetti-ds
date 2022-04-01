@@ -37,13 +37,7 @@ export default class AbstractDropdown extends Component {
     onClose: () => {},
   };
 
-  expectedKeys = {
-    ArrowDown: true,
-    ArrowUp: true,
-    PageDown: true,
-    PageUp: true,
-    Escape: true,
-  };
+  expectedKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Escape"];
 
   constructor(props) {
     super(props);
@@ -141,7 +135,7 @@ export default class AbstractDropdown extends Component {
     const { expectedKeys } = this;
     const { key } = event;
 
-    const notExpectedKey = !expectedKeys[key];
+    const notExpectedKey = !expectedKeys.includes(key);
     if (notExpectedKey) return;
 
     const { isOpen, optionsRefList, selected, lastFocusedOption } = this.state;
