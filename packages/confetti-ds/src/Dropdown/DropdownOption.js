@@ -3,15 +3,21 @@ import React, { Component } from "react";
 
 export default class DropdownOption extends Component {
   static propTypes = {
-    // functions
+    /** This function fires when user select a valid option */
     handleSelectDropdownOption: PropTypes.func,
+    /** This is a function is used to set a default option when the user pass "selected" prop to a TagItem */
     setDefaultOption: PropTypes.func,
+    /** This function fires when keyboard interactions are detected */
     handleKeyUp: PropTypes.func.isRequired,
+    /** This is a function to set the ref of the option, if this is valid (meaning TagItem does not have the "disabled" prop). */
     setRef: PropTypes.func.isRequired,
-    // props
+    /** This prop is used to set if a option is current selected */
     selectedOption: PropTypes.object.isRequired,
+    /** This children prop is the TagItem */
     children: PropTypes.node.isRequired,
+    /** This is the option index */
     index: PropTypes.number.isRequired,
+    /** This is the unique id of the option */
     id: PropTypes.string.isRequired,
   };
 
