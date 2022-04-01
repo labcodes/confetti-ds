@@ -4,10 +4,11 @@ import { mount } from "enzyme";
 import _ from "lodash";
 
 import AbstractDropdown from "./AbstractDropdown";
-import { DropdownTag, TagItem } from "../Tags";
-import SectionTitle from "./SectionTitle";
-import OptionWithCustomEvents from "./OptionWithCustomEvents";
-import TriggerWithCustomEvents from "./TriggerWithCustomEvents";
+import { DropdownTag } from "../Tags";
+import DropdownSectionTitle from "./DropdownSectionTitle";
+import DropdownOption from "./DropdownOption";
+import DropdownTrigger from "./DropdownTrigger";
+import TagItem from "./TagItem";
 
 describe("AbstractDropdown", () => {
   it("simulates click on trigger", () => {
@@ -16,7 +17,7 @@ describe("AbstractDropdown", () => {
       <AbstractDropdown
         dropdownType="tag"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="test"
       >
@@ -26,7 +27,7 @@ describe("AbstractDropdown", () => {
 
     expect(wrapper.state().isOpen).toBe(false);
 
-    wrapper.instance().onClickEvent();
+    wrapper.instance().handleTriggerClick();
 
     expect(wrapper.state().isOpen).toBe(true);
   });
@@ -38,7 +39,7 @@ describe("AbstractDropdown", () => {
       <AbstractDropdown
         dropdownType="tag"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="test"
       >
@@ -63,12 +64,12 @@ describe("AbstractDropdown", () => {
       <AbstractDropdown
         dropdownType="tag"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="test"
       >
         <div>Just some child 1</div>
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
@@ -96,12 +97,12 @@ describe("AbstractDropdown", () => {
       <AbstractDropdown
         dropdownType="tag"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="test"
       >
         <div>Just some child 1</div>
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
 
         {expectedValues.map(({ value, text }) => (
           <TagItem key={value} value={value} text={text} />
@@ -115,14 +116,14 @@ describe("AbstractDropdown", () => {
     const randomIndex = _.random(0, 2);
 
     const trigger = wrapper
-      .find(TriggerWithCustomEvents)
+      .find(DropdownTrigger)
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
     trigger.simulate("click");
     expect(wrapper.state().isOpen).toBe(true);
 
     const selected = wrapper
-      .find(OptionWithCustomEvents)
+      .find(DropdownOption)
       .at(randomIndex)
       .find(".lab-dropdown__invisible-button--option")
       .at(0);
@@ -147,12 +148,12 @@ describe("AbstractDropdown", () => {
       <AbstractDropdown
         dropdownType="tag"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="test"
       >
         <div>Just some child 1</div>
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
 
         {expectedValues.map(({ value, text, disabled }) => (
           <TagItem key={value} value={value} text={text} disabled={disabled} />
@@ -181,7 +182,7 @@ describe("AbstractDropdown", () => {
     const randomIndex = _.random(1, 2);
 
     const trigger = wrapper
-      .find(TriggerWithCustomEvents)
+      .find(DropdownTrigger)
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
     trigger.simulate("click");
@@ -189,7 +190,7 @@ describe("AbstractDropdown", () => {
     expect(wrapper.state().selected).toStrictEqual({ ref: null, index: null });
 
     const disabledSelected = wrapper
-      .find(OptionWithCustomEvents)
+      .find(DropdownOption)
       .find(".lab-dropdown__invisible-button--disabled")
       .at(0);
     disabledSelected.simulate("click");
@@ -197,7 +198,7 @@ describe("AbstractDropdown", () => {
     expect(wrapper.state().selected).toStrictEqual({ ref: null, index: null });
 
     const selected = wrapper
-      .find(OptionWithCustomEvents)
+      .find(DropdownOption)
       .at(randomIndex)
       .find(".lab-dropdown__invisible-button--option")
       .at(0);
@@ -213,12 +214,12 @@ describe("AbstractDropdown", () => {
       <AbstractDropdown
         dropdownType="tag"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="test"
       >
         <div>Just some child 1</div>
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
@@ -229,7 +230,7 @@ describe("AbstractDropdown", () => {
     // wrapper.parent().text();
     expect(wrapper.state().isOpen).toBe(false);
 
-    wrapper.instance().onClickEvent();
+    wrapper.instance().handleTriggerClick();
 
     expect(wrapper.state().isOpen).toBe(true);
 
@@ -245,11 +246,11 @@ describe("AbstractDropdown", () => {
       .create(
         <AbstractDropdown
           dropdownType="tag"
-          text="Click me"
+          defaultText="Click me"
           onSelect={onSelectMock}
           id="test"
         >
-          <SectionTitle text="First Section" />
+          <DropdownSectionTitle text="First Section" />
           <TagItem value="1" text="One" />
           <TagItem value="2" text="Two" />
           <TagItem value="3" text="Three" />
@@ -266,12 +267,12 @@ describe("AbstractDropdown", () => {
       .create(
         <AbstractDropdown
           dropdownType="tag"
-          text="Click me"
+          defaultText="Click me"
           color="teal"
           onSelect={onSelectMock}
           id="test"
         >
-          <SectionTitle text="First Section" />
+          <DropdownSectionTitle text="First Section" />
           <TagItem value="1" text="One" />
           <TagItem value="2" text="Two" />
           <TagItem value="3" text="Three" />
@@ -283,19 +284,21 @@ describe("AbstractDropdown", () => {
     const mountedComponent = mount(
       <AbstractDropdown
         dropdownType="tag"
-        text="Click me"
+        defaultText="Click me"
         color="teal"
         onSelect={onSelectMock}
         id="test"
       >
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
       </AbstractDropdown>
     );
     expect(mountedComponent.find(DropdownTag).prop("color")).toEqual("teal");
-    expect(mountedComponent.find(SectionTitle).prop("color")).toEqual("teal");
+    expect(mountedComponent.find(DropdownSectionTitle).prop("color")).toEqual(
+      "teal"
+    );
   });
 
   it("calls props.onClose and props.onOpen when clicked or blured", async () => {
@@ -306,13 +309,13 @@ describe("AbstractDropdown", () => {
     const mountDropdown = mount(
       <AbstractDropdown
         dropdownType="tag"
-        text="Click me"
+        defaultText="Click me"
         onClose={mockOnClose}
         onOpen={mockOnOpen}
         onSelect={onSelectMock}
         id={id}
       >
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
@@ -336,13 +339,13 @@ describe("AbstractDropdown", () => {
     const wrapper = mount(
       <AbstractDropdown
         dropdownType="tag"
-        text="Click me"
+        defaultText="Click me"
         onClose={mockOnClose}
         onOpen={mockOnOpen}
         onSelect={onSelectMock}
         id={id}
       >
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
@@ -350,36 +353,36 @@ describe("AbstractDropdown", () => {
     );
 
     const trigger = wrapper
-      .find(TriggerWithCustomEvents)
+      .find(DropdownTrigger)
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
 
     trigger.simulate("keyup", { key: "ArrowDown" });
     expect(wrapper.state().isOpen).toBe(true);
-    expect(wrapper.state().focused.index).toBe(0);
+    expect(wrapper.state().lastFocusedOption.index).toBe(0);
 
     trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().focused.index).toBe(1);
+    expect(wrapper.state().lastFocusedOption.index).toBe(1);
 
     trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().focused.index).toBe(2);
+    expect(wrapper.state().lastFocusedOption.index).toBe(2);
 
     trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().focused.index).toBe(2);
+    expect(wrapper.state().lastFocusedOption.index).toBe(2);
 
     trigger.simulate("keyup", { key: "ArrowUp" });
-    expect(wrapper.state().focused.index).toBe(1);
+    expect(wrapper.state().lastFocusedOption.index).toBe(1);
 
     trigger.simulate("keyup", { key: "ArrowUp" });
-    expect(wrapper.state().focused.index).toBe(0);
+    expect(wrapper.state().lastFocusedOption.index).toBe(0);
 
     trigger.simulate("keyup", { key: "ArrowUp" });
-    expect(wrapper.state().focused.index).toBe(0);
+    expect(wrapper.state().lastFocusedOption.index).toBe(0);
 
     trigger.simulate("keyup", { key: "PageDown" });
-    expect(wrapper.state().focused.index).toBe(2);
+    expect(wrapper.state().lastFocusedOption.index).toBe(2);
 
     trigger.simulate("keyup", { key: "PageUp" });
-    expect(wrapper.state().focused.index).toBe(0);
+    expect(wrapper.state().lastFocusedOption.index).toBe(0);
   });
 });

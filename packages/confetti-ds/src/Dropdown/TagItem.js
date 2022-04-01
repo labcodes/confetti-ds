@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 
-import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { ICON_TYPES, TAG_COLORS } from "../constants";
+import AbstractTag from "../Tags/AbstractTag";
 
 export default class TagItem extends React.Component {
   static propTypes = {
@@ -69,7 +69,7 @@ export default class TagItem extends React.Component {
 
   checkThumbAndIcon() {
     const errorMessage =
-      "`SimpleTag` can't be initialized with both `thumb` and `icon` props.";
+      "`TagItem` can't be initialized with both `thumb` and `icon` props.";
     const { thumbSrc, icon } = this.props;
     if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
       throw new Error(errorMessage);

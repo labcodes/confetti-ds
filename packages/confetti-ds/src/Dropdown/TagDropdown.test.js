@@ -2,9 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
-import { DropdownTag, TagItem } from "../Tags";
-import SectionTitle from "./SectionTitle";
+import { DropdownTag } from "../Tags";
+import DropdownSectionTitle from "./DropdownSectionTitle";
 import TagDropdown from "./TagDropdown";
+import TagItem from "./TagItem";
 
 describe("TagDropdown", () => {
   it("not expected children", () => {
@@ -14,7 +15,7 @@ describe("TagDropdown", () => {
       <TagDropdown
         id="testId"
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
       >
         <div>Just some child 1</div>
@@ -37,12 +38,12 @@ describe("TagDropdown", () => {
     const wrapper = mount(
       <TagDropdown
         color="mineral"
-        text="Click me"
+        defaultText="Click me"
         onSelect={onSelectMock}
         id="idTest"
       >
         <div>Just some child 1</div>
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
@@ -62,8 +63,8 @@ describe("TagDropdown", () => {
 
     const renderedComponent = renderer
       .create(
-        <TagDropdown id="idTest" text="Click me" onSelect={onSelectMock}>
-          <SectionTitle text="First Section" />
+        <TagDropdown id="idTest" defaultText="Click me" onSelect={onSelectMock}>
+          <DropdownSectionTitle text="First Section" />
           <TagItem value="1" text="One" />
           <TagItem value="2" text="Two" />
           <TagItem value="3" text="Three" />
@@ -80,11 +81,11 @@ describe("TagDropdown", () => {
       .create(
         <TagDropdown
           id="idTest"
-          text="Click me"
+          defaultText="Click me"
           color="teal"
           onSelect={onSelectMock}
         >
-          <SectionTitle text="First Section" />
+          <DropdownSectionTitle text="First Section" />
           <TagItem value="1" text="One" />
           <TagItem value="2" text="Two" />
           <TagItem value="3" text="Three" />
@@ -96,18 +97,20 @@ describe("TagDropdown", () => {
     const mountedComponent = mount(
       <TagDropdown
         id="idTest"
-        text="Click me"
+        defaultText="Click me"
         color="teal"
         onSelect={onSelectMock}
       >
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
       </TagDropdown>
     );
     expect(mountedComponent.find(DropdownTag).prop("color")).toEqual("teal");
-    expect(mountedComponent.find(SectionTitle).prop("color")).toEqual("teal");
+    expect(mountedComponent.find(DropdownSectionTitle).prop("color")).toEqual(
+      "teal"
+    );
   });
 
   it("calls props.onClose and props.onOpen when clicked or blured", async () => {
@@ -119,12 +122,12 @@ describe("TagDropdown", () => {
       <TagDropdown
         id="testId"
         dropdownType="tag"
-        text="Click me"
+        defaultText="Click me"
         onClose={mockOnClose}
         onOpen={mockOnOpen}
         onSelect={onSelectMock}
       >
-        <SectionTitle text="First Section" />
+        <DropdownSectionTitle text="First Section" />
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
