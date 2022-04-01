@@ -25,11 +25,17 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
+    expect(wrapper.instance().triggerRef).toBeTruthy();
+    const trigger = wrapper
+      .find(DropdownTrigger)
+      .find(".lab-dropdown__invisible-button--trigger")
+      .at(0);
+
     expect(wrapper.state().isOpen).toBe(false);
-
-    wrapper.instance().handleTriggerClick();
-
+    trigger.simulate("click");
     expect(wrapper.state().isOpen).toBe(true);
+    trigger.simulate("click");
+    expect(wrapper.state().isOpen).toBe(false);
   });
 
   it("not expected children", () => {
