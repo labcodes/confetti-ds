@@ -11,21 +11,21 @@ import TagItem from "./TagItem";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
-    /** This function fires when user open the dropdown by (or pressing keys of the keyboard) on its trigger. */
+    /** Function called after the dropdown is opened. */
     onOpen: PropTypes.func,
-    /** This function fires when user closes the dropdown by clicking (or pressing keys of the keyboard) on its trigger or changing the focus to another component. */
+    /** Function called after the dropdown is closed. */
     onClose: PropTypes.func,
-    /** This function fires when user select one valid option. */
+    /** Function called when the user selects one valid option. */
     onSelect: PropTypes.func.isRequired,
-    /** This is the dropdown type, it can be a tag or button dropdown. */
+    /** This is the dropdown type, and it can be a tag or button dropdown. */
     dropdownType: PropTypes.oneOf(dropdownOptions.types).isRequired,
-    /** This is the dropdown color, it will be applied on its section title and trigger. */
+    /** This is the dropdown color, and it will set the color of its section title and trigger. */
     color: PropTypes.string,
-    /** This is the dropdown default trigger title. It will mount with this default text until the user select an option */
+    /** This is the dropdown default trigger title. It will mount with this default text until the user selects an option. */
     defaultText: PropTypes.string.isRequired,
-    /** This is the dropdown children. It can be a TagItem or a SectionTitle, if user doesn't pass a child, it will throw an error. */
+    /** This is the dropdown of children. It can be a TagItem or a SectionTitle, and if the user doesn't pass a child, it will throw an error. */
     children: PropTypes.node.isRequired,
-    /** This is the dropdown id. It is necessary an unique id */
+    /** This is the dropdown id. It requires a unique id. */
     id: PropTypes.string.isRequired,
   };
 
