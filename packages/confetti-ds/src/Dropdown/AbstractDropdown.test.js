@@ -291,7 +291,7 @@ describe("AbstractDropdown", () => {
     );
   });
 
-  it("calls props.onClose and props.onOpen when clicked or blured", async () => {
+  it("calls props.onClose and props.onOpen when clicks on dropdown trigger", async () => {
     const mockOnClose = jest.fn();
     const mockOnOpen = jest.fn();
     const onSelectMock = jest.fn();
