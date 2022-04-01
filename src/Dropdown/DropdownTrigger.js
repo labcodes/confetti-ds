@@ -3,12 +3,15 @@ import React, { Component } from "react";
 
 export default class DropdownTrigger extends Component {
   static propTypes = {
-    // functions
+    /** This function fires when the trigger receives a click. */
     handleTriggerClick: PropTypes.func.isRequired,
+    /** This function fires when the trigger receives a keyboard interaction. */
     handleKeyUp: PropTypes.func.isRequired,
+    /** This is a function to set the ref of the trigger. */
     setRef: PropTypes.func.isRequired,
-    // props
+    /** This prop is used to get Button (or Tag) dropdown trigger */
     children: PropTypes.node.isRequired,
+    /** This is the dropdown id. It is necessary an unique id */
     id: PropTypes.string.isRequired,
   };
 
