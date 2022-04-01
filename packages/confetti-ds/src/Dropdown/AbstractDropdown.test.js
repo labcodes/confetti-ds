@@ -169,21 +169,6 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
-    // expect(wrapper.state().selected).toStrictEqual({ ref: null, index: null });
-
-    // disabledOption.simulate("click");
-
-    // // expect(wrapper.state().selected).toStrictEqual({
-    // //   ref: null,
-    // //   index: null,
-    // // });
-
-    // const selectedOption = wrapper.find("button").at(1);
-
-    // selectedOption.simulate("click");
-    // expect(wrapper.state().selected.index).toStrictEqual(1);
-
-    // -----------------
     expect(wrapper.instance().triggerRef).toBeTruthy();
     const randomIndex = _.random(1, 2);
 
@@ -233,7 +218,6 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
-    // wrapper.parent().text();
     expect(wrapper.state().isOpen).toBe(false);
 
     wrapper.instance().handleTriggerClick();
