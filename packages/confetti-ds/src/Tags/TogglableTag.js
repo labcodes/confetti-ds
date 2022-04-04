@@ -61,6 +61,7 @@ export default class TogglableTag extends React.Component {
         onClick={onClick}
         skin={isOn ? "vivid" : "pale"}
         renderPrefix={this.selected()}
+        tabIndex="0"
       />
     );
   }

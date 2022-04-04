@@ -115,6 +115,7 @@ export default class RemovableTag extends React.Component {
         onClick={onClick}
         renderPrefix={this.thumb() || this.icon()}
         renderSuffix={this.removeIcon()}
+        tabIndex="0"
       />
     );
   }
