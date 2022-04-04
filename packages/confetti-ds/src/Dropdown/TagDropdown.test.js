@@ -2,10 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
-import { DropdownTag } from "../Tags";
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import TagDropdown from "./TagDropdown";
 import TagItem from "./TagItem";
+import TagDropdownTrigger from "./TagDropdownTrigger";
 
 describe("TagDropdown", () => {
   it("not expected children", () => {
@@ -107,7 +107,9 @@ describe("TagDropdown", () => {
         <TagItem value="3" text="Three" />
       </TagDropdown>
     );
-    expect(mountedComponent.find(DropdownTag).prop("color")).toEqual("teal");
+    expect(mountedComponent.find(TagDropdownTrigger).prop("color")).toEqual(
+      "teal"
+    );
     expect(mountedComponent.find(DropdownSectionTitle).prop("color")).toEqual(
       "teal"
     );
