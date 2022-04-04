@@ -4,11 +4,11 @@ import { mount } from "enzyme";
 import _ from "lodash";
 
 import AbstractDropdown from "./AbstractDropdown";
-import { DropdownTag } from "../Tags";
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import DropdownOption from "./DropdownOption";
 import DropdownTrigger from "./DropdownTrigger";
 import TagItem from "./TagItem";
+import TagDropdownTrigger from "./TagDropdownTrigger";
 
 describe("AbstractDropdown", () => {
   it("simulates click on trigger", () => {
@@ -285,7 +285,9 @@ describe("AbstractDropdown", () => {
         <TagItem value="3" text="Three" />
       </AbstractDropdown>
     );
-    expect(mountedComponent.find(DropdownTag).prop("color")).toEqual("teal");
+    expect(mountedComponent.find(TagDropdownTrigger).prop("color")).toEqual(
+      "teal"
+    );
     expect(mountedComponent.find(DropdownSectionTitle).prop("color")).toEqual(
       "teal"
     );
