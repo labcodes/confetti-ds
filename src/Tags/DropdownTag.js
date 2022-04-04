@@ -23,15 +23,12 @@ export default class DropdownTag extends React.Component {
     disabled: PropTypes.bool,
     /** Action to be executed when the Tag is clicked. */
     onClick: PropTypes.func,
-
-    tabIndex: PropTypes.string,
   };
 
   static defaultProps = {
     icon: undefined,
     color: undefined,
     skin: "pale",
-    tabIndex: "0",
     isOutline: false,
     disabled: false,
     ariaDisabled: false,
@@ -71,7 +68,6 @@ export default class DropdownTag extends React.Component {
       disabled,
       ariaDisabled,
       onClick,
-      tabIndex,
     } = this.props;
     return (
       <AbstractTag
@@ -88,7 +84,7 @@ export default class DropdownTag extends React.Component {
         onClick={onClick}
         renderPrefix={this.icon()}
         renderSuffix={this.dropdownIcon()}
-        tabIndex={tabIndex}
+        tabIndex="0"
       />
     );
   }

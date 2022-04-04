@@ -24,8 +24,7 @@ export default class AbstractTag extends React.Component {
     disabled: PropTypes.bool,
     /** Action to be executed when the Tag is clicked. */
     onClick: PropTypes.func,
-
-    /** Tab index to manage itens position on screen */
+    /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
     tabIndex: PropTypes.string,
   };
 
@@ -39,7 +38,7 @@ export default class AbstractTag extends React.Component {
     disabled: false,
     ariaDisabled: false,
     onClick: () => {},
-    tabIndex: "0",
+    tabIndex: undefined,
   };
 
   handleEvent = (event) => {
