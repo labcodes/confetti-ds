@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { DropdownTag } from "../Tags";
 import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import DropdownTrigger from "./DropdownTrigger";
 import DropdownOption from "./DropdownOption";
 import TagItem from "./TagItem";
+import TagDropdownTrigger from "./TagDropdownTrigger";
 
 export default class AbstractDropdown extends Component {
   static propTypes = {
@@ -282,7 +282,7 @@ export default class AbstractDropdown extends Component {
 
     const trigger = {
       button: <Button text={displayText} />,
-      tag: <DropdownTag text={displayText} color={color} />,
+      tag: <TagDropdownTrigger text={displayText} color={color} />,
     };
 
     const renderTrigger = trigger[dropdownType];
