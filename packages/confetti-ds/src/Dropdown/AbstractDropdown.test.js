@@ -25,17 +25,80 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
-    expect(wrapper.instance().triggerRef).toBeTruthy();
     const trigger = wrapper
       .find(DropdownTrigger)
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
 
-    expect(wrapper.state().isOpen).toBe(false);
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeFalsy();
+
     trigger.simulate("click");
-    expect(wrapper.state().isOpen).toBe(true);
+
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeTruthy();
+
     trigger.simulate("click");
-    expect(wrapper.state().isOpen).toBe(false);
+
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeFalsy();
+  });
+
+  it("simulate blur event", () => {
+    const onSelectMock = jest.fn();
+
+    const wrapper = mount(
+      <AbstractDropdown
+        dropdownType="tag"
+        color="mineral"
+        defaultText="Click me"
+        onSelect={onSelectMock}
+        id="test"
+      >
+        <div>Just some child 1</div>
+        <DropdownSectionTitle text="First Section" />
+        <TagItem value="1" text="One" />
+        <TagItem value="2" text="Two" />
+        <TagItem value="3" text="Three" />
+        <div>Just some child 2</div>
+      </AbstractDropdown>
+    );
+
+    const trigger = wrapper
+      .find(DropdownTrigger)
+      .find(".lab-dropdown__invisible-button--trigger")
+      .at(0);
+
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeFalsy();
+
+    trigger.simulate("click");
+
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeTruthy();
+
+    trigger.simulate("blur");
+
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeFalsy();
   });
 
   it("not expected children", () => {
@@ -118,27 +181,26 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
-    expect(wrapper.instance().triggerRef).toBeTruthy();
     const randomIndex = _.random(0, 2);
 
     const trigger = wrapper
       .find(DropdownTrigger)
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
+
+    expect(trigger.text()).toEqual("Click me");
+
     trigger.simulate("click");
-    expect(wrapper.state().isOpen).toBe(true);
 
     const selected = wrapper
       .find(DropdownOption)
       .at(randomIndex)
       .find(".lab-dropdown__invisible-button--option")
       .at(0);
-    expect(wrapper.state().selected).toStrictEqual({ ref: null, index: null });
+
     selected.simulate("click");
 
-    expect(wrapper.state().displayText).toBe(expectedValues[randomIndex].text);
-
-    expect(wrapper.state().isOpen).toBe(false);
+    expect(trigger.text()).toEqual(expectedValues[randomIndex].text);
   });
 
   it("simulate select disabled option", () => {
@@ -169,64 +231,21 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
-    expect(wrapper.instance().triggerRef).toBeTruthy();
-    const randomIndex = _.random(1, 2);
-
     const trigger = wrapper
       .find(DropdownTrigger)
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
+
     trigger.simulate("click");
-    expect(wrapper.state().isOpen).toBe(true);
-    expect(wrapper.state().selected).toStrictEqual({ ref: null, index: null });
 
     const disabledSelected = wrapper
       .find(DropdownOption)
       .find(".lab-dropdown__invisible-button--disabled")
       .at(0);
+
+    expect(trigger.text()).toEqual("Click me");
     disabledSelected.simulate("click");
-    expect(wrapper.state().isOpen).toBe(true);
-    expect(wrapper.state().selected).toStrictEqual({ ref: null, index: null });
-
-    const selected = wrapper
-      .find(DropdownOption)
-      .at(randomIndex)
-      .find(".lab-dropdown__invisible-button--option")
-      .at(0);
-    selected.simulate("click");
-    expect(wrapper.state().displayText).toBe(expectedValues[randomIndex].text);
-    expect(wrapper.state().isOpen).toBe(false);
-  });
-
-  it("simulate blur event", () => {
-    const onSelectMock = jest.fn();
-
-    const wrapper = mount(
-      <AbstractDropdown
-        dropdownType="tag"
-        color="mineral"
-        defaultText="Click me"
-        onSelect={onSelectMock}
-        id="test"
-      >
-        <div>Just some child 1</div>
-        <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
-        <div>Just some child 2</div>
-      </AbstractDropdown>
-    );
-
-    expect(wrapper.state().isOpen).toBe(false);
-
-    wrapper.instance().handleTriggerClick();
-
-    expect(wrapper.state().isOpen).toBe(true);
-
-    wrapper.find(".lab-dropdown").simulate("blur");
-
-    expect(wrapper.state().isOpen).toBe(false);
+    expect(trigger.text()).toEqual("Click me");
   });
 
   it("renders with base props", async () => {
@@ -313,12 +332,12 @@ describe("AbstractDropdown", () => {
         <TagItem value="3" text="Three" />
       </AbstractDropdown>
     );
-
+    expect(mockOnOpen.mock.calls.length).toBe(0);
+    expect(mockOnClose.mock.calls.length).toBe(0);
     mountDropdown.find(`#menu-button--menu--${id}`).simulate("click");
     expect(mockOnOpen.mock.calls.length).toBe(1);
     expect(mockOnClose.mock.calls.length).toBe(0);
     mountDropdown.find(`#menu-button--menu--${id}`).simulate("click");
-
     expect(mockOnOpen.mock.calls.length).toBe(1);
     expect(mockOnClose.mock.calls.length).toBe(1);
   });
@@ -328,6 +347,14 @@ describe("AbstractDropdown", () => {
     const mockOnOpen = jest.fn();
     const onSelectMock = jest.fn();
     const id = "test_id";
+
+    // We need this to get the activeElement from document.activeElement due to the update of JSDOM
+    // https://github.com/jsdom/jsdom/issues/2586#issuecomment-742593116
+
+    const container = document.createElement("div");
+    container.id = "container";
+    document.body.appendChild(container);
+
     const wrapper = mount(
       <AbstractDropdown
         dropdownType="tag"
@@ -341,7 +368,8 @@ describe("AbstractDropdown", () => {
         <TagItem value="1" text="One" />
         <TagItem value="2" text="Two" />
         <TagItem value="3" text="Three" />
-      </AbstractDropdown>
+      </AbstractDropdown>,
+      { attachTo: document.querySelector("#container") }
     );
 
     const trigger = wrapper
@@ -349,32 +377,51 @@ describe("AbstractDropdown", () => {
       .find(".lab-dropdown__invisible-button--trigger")
       .at(0);
 
-    trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().isOpen).toBe(true);
-    expect(wrapper.state().lastFocusedOption.index).toBe(0);
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeFalsy();
 
     trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(1);
+
+    expect(
+      wrapper
+        .find(".lab-dropdown__content")
+        .hasClass("lab-dropdown__content--is-open")
+    ).toBeTruthy();
+
+    const options = wrapper.find(".lab-dropdown__invisible-button--option");
+
+    /** After open the dropdown */
+    expect(document.activeElement).toEqual(options.first().getDOMNode());
+
+    /** Move through the options with the ArrowDown key. */
+    trigger.simulate("keyup", { key: "ArrowDown" });
+    expect(document.activeElement).toEqual(options.at(1).getDOMNode());
 
     trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(2);
+    expect(document.activeElement).toEqual(options.at(2).getDOMNode());
 
     trigger.simulate("keyup", { key: "ArrowDown" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(2);
+    expect(document.activeElement).toEqual(options.at(2).getDOMNode());
+
+    /** Move through the options with the ArrowUp key. */
+    trigger.simulate("keyup", { key: "ArrowUp" });
+    expect(document.activeElement).toEqual(options.at(1).getDOMNode());
 
     trigger.simulate("keyup", { key: "ArrowUp" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(1);
+    expect(document.activeElement).toEqual(options.at(0).getDOMNode());
 
     trigger.simulate("keyup", { key: "ArrowUp" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(0);
+    expect(document.activeElement).toEqual(options.at(0).getDOMNode());
 
-    trigger.simulate("keyup", { key: "ArrowUp" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(0);
-
+    /** Move through the options with the PageDown  key. */
     trigger.simulate("keyup", { key: "PageDown" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(2);
+    expect(document.activeElement).toEqual(options.last().getDOMNode());
 
+    /** Move through the options with the PageUp  key. */
     trigger.simulate("keyup", { key: "PageUp" });
-    expect(wrapper.state().lastFocusedOption.index).toBe(0);
+    expect(document.activeElement).toEqual(options.first().getDOMNode());
   });
 });
