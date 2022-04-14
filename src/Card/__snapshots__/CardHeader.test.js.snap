@@ -46,7 +46,6 @@ exports[`CardHeader renders with categoryTagText 1`] = `
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
-      tabIndex="0"
     >
       test
     </span>
