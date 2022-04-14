@@ -4,7 +4,7 @@ $border-4: 4px solid;
 $border-6: 6px solid;
 
 // Radius
-$radius-05: ($baseline / 2); //2px
+$radius-05: calc($baseline / 2); //2px
 $radius-1: $baseline; //4px
 $radius-2: (2 * $baseline); //8px
 $radius-3: (3 * $baseline); //12px
