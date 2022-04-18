@@ -24,31 +24,8 @@
     isolation: isolate;
     padding: 8px 12px;
 
-    cursor: pointer;
-
     & .lab-icon {
       z-index: 0;
-    }
-    &:focus {
-      & > span {
-        @extend .lab-tag:focus;
-      }
-      @each $name, $palette in $tag-main-colors {
-        & > span.lab-tag--#{$name}-vivid {
-          @extend .lab-tag--#{$name}-vivid:focus;
-        }
-      }
-    }
-
-    &:hover {
-      & > span {
-        @extend .lab-tag:focus;
-      }
-      @each $name, $palette in $tag-main-colors {
-        & > span.lab-tag--#{$name}-vivid {
-          @extend .lab-tag--#{$name}-vivid:focus;
-        }
-      }
     }
 
     &--disabled {
@@ -147,6 +124,263 @@
   }
 }
 
+@mixin main-pseudo-classes--pale {
+  @each $name, $palette in $tag-main-colors {
+    &:hover + span.lab-tag--#{$name}-pale {
+      box-shadow: 0 0 0 2px map-get($palette, "30");
+
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        background-color: white;
+        border-color: white;
+        box-shadow: 0 0 0 4px map-get($palette, "20");
+
+        .lab-tag__remove-icon-wrapper {
+          background-color: map-get($palette, "20");
+        }
+      }
+
+      &.lab-tag--selected {
+        background-color: mix(map-get($palette, "60"), black, 50%);
+        border-color: mix(map-get($palette, "60"), black, 50%);
+        box-shadow: 0 0 0 4px map-get($palette, "20");
+      }
+    }
+
+    &:focus:hover + span.lab-tag--#{$name}-pale {
+      box-shadow: 0 0 0 2px map-get($palette, "30"),
+        0 0 0 4px map-get($palette, "20");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "30"),
+          0 0 0 4px map-get($palette, "20");
+      }
+
+      &.lab-tag--outline {
+        border-color: map-get($palette, "20");
+        &.lab-tag--selected {
+          box-shadow: 0 0 0 2px $tag-vivid-color,
+            0 0 0 4px $tag-hover-shadow-color;
+        }
+      }
+    }
+
+    &:focus + span.lab-tag--#{$name}-pale {
+      box-shadow: 0 0 0 2px map-get($palette, "30");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "30");
+      }
+    }
+  }
+}
+
+@mixin main-pseudo-classes--vivid {
+  @each $name, $palette in $tag-main-colors {
+    &:hover + span.lab-tag--#{$name}-vivid {
+      box-shadow: 0 0 0 2px map-get($palette, "30");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        background-color: mix(map-get($palette, "60"), black, 50%);
+        border-color: mix(map-get($palette, "60"), black, 50%);
+        box-shadow: 0 0 0 4px map-get($palette, "20");
+      }
+
+      &.lab-tag--outline {
+        &.lab-tag--togglable,
+        &.lab-tag--removable,
+        &.lab-tag--dropdown {
+          background-color: white;
+          color: map-get($palette, "70");
+          border-color: map-get($palette, "60");
+          box-shadow: 0 0 0 4px map-get($palette, "20");
+
+          .lab-tag--left-icon,
+          .lab-tag--check-icon,
+          .lab-tag--dropdown-icon,
+          .lab-tag--remove-icon {
+            background-color: map-get($palette, "70");
+          }
+        }
+      }
+    }
+
+    &:focus:hover + span.lab-tag--#{$name}-vivid {
+      box-shadow: 0 0 0 2px map-get($palette, "30"),
+        0 0 0 4px map-get($palette, "20");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "30"),
+          0 0 0 4px map-get($palette, "20");
+      }
+      &.lab-tag--outline {
+        &.lab-tag--togglable,
+        &.lab-tag--removable,
+        &.lab-tag--dropdown {
+          border-color: map-get($palette, "40");
+          box-shadow: 0 0 0 2px map-get($palette, "30"),
+            0 0 0 4px map-get($palette, "20");
+        }
+      }
+    }
+
+    &:focus + span.lab-tag--#{$name}-vivid {
+      box-shadow: 0 0 0 2px map-get($palette, "30");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "30");
+      }
+    }
+  }
+}
+
+@mixin all-pseudo-classes--pale {
+  @each $name, $palette in $tag-all-colors {
+    &:hover + span.lab-tag--#{$name}-pale {
+      box-shadow: 0 0 0 2px map-get($palette, "30");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        background-color: white;
+        border-color: white;
+        box-shadow: 0 0 0 4px map-get($palette, "20");
+
+        .lab-tag__remove-icon-wrapper {
+          background-color: map-get($palette, "20");
+        }
+      }
+
+      &.lab-tag--selected {
+        background-color: mix(map-get($palette, "60"), black, 50%);
+        border-color: mix(map-get($palette, "60"), black, 50%);
+        box-shadow: 0 0 0 4px map-get($palette, "60");
+        color: white;
+
+        .lab-tag--check-icon {
+          background-color: white;
+        }
+      }
+    }
+
+    &:focus:hover + span.lab-tag--#{$name}-pale {
+      box-shadow: 0 0 0 2px map-get($palette, "60"),
+        0 0 0 4px map-get($palette, "20");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "60"),
+          0 0 0 4px map-get($palette, "20");
+      }
+
+      &.lab-tag--selected {
+        box-shadow: 0 0 0 2px map-get($palette, "20"),
+          0 0 0 4px map-get($palette, "60");
+      }
+
+      &.lab-tag--outline {
+        border-color: map-get($palette, "20");
+      }
+    }
+
+    &:focus + span.lab-tag--#{$name}-pale {
+      box-shadow: 0 0 0 2px map-get($palette, "30");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "60");
+      }
+      &.lab-tag--selected {
+        box-shadow: 0 0 0 2px map-get($palette, "20");
+      }
+    }
+  }
+}
+
+@mixin all-pseudo-classes--vivid {
+  @each $name, $palette in $tag-all-colors {
+    &:hover + span.lab-tag--#{$name}-vivid {
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        background-color: mix(map-get($palette, "60"), black, 50%);
+        border-color: mix(map-get($palette, "60"), black, 50%);
+        box-shadow: 0 0 0 4px map-get($palette, "60");
+        color: white;
+
+        .lab-tag--left-icon,
+        .lab-tag--check-icon,
+        .lab-tag--dropdown-icon {
+          background-color: white;
+        }
+      }
+
+      &.lab-tag--outline {
+        &.lab-tag--togglable,
+        &.lab-tag--removable,
+        &.lab-tag--dropdown {
+          background-color: white;
+          border-color: map-get($palette, "60");
+          color: map-get($palette, "60");
+          box-shadow: 0 0 0 2px map-get($palette, "20");
+          @if $name == "yellow" {
+            color: $mustard-70;
+          }
+
+          .lab-tag--left-icon,
+          .lab-tag--check-icon,
+          .lab-tag--dropdown-icon,
+          .lab-tag--remove-icon {
+            background-color: map-get($palette, "60");
+            @if $name == "yellow" {
+              background-color: $mustard-70;
+            }
+          }
+        }
+      }
+    }
+
+    &:focus:hover + span.lab-tag--#{$name}-vivid {
+       box-shadow: 0 0 0 2px map-get($palette, "60"),
+        0 0 0 4px map-get($palette, "20");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        border-color: map-get($palette, "60");
+        box-shadow: 0 0 0 4px map-get($palette, "20");
+      }
+
+      &.lab-tag--outline {
+        &.lab-tag--togglable,
+        &.lab-tag--removable,
+        &.lab-tag--dropdown {
+          border-color: map-get($palette, "60");
+          box-shadow: 0 0 0 2px map-get($palette, "20"),
+            0 0 0 4px map-get($palette, "60");
+        }
+      }
+    }
+
+    &:focus + span.lab-tag--#{$name}-vivid {
+      box-shadow: 0 0 0 2px map-get($palette, "20");
+      &.lab-tag--togglable,
+      &.lab-tag--removable,
+      &.lab-tag--dropdown {
+        box-shadow: 0 0 0 2px map-get($palette, "20");
+      }
+      &.lab-tag--outline {
+        border-color: map-get($palette, "60");
+        box-shadow: 0 0 0 2px map-get($palette, "20");
+      }
+    }
+  }
+}
+
 .lab-dropdown__invisible-button {
   width: 100%;
   height: 100%;
@@ -158,71 +392,24 @@
   top: 0;
   z-index: 1;
   opacity: 0;
-  cursor: pointer;
+
   &--disabled {
     cursor: auto;
   }
 }
 
-.lab-dropdown__invisible-button--option {
+.lab-dropdown__invisible-button--trigger {
+  @include main-pseudo-classes--pale;
+  @include main-pseudo-classes--vivid;
+  @include all-pseudo-classes--pale;
+  @include all-pseudo-classes--vivid;
   @extend .lab-dropdown__invisible-button;
-
-  &:focus {
-    & + span {
-      @extend .lab-tag:focus;
-    }
-    @each $name, $palette in $tag-main-colors {
-      & + span.lab-tag--#{$name}-vivid {
-        @extend .lab-tag--#{$name}-vivid:focus;
-      }
-    }
-  }
-
-  &:hover {
-    & + span {
-      @extend .lab-tag:focus;
-    }
-    @each $name, $palette in $tag-main-colors {
-      & + span.lab-tag--#{$name}-vivid {
-        @extend .lab-tag--#{$name}-vivid:focus;
-      }
-    }
-  }
 }
 
-.lab-dropdown__invisible-button--trigger {
+.lab-dropdown__invisible-button--option {
+  @include main-pseudo-classes--pale;
+  @include main-pseudo-classes--vivid;
+  @include all-pseudo-classes--pale;
+  @include all-pseudo-classes--vivid;
   @extend .lab-dropdown__invisible-button;
-
-  &:focus {
-    & + span {
-      @extend .lab-tag--dropdown:focus;
-    }
-    @each $name, $palette in $tag-main-colors {
-      & + span.lab-tag--#{$name}-vivid {
-        @extend .lab-tag--#{$name}-vivid:focus;
-      }
-    }
-  }
-
-  &:hover {
-    & + span {
-      @extend .lab-tag--dropdown:hover;
-    }
-    @each $name, $palette in $tag-main-colors {
-      & + span.lab-tag--#{$name}-vivid {
-        @extend .lab-tag--#{$name}-vivid:hover;
-      }
-    }
-  }
-
-  &:focus:hover {
-    & + span {
-      @extend .lab-tag--dropdown:focus:hover;
-    }
-    @each $name, $palette in $tag-main-colors {
-      & + span.lab-tag--#{$name}-vivid {
-        @extend .lab-tag--#{$name}-vivid:focus;
-      }
-    }
-  }
 }
