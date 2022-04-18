@@ -131,12 +131,14 @@ export default class AbstractDropdown extends Component {
 
     It verifies and sets the lastFocusedOption state
   */
-  handleKeyUp = (event) => {
+  handleKeyDown = (event) => {
     const { expectedKeys } = this;
     const { key } = event;
 
     const notExpectedKey = !expectedKeys.includes(key);
     if (notExpectedKey) return;
+
+    event.preventDefault();
 
     const { isOpen, optionsRefList, selected, lastFocusedOption } = this.state;
     const isEsc = key === "Escape";
@@ -268,7 +270,7 @@ export default class AbstractDropdown extends Component {
   render() {
     const {
       handleTriggerClick,
-      handleKeyUp,
+      handleKeyDown,
       handleSelectDropdownOption,
       handleBlur,
       setDefaultOption,
@@ -291,7 +293,7 @@ export default class AbstractDropdown extends Component {
       <div className="lab-dropdown" onBlur={handleBlur}>
         <DropdownTrigger
           handleTriggerClick={handleTriggerClick}
-          handleKeyUp={handleKeyUp}
+          handleKeyDown={handleKeyDown}
           id={id}
           setRef={setTriggerRef}
         >
@@ -320,7 +322,7 @@ export default class AbstractDropdown extends Component {
                   color={color}
                   selectedOption={selected}
                   setDefaultOption={setDefaultOption}
-                  handleKeyUp={handleKeyUp}
+                  handleKeyDown={handleKeyDown}
                   index={index}
                   id={id}
                   setRef={setOptionsRefs}

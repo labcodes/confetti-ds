@@ -6,7 +6,7 @@ export default class DropdownTrigger extends Component {
     /** This function fires when the trigger receives a click. */
     handleTriggerClick: PropTypes.func.isRequired,
     /** This function fires when the trigger receives a keyboard interaction. */
-    handleKeyUp: PropTypes.func.isRequired,
+    handleKeyDown: PropTypes.func.isRequired,
     /** This is a function to set the ref of the trigger. */
     setRef: PropTypes.func.isRequired,
     /** This prop is used to get Button (or Tag) dropdown trigger */
@@ -24,7 +24,7 @@ export default class DropdownTrigger extends Component {
   }
 
   render() {
-    const { handleTriggerClick, handleKeyUp, children, id } = this.props;
+    const { handleTriggerClick, handleKeyDown, children, id } = this.props;
     const { text } = children.props;
 
     return (
@@ -34,7 +34,7 @@ export default class DropdownTrigger extends Component {
           aria-controls={`menu--${id}`}
           type="button"
           id={`menu-button--menu--${id}`}
-          onKeyUp={handleKeyUp}
+          onKeyDown={handleKeyDown}
           onClick={handleTriggerClick}
           aria-haspopup
           ref={this.ref}

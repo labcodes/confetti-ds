@@ -383,7 +383,7 @@ describe("AbstractDropdown", () => {
         .hasClass("lab-dropdown__content--is-open")
     ).toBeFalsy();
 
-    trigger.simulate("keyup", { key: "ArrowDown" });
+    trigger.simulate("keydown", { key: "ArrowDown" });
 
     expect(
       wrapper
@@ -397,31 +397,31 @@ describe("AbstractDropdown", () => {
     expect(document.activeElement).toEqual(options.first().getDOMNode());
 
     /** Move through the options with the ArrowDown key. */
-    trigger.simulate("keyup", { key: "ArrowDown" });
+    trigger.simulate("keydown", { key: "ArrowDown" });
     expect(document.activeElement).toEqual(options.at(1).getDOMNode());
 
-    trigger.simulate("keyup", { key: "ArrowDown" });
+    trigger.simulate("keydown", { key: "ArrowDown" });
     expect(document.activeElement).toEqual(options.at(2).getDOMNode());
 
-    trigger.simulate("keyup", { key: "ArrowDown" });
+    trigger.simulate("keydown", { key: "ArrowDown" });
     expect(document.activeElement).toEqual(options.at(2).getDOMNode());
 
     /** Move through the options with the ArrowUp key. */
-    trigger.simulate("keyup", { key: "ArrowUp" });
+    trigger.simulate("keydown", { key: "ArrowUp" });
     expect(document.activeElement).toEqual(options.at(1).getDOMNode());
 
-    trigger.simulate("keyup", { key: "ArrowUp" });
+    trigger.simulate("keydown", { key: "ArrowUp" });
     expect(document.activeElement).toEqual(options.at(0).getDOMNode());
 
-    trigger.simulate("keyup", { key: "ArrowUp" });
+    trigger.simulate("keydown", { key: "ArrowUp" });
     expect(document.activeElement).toEqual(options.at(0).getDOMNode());
 
     /** Move through the options with the PageDown  key. */
-    trigger.simulate("keyup", { key: "PageDown" });
+    trigger.simulate("keydown", { key: "PageDown" });
     expect(document.activeElement).toEqual(options.last().getDOMNode());
 
     /** Move through the options with the PageUp  key. */
-    trigger.simulate("keyup", { key: "PageUp" });
+    trigger.simulate("keydown", { key: "PageUp" });
     expect(document.activeElement).toEqual(options.first().getDOMNode());
   });
 });
