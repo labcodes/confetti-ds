@@ -8,7 +8,7 @@ export default class DropdownOption extends Component {
     /** This is a function is used to set a default option when the user pass the "selected" prop to a TagItem */
     setDefaultOption: PropTypes.func,
     /** This function fires when keyboard interactions are detected. */
-    handleKeyUp: PropTypes.func.isRequired,
+    handleKeyDown: PropTypes.func.isRequired,
     /** This function sets the ref of the option if this is valid (meaning TagItem does not have the "disabled" prop). */
     setRef: PropTypes.func.isRequired,
     /** TThis prop is used to set if an option is currently selected */
@@ -81,7 +81,7 @@ export default class DropdownOption extends Component {
   render() {
     const { selectOption } = this;
 
-    const { children, selectedOption, handleKeyUp, index, id } = this.props;
+    const { children, selectedOption, handleKeyDown, index, id } = this.props;
     const { text, value, disabled } = children.props;
     const isSelected = selectedOption.ref === this.ref;
     const skin = isSelected ? "vivid" : "pale";
@@ -105,7 +105,7 @@ export default class DropdownOption extends Component {
           disabled={disabled}
           onClick={selectOption}
           tabIndex="-1"
-          onKeyUp={handleKeyUp}
+          onKeyDown={handleKeyDown}
           aria-disabled={disabled}
           id={`option-${index}--menu--${id}`}
           ref={disabled ? null : this.ref}
