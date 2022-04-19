@@ -58,11 +58,11 @@ $remove-icon-focus: map-get($search-theme, "30");
 .lab-standard-search {
   @include remove-delete-icon-search-input;
   position: relative;
-  z-index: 99;
-  width: 320px;
+  width: 100%;
   margin-top: $spacing-3;
   box-sizing: border-box;
   border-radius: $radius-1;
+  display: block;
 
   .lab-search__remove-icon {
     margin-right: $spacing-13;
@@ -156,10 +156,11 @@ $remove-icon-focus: map-get($search-theme, "30");
 .lab-inline-search {
   @include remove-delete-icon-search-input;
   position: relative;
-  width: 320px;
+  width: 100%;
   margin-top: $spacing-3;
   box-sizing: border-box;
   border-radius: $radius-1;
+  display: block;
 
   .lab-search__field {
     padding-left: $spacing-13;
