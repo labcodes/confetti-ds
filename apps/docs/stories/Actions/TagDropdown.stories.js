@@ -4,10 +4,6 @@ import { TAG_COLORS } from "../../confetti-ds/src/constants";
 import { TagDropdown as Component } from "../../confetti-ds/src/Dropdown";
 
 export default {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
   title: "Actions/TagDropdown",
   component: Component,
   subcomponents: {
@@ -18,50 +14,47 @@ export default {
     color: {
       control: { type: "select", options: TAG_COLORS },
     },
+    children: {
+      control: false,
+    },
   },
 
   docs: { inlineStories: false },
 };
 
-//👇 We create a “template” of how args map to rendering
-
-// 👇 Each story then reuses that template
-
 export const TagDropdown = (args) => (
-  <div style={{ height: "500px" }}>
+  <div style={{ height: "200px" }}>
     <Component {...args}>
       <Component.SectionTitle text="Sort by" />
 
-      <Component.TagItem text="A to Z" value="a" isOutline color={args.color} />
+      <Component.TagItem
+        text="A to Z"
+        value="title"
+        isOutline
+        color={args.color}
+      />
       <Component.TagItem
         text="Z to A"
-        value="-a"
+        value="-title"
         isOutline
         color={args.color}
       />
       <Component.TagItem
         text="Avaibility"
-        value="avaibility"
+        value="Avaibility"
         isOutline
         color={args.color}
-      />
-      <Component.TagItem
-        text="Disabled"
-        value="disa"
-        isOutline
-        color={args.color}
-        disabled
       />
     </Component>
   </div>
 );
 
 TagDropdown.args = {
+  id: "1",
+  defaultText: "Sort by",
+  color: "mineral",
   onSelect: (event) =>
     console.log("Item selected", event.target.value, event.target.name),
   onClose: () => console.log("Dropdown closed"),
   onOpen: () => console.log("Dropdown opened"),
-  id: "1",
-  color: "mineral",
-  defaultText: "Selecionar",
 };
