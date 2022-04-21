@@ -84,6 +84,7 @@ export default class DropdownTag extends React.Component {
         onClick={onClick}
         renderPrefix={this.icon()}
         renderSuffix={this.dropdownIcon()}
+        tabIndex="0"
       />
     );
   }

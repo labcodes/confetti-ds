@@ -3,6 +3,7 @@ import { TextInput, PasswordInput, EmailInput } from "./Input";
 import { StandardSearch, InlineSearch } from "./Search";
 import { SimpleTag, TogglableTag, RemovableTag, DropdownTag } from "./Tags";
 import { StandardDialog, MessageDialog } from "./Dialog";
+import { TagDropdown } from "./Dropdown";
 
 import NarrowSidebar from "./Sidebar";
 import Alert from "./Alert";
@@ -34,6 +35,7 @@ export {
   Checkbox,
   Icon,
   Radio,
+  TagDropdown,
   Toggle,
   Tooltip,
   StandardDialog,
