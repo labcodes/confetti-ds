@@ -6,7 +6,6 @@ exports[`AbstractTag renders with base props for 'dropdown' type 1`] = `
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
-  tabIndex="0"
 >
   Test DropdownTag
 </span>
@@ -18,7 +17,6 @@ exports[`AbstractTag renders with base props for 'removable' type 1`] = `
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
-  tabIndex="0"
 >
   Test RemovableTag
 </span>
@@ -30,7 +28,6 @@ exports[`AbstractTag renders with base props for 'simple' type 1`] = `
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
-  tabIndex="0"
 >
   Test SimpleTag
 </span>
@@ -42,7 +39,6 @@ exports[`AbstractTag renders with base props for 'togglable' type 1`] = `
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
-  tabIndex="0"
 >
   Test TogglableTag
 </span>

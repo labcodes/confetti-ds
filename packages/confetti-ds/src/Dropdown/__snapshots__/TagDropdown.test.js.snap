@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagDropdown renders as expected when passing color as teal 1`] = `
+<div
+  className="lab-dropdown"
+  onBlur={[Function]}
+>
+  <div>
+    <button
+      aria-controls="menu--idTest"
+      aria-haspopup={true}
+      className="lab-dropdown__invisible-button lab-dropdown__invisible-button--trigger"
+      id="menu-button--menu--idTest"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      type="button"
+    >
+      Click me
+    </button>
+    <span
+      className="lab-tag lab-tag--dropdown lab-tag--teal-pale"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex="-1"
+    >
+      Click me
+      <span
+        className="lab-tag__dropdown-icon-wrapper"
+      >
+        <span
+          className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+        />
+      </span>
+    </span>
+  </div>
+  <div
+    aria-labelledby="menu-button--menu--idTest"
+    className="lab-dropdown__content lab-dropdown__listbox "
+    id="menu--idTest"
+    role="menu"
+    tabIndex="-1"
+  >
+    <span
+      className="lab-dropdown__section-title lab-dropdown__section-title--color-teal"
+    >
+      First Section
+    </span>
+    <div
+      className="lab-dropdown__option "
+      id="lab-dropdown__option--1"
+    >
+      <button
+        aria-disabled={false}
+        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        disabled={false}
+        id="option-1--menu--idTest"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+        type="button"
+      >
+        One
+      </button>
+      <span
+        className="lab-tag  lab-tag--pale"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        One
+      </span>
+    </div>
+    <div
+      className="lab-dropdown__option "
+      id="lab-dropdown__option--2"
+    >
+      <button
+        aria-disabled={false}
+        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        disabled={false}
+        id="option-2--menu--idTest"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+        type="button"
+      >
+        Two
+      </button>
+      <span
+        className="lab-tag  lab-tag--pale"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        Two
+      </span>
+    </div>
+    <div
+      className="lab-dropdown__option "
+      id="lab-dropdown__option--3"
+    >
+      <button
+        aria-disabled={false}
+        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        disabled={false}
+        id="option-3--menu--idTest"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+        type="button"
+      >
+        Three
+      </button>
+      <span
+        className="lab-tag  lab-tag--pale"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        Three
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TagDropdown renders with base props 1`] = `
+<div
+  className="lab-dropdown"
+  onBlur={[Function]}
+>
+  <div>
+    <button
+      aria-controls="menu--idTest"
+      aria-haspopup={true}
+      className="lab-dropdown__invisible-button lab-dropdown__invisible-button--trigger"
+      id="menu-button--menu--idTest"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      type="button"
+    >
+      Click me
+    </button>
+    <span
+      className="lab-tag lab-tag--dropdown lab-tag--teal-pale"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex="-1"
+    >
+      Click me
+      <span
+        className="lab-tag__dropdown-icon-wrapper"
+      >
+        <span
+          className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+        />
+      </span>
+    </span>
+  </div>
+  <div
+    aria-labelledby="menu-button--menu--idTest"
+    className="lab-dropdown__content lab-dropdown__listbox "
+    id="menu--idTest"
+    role="menu"
+    tabIndex="-1"
+  >
+    <span
+      className="lab-dropdown__section-title lab-dropdown__section-title--color-teal"
+    >
+      First Section
+    </span>
+    <div
+      className="lab-dropdown__option "
+      id="lab-dropdown__option--1"
+    >
+      <button
+        aria-disabled={false}
+        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        disabled={false}
+        id="option-1--menu--idTest"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+        type="button"
+      >
+        One
+      </button>
+      <span
+        className="lab-tag  lab-tag--pale"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        One
+      </span>
+    </div>
+    <div
+      className="lab-dropdown__option "
+      id="lab-dropdown__option--2"
+    >
+      <button
+        aria-disabled={false}
+        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        disabled={false}
+        id="option-2--menu--idTest"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+        type="button"
+      >
+        Two
+      </button>
+      <span
+        className="lab-tag  lab-tag--pale"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        Two
+      </span>
+    </div>
+    <div
+      className="lab-dropdown__option "
+      id="lab-dropdown__option--3"
+    >
+      <button
+        aria-disabled={false}
+        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        disabled={false}
+        id="option-3--menu--idTest"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+        type="button"
+      >
+        Three
+      </button>
+      <span
+        className="lab-tag  lab-tag--pale"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        Three
+      </span>
+    </div>
+  </div>
+</div>
+`;

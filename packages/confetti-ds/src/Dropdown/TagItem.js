@@ -2,15 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 
-import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { ICON_TYPES, TAG_COLORS } from "../constants";
+import AbstractTag from "../Tags/AbstractTag";
 
-export default class RemovableTag extends React.Component {
+export default class TagItem extends React.Component {
   static propTypes = {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
-    /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+    /** Disables the Tag. Won't be read by screen readers. */
+    disabled: PropTypes.bool,
+    /** Action to be executed when the Tag is clicked. */
+    onClick: PropTypes.func,
+    /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
     thumbSrc: PropTypes.string,
     /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
     icon: PropTypes.oneOf(ICON_TYPES),
@@ -20,23 +24,19 @@ export default class RemovableTag extends React.Component {
     skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
-    /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
-    ariaDisabled: PropTypes.bool,
-    /** Disables the Tag. Won't be read by screen readers. */
-    disabled: PropTypes.bool,
-    /** Callback to be executed when the Tag is clicked. */
-    onClick: PropTypes.func,
+
+    tabIndex: PropTypes.string,
   };
 
   static defaultProps = {
     thumbSrc: "",
     icon: undefined,
-    color: undefined,
-    skin: "pale",
     isOutline: false,
+    skin: "pale",
+    color: undefined,
     disabled: false,
-    ariaDisabled: false,
     onClick: () => {},
+    tabIndex: "0",
   };
 
   constructor(props) {
@@ -47,17 +47,6 @@ export default class RemovableTag extends React.Component {
   componentDidUpdate() {
     this.checkThumbAndIcon();
   }
-
-  removeIcon = () => (
-    <span className="lab-tag__remove-icon-wrapper">
-      <Icon
-        type="remove"
-        color="black-75"
-        size="petit"
-        className="lab-tag--remove-icon"
-      />
-    </span>
-  );
 
   thumb = () => {
     const { thumbSrc } = this.props;
@@ -80,10 +69,10 @@ export default class RemovableTag extends React.Component {
 
   checkThumbAndIcon() {
     const errorMessage =
-      "`RemovableTag` can't be initialized with both `thumb` and `icon` props.";
+      "`TagItem` can't be initialized with both `thumb` and `icon` props.";
     const { thumbSrc, icon } = this.props;
     if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
-      throw Error(errorMessage);
+      throw new Error(errorMessage);
     }
   }
 
@@ -95,27 +84,23 @@ export default class RemovableTag extends React.Component {
       color,
       skin,
       isOutline,
-      disabled,
-      ariaDisabled,
       onClick,
+      disabled,
+      tabIndex,
     } = this.props;
     return (
       <AbstractTag
-        className={`lab-tag--removable${`${
-          icon ? ` lab-tag--has-left-icon` : ""
-        }${thumbSrc ? ` lab-tag--has-thumb` : ""}`}`}
         text={text}
-        thumbSrc={thumbSrc}
-        icon={icon}
-        color={color}
-        skin={skin}
+        className={`${icon ? ` lab-tag--has-left-icon` : ""}${
+          thumbSrc ? ` lab-tag--has-thumb` : ""
+        }`}
         isOutline={isOutline}
-        disabled={!ariaDisabled && disabled}
-        ariaDisabled={ariaDisabled}
+        skin={skin}
+        color={color}
+        renderPrefix={this.icon() || this.thumb()}
         onClick={onClick}
-        renderPrefix={this.thumb() || this.icon()}
-        renderSuffix={this.removeIcon()}
-        tabIndex="0"
+        disabled={disabled}
+        tabIndex={tabIndex}
       />
     );
   }
