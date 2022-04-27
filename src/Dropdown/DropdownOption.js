@@ -9,9 +9,7 @@ export default class DropdownOption extends Component {
     setDefaultOption: PropTypes.func,
     /** This function fires when keyboard interactions are detected. */
     handleKeyDown: PropTypes.func.isRequired,
-    /** This function sets the ref of the option if this is valid (meaning TagItem does not have the "disabled" prop). */
-    setRef: PropTypes.func.isRequired,
-    /** TThis prop is used to set if an option is currently selected */
+    /** This prop is used to set if an option is currently selected */
     selectedOption: PropTypes.object.isRequired,
     /** This children prop is the TagItem */
     children: PropTypes.node.isRequired,
@@ -19,6 +17,10 @@ export default class DropdownOption extends Component {
     index: PropTypes.number.isRequired,
     /** This is the unique id of the option */
     id: PropTypes.string.isRequired,
+    /** This is the ref of the option */
+    optionRef: PropTypes.shape({
+      current: PropTypes.instanceOf(HTMLButtonElement),
+    }).isRequired,
   };
 
   static defaultProps = {
@@ -30,15 +32,13 @@ export default class DropdownOption extends Component {
   constructor(props) {
     super(props);
 
-    const { setRef, children } = this.props;
+    const { children, optionRef } = this.props;
     const isNotDisabled = !children.props.disabled;
-    this.ref = React.createRef();
-    if (isNotDisabled) setRef(this.ref);
+    if (isNotDisabled) this.ref = optionRef;
   }
 
   componentDidMount() {
     const { setDefault } = this;
-
     setDefault();
   }
 
@@ -85,6 +85,7 @@ export default class DropdownOption extends Component {
     const { text, value, disabled } = children.props;
     const isSelected = selectedOption.ref === this.ref;
     const skin = isSelected ? "vivid" : "pale";
+    const ref = disabled ? null : this.ref;
 
     return (
       <div
@@ -108,7 +109,7 @@ export default class DropdownOption extends Component {
           onKeyDown={handleKeyDown}
           aria-disabled={disabled}
           id={`option-${index}--menu--${id}`}
-          ref={disabled ? null : this.ref}
+          ref={ref}
         >
           {text}
         </button>
