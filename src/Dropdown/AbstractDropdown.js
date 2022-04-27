@@ -112,7 +112,10 @@ export default class AbstractDropdown extends Component {
     let optionRefMap = {};
 
     React.Children.forEach(children, (child, index) => {
-      const isTagItem = child.type === TagItem || child.type.name === "TagItem";
+      const isTagItem =
+        child.type === TagItem ||
+        child.type.name === "TagItem" ||
+        child.displayName === "TagItem";
       const isNotDisabled = !child.props.disabled;
       if (isTagItem && isNotDisabled) {
         optionRefMap = { ...optionRefMap, [index]: React.createRef() };
@@ -297,7 +300,7 @@ export default class AbstractDropdown extends Component {
 
     const trigger = {
       button: <Button text={displayText} />,
-      tag: <TagDropdownTrigger text={displayText} color={color} />,
+      tag: <TagDropdownTrigger text={displayText} color={color} isOutline />,
     };
 
     const renderTrigger = trigger[dropdownType];
@@ -321,9 +324,15 @@ export default class AbstractDropdown extends Component {
           id={`menu--${id}`}
         >
           {React.Children.map(children, (child, index) => {
-            const isDropdownSectionTitle = child.type === DropdownSectionTitle;
+            const isDropdownSectionTitle =
+              child.type === DropdownSectionTitle ||
+              child.type.name === "DropdownSectionTitle" ||
+              child.displayName === "DropdownSectionTitle";
             // change it to || child.type == OptionItem...
-            const isDropdownItem = child.type === TagItem;
+            const isDropdownItem =
+              child.type === TagItem ||
+              child.type.name === "TagItem" ||
+              child.displayName === "TagItem";
 
             if (isDropdownSectionTitle)
               return <child.type {...child.props} color={color} />;
