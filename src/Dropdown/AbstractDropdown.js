@@ -297,7 +297,7 @@ export default class AbstractDropdown extends Component {
 
     const trigger = {
       button: <Button text={displayText} />,
-      tag: <TagDropdownTrigger text={displayText} color={color} />,
+      tag: <TagDropdownTrigger text={displayText} color={color} isOutline />,
     };
 
     const renderTrigger = trigger[dropdownType];
