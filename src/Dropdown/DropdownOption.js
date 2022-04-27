@@ -20,13 +20,16 @@ export default class DropdownOption extends Component {
     /** This is the ref of the option */
     optionRef: PropTypes.shape({
       current: PropTypes.instanceOf(HTMLButtonElement),
-    }).isRequired,
+    }),
   };
 
   static defaultProps = {
     // functions
     handleSelectDropdownOption: () => {},
     setDefaultOption: () => {},
+    optionRef: {
+      current: null,
+    },
   };
 
   constructor(props) {

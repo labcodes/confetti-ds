@@ -18,7 +18,7 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
       Click me
     </button>
     <span
-      className="lab-tag lab-tag--dropdown lab-tag--teal-pale"
+      className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--teal-pale"
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
@@ -149,7 +149,7 @@ exports[`AbstractDropdown renders with base props 1`] = `
       Click me
     </button>
     <span
-      className="lab-tag lab-tag--dropdown lab-tag--teal-pale"
+      className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--teal-pale"
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
