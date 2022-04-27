@@ -321,9 +321,12 @@ export default class AbstractDropdown extends Component {
           id={`menu--${id}`}
         >
           {React.Children.map(children, (child, index) => {
-            const isDropdownSectionTitle = child.type === DropdownSectionTitle;
+            const isDropdownSectionTitle =
+              child.type === DropdownSectionTitle ||
+              child.type.name === "DropdownSectionTitle";
             // change it to || child.type == OptionItem...
-            const isDropdownItem = child.type === TagItem;
+            const isDropdownItem =
+              child.type === TagItem || child.type.name === "TagItem";
 
             if (isDropdownSectionTitle)
               return <child.type {...child.props} color={color} />;
