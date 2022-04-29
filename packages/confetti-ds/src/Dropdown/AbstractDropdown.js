@@ -43,9 +43,6 @@ export default class AbstractDropdown extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      /** optionsRefList is a Array of refs to valid options.
-          It means if you pass disabled prop to a DropdownOption, its ref will not be in this array.
-      */
       optionsRefList: [],
       selected: { ref: null, index: null },
       lastFocusedOption: { index: null },
@@ -77,7 +74,7 @@ export default class AbstractDropdown extends Component {
       const hasSelectedOption = selected.ref;
       if (hasSelectedOption) selected.ref.current.focus();
       else {
-        const firstOption = optionsRefList[0];
+        const firstOption = optionsRefList[Object.keys(optionsRefList)[0]];
         if (firstOption) firstOption.current.focus();
       }
 
@@ -122,7 +119,9 @@ export default class AbstractDropdown extends Component {
   getSelectedOptionIndex = (selected) => {
     if (!selected.ref) return 0;
     const { optionsRefList } = this.state;
-    const index = optionsRefList.findIndex((ref) => ref === selected.ref);
+    const index = optionsRefList.findIndex(
+      (ref) => ref.current.id === selected.ref.current.id
+    );
     return index === -1 ? 0 : index;
   };
 
@@ -206,7 +205,6 @@ export default class AbstractDropdown extends Component {
 
   /**
     This function is called at the DropdownOption component when the user clicks on an option (if this option is not disabled).
-
     An option is an object which has an event (a custom event), ref (react ref to the option HTML element), and the index of the option.
   */
   handleSelectDropdownOption = (option) => {
@@ -252,11 +250,19 @@ export default class AbstractDropdown extends Component {
 
     It sets React Refs to refList state when the option does not have the disabled prop marked as true
   */
-  setOptionsRefs = (ref) =>
-    this.setState((prev) => ({
-      ...prev,
-      optionsRefList: [...prev.optionsRefList, ref],
-    }));
+  setOptionsRefs = (ref) => {
+    if (ref.current && !ref.current.disabled) {
+      this.setState((prev) => {
+        const filteredRefList = prev.optionsRefList.filter(
+          (prevRef) => prevRef.current.id !== ref.current.id
+        );
+        return {
+          ...prev,
+          optionsRefList: [...filteredRefList, ref],
+        };
+      });
+    }
+  };
 
   /**
     This function is called at the DropdownTrigger component
@@ -284,7 +290,7 @@ export default class AbstractDropdown extends Component {
 
     const trigger = {
       button: <Button text={displayText} />,
-      tag: <TagDropdownTrigger text={displayText} color={color} />,
+      tag: <TagDropdownTrigger text={displayText} color={color} isOutline />,
     };
 
     const renderTrigger = trigger[dropdownType];
@@ -308,9 +314,15 @@ export default class AbstractDropdown extends Component {
           id={`menu--${id}`}
         >
           {React.Children.map(children, (child, index) => {
-            const isDropdownSectionTitle = child.type === DropdownSectionTitle;
+            const isDropdownSectionTitle =
+              child.type === DropdownSectionTitle ||
+              child.type.name === "DropdownSectionTitle" ||
+              child.displayName === "DropdownSectionTitle";
             // change it to || child.type == OptionItem...
-            const isDropdownItem = child.type === TagItem;
+            const isDropdownItem =
+              child.type === TagItem ||
+              child.type.name === "TagItem" ||
+              child.displayName === "TagItem";
 
             if (isDropdownSectionTitle)
               return <child.type {...child.props} color={color} />;

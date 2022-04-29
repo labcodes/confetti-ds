@@ -17,8 +17,6 @@ export default class DropdownOption extends Component {
     children: PropTypes.node.isRequired,
     /** This is the option index. */
     index: PropTypes.number.isRequired,
-    /** This is the unique id of the option */
-    id: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -30,15 +28,14 @@ export default class DropdownOption extends Component {
   constructor(props) {
     super(props);
 
-    const { setRef, children } = this.props;
-    const isNotDisabled = !children.props.disabled;
     this.ref = React.createRef();
-    if (isNotDisabled) setRef(this.ref);
   }
 
   componentDidMount() {
     const { setDefault } = this;
+    const { setRef } = this.props;
 
+    setRef(this.ref);
     setDefault();
   }
 
@@ -81,7 +78,7 @@ export default class DropdownOption extends Component {
   render() {
     const { selectOption } = this;
 
-    const { children, selectedOption, handleKeyDown, index, id } = this.props;
+    const { children, selectedOption, handleKeyDown } = this.props;
     const { text, value, disabled } = children.props;
     const isSelected = selectedOption.ref === this.ref;
     const skin = isSelected ? "vivid" : "pale";
@@ -107,8 +104,8 @@ export default class DropdownOption extends Component {
           tabIndex="-1"
           onKeyDown={handleKeyDown}
           aria-disabled={disabled}
-          id={`option-${index}--menu--${id}`}
-          ref={disabled ? null : this.ref}
+          id={`option-${value}`}
+          ref={this.ref}
         >
           {text}
         </button>
