@@ -17,8 +17,6 @@ export default class DropdownOption extends Component {
     children: PropTypes.node.isRequired,
     /** This is the option index. */
     index: PropTypes.number.isRequired,
-    /** This is the unique id of the option */
-    id: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
