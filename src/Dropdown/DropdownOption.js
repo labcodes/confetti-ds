@@ -9,7 +9,9 @@ export default class DropdownOption extends Component {
     setDefaultOption: PropTypes.func,
     /** This function fires when keyboard interactions are detected. */
     handleKeyDown: PropTypes.func.isRequired,
-    /** This prop is used to set if an option is currently selected */
+    /** This function sets the ref of the option if this is valid (meaning TagItem does not have the "disabled" prop). */
+    setRef: PropTypes.func.isRequired,
+    /** TThis prop is used to set if an option is currently selected */
     selectedOption: PropTypes.object.isRequired,
     /** This children prop is the TagItem */
     children: PropTypes.node.isRequired,
@@ -17,31 +19,25 @@ export default class DropdownOption extends Component {
     index: PropTypes.number.isRequired,
     /** This is the unique id of the option */
     id: PropTypes.string.isRequired,
-    /** This is the ref of the option */
-    optionRef: PropTypes.shape({
-      current: PropTypes.instanceOf(HTMLButtonElement),
-    }),
   };
 
   static defaultProps = {
     // functions
     handleSelectDropdownOption: () => {},
     setDefaultOption: () => {},
-    optionRef: {
-      current: null,
-    },
   };
 
   constructor(props) {
     super(props);
 
-    const { children, optionRef } = this.props;
-    const isNotDisabled = !children.props.disabled;
-    if (isNotDisabled) this.ref = optionRef;
+    this.ref = React.createRef();
   }
 
   componentDidMount() {
     const { setDefault } = this;
+    const { setRef } = this.props;
+
+    setRef(this.ref);
     setDefault();
   }
 
@@ -84,11 +80,10 @@ export default class DropdownOption extends Component {
   render() {
     const { selectOption } = this;
 
-    const { children, selectedOption, handleKeyDown, index, id } = this.props;
+    const { children, selectedOption, handleKeyDown } = this.props;
     const { text, value, disabled } = children.props;
     const isSelected = selectedOption.ref === this.ref;
     const skin = isSelected ? "vivid" : "pale";
-    const ref = disabled ? null : this.ref;
 
     return (
       <div
@@ -111,8 +106,8 @@ export default class DropdownOption extends Component {
           tabIndex="-1"
           onKeyDown={handleKeyDown}
           aria-disabled={disabled}
-          id={`option-${index}--menu--${id}`}
-          ref={ref}
+          id={`option-${value}`}
+          ref={this.ref}
         >
           {text}
         </button>
