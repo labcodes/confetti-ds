@@ -5,35 +5,26 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
   className="lab-dropdown"
   onBlur={[Function]}
 >
-  <div>
-    <button
-      aria-controls="menu--test"
-      aria-haspopup={true}
-      className="lab-dropdown__invisible-button lab-dropdown__invisible-button--trigger"
-      id="menu-button--menu--test"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
-    >
-      Click me
-    </button>
+  <button
+    aria-selected={false}
+    className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--teal-pale"
+    disabled={false}
+    id="Click me"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="listbox"
+    type="button"
+    value=""
+  >
+    Click me
     <span
-      className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--teal-pale"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      role="button"
-      tabIndex="-1"
+      className="lab-tag__dropdown-icon-wrapper"
     >
-      Click me
       <span
-        className="lab-tag__dropdown-icon-wrapper"
-      >
-        <span
-          className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
-        />
-      </span>
+        className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+      />
     </span>
-  </div>
+  </button>
   <div
     aria-labelledby="menu-button--menu--test"
     className="lab-dropdown__content lab-dropdown__listbox "
@@ -51,81 +42,57 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
       id="lab-dropdown__option--1"
     >
       <button
-        aria-disabled={false}
-        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        aria-selected={false}
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
-        id="option-1"
+        id="One"
         onClick={[Function]}
         onKeyDown={[Function]}
-        role="menuitem"
+        role="option"
         tabIndex="-1"
         type="button"
+        value="1"
       >
         One
       </button>
-      <span
-        className="lab-tag  lab-tag--pale"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex="-1"
-      >
-        One
-      </span>
     </div>
     <div
       className="lab-dropdown__option "
       id="lab-dropdown__option--2"
     >
       <button
-        aria-disabled={false}
-        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        aria-selected={false}
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
-        id="option-2"
+        id="Two"
         onClick={[Function]}
         onKeyDown={[Function]}
-        role="menuitem"
+        role="option"
         tabIndex="-1"
         type="button"
+        value="2"
       >
         Two
       </button>
-      <span
-        className="lab-tag  lab-tag--pale"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex="-1"
-      >
-        Two
-      </span>
     </div>
     <div
       className="lab-dropdown__option "
       id="lab-dropdown__option--3"
     >
       <button
-        aria-disabled={false}
-        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        aria-selected={false}
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
-        id="option-3"
+        id="Three"
         onClick={[Function]}
         onKeyDown={[Function]}
-        role="menuitem"
+        role="option"
         tabIndex="-1"
         type="button"
+        value="3"
       >
         Three
       </button>
-      <span
-        className="lab-tag  lab-tag--pale"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex="-1"
-      >
-        Three
-      </span>
     </div>
   </div>
 </div>
@@ -136,35 +103,26 @@ exports[`AbstractDropdown renders with base props 1`] = `
   className="lab-dropdown"
   onBlur={[Function]}
 >
-  <div>
-    <button
-      aria-controls="menu--test"
-      aria-haspopup={true}
-      className="lab-dropdown__invisible-button lab-dropdown__invisible-button--trigger"
-      id="menu-button--menu--test"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
-    >
-      Click me
-    </button>
+  <button
+    aria-selected={false}
+    className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--teal-pale"
+    disabled={false}
+    id="Click me"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="listbox"
+    type="button"
+    value=""
+  >
+    Click me
     <span
-      className="lab-tag lab-tag--dropdown lab-tag--outline lab-tag--teal-pale"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      role="button"
-      tabIndex="-1"
+      className="lab-tag__dropdown-icon-wrapper"
     >
-      Click me
       <span
-        className="lab-tag__dropdown-icon-wrapper"
-      >
-        <span
-          className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
-        />
-      </span>
+        className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-icon--petit lab-tag--dropdown-icon"
+      />
     </span>
-  </div>
+  </button>
   <div
     aria-labelledby="menu-button--menu--test"
     className="lab-dropdown__content lab-dropdown__listbox "
@@ -182,81 +140,57 @@ exports[`AbstractDropdown renders with base props 1`] = `
       id="lab-dropdown__option--1"
     >
       <button
-        aria-disabled={false}
-        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        aria-selected={false}
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
-        id="option-1"
+        id="One"
         onClick={[Function]}
         onKeyDown={[Function]}
-        role="menuitem"
+        role="option"
         tabIndex="-1"
         type="button"
+        value="1"
       >
         One
       </button>
-      <span
-        className="lab-tag  lab-tag--pale"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex="-1"
-      >
-        One
-      </span>
     </div>
     <div
       className="lab-dropdown__option "
       id="lab-dropdown__option--2"
     >
       <button
-        aria-disabled={false}
-        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        aria-selected={false}
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
-        id="option-2"
+        id="Two"
         onClick={[Function]}
         onKeyDown={[Function]}
-        role="menuitem"
+        role="option"
         tabIndex="-1"
         type="button"
+        value="2"
       >
         Two
       </button>
-      <span
-        className="lab-tag  lab-tag--pale"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex="-1"
-      >
-        Two
-      </span>
     </div>
     <div
       className="lab-dropdown__option "
       id="lab-dropdown__option--3"
     >
       <button
-        aria-disabled={false}
-        className="lab-dropdown__invisible-button lab-dropdown__invisible-button--option"
+        aria-selected={false}
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
-        id="option-3"
+        id="Three"
         onClick={[Function]}
         onKeyDown={[Function]}
-        role="menuitem"
+        role="option"
         tabIndex="-1"
         type="button"
+        value="3"
       >
         Three
       </button>
-      <span
-        className="lab-tag  lab-tag--pale"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        role="button"
-        tabIndex="-1"
-      >
-        Three
-      </span>
     </div>
   </div>
 </div>

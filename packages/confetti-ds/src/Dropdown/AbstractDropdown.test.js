@@ -5,9 +5,7 @@ import _ from "lodash";
 
 import AbstractDropdown from "./AbstractDropdown";
 import DropdownSectionTitle from "./DropdownSectionTitle";
-import DropdownOption from "./DropdownOption";
-import DropdownTrigger from "./DropdownTrigger";
-import TagItem from "./TagItem";
+import TagDropdownItem from "./TagDropdownItem";
 import TagDropdownTrigger from "./TagDropdownTrigger";
 
 describe("AbstractDropdown", () => {
@@ -25,10 +23,7 @@ describe("AbstractDropdown", () => {
       </AbstractDropdown>
     );
 
-    const trigger = wrapper
-      .find(DropdownTrigger)
-      .find(".lab-dropdown__invisible-button--trigger")
-      .at(0);
+    const trigger = wrapper.find(TagDropdownTrigger).at(0);
 
     expect(
       wrapper
@@ -66,17 +61,14 @@ describe("AbstractDropdown", () => {
       >
         <div>Just some child 1</div>
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
         <div>Just some child 2</div>
       </AbstractDropdown>
     );
 
-    const trigger = wrapper
-      .find(DropdownTrigger)
-      .find(".lab-dropdown__invisible-button--trigger")
-      .at(0);
+    const trigger = wrapper.find(TagDropdownTrigger).at(0);
 
     expect(
       wrapper
@@ -139,9 +131,9 @@ describe("AbstractDropdown", () => {
       >
         <div>Just some child 1</div>
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
         <div>Just some child 2</div>
       </AbstractDropdown>
     );
@@ -174,7 +166,7 @@ describe("AbstractDropdown", () => {
         <DropdownSectionTitle text="First Section" />
 
         {expectedValues.map(({ value, text }) => (
-          <TagItem key={value} value={value} text={text} />
+          <TagDropdownItem key={value} value={value} text={text} />
         ))}
 
         <div>Just some child 2</div>
@@ -183,20 +175,12 @@ describe("AbstractDropdown", () => {
 
     const randomIndex = _.random(0, 2);
 
-    const trigger = wrapper
-      .find(DropdownTrigger)
-      .find(".lab-dropdown__invisible-button--trigger")
-      .at(0);
-
+    const trigger = wrapper.find(TagDropdownTrigger).at(0);
     expect(trigger.text()).toEqual("Click me");
 
     trigger.simulate("click");
 
-    const selected = wrapper
-      .find(DropdownOption)
-      .at(randomIndex)
-      .find(".lab-dropdown__invisible-button--option")
-      .at(0);
+    const selected = wrapper.find(TagDropdownItem).at(randomIndex).at(0);
 
     selected.simulate("click");
 
@@ -224,26 +208,29 @@ describe("AbstractDropdown", () => {
         <DropdownSectionTitle text="First Section" />
 
         {expectedValues.map(({ value, text, disabled }) => (
-          <TagItem key={value} value={value} text={text} disabled={disabled} />
+          <TagDropdownItem
+            key={value}
+            value={value}
+            text={text}
+            disabled={disabled}
+          />
         ))}
 
         <div>Just some child 2</div>
       </AbstractDropdown>
     );
 
-    const trigger = wrapper
-      .find(DropdownTrigger)
-      .find(".lab-dropdown__invisible-button--trigger")
-      .at(0);
+    const trigger = wrapper.find(TagDropdownTrigger).at(0);
 
     trigger.simulate("click");
 
+    expect(trigger.text()).toEqual("Click me");
+
     const disabledSelected = wrapper
-      .find(DropdownOption)
-      .find(".lab-dropdown__invisible-button--disabled")
+      .find(TagDropdownItem)
+      .find(".lab-tag--disabled")
       .at(0);
 
-    expect(trigger.text()).toEqual("Click me");
     disabledSelected.simulate("click");
     expect(trigger.text()).toEqual("Click me");
   });
@@ -260,9 +247,9 @@ describe("AbstractDropdown", () => {
           id="test"
         >
           <DropdownSectionTitle text="First Section" />
-          <TagItem value="1" text="One" />
-          <TagItem value="2" text="Two" />
-          <TagItem value="3" text="Three" />
+          <TagDropdownItem value="1" text="One" />
+          <TagDropdownItem value="2" text="Two" />
+          <TagDropdownItem value="3" text="Three" />
         </AbstractDropdown>
       )
       .toJSON();
@@ -282,9 +269,9 @@ describe("AbstractDropdown", () => {
           id="test"
         >
           <DropdownSectionTitle text="First Section" />
-          <TagItem value="1" text="One" />
-          <TagItem value="2" text="Two" />
-          <TagItem value="3" text="Three" />
+          <TagDropdownItem value="1" text="One" />
+          <TagDropdownItem value="2" text="Two" />
+          <TagDropdownItem value="3" text="Three" />
         </AbstractDropdown>
       )
       .toJSON();
@@ -299,9 +286,9 @@ describe("AbstractDropdown", () => {
         id="test"
       >
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
       </AbstractDropdown>
     );
     expect(mountedComponent.find(TagDropdownTrigger).prop("color")).toEqual(
@@ -327,17 +314,21 @@ describe("AbstractDropdown", () => {
         id={id}
       >
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
       </AbstractDropdown>
     );
+
+    const trigger = mountDropdown.find(TagDropdownTrigger).at(0);
     expect(mockOnOpen.mock.calls.length).toBe(0);
     expect(mockOnClose.mock.calls.length).toBe(0);
-    mountDropdown.find(`#menu-button--menu--${id}`).simulate("click");
+
+    trigger.simulate("click");
     expect(mockOnOpen.mock.calls.length).toBe(1);
     expect(mockOnClose.mock.calls.length).toBe(0);
-    mountDropdown.find(`#menu-button--menu--${id}`).simulate("click");
+
+    trigger.simulate("click");
     expect(mockOnOpen.mock.calls.length).toBe(1);
     expect(mockOnClose.mock.calls.length).toBe(1);
   });
@@ -365,17 +356,14 @@ describe("AbstractDropdown", () => {
         id={id}
       >
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
       </AbstractDropdown>,
       { attachTo: document.querySelector("#container") }
     );
 
-    const trigger = wrapper
-      .find(DropdownTrigger)
-      .find(".lab-dropdown__invisible-button--trigger")
-      .at(0);
+    const trigger = wrapper.find(TagDropdownItem).at(0);
 
     expect(
       wrapper
@@ -391,7 +379,7 @@ describe("AbstractDropdown", () => {
         .hasClass("lab-dropdown__content--is-open")
     ).toBeTruthy();
 
-    const options = wrapper.find(".lab-dropdown__invisible-button--option");
+    const options = wrapper.find(TagDropdownItem);
 
     /** After open the dropdown */
     expect(document.activeElement).toEqual(options.first().getDOMNode());

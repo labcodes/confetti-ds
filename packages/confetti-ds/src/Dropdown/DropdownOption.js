@@ -5,18 +5,18 @@ export default class DropdownOption extends Component {
   static propTypes = {
     /** This function is called when user selects a valid option */
     handleSelectDropdownOption: PropTypes.func,
-    /** This is a function is used to set a default option when the user pass the "selected" prop to a TagItem */
+    /** This is a function is used to set a default option when the user pass the "selected" prop to a TagDropdownItem */
     setDefaultOption: PropTypes.func,
     /** This function fires when keyboard interactions are detected. */
-    handleKeyDown: PropTypes.func.isRequired,
-    /** This function sets the ref of the option if this is valid (meaning TagItem does not have the "disabled" prop). */
+    /** This function sets the ref of the option if this is valid (meaning TagDropdownItem does not have the "disabled" prop). */
     setRef: PropTypes.func.isRequired,
     /** TThis prop is used to set if an option is currently selected */
-    selectedOption: PropTypes.object.isRequired,
-    /** This children prop is the TagItem */
+    /** This children prop is the TagDropdownItem */
     children: PropTypes.node.isRequired,
-    /** This is the option index. */
-    index: PropTypes.number.isRequired,
+    // This function is used to handle click or keydown interactions
+    handleInteraction: PropTypes.func.isRequired,
+    // This prop is used to verify if the option is selected
+    isSelected: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
@@ -25,25 +25,16 @@ export default class DropdownOption extends Component {
     setDefaultOption: () => {},
   };
 
-  constructor(props) {
-    super(props);
-
-    this.ref = React.createRef();
-  }
-
   componentDidMount() {
     const { setDefault } = this;
-    const { setRef } = this.props;
-
-    setRef(this.ref);
     setDefault();
   }
 
   setDefault = () => {
     const { checkDisabled } = this;
-    const { children, setDefaultOption, index } = this.props;
+    const { children, setDefaultOption } = this.props;
     const { text, selected } = children.props;
-    const defaultOption = { text, index, ref: this.ref };
+    const defaultOption = { text, ref: this.ref };
 
     checkDisabled();
 
@@ -76,11 +67,8 @@ export default class DropdownOption extends Component {
   };
 
   render() {
-    const { selectOption } = this;
-
-    const { children, selectedOption, handleKeyDown } = this.props;
-    const { text, value, disabled } = children.props;
-    const isSelected = selectedOption.ref === this.ref;
+    const { children, setRef, handleInteraction, isSelected } = this.props;
+    const { value, disabled } = children.props;
     const skin = isSelected ? "vivid" : "pale";
 
     return (
@@ -91,29 +79,14 @@ export default class DropdownOption extends Component {
         id={`lab-dropdown__option--${value}`}
         key={value}
       >
-        <button
-          className={`lab-dropdown__invisible-button ${
-            disabled
-              ? "lab-dropdown__invisible-button--disabled"
-              : "lab-dropdown__invisible-button--option"
-          }`}
-          role="menuitem"
-          type="button"
-          disabled={disabled}
-          onClick={selectOption}
-          tabIndex="-1"
-          onKeyDown={handleKeyDown}
-          aria-disabled={disabled}
-          id={`option-${value}`}
-          ref={this.ref}
-        >
-          {text}
-        </button>
         {React.cloneElement(children, {
           ...children.props,
           skin,
           isHighlighted: isSelected,
           tabIndex: "-1",
+          onInteraction: handleInteraction,
+          setRef,
+          isSelected,
         })}
       </div>
     );
