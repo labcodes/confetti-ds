@@ -3,6 +3,12 @@ import AbstractTag from "../Tags/AbstractTag";
 import { DropdownTag } from "../Tags";
 
 export default class TagDropdownTrigger extends DropdownTag {
+  constructor(props) {
+    super(props);
+
+    this.ref = React.createRef();
+  }
+
   render() {
     const {
       text,
@@ -12,9 +18,11 @@ export default class TagDropdownTrigger extends DropdownTag {
       isOutline,
       disabled,
       ariaDisabled,
-      onClick,
+      onInteraction,
       tabIndex,
+      setRef,
     } = this.props;
+
     return (
       <AbstractTag
         className={`lab-tag--dropdown${`${
@@ -27,10 +35,13 @@ export default class TagDropdownTrigger extends DropdownTag {
         isOutline={isOutline}
         disabled={!ariaDisabled && disabled}
         ariaDisabled={ariaDisabled}
-        onClick={onClick}
         renderPrefix={this.icon()}
         renderSuffix={this.dropdownIcon()}
         tabIndex={tabIndex}
+        onInteraction={onInteraction}
+        isDropdown
+        setRef={setRef}
+        role="listbox"
       />
     );
   }
