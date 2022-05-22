@@ -26,17 +26,17 @@ export default class AbstractTag extends React.Component {
     onClick: PropTypes.func,
     /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
     tabIndex: PropTypes.string,
-    /** This prop is a boolean to verify if the tag a child of TagDropdown component */
+    /** This prop is a boolean to verify if the tag is a child of the TagDropdown component */
     isDropdown: PropTypes.bool,
-    /** This prop is used to set the Tag ref, for option and trigger in a TagDropdown component */
+    /** This prop sets the TagDropdownItem ref for option and triggers in a TagDropdown component. */
     setRef: PropTypes.func,
     /** This function is used to handle click or keydown interactions */
     onInteraction: PropTypes.func,
-    /** This is the tag value, it's at TagDropdown component */
+    /** This is the TagDropdownItem value. It is used TagDropdown options */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /**  This prop is used to verify if the option is selected */
     isSelected: PropTypes.bool,
-    /**  This is the Tag role, used on TagDropdown */
+    /**   This is the TagDropdownItem or TagDropdownTrigger role. It is used to let disabled people know the type of the element. */
     role: PropTypes.string,
   };
 
@@ -120,7 +120,7 @@ export default class AbstractTag extends React.Component {
           tabIndex={tabIndex}
           ref={this.ref}
           disabled={disabled || ariaDisabled}
-          id={text}
+          id={value}
           value={value}
         >
           {renderPrefix}
