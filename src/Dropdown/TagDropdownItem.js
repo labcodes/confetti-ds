@@ -28,11 +28,11 @@ export default class TagDropdownItem extends React.Component {
     tabIndex: PropTypes.string,
     /** This function is used on AbstractTag's componenentDidMount to set the current Ref */
     setRef: PropTypes.func,
-    // This function is used to handle click or keydown interactions
+    /** This function is used to handle click or keydown interactions */
     onInteraction: PropTypes.func,
-    // This is the option's value
+    /** This is the option's value */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    // This prop is a boolean to verify if the option is current selected
+    /** This prop is a boolean to verify if the option is current selected  */
     isSelected: PropTypes.bool,
   };
 
