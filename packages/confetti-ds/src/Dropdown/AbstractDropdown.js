@@ -83,6 +83,9 @@ export default class AbstractDropdown extends Component {
     checkIfHasChildren();
   }
 
+  /**  This function forwards the event to the correct handler when the 
+       user selects or interacts via keyboard with the trigger.
+   */
   handleTriggerInteraction = ({ event }) => {
     const { handleKeyDown, handleTriggerClick } = this;
     const eventType = event.type;
@@ -101,6 +104,9 @@ export default class AbstractDropdown extends Component {
     }
   };
 
+  /**  This function forwards the event to the correct handler 
+   when the user selects or moves the keyboard through the options.
+   */
   handleOptionInteraction = ({ event, ref }) => {
     const eventType = event.type;
     const isSpace = event.key === " ";
