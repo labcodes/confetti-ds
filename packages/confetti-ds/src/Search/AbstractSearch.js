@@ -1,7 +1,7 @@
 /* eslint-disable react/no-did-update-set-state */
 import React from "react";
 import PropTypes from "prop-types";
-import { isUndefined } from "lodash";
+import _, { isUndefined } from "lodash";
 import Icon from "../Icon";
 
 export default class AbstractSearch extends React.Component {
@@ -59,7 +59,7 @@ export default class AbstractSearch extends React.Component {
   componentDidUpdate(prevProps) {
     const { value } = this.props;
 
-    if (value && value !== prevProps.value) {
+    if (!_.isUndefined(value) && value !== prevProps.value) {
       this.setState({ localValue: value });
     }
   }
