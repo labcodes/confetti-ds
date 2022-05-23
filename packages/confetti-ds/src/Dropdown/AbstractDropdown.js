@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import _ from "lodash";
 
 import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
@@ -26,6 +27,7 @@ export default class AbstractDropdown extends Component {
     children: PropTypes.node.isRequired,
     /** This is the dropdown id. It requires a unique id. */
     id: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {
@@ -34,6 +36,7 @@ export default class AbstractDropdown extends Component {
     // functions
     onOpen: () => {},
     onClose: () => {},
+    value: "",
   };
 
   expectedKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Escape", " "];
@@ -56,11 +59,16 @@ export default class AbstractDropdown extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { triggerRef, checkIfHasChildren } = this;
+    const { triggerRef, checkIfHasChildren, forceControlledOption } = this;
 
     const { isOpen, selected, optionsRefList } = this.state;
 
-    const { onClose, onOpen } = this.props;
+    const { onClose, onOpen, value } = this.props;
+
+    if (value !== prevProps.value) {
+      if (_.isUndefined(value)) return;
+      forceControlledOption(value);
+    }
 
     if (isOpen !== prevState.isOpen) {
       if (isOpen === false) {
@@ -83,6 +91,9 @@ export default class AbstractDropdown extends Component {
     checkIfHasChildren();
   }
 
+  /**  This function forwards the event to the correct handler when the 
+       user selects or interacts via keyboard with the trigger.
+   */
   handleTriggerInteraction = ({ event }) => {
     const { handleKeyDown, handleTriggerClick } = this;
     const eventType = event.type;
@@ -101,6 +112,9 @@ export default class AbstractDropdown extends Component {
     }
   };
 
+  /**  This function forwards the event to the correct handler 
+   when the user selects or moves the keyboard through the options.
+   */
   handleOptionInteraction = ({ event, ref }) => {
     const eventType = event.type;
     const isSpace = event.key === " ";
@@ -239,12 +253,53 @@ export default class AbstractDropdown extends Component {
   };
 
   /**
+    This function gets selected option ref index in the refList state index
+
+    It receives the value of the option as param.
+
+    If there is no ref with that value in the refList it returns undefined, 
+    else it returns the index where it found the ref.
+  */
+  getOptionIndexByValue = (value) => {
+    const { optionsRefList } = this.state;
+    const index = optionsRefList.findIndex(
+      (ref) => ref.current.value === value
+    );
+    return index === -1 ? undefined : index;
+  };
+
+  /**
+    This function helps the user to reset the dropdown to a desired value.
+
+    This value needs to be in the optionRefList. If it's not, nothing changes. 
+ */
+  forceControlledOption = (value) => {
+    const { getOptionIndexByValue } = this;
+    const { optionsRefList } = this.state;
+
+    const refIndex = getOptionIndexByValue(value);
+
+    const refNotFound = _.isUndefined(refIndex);
+    if (refNotFound) return;
+
+    const ref = optionsRefList[refIndex];
+    const { textContent } = ref.current;
+
+    this.setState({
+      isOpen: false,
+      selected: { ref },
+      displayText: textContent,
+    });
+  };
+
+  /**
     This function is called at the DropdownOption component when the user clicks on an option (if this option is not disabled).
     An option is an object which has an event (a custom event), ref (react ref to the option HTML element), and the index of the option.
   */
   handleSelectDropdownOption = (option) => {
     const { onSelect } = this.props;
     const { event, ref } = option;
+
     this.setState((prev) => ({
       ...prev,
       isOpen: false,

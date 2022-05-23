@@ -19,17 +19,28 @@ export default class TagDropdown extends Component {
     children: PropTypes.node.isRequired,
     /** This is the dropdown id. It requires a unique id. */
     id: PropTypes.string.isRequired,
+    /** This is the controlled value of the TagDropdown */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {
     color: "teal",
     onOpen: () => {},
     onClose: () => {},
+    value: "",
   };
 
   render() {
-    const { children, defaultText, color, onOpen, onClose, onSelect, id } =
-      this.props;
+    const {
+      children,
+      defaultText,
+      color,
+      onOpen,
+      onClose,
+      onSelect,
+      id,
+      value,
+    } = this.props;
     return (
       <AbstractDropdown
         dropdownType="tag"
@@ -39,6 +50,7 @@ export default class TagDropdown extends Component {
         onClose={onClose}
         onSelect={onSelect}
         id={id}
+        value={value}
       >
         {children}
       </AbstractDropdown>
