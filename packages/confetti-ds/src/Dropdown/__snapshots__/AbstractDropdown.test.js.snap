@@ -43,7 +43,7 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
     >
       <button
         aria-selected={false}
-        className="lab-tag lab-tag--togglable  lab-tag--pale"
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
         id="1"
         onClick={[Function]}
@@ -62,7 +62,7 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
     >
       <button
         aria-selected={false}
-        className="lab-tag lab-tag--togglable  lab-tag--pale"
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
         id="2"
         onClick={[Function]}
@@ -81,7 +81,7 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
     >
       <button
         aria-selected={false}
-        className="lab-tag lab-tag--togglable  lab-tag--pale"
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
         id="3"
         onClick={[Function]}
@@ -141,7 +141,7 @@ exports[`AbstractDropdown renders with base props 1`] = `
     >
       <button
         aria-selected={false}
-        className="lab-tag lab-tag--togglable  lab-tag--pale"
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
         id="1"
         onClick={[Function]}
@@ -160,7 +160,7 @@ exports[`AbstractDropdown renders with base props 1`] = `
     >
       <button
         aria-selected={false}
-        className="lab-tag lab-tag--togglable  lab-tag--pale"
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
         id="2"
         onClick={[Function]}
@@ -179,7 +179,7 @@ exports[`AbstractDropdown renders with base props 1`] = `
     >
       <button
         aria-selected={false}
-        className="lab-tag lab-tag--togglable  lab-tag--pale"
+        className="lab-tag lab-tag--togglable lab-tag--pale"
         disabled={false}
         id="3"
         onClick={[Function]}
