@@ -18,8 +18,6 @@ export default {
       control: false,
     },
   },
-
-  docs: { inlineStories: false },
 };
 
 export const TagDropdown = (args) => (
@@ -38,6 +36,7 @@ export const TagDropdown = (args) => (
         value="-title"
         isOutline
         color={args.color}
+        disabled
       />
       <Component.TagItem
         text="Avaibility"
