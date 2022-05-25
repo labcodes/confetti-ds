@@ -4,7 +4,7 @@ import { TAG_COLORS } from "../../confetti-ds/src/constants";
 import { TagDropdown as Component } from "../../confetti-ds/src/Dropdown";
 
 export default {
-  title: "Actions/TagDropdown",
+  title: "Actions/Tag Dropdown",
   component: Component,
   subcomponents: {
     SectionTitle: Component.SectionTitle,
