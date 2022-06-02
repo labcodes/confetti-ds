@@ -1,8 +1,8 @@
 import TagDropdown from "./TagDropdown";
-import TagItem from "./TagItem";
+import TagDropdownItem from "./TagDropdownItem";
 import SectionTitle from "./DropdownSectionTitle";
 
-TagDropdown.TagItem = TagItem;
+TagDropdown.TagItem = TagDropdownItem;
 TagDropdown.SectionTitle = SectionTitle;
 
 export { TagDropdown };

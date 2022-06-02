@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import TagDropdown from "./TagDropdown";
-import TagItem from "./TagItem";
+import TagDropdownItem from "./TagDropdownItem";
 import TagDropdownTrigger from "./TagDropdownTrigger";
 
 describe("TagDropdown", () => {
@@ -44,9 +44,9 @@ describe("TagDropdown", () => {
       >
         <div>Just some child 1</div>
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
         <div>Just some child 2</div>
       </TagDropdown>
     );
@@ -65,9 +65,9 @@ describe("TagDropdown", () => {
       .create(
         <TagDropdown id="idTest" defaultText="Click me" onSelect={onSelectMock}>
           <DropdownSectionTitle text="First Section" />
-          <TagItem value="1" text="One" />
-          <TagItem value="2" text="Two" />
-          <TagItem value="3" text="Three" />
+          <TagDropdownItem value="1" text="One" />
+          <TagDropdownItem value="2" text="Two" />
+          <TagDropdownItem value="3" text="Three" />
         </TagDropdown>
       )
       .toJSON();
@@ -86,9 +86,9 @@ describe("TagDropdown", () => {
           onSelect={onSelectMock}
         >
           <DropdownSectionTitle text="First Section" />
-          <TagItem value="1" text="One" />
-          <TagItem value="2" text="Two" />
-          <TagItem value="3" text="Three" />
+          <TagDropdownItem value="1" text="One" />
+          <TagDropdownItem value="2" text="Two" />
+          <TagDropdownItem value="3" text="Three" />
         </TagDropdown>
       )
       .toJSON();
@@ -102,9 +102,9 @@ describe("TagDropdown", () => {
         onSelect={onSelectMock}
       >
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
       </TagDropdown>
     );
     expect(mountedComponent.find(TagDropdownTrigger).prop("color")).toEqual(
@@ -130,15 +130,13 @@ describe("TagDropdown", () => {
         onSelect={onSelectMock}
       >
         <DropdownSectionTitle text="First Section" />
-        <TagItem value="1" text="One" />
-        <TagItem value="2" text="Two" />
-        <TagItem value="3" text="Three" />
+        <TagDropdownItem value="1" text="One" />
+        <TagDropdownItem value="2" text="Two" />
+        <TagDropdownItem value="3" text="Three" />
       </TagDropdown>
     );
 
-    const trigger = shallowDropdown.find(
-      ".lab-dropdown__invisible-button--trigger"
-    );
+    const trigger = shallowDropdown.find(TagDropdownTrigger).at(0);
     trigger.simulate("click");
 
     expect(mockOnOpen.mock.calls.length).toBe(1);

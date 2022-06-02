@@ -26,6 +26,18 @@ export default class AbstractTag extends React.Component {
     onClick: PropTypes.func,
     /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
     tabIndex: PropTypes.string,
+    /** This prop is a boolean to verify if the tag is a child of the TagDropdown component */
+    isDropdown: PropTypes.bool,
+    /** This prop sets the TagDropdownItem ref for option and triggers in a TagDropdown component. */
+    setRef: PropTypes.func,
+    /** This function is used to handle click or keydown interactions */
+    onInteraction: PropTypes.func,
+    /** This is the TagDropdownItem value. It is used TagDropdown options */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**  This prop is used to verify if the option is selected */
+    isSelected: PropTypes.bool,
+    /**   This is the TagDropdownItem or TagDropdownTrigger role. It is used to let disabled people know the type of the element. */
+    role: PropTypes.string,
   };
 
   static defaultProps = {
@@ -38,16 +50,38 @@ export default class AbstractTag extends React.Component {
     disabled: false,
     ariaDisabled: false,
     onClick: () => {},
+    onInteraction: () => {},
+    setRef: () => {},
     tabIndex: undefined,
+    isDropdown: false,
+    isSelected: false,
+    value: "",
+    role: "",
   };
 
+  constructor(props) {
+    super(props);
+
+    if (props.isDropdown) this.ref = React.createRef();
+  }
+
+  componentDidMount() {
+    const { setRef, isDropdown } = this.props;
+    if (isDropdown) setRef(this.ref);
+  }
+
   handleEvent = (event) => {
+    const { onClick, onInteraction } = this.props;
+
     if ((event.keycode || event.which) === 32) {
       event.preventDefault();
     }
-    const { onClick } = this.props;
     if (!isUndefined(onClick)) {
       onClick(event);
+    }
+
+    if (!isUndefined(onInteraction)) {
+      onInteraction({ event, ref: this.ref });
     }
   };
 
@@ -63,7 +97,37 @@ export default class AbstractTag extends React.Component {
       renderSuffix,
       className,
       tabIndex,
+      isDropdown,
+      value,
+      isSelected,
+      role,
     } = this.props;
+
+    if (isDropdown)
+      return (
+        <button
+          type="button"
+          role={role}
+          aria-selected={isSelected}
+          className={
+            `lab-tag ${className}` +
+            `${disabled || ariaDisabled ? ` lab-tag--disabled` : ""}` +
+            `${isOutline ? ` lab-tag--outline` : ""}` +
+            `${color ? ` lab-tag--${color}-${skin}` : ` lab-tag--${skin}`}`
+          }
+          onClick={!(ariaDisabled || disabled) ? this.handleEvent : () => {}}
+          onKeyDown={this.handleEvent}
+          tabIndex={tabIndex}
+          ref={this.ref}
+          disabled={disabled || ariaDisabled}
+          id={value}
+          value={value}
+        >
+          {renderPrefix}
+          {text}
+          {renderSuffix}
+        </button>
+      );
 
     return (
       <span
