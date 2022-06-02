@@ -6,7 +6,7 @@ import Icon from "../Icon";
 import { ICON_TYPES, TAG_COLORS } from "../constants";
 import AbstractTag from "../Tags/AbstractTag";
 
-export default class TagItem extends React.Component {
+export default class TagDropdownItem extends React.Component {
   static propTypes = {
     /** This is the Tag's text. */
     text: PropTypes.string.isRequired,
@@ -24,8 +24,16 @@ export default class TagItem extends React.Component {
     skin: PropTypes.oneOf(["pale", "vivid"]),
     /** Sets an outline style. */
     isOutline: PropTypes.bool,
-
+    /** Option tab index */
     tabIndex: PropTypes.string,
+    /** This function is used on AbstractTag's componenentDidMount to set the current Ref */
+    setRef: PropTypes.func,
+    /** This function is used to handle click or keydown interactions */
+    onInteraction: PropTypes.func,
+    /** This is the option's value */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** This prop is a boolean to verify if the option is current selected  */
+    isSelected: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -36,7 +44,11 @@ export default class TagItem extends React.Component {
     color: undefined,
     disabled: false,
     onClick: () => {},
+    setRef: () => {},
+    onInteraction: () => {},
+    value: "",
     tabIndex: "0",
+    isSelected: false,
   };
 
   constructor(props) {
@@ -69,7 +81,7 @@ export default class TagItem extends React.Component {
 
   checkThumbAndIcon() {
     const errorMessage =
-      "`TagItem` can't be initialized with both `thumb` and `icon` props.";
+      "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props.";
     const { thumbSrc, icon } = this.props;
     if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
       throw new Error(errorMessage);
@@ -87,11 +99,15 @@ export default class TagItem extends React.Component {
       onClick,
       disabled,
       tabIndex,
+      onInteraction,
+      setRef,
+      value,
+      isSelected,
     } = this.props;
     return (
       <AbstractTag
         text={text}
-        className={`${icon ? ` lab-tag--has-left-icon` : ""}${
+        className={`lab-tag--togglable${icon ? ` lab-tag--has-left-icon` : ""}${
           thumbSrc ? ` lab-tag--has-thumb` : ""
         }`}
         isOutline={isOutline}
@@ -101,6 +117,12 @@ export default class TagItem extends React.Component {
         onClick={onClick}
         disabled={disabled}
         tabIndex={tabIndex}
+        onInteraction={onInteraction}
+        isDropdown
+        setRef={setRef}
+        value={value}
+        isSelected={isSelected}
+        role="option"
       />
     );
   }

@@ -4,9 +4,8 @@ import PropTypes from "prop-types";
 import { Button } from "../Button";
 import { dropdownOptions } from "./propTypes";
 import DropdownSectionTitle from "./DropdownSectionTitle";
-import DropdownTrigger from "./DropdownTrigger";
 import DropdownOption from "./DropdownOption";
-import TagItem from "./TagItem";
+import TagDropdownItem from "./TagDropdownItem";
 import TagDropdownTrigger from "./TagDropdownTrigger";
 
 export default class AbstractDropdown extends Component {
@@ -23,7 +22,7 @@ export default class AbstractDropdown extends Component {
     color: PropTypes.string,
     /** This is the dropdown default trigger title. It will mount with this default text until the user selects an option. */
     defaultText: PropTypes.string.isRequired,
-    /** This is the dropdown of children. It can be a TagItem or a SectionTitle, and if the user doesn't pass a child, it will throw an error. */
+    /** This is the dropdown of children. It can be a TagDropdownItem or a SectionTitle, and if the user doesn't pass a child, it will throw an error. */
     children: PropTypes.node.isRequired,
     /** This is the dropdown id. It requires a unique id. */
     id: PropTypes.string.isRequired,
@@ -37,14 +36,14 @@ export default class AbstractDropdown extends Component {
     onClose: () => {},
   };
 
-  expectedKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Escape"];
+  expectedKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Escape", " "];
 
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
       optionsRefList: [],
-      selected: { ref: null, index: null },
+      selected: { ref: null },
       lastFocusedOption: { index: null },
       displayText: props.defaultText,
     };
@@ -83,6 +82,48 @@ export default class AbstractDropdown extends Component {
 
     checkIfHasChildren();
   }
+
+  /**  This function forwards the event to the correct handler when the 
+       user selects or interacts via keyboard with the trigger.
+   */
+  handleTriggerInteraction = ({ event }) => {
+    const { handleKeyDown, handleTriggerClick } = this;
+    const eventType = event.type;
+    const isSpace = event.key === " ";
+    switch (eventType) {
+      case "keydown":
+        if (isSpace) handleTriggerClick();
+        handleKeyDown(event);
+        break;
+
+      case "click":
+        handleTriggerClick();
+        break;
+      default:
+        break;
+    }
+  };
+
+  /**  This function forwards the event to the correct handler 
+   when the user selects or moves the keyboard through the options.
+   */
+  handleOptionInteraction = ({ event, ref }) => {
+    const eventType = event.type;
+    const isSpace = event.key === " ";
+    const { handleKeyDown, handleSelectDropdownOption } = this;
+    switch (eventType) {
+      case "keydown":
+        if (isSpace) handleSelectDropdownOption({ event, ref });
+        handleKeyDown(event);
+        break;
+
+      case "click":
+        handleSelectDropdownOption({ event, ref });
+        break;
+      default:
+        break;
+    }
+  };
 
   /**
     This function verifies if the dropdown has no children and throw a error if is the case.
@@ -209,12 +250,12 @@ export default class AbstractDropdown extends Component {
   */
   handleSelectDropdownOption = (option) => {
     const { onSelect } = this.props;
-    const { event, ref, index } = option;
+    const { event, ref } = option;
     this.setState((prev) => ({
       ...prev,
       isOpen: false,
-      selected: { ref, index },
-      displayText: event.target.name,
+      selected: { ref },
+      displayText: ref.current.textContent,
     }));
 
     onSelect(event);
@@ -241,8 +282,8 @@ export default class AbstractDropdown extends Component {
     This function is called at the DropdownOption component when it has the 'selected' prop marked as true
   */
   setDefaultOption = (defaultOption) => {
-    const { ref, text, index } = defaultOption;
-    this.setState({ selected: { ref, index }, displayText: text });
+    const { ref, text } = defaultOption;
+    this.setState({ selected: { ref }, displayText: text });
   };
 
   /**
@@ -275,13 +316,14 @@ export default class AbstractDropdown extends Component {
 
   render() {
     const {
-      handleTriggerClick,
       handleKeyDown,
       handleSelectDropdownOption,
       handleBlur,
       setDefaultOption,
       setTriggerRef,
       setOptionsRefs,
+      handleTriggerInteraction,
+      handleOptionInteraction,
     } = this;
     const { children, color, dropdownType, id } = this.props;
     const { isOpen, displayText, selected } = this.state;
@@ -290,21 +332,23 @@ export default class AbstractDropdown extends Component {
 
     const trigger = {
       button: <Button text={displayText} />,
-      tag: <TagDropdownTrigger text={displayText} color={color} isOutline />,
+      tag: (
+        <TagDropdownTrigger
+          text={displayText}
+          color={color}
+          isOutline
+          setRef={setTriggerRef}
+          onInteraction={handleTriggerInteraction}
+        />
+      ),
     };
 
+    // Select the trigger by mapping the dropdown type
     const renderTrigger = trigger[dropdownType];
 
     return (
       <div className="lab-dropdown" onBlur={handleBlur}>
-        <DropdownTrigger
-          handleTriggerClick={handleTriggerClick}
-          handleKeyDown={handleKeyDown}
-          id={id}
-          setRef={setTriggerRef}
-        >
-          {renderTrigger}
-        </DropdownTrigger>
+        {renderTrigger}
 
         <div
           role="menu"
@@ -320,13 +364,13 @@ export default class AbstractDropdown extends Component {
               child.displayName === "DropdownSectionTitle";
             // change it to || child.type == OptionItem...
             const isDropdownItem =
-              child.type === TagItem ||
-              child.type.name === "TagItem" ||
-              child.displayName === "TagItem";
+              child.type === TagDropdownItem ||
+              child.type.name === "TagDropdownItem" ||
+              child.displayName === "TagDropdownItem";
 
             if (isDropdownSectionTitle)
               return <child.type {...child.props} color={color} />;
-
+            const isSelected = displayText === child.props.text;
             if (isDropdownItem)
               return (
                 <DropdownOption
@@ -335,9 +379,11 @@ export default class AbstractDropdown extends Component {
                   selectedOption={selected}
                   setDefaultOption={setDefaultOption}
                   handleKeyDown={handleKeyDown}
+                  handleInteraction={handleOptionInteraction}
                   index={index}
                   id={id}
                   setRef={setOptionsRefs}
+                  isSelected={isSelected}
                 >
                   {child}
                 </DropdownOption>

@@ -2,48 +2,60 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 
-import TagItem from "./TagItem";
+import TagDropdownItem from "./TagDropdownItem";
 
-describe("TagItem", () => {
+describe("TagDropdownItem", () => {
   it("renders with base props", async () => {
     const renderedComponent = renderer
-      .create(<TagItem text="Test render TagItem" />)
+      .create(<TagDropdownItem text="Test render TagDropdownItem" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it("renders as expected with outline as true", async () => {
     const renderedComponent = renderer
-      .create(<TagItem text="Test render outline TagItem" isOutline />)
+      .create(
+        <TagDropdownItem text="Test render outline TagDropdownItem" isOutline />
+      )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <TagItem text="Test outline TagItem" isOutline />
+      <TagDropdownItem text="Test outline TagDropdownItem" isOutline />
     ).html();
     expect(wrapper).toContain("lab-tag--outline");
   });
 
   it("renders as expected with a vivid skin", async () => {
     const renderedComponent = renderer
-      .create(<TagItem text="Test render vivid TagItem" skin="vivid" />)
+      .create(
+        <TagDropdownItem
+          text="Test render vivid TagDropdownItem"
+          skin="vivid"
+        />
+      )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <TagItem text="Test vivid TagItem" skin="vivid" />
+      <TagDropdownItem text="Test vivid TagDropdownItem" skin="vivid" />
     ).html();
     expect(wrapper).toContain("lab-tag--vivid");
   });
 
   it("renders as expected with a purple color", async () => {
     const renderedComponent = renderer
-      .create(<TagItem text="Test render purple TagItem" color="purple" />)
+      .create(
+        <TagDropdownItem
+          text="Test render purple TagDropdownItem"
+          color="purple"
+        />
+      )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <TagItem text="Test vivid TagItem" skin="vivid" />
+      <TagDropdownItem text="Test vivid TagDropdownItem" skin="vivid" />
     ).html();
     expect(wrapper).toContain("lab-tag--vivid");
   });
@@ -51,8 +63,8 @@ describe("TagItem", () => {
   it("renders as expected with a magnifying-glass icon", async () => {
     const renderedComponent = renderer
       .create(
-        <TagItem
-          text="Test render TagItem with magnifying-glass icon"
+        <TagDropdownItem
+          text="Test render TagDropdownItem with magnifying-glass icon"
           icon="magnifying-glass"
         />
       )
@@ -60,8 +72,8 @@ describe("TagItem", () => {
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <TagItem
-        text="Test TagItem with magnifying-glass icon"
+      <TagDropdownItem
+        text="Test TagDropdownItem with magnifying-glass icon"
         icon="magnifying-glass"
       />
     ).html();
@@ -71,13 +83,19 @@ describe("TagItem", () => {
   it("renders as expected with a thumb", async () => {
     const renderedComponent = renderer
       .create(
-        <TagItem text="Test render TagItem with thumb" thumbSrc="fake-thumb" />
+        <TagDropdownItem
+          text="Test render TagDropdownItem with thumb"
+          thumbSrc="fake-thumb"
+        />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <TagItem text="Test TagItem with thumb" thumbSrc="fake-thumb" />
+      <TagDropdownItem
+        text="Test TagDropdownItem with thumb"
+        thumbSrc="fake-thumb"
+      />
     ).html();
     expect(wrapper).toContain(`src="fake-thumb"`);
   });
@@ -85,14 +103,14 @@ describe("TagItem", () => {
   it("does not render if passing both `thumb` and `icon` props", async () => {
     expect(() => {
       shallow(
-        <TagItem
-          text="Test to not render TagItem with with thumb and icon"
+        <TagDropdownItem
+          text="Test to not render TagDropdownItem with with thumb and icon"
           icon="magnifying-glass"
           thumbSrc="fake-thumb"
         />
       );
     }).toThrow(
-      "`TagItem` can't be initialized with both `thumb` and `icon` props."
+      "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props."
     );
   });
 });
