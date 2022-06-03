@@ -59,7 +59,8 @@ export default class AbstractDropdown extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { triggerRef, checkIfHasChildren, forceControlledOption } = this;
+    const { triggerRef, checkIfHasChildren, updateSelectedValueFromProps } =
+      this;
 
     const { isOpen, selected, optionsRefList } = this.state;
 
@@ -67,7 +68,7 @@ export default class AbstractDropdown extends Component {
 
     if (value !== prevProps.value) {
       if (_.isUndefined(value)) return;
-      forceControlledOption(value);
+      updateSelectedValueFromProps(value);
     }
 
     if (isOpen !== prevState.isOpen) {
@@ -273,7 +274,7 @@ export default class AbstractDropdown extends Component {
 
     This value needs to be in the optionRefList. If it's not, nothing changes. 
  */
-  forceControlledOption = (value) => {
+  updateSelectedValueFromProps = (value) => {
     const { getOptionIndexByValue } = this;
     const { optionsRefList } = this.state;
 
