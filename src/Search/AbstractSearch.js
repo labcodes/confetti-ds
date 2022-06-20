@@ -59,7 +59,7 @@ export default class AbstractSearch extends React.Component {
   componentDidUpdate(prevProps) {
     const { value } = this.props;
 
-    if (value && value !== prevProps.value) {
+    if (!isUndefined(value) && value !== prevProps.value) {
       this.setState({ localValue: value });
     }
   }
