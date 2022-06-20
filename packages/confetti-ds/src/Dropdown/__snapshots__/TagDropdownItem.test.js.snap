@@ -5,13 +5,13 @@ exports[`TagDropdownItem renders as expected with a magnifying-glass icon 1`] = 
   aria-selected={false}
   className="lab-tag lab-tag--togglable lab-tag--has-left-icon lab-tag--pale"
   disabled={false}
-  id=""
+  id="option1"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
   tabIndex="0"
   type="button"
-  value=""
+  value="option1"
 >
   <span
     className="lab-icon lab-icon--magnifying-glass lab-icon--black-75 lab-icon--petit lab-tag--left-icon"
@@ -25,13 +25,13 @@ exports[`TagDropdownItem renders as expected with a purple color 1`] = `
   aria-selected={false}
   className="lab-tag lab-tag--togglable lab-tag--purple-pale"
   disabled={false}
-  id=""
+  id="option1"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
   tabIndex="0"
   type="button"
-  value=""
+  value="option1"
 >
   Test render purple TagDropdownItem
 </button>
@@ -42,13 +42,13 @@ exports[`TagDropdownItem renders as expected with a thumb 1`] = `
   aria-selected={false}
   className="lab-tag lab-tag--togglable lab-tag--has-thumb lab-tag--pale"
   disabled={false}
-  id=""
+  id="option1"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
   tabIndex="0"
   type="button"
-  value=""
+  value="option1"
 >
   <img
     alt=""
@@ -64,13 +64,13 @@ exports[`TagDropdownItem renders as expected with a vivid skin 1`] = `
   aria-selected={false}
   className="lab-tag lab-tag--togglable lab-tag--vivid"
   disabled={false}
-  id=""
+  id="option1"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
   tabIndex="0"
   type="button"
-  value=""
+  value="option1"
 >
   Test render vivid TagDropdownItem
 </button>
@@ -81,13 +81,13 @@ exports[`TagDropdownItem renders as expected with outline as true 1`] = `
   aria-selected={false}
   className="lab-tag lab-tag--togglable lab-tag--outline lab-tag--pale"
   disabled={false}
-  id=""
+  id="option1"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
   tabIndex="0"
   type="button"
-  value=""
+  value="option1"
 >
   Test render outline TagDropdownItem
 </button>
@@ -98,13 +98,13 @@ exports[`TagDropdownItem renders with base props 1`] = `
   aria-selected={false}
   className="lab-tag lab-tag--togglable lab-tag--pale"
   disabled={false}
-  id=""
+  id="option1"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
   tabIndex="0"
   type="button"
-  value=""
+  value="option1"
 >
   Test render TagDropdownItem
 </button>

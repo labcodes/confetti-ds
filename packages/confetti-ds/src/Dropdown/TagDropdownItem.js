@@ -31,7 +31,7 @@ export default class TagDropdownItem extends React.Component {
     /** This function is used to handle click or keydown interactions */
     onInteraction: PropTypes.func,
     /** This is the option's value */
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** This prop is a boolean to verify if the option is current selected  */
     isSelected: PropTypes.bool,
   };
@@ -46,7 +46,6 @@ export default class TagDropdownItem extends React.Component {
     onClick: () => {},
     setRef: () => {},
     onInteraction: () => {},
-    value: "",
     tabIndex: "0",
     isSelected: false,
   };
