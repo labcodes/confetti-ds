@@ -13,7 +13,6 @@ export default function DoubleAction({
   const cardContext = useContext(CardContext);
   const getButtonSkinFromCardContext = (context) => {
     const { color, skin, cardType } = context;
-    // console.log(context);
     if (cardType === "filled" && skin === "vivid" && color !== "white") {
       return "light";
     }
@@ -41,8 +40,6 @@ export default function DoubleAction({
   }, [actionsProps]);
 
   return (
-    // <CardContext.Consumer>
-    //   {({ color, skin, cardType }) => (
     <section
       className={`lab-card-double-action lab-card-double-action--${size}
             ${isText ? " lab-card-double-action--text" : ""}
@@ -95,8 +92,6 @@ export default function DoubleAction({
         }
       )}
     </section>
-    //   )}
-    // </CardContext.Consumer>
   );
 }
 
