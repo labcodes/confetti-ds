@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Icon from "../Icon";
 import { SimpleTag } from "../Tags";
 import { ICON_TYPES } from "../constants";
+// todo remover este código depois
 
 export default function CardHeader({
   title,
