@@ -47,13 +47,3 @@ FilledCard.defaultProps = {
   isCompact: false,
   className: undefined,
 };
-// export default class FilledCard extends React.Component {
-
-//   // render() {
-//   //   const =
-//   //     this.props;
-
-//     return (
-//     );
-//   }
-// }
