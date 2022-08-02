@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import AbstractSearch from "./AbstractSearch";
@@ -14,7 +14,7 @@ export default function InlineSearch({
   onClear,
   placeholder,
 }) {
-  // const idRef= useRef(id)
+
   return (
     <div className="lab-inline-search">
       <AbstractSearch

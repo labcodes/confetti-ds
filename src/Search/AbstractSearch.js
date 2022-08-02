@@ -15,7 +15,7 @@ export default function AbstractSearch({
   onClear,
   defaultValue,
 }) {
-  const [localValue, setLocalValue] = useState("");
+  const [localValue, setLocalValue] = useState(defaultValue);
   const searchRef = useRef();
   const prevValue = useRef(value);
 
@@ -52,7 +52,7 @@ export default function AbstractSearch({
     if (value && value !== prevValue) {
       setLocalValue(value);
     }
-  });
+  }, [localValue]);
 
   if (!isUndefined(defaultValue) && !isUndefined(value)) {
     // eslint-disable-next-line no-console
@@ -77,7 +77,7 @@ export default function AbstractSearch({
           type="search"
           autoComplete="off"
           id={id}
-          value={localValue}
+          value={value}
           ref={searchRef}
           onChange={!ariaDisabled ? handleOnChange : () => {}}
           onKeyDown={!ariaDisabled ? handleKeyPress : () => {}}
