@@ -24,104 +24,128 @@ const args = {
 };
 
 describe("MessageDialog", () => {
-  it("renders with base props", () => {
-    const Component = <MessageDialog {...args} />;
-    const renderedComponent = renderer.create(Component).toJSON();
-
-    expect(renderedComponent).toMatchSnapshot();
+  afterEach(() => {
+    /* reset html tag after each test case */
+    document.getElementsByTagName("html")[0].innerHTML = "";
   });
 
-  it("test with isOpen false", () => {
+  it("rendering with base props", () => {
+    expect(document.body.style.overflow).toBe("");
+
+    const Component = <MessageDialog {...args} />;
+    const renderedComponent = renderer.create(Component);
+
+    expect(renderedComponent.toJSON()).toMatchSnapshot();
+
+    /* To clean up things */
+    renderedComponent.unmount();
+  });
+
+  it("rendering with isOpen false", () => {
+    expect(document.body.style.overflow).toBe("");
+
     const Component = (
       <MessageDialog {...args} isModal isLarge isOpen={false} />
     );
-    const renderedComponent = renderer.create(Component).toJSON();
+    const renderedComponent = renderer.create(Component);
 
-    expect(renderedComponent).toMatchSnapshot();
+    expect(renderedComponent.toJSON()).toMatchSnapshot();
+
+    /* To clean up things */
+    renderedComponent.unmount();
+
+    expect(document.body.style.overflow).toBe("");
   });
 
-  it("test with isModal false", () => {
+  it("rendering with isModal false", () => {
+    expect(document.body.style.overflow).toBe("");
+
     const Component = (
       <MessageDialog {...args} isModal={false} isLarge isOpen />
     );
-    const renderedComponent = renderer.create(Component).toJSON();
+    const renderedComponent = renderer.create(Component);
 
-    expect(renderedComponent).toMatchSnapshot();
+    expect(renderedComponent.toJSON()).toMatchSnapshot();
+
+    /* To clean up things */
+    renderedComponent.unmount();
+
+    expect(document.body.style.overflow).toBe("unset");
   });
 
-  it("test with isLarge false", () => {
+  it("rendering with isLarge false", () => {
+    expect(document.body.style.overflow).toBe("");
+
     const Component = (
       <MessageDialog {...args} isModal isOpen isLarge={false} />
     );
-    const renderedComponent = renderer.create(Component).toJSON();
+    const renderedComponent = renderer.create(Component);
 
-    expect(renderedComponent).toMatchSnapshot();
+    expect(renderedComponent.toJSON()).toMatchSnapshot();
+
+    /* To clean up things */
+    renderedComponent.unmount();
+
+    expect(document.body.style.overflow).toBe("unset");
   });
 
-  it(`checks if isOpen false sets body overflow to `, () => {
-    let isOpen = false;
-    const handleClose = () => {
-      isOpen = false;
-    };
+  it(`rendering if isOpen false sets body overflow to empty`, () => {
+    expect(document.body.style.overflow).toBe("");
 
-    const Component = (
+    const wrapper = mount(
       <MessageDialog
         {...args}
-        isModal
-        isOpen={isOpen}
-        handleClose={handleClose}
+        isModal // true
+        isOpen={false}
       />
     );
 
-    const renderedComponent = renderer.create(Component).toJSON();
-    const wrapper = mount(Component);
-    expect(document.body.style.overflow).toBe("hidden");
+    expect(document.body.style.overflow).toBe("");
 
     expect(wrapper.find(".lab-dialog__title").exists()).toBeFalsy();
     expect(wrapper.find(".lab-dialog__body").exists()).toBeFalsy();
 
-    expect(renderedComponent).toMatchSnapshot();
+    wrapper.unmount();
   });
-  it("checks if isOpen true sets body overflow to hidden", () => {
-    let isOpen = true;
-    const handleClose = () => {
-      isOpen = false;
-    };
-    const Component = (
+  it("checks if isOpen and isModal true sets body overflow to hidden", () => {
+    expect(document.body.style.overflow).toBe("");
+
+    const wrapper = mount(
       <MessageDialog
         {...args}
-        isModal
-        isOpen={isOpen}
-        handleClose={handleClose}
+        isModal // true
+        isOpen // true
       />
     );
 
-    const renderedComponent = renderer.create(Component).toJSON();
-    const wrapper = mount(Component);
     expect(document.body.style.overflow).toBe("hidden");
+
     expect(wrapper.find(".lab-dialog__title").text()).toBe(args.title);
     expect(wrapper.find(".lab-dialog__body").text()).toBe(args.content);
 
-    expect(renderedComponent).toMatchSnapshot();
+    wrapper.unmount();
+
+    expect(document.body.style.overflow).toBe("unset");
   });
   it("toggle isOpen", () => {
-    const handleClose = () => {};
-    const Component = (
-      <MessageDialog {...args} isModal isOpen handleClose={handleClose} />
-    );
-    const renderedComponent = renderer.create(Component).toJSON();
-    const wrapper = mount(Component);
+    expect(document.body.style.overflow).toBe("");
+
+    const wrapper = mount(<MessageDialog {...args} isModal isOpen />);
 
     expect(document.body.style.overflow).toBe("hidden");
+
     expect(wrapper.find(".lab-dialog__title").text()).toBe(args.title);
     expect(wrapper.find(".lab-dialog__body").text()).toBe(args.content);
 
     wrapper.setProps({ isOpen: false });
 
     expect(document.body.style.overflow).toBe("unset");
+
     expect(wrapper.find(".lab-dialog__title").exists()).toBeFalsy();
     expect(wrapper.find(".lab-dialog__body").exists()).toBeFalsy();
 
-    expect(renderedComponent).toMatchSnapshot();
+    wrapper.unmount();
+
+    expect(document.body.style.overflow).toBe("unset");
   });
 });
