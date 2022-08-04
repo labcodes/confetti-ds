@@ -65,13 +65,3 @@ InlineSearch.defaultProps = {
   onClear: () => {},
   placeholder: "Search",
 };
-// export default class InlineSearch extends React.Component {
-//
-//   // render() {
-//   //   const {
-//   //
-//   //   } = this.props;
-//
-
-//   }
-// }
