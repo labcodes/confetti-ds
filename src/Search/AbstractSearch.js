@@ -10,14 +10,14 @@ export default function AbstractSearch({
   ariaDisabled,
   placeholder,
   type,
+  onClear,
   onSearch,
   onChange,
-  onClear,
   defaultValue,
 }) {
   const [localValue, setLocalValue] = useState(defaultValue);
   const searchRef = useRef();
-  const prevValue = useRef(value);
+  const prevValue = useRef();
 
   const handleOnChange = (event) => {
     setLocalValue(event.target.value);
@@ -50,9 +50,10 @@ export default function AbstractSearch({
 
   useEffect(() => {
     if (value && value !== prevValue) {
+      // prevValue.current = value;
       setLocalValue(value);
     }
-  }, [localValue]);
+  }, [defaultValue]);
 
   if (!isUndefined(defaultValue) && !isUndefined(value)) {
     // eslint-disable-next-line no-console
@@ -77,7 +78,7 @@ export default function AbstractSearch({
           type="search"
           autoComplete="off"
           id={id}
-          value={value}
+          value={localValue}
           ref={searchRef}
           onChange={!ariaDisabled ? handleOnChange : () => {}}
           onKeyDown={!ariaDisabled ? handleKeyPress : () => {}}
@@ -170,7 +171,7 @@ TrailingIcon.propTypes = {
 };
 
 TrailingIcon.defaultProps = {
-  onClear: undefined,
+  onClear: () => {},
   disabled: false,
   ariaDisabled: false,
 };
