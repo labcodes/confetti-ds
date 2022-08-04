@@ -14,7 +14,6 @@ export default function InlineSearch({
   onClear,
   placeholder,
 }) {
-
   return (
     <div className="lab-inline-search">
       <AbstractSearch
