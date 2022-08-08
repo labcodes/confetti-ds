@@ -3,6 +3,22 @@ import PropTypes from "prop-types";
 import { isUndefined } from "lodash";
 import Icon from "../Icon";
 
+/**
+ *
+ * @param value is the text that will be rendered inside the Search field.
+ * @param id  is the text that will serve as unique identifier. It's also an important accessibility tool.
+ * @param disabled disables the Search. Won't be read by screen readers.
+ * @param ariaDisabled disables the Search. Will be read by screen readers. When true, will override `disabled`.
+ * @param placeholder it's the placeholder text when the Search field is empty. Usually used to describe the values accepted (e.g.: Search by keyword or status).
+ * @param type it's a style variation of the Search.
+ * @param onClear it's an action to be executed when the Search field is cleared out.
+ * @param onSearch it's an action to be executed when the search is performed.
+ * @param onChange  it's an action  to be executed when the Search default value changes.
+ * @param defaultValue defines a default value for the Search initialization.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 export default function AbstractSearch({
   value,
   id,
@@ -108,7 +124,7 @@ export default function AbstractSearch({
 }
 
 AbstractSearch.propTypes = {
-  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
+  /** */
   id: PropTypes.string,
   /** Defines a default value for the Search initialization. */
   defaultValue: PropTypes.string,
