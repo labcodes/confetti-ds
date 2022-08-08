@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineSearch renders with base props 1`] = `
+<div
+  className="lab-inline-search"
+>
+  <div
+    className="lab-inline-search"
+  >
+    <div
+      className="lab-search__wrapper "
+    >
+      <input
+        autoComplete="off"
+        className="lab-search__field"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Search"
+        type="search"
+      />
+      <div
+        className="lab-search__borders"
+      />
+      <button
+        className="lab-search__remove-icon"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="lab-icon lab-icon--remove lab-icon--mineral-40"
+        />
+      </button>
+      <span
+        className="lab-icon lab-icon--magnifying-glass lab-icon--mineral-40 lab-inline-search__icon "
+      />
+    </div>
+  </div>
+</div>
+`;
