@@ -6,22 +6,35 @@ import Icon from "../Icon";
 
 import { ICON_TYPES, ICON_COLORS } from "../constants";
 
-export default class AbstractTextInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.inputRef = React.createRef();
-    const { id, defaultValue, value, isValid } = props;
-    if (!isUndefined(defaultValue) && !isUndefined(value)) {
+export default function AbstractTextInput({ type,
+      id,
+      label,
+      disabled,
+      ariaDisabled,
+      icon,
+      iconColor,
+      required,
+      helpMessage,
+      prefix,
+      suffix,
+      customErrorMsg,
+      onIconClick,  defaultValue, value, isValid}) {
+}
+  const [localValue, setLocalValue] = React.useState( value || defaultValue || "");
+  const [localIsValid, setLocalIsValid] = React.useState( !isUndefined(isValid) ? isValid : true);
+
+  const inputRef = React.useRef();
+
+
+
+   if (!isUndefined(defaultValue) && !isUndefined(value)) {
       // eslint-disable-next-line no-console
       console.warn(
         `You are setting both value and defaultValue for input ${id} at the same time. We always initialize value, if it is truthy. Make sure this is the behaviour you want.`
       );
     }
-    this.state = {
-      localValue: value || defaultValue || "",
-      localIsValid: !isUndefined(isValid) ? isValid : true,
-    };
-  }
+
+
 
   componentDidMount() {
     const { defaultValue, value, customErrorMsg } = this.props;
@@ -67,7 +80,7 @@ export default class AbstractTextInput extends React.Component {
     }
   }
 
-  requiredIcon = () => {
+  const requiredIcon = () => {
     const { required } = this.props;
     return required ? (
       <span className="lab-input__required-icon">
@@ -78,17 +91,17 @@ export default class AbstractTextInput extends React.Component {
     );
   };
 
-  prefixArea = () => {
+  const prefixArea = () => {
     const { prefix } = this.props;
     return prefix ? <span className="lab-input__prefix">{prefix}</span> : "";
   };
 
-  suffixArea = () => {
+  const suffixArea = () => {
     const { suffix } = this.props;
     return suffix ? <div className="lab-input__suffix">{suffix}</div> : "";
   };
 
-  handleOnChange = (event) => {
+  const handleOnChange = (event) => {
     const { onChange, isValid, customErrorMsg, required } = this.props;
     const inputElement = event.target;
     const inputElementValue = inputElement.value;
