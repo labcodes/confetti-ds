@@ -35,27 +35,30 @@ export default function AbstractTextInput({ type,
     }
 
 
-
-  componentDidMount() {
-    const { defaultValue, value, customErrorMsg } = this.props;
-    const { isValid } = this.props;
-    let { localIsValid } = this.state;
+  React.useEffect(() => {
+    let isLocalValueValid
 
     if (defaultValue && !value && isUndefined(isValid)) {
-      localIsValid = this.inputRef.current.validity.valid;
-      this.setState(() => ({ localIsValid }));
+      isLocalValueValid = this.inputRef.current.validity.valid;
+      setLocalIsValid(isLocalValueValid)
     }
 
     if (value && isUndefined(isValid)) {
-      localIsValid = this.inputRef.current.validity.valid;
-      this.setState(() => ({ localIsValid }));
+      isLocalValueValid = this.inputRef.current.validity.valid;
+      setLocalIsValid(isLocalValueValid)
+
     }
 
-    if (!localIsValid) {
-      const inputElement = this.inputRef.current;
+    if (!isLocalValueValid) {
+      const inputElement = inputRef.current;
       inputElement.setCustomValidity(customErrorMsg);
     }
-  }
+    return () => {
+      setLocalIsValid(true);
+      setLocalValue("")
+    }
+  }, [])
+
 
   componentDidUpdate(prevProps) {
     const { value, isValid, customErrorMsg } = this.props;
