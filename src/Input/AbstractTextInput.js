@@ -6,106 +6,101 @@ import Icon from "../Icon";
 
 import { ICON_TYPES, ICON_COLORS } from "../constants";
 
-export default function AbstractTextInput({ type,
-      id,
-      label,
-      disabled,
-      ariaDisabled,
-      icon,
-      iconColor,
-      required,
-      helpMessage,
-      prefix,
-      suffix,
-      customErrorMsg,
-      onIconClick,  defaultValue, value, isValid}) {
-}
-  const [localValue, setLocalValue] = React.useState( value || defaultValue || "");
-  const [localIsValid, setLocalIsValid] = React.useState( !isUndefined(isValid) ? isValid : true);
+export default function AbstractTextInput({
+  type,
+  id,
+  label,
+  disabled,
+  ariaDisabled,
+  icon,
+  iconColor,
+  required,
+  helpMessage,
+  prefix,
+  suffix,
+  customErrorMsg,
+  onChange,
+  onIconClick,
+  defaultValue,
+  value,
+  isValid,
+}) {
+  const [localValue, setLocalValue] = React.useState(
+    value || defaultValue || ""
+  );
+  const [localIsValid, setLocalIsValid] = React.useState(
+    !isUndefined(isValid) ? isValid : true // If isValid is undefined, it probably be a EmailInput
+  );
 
   const inputRef = React.useRef();
 
-
-
-   if (!isUndefined(defaultValue) && !isUndefined(value)) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `You are setting both value and defaultValue for input ${id} at the same time. We always initialize value, if it is truthy. Make sure this is the behaviour you want.`
-      );
-    }
-
-
-  React.useEffect(() => {
-    let isLocalValueValid
-
-    if (defaultValue && !value && isUndefined(isValid)) {
-      isLocalValueValid = this.inputRef.current.validity.valid;
-      setLocalIsValid(isLocalValueValid)
-    }
-
-    if (value && isUndefined(isValid)) {
-      isLocalValueValid = this.inputRef.current.validity.valid;
-      setLocalIsValid(isLocalValueValid)
-
-    }
-
-    if (!isLocalValueValid) {
-      const inputElement = inputRef.current;
-      inputElement.setCustomValidity(customErrorMsg);
-    }
-    return () => {
-      setLocalIsValid(true);
-      setLocalValue("")
-    }
-  }, [])
-
-
-  componentDidUpdate(prevProps) {
-    const { value, isValid, customErrorMsg } = this.props;
-    const inputElement = this.inputRef.current;
-
-    if (isValid !== prevProps.isValid) {
-      this.setState({ localIsValid: isValid });
-
-      if (!isUndefined(isValid) && !isValid) {
-        inputElement.setCustomValidity(customErrorMsg);
-      } else if (isValid) {
-        inputElement.setCustomValidity("");
-      }
-    }
-
-    if (value !== prevProps.value) {
-      this.setState({ localValue: value }, () => {
-        if (isUndefined(isValid)) {
-          this.setState({ localIsValid: inputElement.validity.valid });
-        }
-      });
-    }
+  if (!isUndefined(defaultValue) && !isUndefined(value)) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `You are setting both value and defaultValue for input ${id} at the same time. We always initialize value, if it is truthy. Make sure this is the behaviour you want.`
+    );
   }
 
-  const requiredIcon = () => {
-    const { required } = this.props;
-    return required ? (
+  React.useEffect(() => {
+    // return () => {
+    //   effect
+    // };
+    if (inputRef.current) {
+      /**
+       * Has defaultValue but has no value and isValid === undefined
+       */
+      if (defaultValue && !value && isUndefined(isValid)) {
+        const localIsValid = inputRef.current.validity.valid;
+        setLocalIsValid(localIsValid);
+      }
+
+      /**
+       * Has value but isValid === undefined
+       */
+      if (value && isUndefined(isValid)) {
+        const localIsValid = inputRef.current.validity.valid;
+        setLocalIsValid(localIsValid);
+      }
+
+      if (!localIsValid) {
+        inputRef.current.setCustomValidity(customErrorMsg);
+      }
+    }
+  }, []);
+
+  React.useEffect(() => {
+    setLocalIsValid(isValid);
+    setLocalValue(value);
+
+    if (inputRef.current) {
+      if (!isUndefined(isValid) && !isValid) {
+        inputRef.current.setCustomValidity(customErrorMsg);
+      } else if (isValid) {
+        inputRef.current.setCustomValidity("");
+      }
+    }
+  }, [isValid, value]);
+
+  React.useEffect(() => {
+    if (inputRef.current) setLocalIsValid(inputRef.current.validity.valid);
+  }, [localValue]);
+
+  const requiredIcon = () =>
+    required ? (
       <span className="lab-input__required-icon">
         <Icon type="star" color="white" />
       </span>
     ) : (
       ""
     );
-  };
 
-  const prefixArea = () => {
-    const { prefix } = this.props;
-    return prefix ? <span className="lab-input__prefix">{prefix}</span> : "";
-  };
+  const prefixArea = () =>
+    prefix ? <span className="lab-input__prefix">{prefix}</span> : "";
 
-  const suffixArea = () => {
-    const { suffix } = this.props;
-    return suffix ? <div className="lab-input__suffix">{suffix}</div> : "";
-  };
+  const suffixArea = () =>
+    suffix ? <div className="lab-input__suffix">{suffix}</div> : "";
 
   const handleOnChange = (event) => {
-    const { onChange, isValid, customErrorMsg, required } = this.props;
     const inputElement = event.target;
     const inputElementValue = inputElement.value;
     const inputElementIsValid = inputElement.validity.valid;
@@ -118,101 +113,87 @@ export default function AbstractTextInput({ type,
     }
 
     // Then we set the state with the new value
-    this.setState({ localValue: inputElementValue }, () => {
-      if (isUndefined(isValid) || (isValid && required)) {
-        // Finally, if the user doesn't force the 'isValid', we use browser's validation from the input
-        this.setState({ localIsValid: inputElementIsValid });
-      } else if (!isValid) {
-        // We only set the customErrorMsg again if the input is forced invalid
-        inputElement.setCustomValidity(customErrorMsg);
-        this.setState({ localIsValid: isValid });
-      }
-    });
+    setLocalValue(inputElementValue);
+
+    if (isUndefined(isValid) || (isValid && required)) {
+      // Finally, if the user doesn't force the 'isValid', we use browser's validation from the input
+      setLocalIsValid(inputElementIsValid);
+    } else if (!isValid) {
+      // We only set the customErrorMsg again if the input is forced invalid
+      inputElement.setCustomValidity(customErrorMsg);
+      setLocalIsValid(isValid);
+    }
   };
 
-  render() {
-    const {
-      type,
-      id,
-      label,
-      disabled,
-      ariaDisabled,
-      icon,
-      iconColor,
-      required,
-      helpMessage,
-      prefix,
-      suffix,
-      customErrorMsg,
-      onIconClick,
-    } = this.props;
-
-    let className = "";
-
-    const { localValue, localIsValid } = this.state;
-    if (ariaDisabled || disabled) {
-      className += " lab-input--disabled";
-    } else if (!localIsValid) {
-      className += " lab-input--invalid";
-    }
-
-    return (
-      <React.Fragment>
-        <div className={`lab-input ${className}`}>
-          <input
-            className={
-              `lab-input__field ` +
-              `${prefix ? `lab-input__field--prefixed ` : ``}` +
-              `${suffix ? `lab-input__field--suffixed ` : ``}`
-            }
-            id={id}
-            name={id}
-            type={type}
-            value={localValue}
-            ref={this.inputRef}
-            onChange={!ariaDisabled ? this.handleOnChange : () => {}}
-            autoComplete="off"
-            placeholder=" " // required for label placement
-            disabled={(!ariaDisabled && disabled) || undefined}
-            aria-disabled={ariaDisabled || undefined}
-            required={required || undefined}
-          />
-          <div className="lab-input__borders" />
-          {this.prefixArea()}
-          {this.suffixArea()}
-          <div className="lab-input__label-wrapper">
-            {/* The following duplicated prefixArea is necessary to allow the label to be positioned correctly */}
-            {this.prefixArea()}
-            <label className="lab-input__label" htmlFor={id}>
-              {label}
-            </label>
-          </div>
-          {icon ? (
-            <TrailingIcon
-              icon={icon}
-              iconColor={iconColor}
-              onIconClick={onIconClick}
-              disabled={(!ariaDisabled && disabled) || undefined}
-              ariaDisabled={ariaDisabled || undefined}
-            />
-          ) : null}
-          {this.requiredIcon()}
-        </div>
-        <TextInputMessage
-          helpMessage={helpMessage}
-          customErrorMsg={customErrorMsg}
-          localValue={localValue}
-          localIsValid={localIsValid}
-        />
-      </React.Fragment>
-    );
+  let className = "";
+  debugger;
+  if (ariaDisabled || disabled) {
+    className += " lab-input--disabled";
+  } else if (!localIsValid) {
+    className += " lab-input--invalid";
   }
+
+  return (
+    <React.Fragment>
+      <div className={`lab-input ${className}`}>
+        <input
+          className={
+            `lab-input__field ` +
+            `${prefix ? `lab-input__field--prefixed ` : ``}` +
+            `${suffix ? `lab-input__field--suffixed ` : ``}`
+          }
+          id={id}
+          name={id}
+          type={type}
+          value={localValue}
+          ref={inputRef}
+          onChange={!ariaDisabled ? handleOnChange : () => {}}
+          autoComplete="off"
+          placeholder=" " // required for label placement
+          disabled={(!ariaDisabled && disabled) || undefined}
+          aria-disabled={ariaDisabled || undefined}
+          required={required || undefined}
+        />
+        <div className="lab-input__borders" />
+        {prefixArea()}
+        {suffixArea()}
+        <div className="lab-input__label-wrapper">
+          {/* The following duplicated prefixArea is necessary to allow the label to be positioned correctly */}
+          {prefixArea()}
+          <label className="lab-input__label" htmlFor={id}>
+            {label}
+          </label>
+        </div>
+        {icon ? (
+          <TrailingIcon
+            icon={icon}
+            iconColor={iconColor}
+            onIconClick={onIconClick}
+            disabled={(!ariaDisabled && disabled) || undefined}
+            ariaDisabled={ariaDisabled || undefined}
+          />
+        ) : null}
+        {requiredIcon()}
+      </div>
+      <TextInputMessage
+        helpMessage={helpMessage}
+        customErrorMsg={customErrorMsg}
+        localValue={localValue}
+        localIsValid={localIsValid}
+      />
+    </React.Fragment>
+  );
 }
 
 // ----- Auxiliary components ----- //
 
-function TrailingIcon(props) {
-  const { icon, iconColor, onIconClick, disabled, ariaDisabled } = props;
+function TrailingIcon({
+  icon,
+  iconColor,
+  onIconClick,
+  disabled,
+  ariaDisabled,
+}) {
   return (
     <button
       type="button"
@@ -243,8 +224,12 @@ TrailingIcon.defaultProps = {
   ariaDisabled: false,
 };
 
-function TextInputMessage(props) {
-  const { helpMessage, customErrorMsg, localIsValid, localValue } = props;
+function TextInputMessage({
+  helpMessage,
+  customErrorMsg,
+  localIsValid,
+  localValue,
+}) {
   let message = null;
   if (helpMessage && localIsValid) {
     message = (
