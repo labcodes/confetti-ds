@@ -14,7 +14,6 @@ import { CardContext } from "./contexts";
  * @constructor
  */
 
-
 export default function DoubleAction({
   actionsProps,
   size,
