@@ -4,6 +4,17 @@ import PropTypes from "prop-types";
 import { CardContext } from "./contexts";
 import { filledCardChoices } from "./propTypes";
 
+/**
+ *
+ * @param children components that will be rendered in the Filled Card (CardImage, CardHeader, CardAction, etc.)
+ * @param color sets Filled Card's colors (mostly background colors) based on the chosen palette.
+ * @param skin sets the skin of the rendered Filled Card.
+ * @param isCompact reduces paddings and margins on Card layout.
+ * @param isHorizontal sets horizontal layout. It changes the position of CardImage.
+ * @param className add a class name to make custom changes
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function FilledCard({
   children,
   color,

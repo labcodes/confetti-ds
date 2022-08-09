@@ -4,6 +4,17 @@ import PropTypes from "prop-types";
 import { Button, OutlineButton, TextButton } from "../Button";
 import { CardContext } from "./contexts";
 
+/**
+ *
+ * @param actionsProps sets button's attributes: label, action to be executed when the button is clicked, whether it is disabled/ariaDisabled or not, and the icon.
+ * @param size sets buttons' height. Small = 32px, Normal = 40px, Large = 48px.
+ * @param isText sets buttons to be Text Buttons.
+ * @param isHorizontal sets whether buttons will pile on top of each other or be on the same line.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
+
 export default function DoubleAction({
   actionsProps,
   size,
@@ -106,7 +117,7 @@ DoubleAction.propTypes = {
       icon: PropTypes.string,
     })
   ).isRequired,
-  /** Sets buttons's height. Small = 32px, Normal = 40px, Large = 48px. */
+  /** Sets buttons' height. Small = 32px, Normal = 40px, Large = 48px. */
   size: PropTypes.oneOf(["normal", "small", "large"]),
   /** Sets whether buttons will pile on top of each other or be on the same line. */
   isHorizontal: PropTypes.bool,

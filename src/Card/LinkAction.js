@@ -1,6 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param text sets card's link text.
+ * @param size sets link's font size. Small = 16px, Normal = 18px, Large = 20px.
+ * @param href sets link's destination.
+ * @param onClick action to be executed when the link is clicked.
+ * @param openNewTab sets whether the link will open on the same or on another tab.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 export default function LinkAction({ text, size, href, onClick, openNewTab }) {
   return (
     <section className={`lab-card-link-action lab-card-link-action--${size}`}>

@@ -4,6 +4,15 @@ import PropTypes from "prop-types";
 import { CardContext } from "./contexts";
 import { outlineFilledCardChoices } from "./propTypes";
 
+/**
+ * @param children components that will be rendered in the Outline Filled Card (CardImage, CardHeader, CardAction, etc.)
+ * @param color sets the Outline Filled Card's colors based on the chosen palette.
+ * @param isCompact reduces paddings and margins on Card layout.
+ * @param isHorizontal sets horizontal layout. It changes the position of CardImage.
+ * @param className adds a class name to make custom changes
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function OutlineFilledCard({
   children,
   color,

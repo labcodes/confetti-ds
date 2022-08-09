@@ -4,7 +4,22 @@ import PropTypes from "prop-types";
 import Icon from "../Icon";
 import { SimpleTag } from "../Tags";
 import { ICON_TYPES } from "../constants";
-// todo remover este código depois
+
+/**
+ *
+ * @param title sets card's title.
+ * @param titleClassName sets a className for card's title.
+ * @param subtitle sets card's subtitle.
+ * @param subtitleClassName sets a className for card's subtitle.
+ * @param categoryText adds a category text in the Card Header. Used to define the group of which the Card is part of. May use a categoryIcon OR categoryColor to the left as visual support for its content.
+ * @param categoryTagText sets a SimpleTag's text in the Card Header. Can be used instead of categoryText to highlight the group of which the Card is part of OR together with categoryText as a sub-category. Only use if categoryColor is not present.
+ * @param categoryTagColor always used with categoryTagText to set SimpleTag's color in the Card Header. If unset the Tag will be displayed with its default color.
+ * @param categoryIcon defines an Icon as visual support to categoryText in the Card Header. It must not be used together with categoryColor.
+ * @param categoryColor defines a Color as visual support to categoryText in the Card Header. It must not be used together with categoryIcon.
+ * @param isOverlay sets whether the header will go over the image or not.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 
 export default function CardHeader({
   title,

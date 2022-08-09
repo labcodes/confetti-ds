@@ -1,6 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param isOverflowed sets whether the divider has the card's full width.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 export default function CardDivider({ isOverflowed }) {
   return (
     <hr
