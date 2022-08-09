@@ -6,6 +6,21 @@ import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { ICON_TYPES, TAG_COLORS } from "../constants";
 
+/**
+ *
+ * @param text is the Tag's text.
+ * @param thumbSrc is the source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time.
+ * @param icon is the type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time.
+ * @param color it sets the Tag's color.
+ * @param skin is the skin of the rendered Tag.
+ * @param isOutline it sets an outline style.
+ * @param disabled disables the Tag. Won't be read by screen readers.
+ * @param ariaDisabled disables the Tag. Will be read by screen readers. When true, will override `disabled`.
+ * @param onClick is the callback to be executed when the Tag is clicked.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 export default function RemovableTag({
   text,
   thumbSrc,
