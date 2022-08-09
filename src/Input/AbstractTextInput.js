@@ -7,61 +7,6 @@ import Icon from "../Icon";
 import { ICON_TYPES, ICON_COLORS } from "../constants";
 
 export default class AbstractTextInput extends React.Component {
-  static propTypes = {
-    /** Passes AbstractInput's type to the HTML Input `type` attribute of the `<input>` element. */
-    type: PropTypes.string,
-    /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-    id: PropTypes.string.isRequired,
-    /** The Input's text label. */
-    label: PropTypes.string.isRequired,
-    /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-    ariaDisabled: PropTypes.bool,
-    /** Disables the text input. Won't be read by screen readers. */
-    disabled: PropTypes.bool,
-    /** Defines a default value for the Input initialization. */
-    defaultValue: PropTypes.string,
-    /** Value that will be rendered inside the Input field. */
-    value: PropTypes.string,
-    /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-    icon: PropTypes.oneOf(ICON_TYPES),
-    /** Defines the color of the displayed icon. */
-    iconColor: PropTypes.oneOf(ICON_COLORS),
-    /** Defines if the Input is required. */
-    required: PropTypes.bool,
-    /** Text that will be displayed as a help message below the input. */
-    helpMessage: PropTypes.string,
-    /** Text that will be displayed at the left portion of the Input. */
-    prefix: PropTypes.string,
-    /** Text that will be displayed at the right portion of the Input. */
-    suffix: PropTypes.string,
-    /** Defines if the Input is valid. */
-    isValid: PropTypes.bool,
-    /** Custom error message displayed below the Input when the value is not valid. */
-    customErrorMsg: PropTypes.string,
-    /** Callback action to be executed when the Input default value changes. */
-    onChange: PropTypes.func,
-    /** Callback action to be executed when the Input's Icon is clicked. */
-    onIconClick: PropTypes.func,
-  };
-
-  static defaultProps = {
-    type: "text",
-    disabled: false,
-    ariaDisabled: false,
-    defaultValue: undefined,
-    value: undefined,
-    icon: undefined,
-    iconColor: "mineral-70",
-    required: false,
-    helpMessage: undefined,
-    prefix: undefined,
-    suffix: undefined,
-    isValid: undefined,
-    customErrorMsg: undefined,
-    onChange: () => {},
-    onIconClick: () => {},
-  };
-
   constructor(props) {
     super(props);
     this.inputRef = React.createRef();
@@ -322,4 +267,59 @@ TextInputMessage.defaultProps = {
   customErrorMsg: undefined,
   localValue: undefined,
   localIsValid: undefined,
+};
+
+AbstractTextInput.propTypes = {
+  /** Passes AbstractInput's type to the HTML Input `type` attribute of the `<input>` element. */
+  type: PropTypes.string,
+  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
+  id: PropTypes.string.isRequired,
+  /** The Input's text label. */
+  label: PropTypes.string.isRequired,
+  /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled: PropTypes.bool,
+  /** Disables the text input. Won't be read by screen readers. */
+  disabled: PropTypes.bool,
+  /** Defines a default value for the Input initialization. */
+  defaultValue: PropTypes.string,
+  /** Value that will be rendered inside the Input field. */
+  value: PropTypes.string,
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+  icon: PropTypes.oneOf(ICON_TYPES),
+  /** Defines the color of the displayed icon. */
+  iconColor: PropTypes.oneOf(ICON_COLORS),
+  /** Defines if the Input is required. */
+  required: PropTypes.bool,
+  /** Text that will be displayed as a help message below the input. */
+  helpMessage: PropTypes.string,
+  /** Text that will be displayed at the left portion of the Input. */
+  prefix: PropTypes.string,
+  /** Text that will be displayed at the right portion of the Input. */
+  suffix: PropTypes.string,
+  /** Defines if the Input is valid. */
+  isValid: PropTypes.bool,
+  /** Custom error message displayed below the Input when the value is not valid. */
+  customErrorMsg: PropTypes.string,
+  /** Callback action to be executed when the Input default value changes. */
+  onChange: PropTypes.func,
+  /** Callback action to be executed when the Input's Icon is clicked. */
+  onIconClick: PropTypes.func,
+};
+
+AbstractTextInput.defaultProps = {
+  type: "text",
+  disabled: false,
+  ariaDisabled: false,
+  defaultValue: undefined,
+  value: undefined,
+  icon: undefined,
+  iconColor: "mineral-70",
+  required: false,
+  helpMessage: undefined,
+  prefix: undefined,
+  suffix: undefined,
+  isValid: undefined,
+  customErrorMsg: undefined,
+  onChange: () => {},
+  onIconClick: () => {},
 };
