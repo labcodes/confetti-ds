@@ -38,7 +38,6 @@ export default function DropdownTag({
         className="lab-tag--left-icon"
       />
     ) : undefined;
-  // return(
 
   const dropdownIcon = () => (
     <span className="lab-tag__dropdown-icon-wrapper">
