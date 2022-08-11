@@ -17,7 +17,6 @@ import { TAG_COLORS } from "../constants";
  * @constructor
  */
 
-
 export default function TogglableTag({
   text,
   color,
