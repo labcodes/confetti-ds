@@ -40,7 +40,7 @@ export default function AbstractTag({
 }) {
   const ref = useRef(isDropdown);
   const handleEvent = (e) => {
-    if ((e.keyCode || e.which) === 32) {
+    if ((e.key || e.which) === 32) {
       e.preventDefault();
     }
     if (!isUndefined(onClick)) {
@@ -53,6 +53,7 @@ export default function AbstractTag({
   };
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
     ref.current;
   }, [isDropdown]);
 
@@ -127,8 +128,6 @@ AbstractTag.propTypes = {
   tabIndex: PropTypes.string,
   /** This prop is a boolean to verify if the tag is a child of the TagDropdown component */
   isDropdown: PropTypes.bool,
-  /** This prop sets the TagDropdownItem ref for option and triggers in a TagDropdown component. */
-  setRef: PropTypes.func,
   /** This function is used to handle click or keydown interactions */
   onInteraction: PropTypes.func,
   /** This is the TagDropdownItem value. It is used TagDropdown options */
@@ -150,45 +149,9 @@ AbstractTag.defaultProps = {
   ariaDisabled: false,
   onClick: () => {},
   onInteraction: () => {},
-  setRef: () => {},
   tabIndex: undefined,
   isDropdown: false,
   isSelected: false,
   value: "",
   role: "",
 };
-// export default class AbstractTag extends React.Component {
-//
-//   constructor(props) {
-//     super(props);
-//
-//     if (props.isDropdown) ref = React.createRef();
-//   }
-
-// componentDidMount() {
-//   const { setRef, isDropdown } = props;
-//   if (isDropdown) setRef(ref);
-// }
-
-// render() {
-//   const {
-//     text,
-//     disabled,
-//     ariaDisabled,
-//     isOutline,
-//     skin,
-//     color,
-//     renderPrefix,
-//     renderSuffix,
-//     className,
-//     tabIndex,
-//     isDropdown,
-//     value,
-//     isSelected,
-//     role,
-//   } = props;
-//   //
-//
-//     );
-//   }
-// }
