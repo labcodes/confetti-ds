@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
+import PropTypes from "prop-types";
 import AbstractTag from "../Tags/AbstractTag";
 import { DropdownTag } from "../Tags";
+import { ICON_TYPES } from "../constants";
+import Icon from "../Icon";
 
 export default function TagDropdownTrigger({
   text,
@@ -12,10 +15,30 @@ export default function TagDropdownTrigger({
   ariaDisabled,
   onInteraction,
   tabIndex,
-  dropdownIcon,
-  handleIcon
 }) {
   const ref = useRef();
+  // eslint-disable-next-line react/display-name
+  const handleIcon = () =>
+    icon ? (
+      <Icon
+        type={icon}
+        color="black-75"
+        size="petit"
+        className="lab-tag--left-icon"
+      />
+    ) : undefined;
+
+  const dropdownIcon = () => (
+    <span className="lab-tag__dropdown-icon-wrapper">
+      <Icon
+        type="dropdown-closed"
+        color="black-75"
+        size="petit"
+        className="lab-tag--dropdown-icon"
+      />
+    </span>
+  );
+
   return (
     <AbstractTag
       className={`lab-tag--dropdown${`${
@@ -38,3 +61,35 @@ export default function TagDropdownTrigger({
     />
   );
 }
+
+TagDropdownTrigger.propTypes = {
+  /** This is the Tag's text. */
+  text: PropTypes.string.isRequired,
+  /** Sets Tag's color. */
+  color: PropTypes.string,
+  /** Skin of the rendered Tag. */
+  skin: PropTypes.string,
+  /** Sets an outline style. */
+  isOutline: PropTypes.bool,
+  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled: PropTypes.bool,
+  /** Disables the Tag. Won't be read by screen readers. */
+  disabled: PropTypes.bool,
+  /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
+  tabIndex: PropTypes.string,
+  /** This function is used to handle click or keydown interactions */
+  onInteraction: PropTypes.func,
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+  icon: PropTypes.oneOf(ICON_TYPES),
+};
+
+TagDropdownTrigger.defaultProps = {
+  isOutline: false,
+  color: undefined,
+  skin: "pale",
+  disabled: false,
+  ariaDisabled: false,
+  onInteraction: () => {},
+  tabIndex: undefined,
+  icon: undefined,
+};
