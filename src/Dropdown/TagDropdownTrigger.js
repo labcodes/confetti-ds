@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import AbstractTag from "../Tags/AbstractTag";
-import { DropdownTag } from "../Tags";
 import { ICON_TYPES } from "../constants";
 import Icon from "../Icon";
 
