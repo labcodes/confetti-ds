@@ -5,6 +5,19 @@ import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { ICON_TYPES, TAG_COLORS } from "../constants";
 
+/**
+ *
+ * @param text
+ * @param icon
+ * @param color
+ * @param skin
+ * @param isOutline
+ * @param disabled
+ * @param ariaDisabled
+ * @param onClick
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function DropdownTag({
   text,
   icon,
@@ -15,20 +28,6 @@ export default function DropdownTag({
   ariaDisabled,
   onClick,
 }) {
-  // const [icon, setIcon] = useState(<Icon
-  //       type={icon}
-  //       color="black-75"
-  //       size="petit"
-  //       className="lab-tag--left-icon"
-  //     />);
-  //
-  // if (!icon){ setIcon(undefined)}
-  //   // icon ? setIcon() :
-  // // const icon = (icon) =>
-  // //   // const { icon } = this.props;
-  // //
-  // //   )
-
   // eslint-disable-next-line react/display-name
   const handleIcon = () =>
     icon ? (
@@ -100,21 +99,3 @@ DropdownTag.defaultProps = {
   ariaDisabled: false,
   onClick: () => {},
 };
-// export default class DropdownTag extends React.Component {
-
-// render() {
-//   const {
-//     text,
-//     icon,
-//     color,
-//     skin,
-//     isOutline,
-//     disabled,
-//     ariaDisabled,
-//     onClick,
-//   } = this.props;
-//     return (
-//
-//     );
-//   }
-// }
