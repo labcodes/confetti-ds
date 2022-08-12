@@ -5,18 +5,6 @@ import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { TAG_COLORS } from "../constants";
 
-/**
- * @param text is the Tag's text.
- * @param color sets Tag's color.
- * @param isOutline sets an outline style.
- * @param disabled disables the Tag. Won't be read by screen readers.
- * @param ariaDisabled Disables the Tag. Will be read by screen readers. When true, will override `disabled`.
- * @param isOn defines if the Tag is toggled on.
- * @param onClick is an action to be executed when the Tag is clicked.
- * @returns {JSX.Element}
- * @constructor
- */
-
 export default function TogglableTag({
   text,
   color,

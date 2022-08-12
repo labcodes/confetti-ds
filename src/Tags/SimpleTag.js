@@ -6,17 +6,6 @@ import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { ICON_TYPES, TAG_COLORS } from "../constants";
 
-/**
- * @param text is the Tag's text.
- * @param thumbSrc is the source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time.
- * @param icon is the type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time.
- * @param color sets Tag's color.
- * @param skin is the skin of the rendered Tag.
- * @param isOutline is the sets an outline style.
- * @returns {JSX.Element}
- * @constructor
- */
-
 export default function SimpleTag({
   text,
   thumbSrc,

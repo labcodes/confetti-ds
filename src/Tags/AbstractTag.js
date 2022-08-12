@@ -2,29 +2,6 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { isUndefined } from "lodash";
 
-/**
- *
- * @param text
- * @param disabled
- * @param ariaDisabled
- * @param isOutline
- * @param skin
- * @param color
- * @param renderPrefix
- * @param renderSuffix
- * @param className
- * @param tabIndex
- * @param isDropdown
- * @param value
- * @param isSelected
- * @param role
- * @param onClick
- * @param onInteraction
- * @param setRef
- * @returns {JSX.Element}
- * @constructor
- */
-
 export default function AbstractTag({
   text,
   disabled,
