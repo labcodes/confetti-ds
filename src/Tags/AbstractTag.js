@@ -18,8 +18,13 @@ import { isUndefined } from "lodash";
  * @param value
  * @param isSelected
  * @param role
+ * @param onClick
+ * @param onInteraction
+ * @param setRef
+ * @returns {JSX.Element}
  * @constructor
  */
+
 export default function AbstractTag({
   text,
   disabled,
@@ -37,24 +42,27 @@ export default function AbstractTag({
   role,
   onClick,
   onInteraction,
+  setRef,
 }) {
   const ref = useRef(isDropdown);
-  const handleEvent = (e) => {
-    if ((e.key || e.which) === 32) {
-      e.preventDefault();
+
+  const handleEvent = (event) => {
+    if ((event.key || event.which) === 32) {
+      event.preventDefault();
     }
     if (!isUndefined(onClick)) {
-      onClick(e);
+      onClick(event);
     }
 
     if (!isUndefined(onInteraction)) {
-      onInteraction({ e, ref });
+      onInteraction({ event, ref });
     }
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-unused-expressions
-    ref.current;
+    if (isDropdown) {
+      setRef(ref);
+    }
   }, [isDropdown]);
 
   if (isDropdown)
@@ -92,7 +100,7 @@ export default function AbstractTag({
         `${color ? ` lab-tag--${color}-${skin}` : ` lab-tag--${skin}`}`
       }
       onClick={!(ariaDisabled || disabled) ? handleEvent : () => {}}
-      onKeyPress={handleEvent}
+      onKeyDown={handleEvent}
       role="button"
       tabIndex={tabIndex}
     >
@@ -136,6 +144,8 @@ AbstractTag.propTypes = {
   isSelected: PropTypes.bool,
   /**   This is the TagDropdownItem or TagDropdownTrigger role. It is used to let disabled people know the type of the element. */
   role: PropTypes.string,
+  /** This function is used on AbstractTag to set the current Ref */
+  setRef: PropTypes.func,
 };
 
 AbstractTag.defaultProps = {
@@ -149,6 +159,7 @@ AbstractTag.defaultProps = {
   ariaDisabled: false,
   onClick: () => {},
   onInteraction: () => {},
+  setRef: () => {},
   tabIndex: undefined,
   isDropdown: false,
   isSelected: false,

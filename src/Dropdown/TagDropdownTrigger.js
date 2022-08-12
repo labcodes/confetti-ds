@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AbstractTag from "../Tags/AbstractTag";
 import { ICON_TYPES } from "../constants";
@@ -14,8 +14,8 @@ export default function TagDropdownTrigger({
   ariaDisabled,
   onInteraction,
   tabIndex,
+  setRef,
 }) {
-  const ref = useRef();
   // eslint-disable-next-line react/display-name
   const handleIcon = () =>
     icon ? (
@@ -55,7 +55,7 @@ export default function TagDropdownTrigger({
       tabIndex={tabIndex}
       onInteraction={onInteraction}
       isDropdown
-      setRef={ref}
+      setRef={setRef}
       role="listbox"
     />
   );
@@ -80,6 +80,8 @@ TagDropdownTrigger.propTypes = {
   onInteraction: PropTypes.func,
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
   icon: PropTypes.oneOf(ICON_TYPES),
+  /** This function is used on AbstractTag to set the current Ref */
+  setRef: PropTypes.func,
 };
 
 TagDropdownTrigger.defaultProps = {
@@ -89,6 +91,7 @@ TagDropdownTrigger.defaultProps = {
   disabled: false,
   ariaDisabled: false,
   onInteraction: () => {},
+  setRef: () => {},
   tabIndex: undefined,
   icon: undefined,
 };
