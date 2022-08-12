@@ -5,6 +5,7 @@ import { isUndefined } from "lodash";
 import Icon from "../Icon";
 
 import { ICON_TYPES, ICON_COLORS } from "../constants";
+import { usePrevious } from "../hooks";
 
 export default function AbstractTextInput({
   type,
@@ -29,10 +30,18 @@ export default function AbstractTextInput({
     value || defaultValue || ""
   );
   const [localIsValid, setLocalIsValid] = React.useState(
-    !isUndefined(isValid) ? isValid : true // If isValid is undefined, it probably be a EmailInput
+    !isUndefined(isValid) ? isValid : true
   );
 
   const inputRef = React.useRef();
+  const previousLocalValue = usePrevious(localValue);
+
+  let className = "";
+  if (ariaDisabled || disabled) {
+    className += " lab-input--disabled";
+  } else if (!localIsValid) {
+    className += " lab-input--invalid";
+  }
 
   if (!isUndefined(defaultValue) && !isUndefined(value)) {
     // eslint-disable-next-line no-console
@@ -42,9 +51,6 @@ export default function AbstractTextInput({
   }
 
   React.useEffect(() => {
-    // return () => {
-    //   effect
-    // };
     if (inputRef.current) {
       /**
        * Has defaultValue but has no value and isValid === undefined
@@ -66,23 +72,33 @@ export default function AbstractTextInput({
         inputRef.current.setCustomValidity(customErrorMsg);
       }
     }
+
+    return () => {
+      setLocalIsValid(true);
+      setLocalValue("");
+    };
   }, []);
 
   React.useEffect(() => {
-    setLocalIsValid(isValid);
-    setLocalValue(value);
+    if (!isUndefined(value)) setLocalValue(value);
 
     if (inputRef.current) {
       if (!isUndefined(isValid) && !isValid) {
+        setLocalIsValid(isValid);
         inputRef.current.setCustomValidity(customErrorMsg);
       } else if (isValid) {
+        setLocalIsValid(isValid);
         inputRef.current.setCustomValidity("");
       }
     }
   }, [isValid, value]);
 
   React.useEffect(() => {
-    if (inputRef.current) setLocalIsValid(inputRef.current.validity.valid);
+    const shouldChangeValidity =
+      !isUndefined(previousLocalValue) && previousLocalValue !== localValue;
+    if (shouldChangeValidity) {
+      setLocalIsValid(inputRef.current.validity.valid);
+    }
   }, [localValue]);
 
   const requiredIcon = () =>
@@ -124,14 +140,6 @@ export default function AbstractTextInput({
       setLocalIsValid(isValid);
     }
   };
-
-  let className = "";
-  debugger;
-  if (ariaDisabled || disabled) {
-    className += " lab-input--disabled";
-  } else if (!localIsValid) {
-    className += " lab-input--invalid";
-  }
 
   return (
     <React.Fragment>
