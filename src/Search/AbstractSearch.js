@@ -66,7 +66,6 @@ export default function AbstractSearch({
 
   useEffect(() => {
     if (value && value !== prevValue) {
-      // prevValue.current = value;
       setLocalValue(value);
     }
   }, [defaultValue]);
