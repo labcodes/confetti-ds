@@ -66,14 +66,18 @@ describe("DoubleAction", () => {
     console.error = jest.fn(); // silences output
     expect(() =>
       mount(
-        <DoubleAction
-          actionsProps={[
-            {
-              text: "Action 1",
-              onClick: () => {},
-            },
-          ]}
-        />
+        <CardContext.Provider
+          value={{ color: "teal", skin: "vivid", cardType: "filled" }}
+        >
+          <DoubleAction
+            actionsProps={[
+              {
+                text: "Action 1",
+                onClick: () => {},
+              },
+            ]}
+          />
+        </CardContext.Provider>
       )
     ).toThrow(
       "DoubleAction: You need to pass exactly two objects inside the `actionsProps` prop."
@@ -81,22 +85,26 @@ describe("DoubleAction", () => {
 
     expect(() =>
       mount(
-        <DoubleAction
-          actionsProps={[
-            {
-              text: "Action 1",
-              onClick: () => {},
-            },
-            {
-              text: "Action 2",
-              onClick: () => {},
-            },
-            {
-              text: "Action 3",
-              onClick: () => {},
-            },
-          ]}
-        />
+        <CardContext.Provider
+          value={{ color: "teal", skin: "vivid", cardType: "filled" }}
+        >
+          <DoubleAction
+            actionsProps={[
+              {
+                text: "Action 1",
+                onClick: () => {},
+              },
+              {
+                text: "Action 2",
+                onClick: () => {},
+              },
+              {
+                text: "Action 3",
+                onClick: () => {},
+              },
+            ]}
+          />
+        </CardContext.Provider>
       )
     ).toThrow(
       "DoubleAction: You need to pass exactly two objects inside the `actionsProps` prop."

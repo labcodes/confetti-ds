@@ -3,10 +3,10 @@
 exports[`OutlineFilledCard renders with base props 1`] = `
 <article
   className="lab-card lab-card--outline lab-card--filled lab-card--teal
-          
-          
-          
-        "
+      
+      
+      
+    "
 >
   Content
 </article>
@@ -15,10 +15,10 @@ exports[`OutlineFilledCard renders with base props 1`] = `
 exports[`OutlineFilledCard renders with extra className 1`] = `
 <article
   className="lab-card lab-card--outline lab-card--filled lab-card--teal
-          
-          
-           test-classname
-        "
+      
+      
+       test-classname
+    "
 >
   Content
 </article>
@@ -27,10 +27,10 @@ exports[`OutlineFilledCard renders with extra className 1`] = `
 exports[`OutlineFilledCard renders with isCompact 1`] = `
 <article
   className="lab-card lab-card--outline lab-card--filled lab-card--teal
-           lab-card--compact
-          
-          
-        "
+       lab-card--compact
+      
+      
+    "
 >
   Content
 </article>
@@ -39,10 +39,10 @@ exports[`OutlineFilledCard renders with isCompact 1`] = `
 exports[`OutlineFilledCard renders with isHorizontal 1`] = `
 <article
   className="lab-card lab-card--outline lab-card--filled lab-card--teal
-          
-           lab-card--horizontal
-          
-        "
+      
+       lab-card--horizontal
+      
+    "
 >
   Content
 </article>

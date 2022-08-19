@@ -3,9 +3,9 @@
 exports[`DoubleAction renders buttons with dark skin 1`] = `
 <section
   className="lab-card-double-action lab-card-double-action--normal
-              
-              
-            "
+            
+            
+          "
 >
   <button
     className="lab-btn lab-btn--default lab-btn--normal lab-btn--dark"
@@ -29,9 +29,9 @@ exports[`DoubleAction renders buttons with dark skin 1`] = `
 exports[`DoubleAction renders buttons with dark skin 2`] = `
 <section
   className="lab-card-double-action lab-card-double-action--normal
-              
-              
-            "
+            
+            
+          "
 >
   <button
     className="lab-btn lab-btn--default lab-btn--normal lab-btn--dark"
@@ -55,9 +55,9 @@ exports[`DoubleAction renders buttons with dark skin 2`] = `
 exports[`DoubleAction renders buttons with light skin 1`] = `
 <section
   className="lab-card-double-action lab-card-double-action--normal
-              
-              
-            "
+            
+            
+          "
 >
   <button
     className="lab-btn lab-btn--default lab-btn--normal lab-btn--light"
@@ -81,9 +81,9 @@ exports[`DoubleAction renders buttons with light skin 1`] = `
 exports[`DoubleAction renders with base props 1`] = `
 <section
   className="lab-card-double-action lab-card-double-action--normal
-              
-              
-            "
+            
+            
+          "
 >
   <button
     className="lab-btn lab-btn--default lab-btn--normal"
@@ -107,9 +107,9 @@ exports[`DoubleAction renders with base props 1`] = `
 exports[`DoubleAction renders with isHorizontal 1`] = `
 <section
   className="lab-card-double-action lab-card-double-action--normal
-              
-               lab-card-double-action--horizontal
-            "
+            
+             lab-card-double-action--horizontal
+          "
 >
   <button
     className="lab-btn lab-btn--default lab-btn--normal"
@@ -133,9 +133,9 @@ exports[`DoubleAction renders with isHorizontal 1`] = `
 exports[`DoubleAction renders with size 1`] = `
 <section
   className="lab-card-double-action lab-card-double-action--small
-              
-              
-            "
+            
+            
+          "
 >
   <button
     className="lab-btn lab-btn--default lab-btn--small"
@@ -159,9 +159,9 @@ exports[`DoubleAction renders with size 1`] = `
 exports[`DoubleAction renders with text buttons 1`] = `
 <section
   className="lab-card-double-action lab-card-double-action--normal
-               lab-card-double-action--text
-              
-            "
+             lab-card-double-action--text
+            
+          "
 >
   <button
     className="lab-btn lab-btn--text lab-btn--normal"
