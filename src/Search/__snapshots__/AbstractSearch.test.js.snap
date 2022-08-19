@@ -14,7 +14,6 @@ exports[`AbstractSearch renders with base props 1`] = `
       onKeyDown={[Function]}
       placeholder=" "
       type="search"
-      value=""
     />
     <div
       className="lab-search__borders"
