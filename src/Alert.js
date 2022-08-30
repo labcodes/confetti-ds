@@ -7,14 +7,6 @@ import TextButton from "./Button/TextButton";
 import { ICON_TYPES } from "./constants";
 
 export default function Alert({ text, type, icon, buttonProps }) {
-  const handleIcon = () =>
-    icon ? (
-      <Icon type={icon} color="mineral-70" className="lab-alert__icon" />
-    ) : undefined;
-
-  const button = () =>
-    text ? <TextButton size="normal" skin="dark" text={text} /> : undefined;
-
   const handleClick = (event) => {
     if (!isUndefined(buttonProps.onClick)) {
       buttonProps.onClick(event);
@@ -23,14 +15,18 @@ export default function Alert({ text, type, icon, buttonProps }) {
 
   return (
     <div className={`lab-alert lab-alert--${type}`}>
-      {handleIcon()}
+      {icon ? (
+        <Icon type={icon} color="mineral-70" className="lab-alert__icon" />
+      ) : undefined}
       <span className="lab-alert__message">{text}</span>
       <span
         className="lab-alert__button"
         onClick={handleClick}
         role="presentation"
       >
-        {button()}
+        {text ? (
+          <TextButton size="normal" skin="dark" text={text} />
+        ) : undefined}
       </span>
     </div>
   );

@@ -16,7 +16,16 @@ exports[`Alert renders with base props 1`] = `
     className="lab-alert__button"
     onClick={[Function]}
     role="presentation"
-  />
+  >
+    <button
+      className="lab-btn lab-btn--text lab-btn--normal lab-btn--dark"
+      onClick={[Function]}
+      type="button"
+    >
+      
+      Error Alert
+    </button>
+  </span>
 </div>
 `;
 
@@ -43,7 +52,7 @@ exports[`Alert renders with button 1`] = `
       type="button"
     >
       
-      Alert Button
+      Info Alert with button
     </button>
   </span>
 </div>
