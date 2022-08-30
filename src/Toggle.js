@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { isUndefined } from "lodash";
 
@@ -17,12 +17,14 @@ export default function Toggle({
   );
   const isChecked = !isUndefined(value) ? value : localValue;
 
-  if (!isUndefined(defaultValue) && !isUndefined(value)) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `You are setting both value and defaultValue for input ${name} at the same time. We always initialize the toggle with defaultValue. Make sure this is the behaviour you want.`
-    );
-  }
+  useEffect(() => {
+    if (!isUndefined(defaultValue) && !isUndefined(value)) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `You are setting both value and defaultValue for input ${name} at the same time. We always initialize the toggle with defaultValue. Make sure this is the behaviour you want.`
+      );
+    }
+  }, []);
 
   const handleOnChange = (event) => {
     if (!isUndefined(handleToggle)) {
