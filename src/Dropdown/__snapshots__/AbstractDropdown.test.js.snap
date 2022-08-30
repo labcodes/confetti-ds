@@ -16,7 +16,7 @@ exports[`AbstractDropdown renders as expected when passing color as teal 1`] = `
     type="button"
     value=""
   >
-    Click me
+    
     <span
       className="lab-tag__dropdown-icon-wrapper"
     >
@@ -114,7 +114,7 @@ exports[`AbstractDropdown renders with base props 1`] = `
     type="button"
     value=""
   >
-    Click me
+    
     <span
       className="lab-tag__dropdown-icon-wrapper"
     >
