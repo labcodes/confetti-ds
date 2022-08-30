@@ -45,15 +45,3 @@ Tooltip.propTypes = {
 Tooltip.defaultProps = {
   placement: "top",
 };
-// export default class Tooltip extends React.Component {
-//
-//   constructor(props) {
-//     super(props);
-//
-//   }
-
-// render() {
-//   const  = this.props;
-
-//   }
-// }
