@@ -43,9 +43,10 @@ export default function DropdownOption({
     });
   };
 
+  // component DidMount
   useEffect(() => {
     setDefault();
-  });
+  }, []);
   const { disabled, value } = children.props;
   const skin = isSelected ? "vivid" : "pale";
 
@@ -55,7 +56,7 @@ export default function DropdownOption({
         disabled ? "lab-dropdown__option--disabled" : ""
       }`}
       id={`lab-dropdown__option--${value}`}
-      key={`lab-dropdown__option--${value}`}
+      key={value}
     >
       {React.cloneElement(children, {
         ...children.props,

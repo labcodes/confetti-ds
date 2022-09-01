@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 
@@ -8,22 +8,9 @@ import DropdownSectionTitle from "./DropdownSectionTitle";
 import DropdownOption from "./DropdownOption";
 import TagDropdownItem from "./TagDropdownItem";
 import TagDropdownTrigger from "./TagDropdownTrigger";
-
-const expectedKeys = [
-  "ArrowDown",
-  "ArrowUp",
-  "PageDown",
-  "PageUp",
-  "Escape",
-  " ",
-];
+import { usePrevious } from "../../hooks";
 
 export default function AbstractDropdown({
-  // handleSelectDropdownOption,
-  // handleBlur,
-  // setDefaultOption,
-  // setTriggerRef,
-  // setOptionsRefs,
   id,
   color,
   dropdownType,
@@ -32,23 +19,29 @@ export default function AbstractDropdown({
   onClose,
   onOpen,
   value,
+  defaultText,
 }) {
+  const expectedKeys = [
+    "ArrowDown",
+    "ArrowUp",
+    "PageDown",
+    "PageUp",
+    "Escape",
+    " ",
+  ];
+  const ref = useRef();
+  const [triggerRef, setTriggerRef] = useState(ref);
   const [isOpen, setIsOpen] = useState(false);
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState(defaultText);
   const [optionsRefList, setOptionsRefList] = useState([]);
-  let triggerRef = useRef();
 
-  /**
-   This custom Hook fetches the previous value to use as a param to compare with the
-   */
   const previousValue = usePrevious(value);
   const previousIsOpen = usePrevious(isOpen);
   const [selected, setSelected] = useState({ ref: null });
+  // const selected = useRef(ref);
+  // const previousSelected = usePrevious(selected);
 
   const isOpenClass = isOpen ? "lab-dropdown__content--is-open" : "";
-
-  // //  será que não seria melhor reescrever para um custom Hook?
-  // function setSelected(ref) {}
 
   const [lastFocusedOption, setLastFocusedOption] = useState({ index: null });
 
@@ -81,33 +74,13 @@ export default function AbstractDropdown({
     return index === -1 ? undefined : index;
   };
 
-  /**
-   This function helps the user to reset the dropdown to a desired value.
-
-   This value needs to be in the optionRefList. If it's not, nothing changes.
-   */
-  const updateSelectedValueFromProps = (value) => {
-    // const { getOptionIndexByValue } = this;
-    // const { optionsRefList } = this.stat;
-
-    const refIndex = getOptionIndexByValue(value);
-
-    const refNotFound = _.isUndefined(refIndex);
-    if (refNotFound) return;
-
-    const ref = optionsRefList[refIndex];
-    const { textContent } = ref.current;
-    setIsOpen(false);
-    setDisplayText(textContent);
-    setSelected({ ref });
-  };
-
   // componentDidUpdate
   useEffect(() => {
-    if (value !== previousValue) {
+    if (value === previousValue) {
       if (_.isUndefined(value)) return;
       updateSelectedValueFromProps(value);
     }
+
     if (isOpen !== previousIsOpen) {
       if (isOpen === false) {
         if (triggerRef.current) triggerRef.current.focus();
@@ -127,28 +100,27 @@ export default function AbstractDropdown({
     }
 
     checkIfHasChildren();
-  }, [value, isOpen]);
+  }, [value, isOpen, selected.ref]);
+  // }, [value, isOpen, selected.ref]);
+  /**
+   This function helps the user to reset the dropdown to a desired value.
 
-  /**  This function forwards the event to the correct handler when the
-   user selects or interacts via keyboard with the trigger.
+   This value needs to be in the optionRefList. If it's not, nothing changes.
    */
+  const updateSelectedValueFromProps = (value) => {
+    const refIndex = getOptionIndexByValue(value);
 
-  const handleTriggerInteraction = ({ event }) => {
-    const eventType = event.type;
-    const isSpace = event.key === " ";
-    switch (eventType) {
-      case "keydown":
-        if (isSpace) handleTriggerClick();
-        handleKeyDown(event);
-        break;
+    const refNotFound = _.isUndefined(refIndex);
+    if (refNotFound) return;
 
-      case "click":
-        handleTriggerClick();
-        break;
-      default:
-        break;
-    }
+    const ref = optionsRefList[refIndex];
+    const { textContent } = ref.current;
+    setIsOpen(false);
+    setSelected({ ref });
+    setDisplayText(textContent);
   };
+
+  // debugger;
 
   /**
    This function gets selected option ref index in the refList state index
@@ -157,6 +129,7 @@ export default function AbstractDropdown({
 
    If there is no selected option it returns 0, else it search in the refList for the selected.ref
    */
+
   const getSelectedOptionIndex = (optSelected) => {
     if (!optSelected.ref) return 0;
     const index = optionsRefList.findIndex(
@@ -169,12 +142,15 @@ export default function AbstractDropdown({
    This function is called when user clicks at the DropdownTrigger
 
    It opens and close the dropdown popup and sets the lastFocusedOption
+
+   The useCallback hook updates the new refs from selected
    */
-  const handleTriggerClick = () => {
+
+  const handleTriggerClick = useCallback(() => {
     const focusedIndex = getSelectedOptionIndex(selected);
     setIsOpen(!isOpen);
-    setLastFocusedOption(focusedIndex);
-  };
+    setLastFocusedOption({ index: focusedIndex });
+  }, [selected, isOpen]);
 
   /**
    This function is called when user press ArrowDown/Up, PageUp/Down, Escape keys.
@@ -182,15 +158,16 @@ export default function AbstractDropdown({
    It verifies and sets the lastFocusedOption state
    */
   const handleKeyDown = (event) => {
-    // const { expectedKeys } = this;
+    // debugger;
     const { key } = event;
+    let focusedIndex = lastFocusedOption.index;
+    let focusedOption;
 
     const notExpectedKey = !expectedKeys.includes(key);
     if (notExpectedKey) return;
 
     event.preventDefault();
 
-    // const { isOpen, optionsRefList, selected, lastFocusedOption } = this.state;
     const isEsc = key === "Escape";
     const isClosed = !isOpen;
 
@@ -201,30 +178,26 @@ export default function AbstractDropdown({
     if (isEsc) {
       const focusedIndex = getSelectedOptionIndex(selected);
       setIsOpen(false);
-      setLastFocusedOption(focusedIndex);
+      setLastFocusedOption({ index: focusedIndex });
       return;
     }
 
     if (isClosed) {
       const focusedIndex = getSelectedOptionIndex(selected);
       setIsOpen(true);
-      setLastFocusedOption(focusedIndex);
+      setLastFocusedOption({ index: focusedIndex });
       return;
     }
-
-    let focusedIndex = lastFocusedOption.index;
-    let focusedOption;
-
     switch (key) {
       case "PageDown":
         lastOptionRef.current.focus();
         focusedIndex = maxIndex;
-        setLastFocusedOption(focusedIndex);
+        setLastFocusedOption({ index: focusedIndex });
         break;
       case "PageUp":
         firstOptionRef.current.focus();
         focusedIndex = 0;
-        setLastFocusedOption(focusedIndex);
+        setLastFocusedOption({ index: focusedIndex });
         break;
       case "ArrowDown":
         if (focusedIndex === maxIndex) return;
@@ -233,7 +206,7 @@ export default function AbstractDropdown({
         focusedOption = optionsRefList[focusedIndex];
         focusedOption.current.focus();
 
-        setLastFocusedOption(focusedIndex);
+        setLastFocusedOption({ index: focusedIndex });
         break;
       case "ArrowUp":
         if (focusedIndex === 0) return;
@@ -242,9 +215,37 @@ export default function AbstractDropdown({
         focusedOption = optionsRefList[focusedIndex];
         focusedOption.current.focus();
 
-        setLastFocusedOption(focusedIndex);
+        setLastFocusedOption({ index: focusedIndex });
         break;
 
+      default:
+        break;
+    }
+  };
+
+  /**  This function forwards the event to the correct handler when the
+   user selects or interacts via keyboard with the trigger.
+   */
+
+  const handleTriggerInteraction = ({ event }) => {
+    const eventType = event.type;
+    const isSpace = event.key === " ";
+    // if (eventType === "keydown") {
+    //   if (isSpace) handleTriggerClick();
+    //   handleKeyDown(event);
+    // } else if (eventType === "click") {
+    //   handleTriggerClick();
+    // }
+    //
+    // // }
+    switch (eventType) {
+      case "keydown":
+        if (isSpace) handleTriggerClick();
+        handleKeyDown({ event });
+        break;
+      case "click":
+        handleTriggerClick();
+        break;
       default:
         break;
     }
@@ -254,15 +255,20 @@ export default function AbstractDropdown({
    This function is called at the DropdownOption component when the user clicks on an option (if this option is not disabled).
    An option is an object which has an event (a custom event), ref (react ref to the option HTML element), and the index of the option.
    */
-  const handleSelectDropdownOption = (option, event) => {
+  const handleSelectDropdownOption = (option) => {
     // const { onSelect } = this.props;
-    // const { event, ref } = option;
-
+    const { event, ref } = option;
+    // if (isOpen !== previousIsOpen && selected.ref !== previousSelected) {
     setIsOpen(false);
+    selected.ref = { ref };
     setSelected({ ref });
     setDisplayText(ref.current.textContent);
+    // }
+
+    // console.log(selected.ref);
 
     onSelect(event);
+    // debugger;
   };
 
   /**
@@ -274,7 +280,7 @@ export default function AbstractDropdown({
     /** hasNoRelatedTarget helps to avoid blur inside the component */
     const hasNoRelatedTarget = !currentTarget.contains(relatedTarget);
 
-    if (hasNoRelatedTarget) {
+    if (hasNoRelatedTarget && previousIsOpen !== isOpen) {
       setIsOpen(false);
     }
   };
@@ -325,6 +331,7 @@ export default function AbstractDropdown({
       });
     }
   };
+  // debugger;
 
   // Select the trigger by mapping the dropdown type
   const trigger = {
@@ -334,7 +341,7 @@ export default function AbstractDropdown({
         text={displayText}
         color={color}
         isOutline
-        setRef={(r) => (triggerRef = r)}
+        setRef={setTriggerRef}
         onInteraction={handleTriggerInteraction}
       />
     ),
