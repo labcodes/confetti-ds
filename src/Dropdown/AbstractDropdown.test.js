@@ -182,9 +182,10 @@ describe("AbstractDropdown", () => {
     trigger.simulate("click");
 
     const selected = wrapper.find(TagDropdownItem).at(randomIndex).at(0);
-
+    expect(onSelectMock.mock.calls.length).toBe(0);
     selected.simulate("click");
 
+    expect(onSelectMock.mock.calls.length).toBe(1);
     expect(trigger.text()).toEqual(expectedValues[randomIndex].text);
   });
 
