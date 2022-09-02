@@ -40,9 +40,7 @@ export default function TagDropdownTrigger({
 
   return (
     <AbstractTag
-      className={`lab-tag--dropdown${`${
-        icon ? ` lab-tag--has-left-icon` : ""
-      }`}`}
+      className={`lab-tag--dropdown${icon ? ` lab-tag--has-left-icon` : ""}`}
       text={text}
       icon={icon}
       color={color}
