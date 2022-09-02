@@ -1,11 +1,10 @@
 import { PropTypes } from "prop-types";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function DropdownOption({
   children,
   handleInteraction,
   isSelected,
-  handleSelectDropdownOption,
   setDefaultOption,
   setRef,
 }) {
@@ -24,23 +23,6 @@ export default function DropdownOption({
     checkDisabled();
 
     if (selected) setDefaultOption(defaultOption);
-  };
-
-  const selectOption = (event) => {
-    const { disabled, value, text } = children.props;
-
-    if (disabled) return;
-
-    const customEvent = {
-      ...event,
-      target: { ...event.target, value, name: text },
-    };
-
-    handleSelectDropdownOption({
-      displayText: text,
-      event: customEvent,
-      ref,
-    });
   };
 
   // component DidMount
@@ -72,8 +54,6 @@ export default function DropdownOption({
 }
 
 DropdownOption.propTypes = {
-  /** This function is called when user selects a valid option */
-  handleSelectDropdownOption: PropTypes.func,
   /** This is a function is used to set a default option when the user pass the "selected" prop to a TagDropdownItem */
   setDefaultOption: PropTypes.func,
   /** This function fires when keyboard interactions are detected. */
@@ -90,58 +70,5 @@ DropdownOption.propTypes = {
 
 DropdownOption.defaultProps = {
   // functions
-  handleSelectDropdownOption: () => {},
   setDefaultOption: () => {},
 };
-
-// export default class DropdownOption extends Component {
-//
-// componentDidMount() {
-//   const {setDefault} = this;
-//   setDefault();
-// }
-//
-// setDefault = () => {
-//   const { checkDisabled } = this;
-//   const { children, setDefaultOption } = this.props;
-//
-//   const defaultOption = { text, ref: this.ref };
-//
-//   checkDisabled();
-//
-//   if (selected) setDefaultOption(defaultOption);
-// };
-
-// selectOption = (event) => {
-//   const { handleSelectDropdownOption, children } = this.props;
-//   const { disabled, value, text } = children.props;
-//
-//   if (disabled) return;
-//
-//   const customEvent = {
-//     ...event,
-//     target: { ...event.target, value, name: text },
-//   };
-//
-//   handleSelectDropdownOption({
-//     displayText: text,
-//     event: customEvent,
-//     ref,
-//   });
-// };
-
-// checkDisabled = () => {
-//   const { children } = this.props;
-//   const { selected, disabled } = children.props;
-//   if (disabled && selected)
-//     throw Error("You can't set a disabled option as default.");
-// };
-
-// render() {
-//   const { children, setRef, handleInteraction, isSelected } = this.props;
-//   const { value, disabled } = children.props;
-//
-//
-//
-// }
-// }
