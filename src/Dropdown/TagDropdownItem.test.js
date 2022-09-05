@@ -2,6 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 
+import { waitFor } from "@babel/core/lib/gensync-utils/async";
 import TagDropdownItem from "./TagDropdownItem";
 
 describe("TagDropdownItem", () => {
@@ -142,17 +143,20 @@ describe("TagDropdownItem", () => {
   });
 
   it("does not render if passing both `thumb` and `icon` props", async () => {
-    expect(() => {
-      shallow(
-        <TagDropdownItem
-          text="Test to not render TagDropdownItem with with thumb and icon"
-          icon="magnifying-glass"
-          thumbSrc="fake-thumb"
-          value="option1"
-        />
+    // Adding the async method to wait for the promises from the both useCallback and useEffect to be resolved.
+    waitFor(() => {
+      expect(() => {
+        shallow(
+          <TagDropdownItem
+            text="Test to not render TagDropdownItem with with thumb and icon"
+            icon="magnifying-glass"
+            thumbSrc="fake-thumb"
+            value="option1"
+          />
+        );
+      }).toThrow(
+        "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props."
       );
-    }).toThrow(
-      "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props."
-    );
+    });
   });
 });
