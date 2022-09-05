@@ -35,14 +35,6 @@ export default function TagDropdownItem({
         className="lab-tag--left-icon"
       />
     ) : undefined;
-  //
-  // const checkThumbAndIcon = ({ thumbSrc, icon }) => {
-  //   const errorMessage =
-  //     "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props.";
-  //   if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
-  //     throw new Error(errorMessage);
-  //   }
-  // };
 
   // super constructor
   const checkThumbAndIcon = useCallback(() => {
