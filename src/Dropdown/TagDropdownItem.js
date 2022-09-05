@@ -21,30 +21,12 @@ export default function TagDropdownItem({
   value,
   isSelected,
 }) {
-  const checkThumbAndIcon = (thumbSrc, icon) => {
-    const errorMessage =
-      "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props.";
-    if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
-      throw new Error(errorMessage);
-    }
-  };
-
-  // super constructor
-  const handleCheckThumbAndIcon = useCallback(() => {
-    checkThumbAndIcon();
-  }, [icon, thumbSrc]);
-
-  // componentDidUpdate
-  useEffect(() => {
-    handleCheckThumbAndIcon();
-  }, []);
-
-  const renderThumb = ({ thumbSrc }) =>
+  const renderThumb = () =>
     thumbSrc ? (
       <img className="lab-tag__thumb" src={thumbSrc} alt="" />
     ) : undefined;
 
-  const renderIcon = ({ icon }) =>
+  const renderIcon = () =>
     icon ? (
       <Icon
         type={icon}
@@ -53,6 +35,28 @@ export default function TagDropdownItem({
         className="lab-tag--left-icon"
       />
     ) : undefined;
+  //
+  // const checkThumbAndIcon = ({ thumbSrc, icon }) => {
+  //   const errorMessage =
+  //     "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props.";
+  //   if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
+  //     throw new Error(errorMessage);
+  //   }
+  // };
+
+  // super constructor
+  const checkThumbAndIcon = useCallback(() => {
+    const errorMessage =
+      "`TagDropdownItem` can't be initialized with both `thumb` and `icon` props.";
+    if (!isEmpty(thumbSrc) && !isEmpty(icon)) {
+      throw new Error(errorMessage);
+    }
+  }, [thumbSrc, icon]);
+
+  // componentDidUpdate
+  useEffect(() => {
+    checkThumbAndIcon();
+  }, [thumbSrc, icon]);
 
   return (
     <AbstractTag
@@ -63,7 +67,7 @@ export default function TagDropdownItem({
       isOutline={isOutline}
       skin={skin}
       color={color}
-      renderPrefix={renderIcon(icon) || renderThumb(thumbSrc)}
+      renderPrefix={renderThumb() || renderIcon()}
       onClick={onClick}
       disabled={disabled}
       tabIndex={tabIndex}
