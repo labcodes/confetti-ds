@@ -44,7 +44,7 @@ exports[`CardHeader renders with categoryTagText 1`] = `
     <span
       className="lab-tag  lab-tag--pale"
       onClick={[Function]}
-      onKeyPress={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       test
