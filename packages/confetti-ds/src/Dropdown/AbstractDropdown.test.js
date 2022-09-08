@@ -3,6 +3,7 @@ import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 import _ from "lodash";
 
+import { waitFor } from "@babel/core/lib/gensync-utils/async";
 import AbstractDropdown from "./AbstractDropdown";
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import TagDropdownItem from "./TagDropdownItem";
@@ -181,9 +182,10 @@ describe("AbstractDropdown", () => {
     trigger.simulate("click");
 
     const selected = wrapper.find(TagDropdownItem).at(randomIndex).at(0);
-
+    expect(onSelectMock.mock.calls.length).toBe(0);
     selected.simulate("click");
 
+    expect(onSelectMock.mock.calls.length).toBe(1);
     expect(trigger.text()).toEqual(expectedValues[randomIndex].text);
   });
 
@@ -386,7 +388,10 @@ describe("AbstractDropdown", () => {
 
     /** Move through the options with the ArrowDown key. */
     trigger.simulate("keydown", { key: "ArrowDown" });
-    expect(document.activeElement).toEqual(options.at(1).getDOMNode());
+    /** Waiting for the HTML Element to be active before run the tests */
+    await waitFor(() => {
+      expect(document.activeElement).toEqual(options.at(1).getDOMNode());
+    });
 
     trigger.simulate("keydown", { key: "ArrowDown" });
     expect(document.activeElement).toEqual(options.at(2).getDOMNode());
