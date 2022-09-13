@@ -4,7 +4,7 @@ exports[`RemovableTag renders as disabled 1`] = `
 <span
   className="lab-tag lab-tag--removable lab-tag--disabled lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -23,7 +23,7 @@ exports[`RemovableTag renders as outline 1`] = `
 <span
   className="lab-tag lab-tag--removable lab-tag--outline lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -42,7 +42,7 @@ exports[`RemovableTag renders with a green color 1`] = `
 <span
   className="lab-tag lab-tag--removable lab-tag--green-pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -61,7 +61,7 @@ exports[`RemovableTag renders with base props 1`] = `
 <span
   className="lab-tag lab-tag--removable lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex="0"
 >
