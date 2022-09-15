@@ -1,18 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class Footer extends React.Component {
-  static propTypes = {
-    /** Components that will be rendered in the Footer. */
-    children: PropTypes.node,
-  };
-
-  static defaultProps = {
-    children: undefined,
-  };
-
-  render() {
-    const { children } = this.props;
-    return <div className="lab-narrow-sidebar__footer">{children}</div>;
-  }
+/**
+ *
+ * @param children Components that will be rendered in the Footer.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export default function Footer({ children }) {
+  return <div className="lab-narrow-sidebar__footer">{children}</div>;
 }
+
+Footer.propTypes = {
+  /** Components that will be rendered in the Footer. */
+  children: PropTypes.node,
+};
+
+Footer.defaultProps = {
+  children: undefined,
+};
