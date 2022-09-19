@@ -6,40 +6,13 @@ import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
 import { ICON_TYPES } from "./constants";
 
-export default class Banner extends React.Component {
-  static propTypes = {
-    /** This is the message text string. */
-    text: PropTypes.string.isRequired,
-    /** Type of the Banner. */
-    type: PropTypes.oneOf(["info", "warn", "error"]),
-    /** Sets the icon related to the banner’s message. */
-    icon: PropTypes.oneOf(ICON_TYPES).isRequired,
-    /** Ojbect with information about the Banners's button. */
-    buttonProps: PropTypes.shape({
-      /** Banner's text button label. */
-      text: PropTypes.string,
-      /** Action to be executed when the button is clicked. */
-      onClick: PropTypes.func,
-    }),
-  };
-
-  static defaultProps = {
-    type: "info",
-    buttonProps: {
-      text: "",
-      onClick: () => {},
-    },
-  };
-
-  icon = () => {
-    const { icon } = this.props;
-    return icon ? (
+export default function Banner({ text, type, icon, buttonProps }) {
+  const renderIcon = () =>
+    icon ? (
       <Icon type={icon} color="white" className="lab-banner__icon" />
     ) : undefined;
-  };
 
-  button = () => {
-    const { buttonProps, type } = this.props;
+  const button = () => {
     if (buttonProps.text) {
       return type === "warn" ? (
         <TextButton size="normal" skin="dark" text={buttonProps.text} />
@@ -50,27 +23,47 @@ export default class Banner extends React.Component {
     return null;
   };
 
-  handleClick = (event) => {
-    const { buttonProps } = this.props;
+  const handleClick = (event) => {
     if (!isUndefined(buttonProps.onClick)) {
       buttonProps.onClick(event);
     }
   };
 
-  render() {
-    const { text, type } = this.props;
-    return (
-      <div className={`lab-banner lab-banner--${type}`}>
-        {this.icon()}
-        <span className="lab-banner__message">{text}</span>
-        <span
-          className="lab-banner__button"
-          onClick={this.handleClick}
-          role="presentation"
-        >
-          {this.button()}
-        </span>
-      </div>
-    );
-  }
+  return (
+    <div className={`lab-banner lab-banner--${type}`}>
+      {renderIcon()}
+      <span className="lab-banner__message">{text}</span>
+      <span
+        className="lab-banner__button"
+        onClick={handleClick}
+        role="presentation"
+      >
+        {button()}
+      </span>
+    </div>
+  );
 }
+
+Banner.propTypes = {
+  /** This is the message text string. */
+  text: PropTypes.string.isRequired,
+  /** Type of the Banner. */
+  type: PropTypes.oneOf(["info", "warn", "error"]),
+  /** Sets the icon related to the banner’s message. */
+  icon: PropTypes.oneOf(ICON_TYPES).isRequired,
+  /** Ojbect with information about the Banners's button. */
+  buttonProps: PropTypes.shape({
+    /** Banner's text button label. */
+    text: PropTypes.string,
+    /** Action to be executed when the button is clicked. */
+    onClick: PropTypes.func,
+  }),
+};
+
+Banner.defaultProps = {
+  type: "info",
+  buttonProps: {
+    text: "",
+    onClick: () => {},
+  },
+};
