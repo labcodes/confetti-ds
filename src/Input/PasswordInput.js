@@ -3,24 +3,6 @@ import PropTypes from "prop-types";
 
 import AbstractTextInput from "./AbstractTextInput";
 
-/**
- *
- * @param id Text that will serve as unique identifier. It's also an important accessibility tool.
- * @param label The Input's text label.
- * @param defaultValue Defines a default value for the Input initialization.
- * @param value Value that will be rendered inside the Input field.
- * @param required Defines if the Input is required.
- * @param helpMessage Text that will be displayed as a help message below the input.
- * @param prefix Text that will be displayed at the left portion of the Input.
- * @param suffix Text that will be displayed at the end of the Input.
- * @param isValid Text that will be displayed at the right portion of the Input.
- * @param customErrorMsg Custom error message displayed below the Input when the value is not valid.
- * @param onChange Callback action to be executed when the Input default value changes.
- * @param disabled Disables the text input. Won't be read by screen readers.
- * @param ariaDisabled Disables the text input. Will be read by screen readers. When true, will override `disabled`.
- * @returns {JSX.Element}
- * @constructor
- */
 export default function PasswordInput({
   id,
   label,
@@ -36,7 +18,7 @@ export default function PasswordInput({
   disabled,
   ariaDisabled,
 }) {
-  const [showPassword, setShowPassword] = React.useState(value ?? "");
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const toggleTrailingIcon = () => {
     setShowPassword((prev) => !prev);
