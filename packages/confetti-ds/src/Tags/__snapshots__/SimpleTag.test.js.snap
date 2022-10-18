@@ -4,7 +4,7 @@ exports[`SimpleTag renders as expected with a magnifying-glass icon 1`] = `
 <span
   className="lab-tag  lab-tag--has-left-icon lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
 >
   <span
@@ -18,7 +18,7 @@ exports[`SimpleTag renders as expected with a purple color 1`] = `
 <span
   className="lab-tag  lab-tag--purple-pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
 >
   Test render purple SimpleTag
@@ -29,7 +29,7 @@ exports[`SimpleTag renders as expected with a thumb 1`] = `
 <span
   className="lab-tag  lab-tag--has-thumb lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
 >
   <img
@@ -45,7 +45,7 @@ exports[`SimpleTag renders as expected with a vivid skin 1`] = `
 <span
   className="lab-tag  lab-tag--vivid"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
 >
   Test render vivid SimpleTag
@@ -56,7 +56,7 @@ exports[`SimpleTag renders as expected with outline as true 1`] = `
 <span
   className="lab-tag  lab-tag--outline lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
 >
   Test render outline SimpleTag
@@ -67,7 +67,7 @@ exports[`SimpleTag renders with base props 1`] = `
 <span
   className="lab-tag  lab-tag--pale"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
 >
   Test render SimpleTag
