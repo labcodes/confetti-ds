@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ICON_TYPES, ICON_COLORS } from "../../../confetti-ds/src/constants";
-import { EmailInput as Component } from "../../../confetti-ds/src/Input";
+import { ICON_TYPES, ICON_COLORS } from "../../../../../packages/confetti-ds/src/constants";
+import { EmailInput as Component } from "../../../../../packages/confetti-ds/src/Input";
 
 export default {
   title: "Data Inputs/Text Input/Email Input",

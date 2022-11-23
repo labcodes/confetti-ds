@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ICON_TYPES } from "../../../confetti-ds/src/constants";
-import { Alert as Component } from "../../../confetti-ds/src";
+import { ICON_TYPES } from "../../../../../packages/confetti-ds/src/constants";
+import { Alert as Component } from "../../../../../packages/confetti-ds/src";
 
 export default {
   title: "Messaging/System Messages/Alert",

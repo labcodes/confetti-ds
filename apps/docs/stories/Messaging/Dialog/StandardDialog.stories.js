@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, StandardDialog as Component } from "../../../confetti-ds/src";
+import { Button, StandardDialog as Component } from "../../../../../packages/confetti-ds/src";
 import { usePrevious } from "../../hooks";
 
 export default {

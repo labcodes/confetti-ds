@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Tooltip as Component, Button } from "../../confetti-ds/src";
+import { Tooltip as Component, Button } from "../../../../packages/confetti-ds/src";
 
 export default {
   title: "Messaging/Tooltip",

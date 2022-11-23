@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NarrowSidebar as Component } from "../../../confetti-ds/src";
+import { NarrowSidebar as Component } from "../../../../../packages/confetti-ds/src";
 
 import { CollapseButton as CollapseButtonStory } from "./subcomponents/CollapseButton.stories";
 import { FooterButton as FooterButtonStory } from "./subcomponents/FooterButton.stories";

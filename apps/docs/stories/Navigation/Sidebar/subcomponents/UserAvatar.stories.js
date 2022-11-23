@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NarrowSidebar } from "../../../../confetti-ds/src";
+import { NarrowSidebar } from "../../../../../../packages/confetti-ds/src";
 import mrgeraldo from "./MrGeraldo.png";
 const { UserAvatar: Component } = NarrowSidebar;
 

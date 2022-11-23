@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Toggle as Component  } from "../../confetti-ds/src";
+import { Toggle as Component  } from "../../../../packages/confetti-ds/src";
 
 export default {
   title: "Actions/Toggle",

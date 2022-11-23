@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Badge as Component } from "../../confetti-ds/src";
+import { Badge as Component } from "../../../../packages/confetti-ds/src";
 
 export default {
   title: "Elements/Badge",

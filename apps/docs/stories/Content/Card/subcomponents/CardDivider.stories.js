@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CardDivider as Component } from "../../../../confetti-ds/src/Card";
+import { CardDivider as Component } from "../../../../../../packages/confetti-ds/src/Card";
 
 export default {
   title: "Content/Card/Card Subcomponents/Card Divider",

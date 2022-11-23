@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Checkbox as Component  } from "../../confetti-ds/src";
+import { Checkbox as Component  } from "../../../../packages/confetti-ds/src";
 
 export default {
   title: "Data Inputs/Checkbox",

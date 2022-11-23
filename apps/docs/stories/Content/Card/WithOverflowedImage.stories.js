@@ -6,8 +6,8 @@ import {
   CardImage,
   CardDivider,
   DoubleAction,
-} from "../../../confetti-ds/src/Card";
-import { outlineCardChoices } from "../../../confetti-ds/src/Card/propTypes";
+} from "../../../../../packages/confetti-ds/src/Card";
+import { outlineCardChoices } from "../../../../../packages/confetti-ds/src/Card/propTypes";
 
 import { DoubleAction as DoubleActionStory } from "./subcomponents/DoubleAction.stories";
 import { CardDivider as CardDividerStory } from "./subcomponents/CardDivider.stories";

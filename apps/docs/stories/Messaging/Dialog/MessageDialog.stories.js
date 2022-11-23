@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ICON_TYPES } from "../../../confetti-ds/src/constants";
-import { Button, MessageDialog as Component } from "../../../confetti-ds/src";
+import { ICON_TYPES } from "../../../../../packages/confetti-ds/src/constants";
+import { Button, MessageDialog as Component } from "../../../../../packages/confetti-ds/src";
 import { usePrevious } from "../../hooks";
 
 export default {

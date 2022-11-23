@@ -1,7 +1,7 @@
 import React from "react";
-import { TAG_COLORS } from "../../confetti-ds/src/constants";
+import { TAG_COLORS } from "../../../../packages/confetti-ds/src/constants";
 
-import { TagDropdown as Component } from "../../confetti-ds/src/Dropdown";
+import { TagDropdown as Component } from "../../../../packages/confetti-ds/src/Dropdown";
 
 export default {
   title: "Actions/Tag Dropdown",

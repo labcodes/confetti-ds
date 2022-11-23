@@ -1,7 +1,7 @@
 import React from "react";
 
-import { CardHeader as Component } from "../../../../confetti-ds/src/Card";
-import { ICON_TYPES } from "../../../../confetti-ds/src/constants";
+import { CardHeader as Component } from "../../../../../../packages/confetti-ds/src/Card";
+import { ICON_TYPES } from "../../../../../../packages/confetti-ds/src/constants";
 
 export default {
   title: "Content/Card/Card Subcomponents/Card Header",

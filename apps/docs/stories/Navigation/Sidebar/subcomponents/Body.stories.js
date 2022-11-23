@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NarrowSidebar } from "../../../../confetti-ds/src";
+import { NarrowSidebar } from "../../../../../../packages/confetti-ds/src";
 const { Body: Component } = NarrowSidebar;
 
 export default {
