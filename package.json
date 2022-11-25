@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npx turbo start",
     "build": "npx turbo build",
-    "test": "npx turbo test"
+    "test": "npx turbo test",
+    "publish": "cd packages/confetti-ds && npm publish"
   }
 }
