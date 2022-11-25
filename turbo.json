@@ -9,6 +9,8 @@
     "start": {
     },
     "test":  {
+    },
+    "publish": {
     }
   }
 }
