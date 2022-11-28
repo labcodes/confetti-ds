@@ -1,18 +1,25 @@
-## Confetti
+# Confetti
 
-### Installing
+## Installing
 
 Install the latest version of `@labcodes/confetti-ds` via npm:
 
-`npm install @labcodes/confetti-ds`
+```
+npm install @labcodes/confetti-ds
+```
 
-### Importing the styles
+## Importing styles
 
-To be able to use our styles, you'll have to have `scss` and `svg` support in your react project. If you do, just import our main `scss` file into yours by adding `@import '~@labcodes/confetti-ds/scss/main';` to your main `scss` file.
+Add this to your main `scss` file:
 
-### Importing the fonts
+```javascript
+@import '~@labcodes/confetti-ds/scss/main';
+``` 
+>To be able to use our styles, your react project needs to support `scss` and `svg` files.
 
-Since we're using the design system internally and for testing purposes, if you want use the fonts, add the following code to the head tag of your project:
+## Importing the fonts
+
+Add the following code to the head tag of your project:
 
 ```html
 <link href="https://use.typekit.net/boj8rad.css" rel="stylesheet">
@@ -23,7 +30,7 @@ Since we're using the design system internally and for testing purposes, if you 
 
 Our styles already reference the fonts, so after importing them, everything should be good to go.
 
-### Changing the theme for the components
+## Changing the theme for the components
 
 Our design system accepts theming via scss variables. To change a theme for a component, you'll just need to override the corresponding theme variable.
 
@@ -40,11 +47,19 @@ $button-theme: $purple-palette;
 @import "~@labcodes/confetti-ds/scss/main";`
 ```
 
-### Using the components
+## Using Confetti components
 
 To use any of our components, you just need to import them directly from `@labcodes/confetti-ds`.
 
-If you want to use the `Alert` component, for example, open your react component file, put `import { Alert } from "@labcodes/confetti-ds";` on the top of the file, then use it inside your `render` method, as you would do for any other component.
+Example for `Alert` component:
+
+```javascript
+import Alert from '@labcodes/confetti-ds'
+
+function App() {
+  return <Component />
+}
+```
 
 For example, if you render the Alert with `<Alert text="Testing alerts!" icon="eye-opened" />` in the Welcome page from our [Django boilerplate](https://github.com/labcodes/django-react-webpack/), you'll probably be looking at something like this:
 
