@@ -1,11 +1,9 @@
 <div align="center">
 
-  <img src="logo.svg" alt="logo" width="300" height="auto" />
+  <img src="assets/logo.svg" alt="logo" width="300" height="auto" />
 
-  
 <!-- Badges -->
 <p>
-  <br>
   <a href="https://github.com/Labcodes/confetti-ds/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/Labcodes/confetti-ds" alt="contributors" />
   </a>
@@ -32,7 +30,8 @@
     <a href="https://zeroheight.com/8b109e376/p/74e037-confetti">Documentation</a>
   <span> · </span>
     <a href="https://github.com/Labcodes/confetti-ds/issues/">Report Bug</a>
-  </h4>
+</h4>
+
 </div>
 
 <br />
@@ -44,7 +43,8 @@
 - [About the Project](#star2-about-the-project)
   - [Screenshots](#camera-screenshots)
   - [Tech Stack](#space_invader-tech-stack)
-  - [Features](#dart-features)
+  - [Components](#jigsaw-components)
+- [Figma](#art-figma)
 - [Getting Started](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
   - [Run Locally](#running-run-locally)
@@ -64,28 +64,30 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 
 ### :camera: Screenshots
 
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
-</div>
+  ![Screenshot of Button border, padding and spacing specifications](assets/Screenshot_1.png)
+  ![Screenshot of Select and Tag Components](assets/Screenshot_2.png)
 
 <!-- TechStack -->
 
 ### :space_invader: Tech Stack
 
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://storybook.js.org/">Storybook</a></li>
-    <li><a href="https://turbo.build/">TurboRepo</a></li>
-    
-  </ul>
+- [Figma](https://www.figma.com)
+- [Storybook](https://storybook.js.org/)
+- [React](https://reactjs.org/)    
+- [Turborebo](https://turbo.build/)
 
-<!-- Features -->
+<!-- Components -->
 
-### :dart: Components
+### :jigsaw: Components
 
 - Button
 - Search Bar
 - TagDropdown
+
+<!-- Figma -->
+## :art: Figma
+
+Confetti's design specifications can be found in [Figma](https://www.figma.com/file/Wx7jj5klQn3YsRA2XcIV3E/Confetti-%2F-%F0%9F%93%9A-Components?t=wwJ2zxNe5SyHBTlN-6).
 
 <!-- Getting Started -->
 
@@ -95,7 +97,7 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 
 ### :bangbang: Prerequisites
 
-- 
+- [Node](https://nodejs.org/en/)
 
 <!-- Run Locally -->
 
@@ -124,6 +126,7 @@ Start the server
 ```bash
   npm run dev
 ```
+
 <!-- Running Tests -->
 
 ### :test_tube: Running Tests
@@ -138,7 +141,7 @@ To run tests, run the following command
 
 ## :eyes: Usage
 
-You can install Confetti via `npm` and use it in your project. Instructions on [Confetti's package README](packages/confetti-ds/README.md).
+You can install and use Confetti on your project via `npm`. Instructions on [Confetti's package README](packages/confetti-ds/README.md).
 
 <!-- License -->
 
@@ -155,8 +158,6 @@ Labcodes Software Studio - [Linkedin](https://www.linkedin.com/company/labcodes/
 <!-- Acknowledgments -->
 
 ## :gem: Acknowledgements
-
-Use this section to mention useful resources and libraries that you have used in your projects.
 
 - [Shields.io](https://shields.io/)
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
