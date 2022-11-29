@@ -4,6 +4,7 @@
 
 <!-- Badges -->
 <p>
+
   <a href="https://github.com/Labcodes/confetti-ds/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/Labcodes/confetti-ds" alt="contributors" />
   </a>
@@ -74,15 +75,24 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 - [Figma](https://www.figma.com)
 - [Storybook](https://storybook.js.org/)
 - [React](https://reactjs.org/)    
-- [Turborebo](https://turbo.build/)
+- [Turborepo](https://turbo.build/)
 
 <!-- Components -->
 
 ### :jigsaw: Components
 
-- Button
+- Buttons
+- Cards
+- Dropdowns
+- Tags
+- Inputs
+- Icons
+- Check box
 - Search Bar
-- TagDropdown
+- Sidebar
+- Alert
+- Banner
+- Tooltip
 
 <!-- Figma -->
 ## :art: Figma
