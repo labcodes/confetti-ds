@@ -4,7 +4,7 @@
 
 <!-- Badges -->
 <p>
-
+  </br>
   <a href="https://github.com/Labcodes/confetti-ds/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/Labcodes/confetti-ds" alt="contributors" />
   </a>
@@ -97,7 +97,7 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 <!-- Figma -->
 ## :art: Figma
 
-Confetti's design specifications can be found in [Figma](https://www.figma.com/file/Wx7jj5klQn3YsRA2XcIV3E/Confetti-%2F-%F0%9F%93%9A-Components?t=wwJ2zxNe5SyHBTlN-6).
+Confetti's design specifications can be found on [Figma](https://www.figma.com/file/Wx7jj5klQn3YsRA2XcIV3E/Confetti-%2F-%F0%9F%93%9A-Components?t=wwJ2zxNe5SyHBTlN-6).
 
 <!-- Getting Started -->
 
