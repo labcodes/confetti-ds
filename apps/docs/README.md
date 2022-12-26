@@ -1,6 +1,6 @@
 # confetti-storybook
 
-This project is the storybook code for our [Confetti design system](https://github.com/labcodes/confetti-ds).
+This project is the Storybook code for our [Confetti design system](https://github.com/labcodes/confetti-ds).
 
 ## Setup
 
