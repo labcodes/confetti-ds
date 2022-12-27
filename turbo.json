@@ -6,7 +6,7 @@
         "^build"
       ],
 
-      "outputs": ["storybook-static/**", "dist/**"]
+      "outputs": ["apps/docs/storybook-static/**"]
     },
 
 
