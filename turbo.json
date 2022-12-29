@@ -1,16 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build": {
-    },
+    "build": {},
     "lint": {
-      "outputs": []
+      "outputs": ["apps/docs/storybook-static/**"]
     },
-    "start": {
-    },
-    "test":  {
-    },
-    "publish": {
-    }
+    "start": {},
+    "test": {},
+    "publish": {}
   }
 }
