@@ -18,5 +18,5 @@ Finally, go back to the root folder and start the development server. That will 
 # installs at the project's root folder
 npm install
 # runs Storybook at localhost:8000
-npx turbo start
+npm run dev
 ```
