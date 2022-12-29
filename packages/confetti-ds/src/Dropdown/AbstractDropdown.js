@@ -8,7 +8,7 @@ import DropdownSectionTitle from "./DropdownSectionTitle";
 import DropdownOption from "./DropdownOption";
 import TagDropdownItem from "./TagDropdownItem";
 import TagDropdownTrigger from "./TagDropdownTrigger";
-import { usePrevious } from "../../hooks";
+import { usePrevious } from "../hooks";
 
 export default function AbstractDropdown({
   id,
