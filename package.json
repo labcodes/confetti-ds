@@ -2,10 +2,13 @@
   "devDependencies": {
     "turbo": "^1.6.3"
   },
-  "workspaces": ["packages/*", "apps/docs*"],
+  "workspaces": [
+    "packages/*",
+    "apps/docs*"
+  ],
   "scripts": {
     "dev": "npx turbo start",
-    "build": "npx turbo build",
+    "build": "npx turbo build --force",
     "test": "npx turbo test",
     "publish": "npx turbo publish"
   }

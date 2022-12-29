@@ -7,16 +7,11 @@
       ],
       "outputs": ["apps/docs/storybook-static/**"]
     },
-
-
     "lint": {
       "outputs": []
     },
-    "start": {
-    },
-    "test":  {
-    },
-    "publish": {
-    }
+    "start": {},
+    "test": {},
+    "publish": {}
   }
 }
