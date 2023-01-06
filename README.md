@@ -24,7 +24,7 @@
     <img src="https://img.shields.io/github/license/Labcodes/confetti-ds.svg" alt="license" />
   </a>
 </p>
-   
+
 <h4>
     <a href="https://main--confetti-storybook.netlify.app">View Storybook</a>
   <span> · </span>
@@ -50,6 +50,7 @@
   - [Prerequisites](#bangbang-prerequisites)
   - [Run Locally](#running-run-locally)
   - [Running Tests](#test_tube-running-tests)
+  - [Deployment](#engine-deployment)
 - [Usage](#eyes-usage)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
@@ -74,8 +75,9 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 
 - [Figma](https://www.figma.com)
 - [Storybook](https://storybook.js.org/)
-- [React](https://reactjs.org/)    
+- [React](https://reactjs.org/)
 - [Turborepo](https://turbo.build/)
+- [Netlify](https://www.netlify.com/)
 
 <!-- Components -->
 
@@ -122,7 +124,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd confetti-ds
+  cd packages
 ```
 
 Install dependencies
@@ -132,6 +134,8 @@ Install dependencies
 ```
 
 Start the server
+
+The project will run at `localhost:8000`
 
 ```bash
   npm run dev
@@ -146,6 +150,12 @@ To run tests, run the following command
 ```bash
   npm run test
 ```
+
+<!-- Deployment -->
+
+### :engine: Deployment
+
+We use Netlify for running checks for the review apps and deployment.
 
 <!-- Usage -->
 
@@ -169,6 +179,7 @@ Labcodes Software Studio - [Linkedin](https://www.linkedin.com/company/labcodes/
 
 ## :gem: Acknowledgements
 
+- [Confetti Documentation](https://confetti.labcodes.com.br)
 - [Shields.io](https://shields.io/)
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
 - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
