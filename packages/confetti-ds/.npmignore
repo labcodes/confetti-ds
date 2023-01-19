@@ -5,4 +5,9 @@ PULL_REQUEST_TEMPLATE.md
 .eslintrc.js
 .nvmrc
 setupTests.js
+setupTests.ts
 yarn.lock
+tsconfig.json
+tsup.config.ts
+.prettierrc
+jest.config.ts
