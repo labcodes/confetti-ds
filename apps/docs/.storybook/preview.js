@@ -1,4 +1,3 @@
-import "!style-loader!css-loader!sass-loader!../../../packages/confetti-ds/scss/main.scss";
 import "!style-loader!css-loader!sass-loader!./storybook-overrides.scss";
 
 export const parameters = {
