@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StandardDialog rendering with base props 1`] = `null`;
+
+exports[`StandardDialog rendering with isLarge false 1`] = `
+[
+  <div
+    className="lab-dialog-overlay"
+    onClick={[Function]}
+    role="presentation"
+  />,
+  <div
+    className="lab-dialog lab-dialog--standard
+            "
+  >
+    <div
+      aria-modal="true"
+      className="lab-dialog__content"
+      role="dialog"
+    >
+      <button
+        className="lab-dialog__mobile-close-button"
+        onClick={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        type="button"
+      >
+        <span
+          className="lab-icon lab-icon--collapse-open"
+        />
+      </button>
+      <div
+        className="lab-dialog__header"
+      >
+        <div
+          className="lab-dialog__title"
+        >
+          Sample Message Dialog
+        </div>
+        <button
+          className="lab-dialog__close-button"
+          onClick={[Function]}
+          tabIndex={2}
+          type="button"
+        >
+          <span
+            className="lab-icon lab-icon--remove lab-dialog__close-button-icon"
+          />
+        </button>
+      </div>
+      <p
+        className="lab-dialog__body"
+      >
+        This is the main content of a Message Dialog. You may want to put as much content as you want, as long as it's a string.
+      </p>
+      <div
+        className="lab-dialog__footer"
+      >
+        <button
+          className="lab-btn lab-btn--outline lab-btn--normal"
+          onClick={[Function]}
+          tabIndex="3"
+          type="button"
+        >
+          
+          Optional button
+        </button>
+        <button
+          className="lab-btn lab-btn--default lab-btn--normal"
+          onClick={[Function]}
+          tabIndex="1"
+          type="button"
+        >
+          
+          Required button
+        </button>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`StandardDialog rendering with isModal false 1`] = `
+<div
+  className="lab-dialog lab-dialog--standard
+             lab-dialog--large"
+>
+  <div
+    aria-modal="true"
+    className="lab-dialog__content"
+    role="dialog"
+  >
+    <button
+      className="lab-dialog__mobile-close-button"
+      onClick={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <span
+        className="lab-icon lab-icon--collapse-open"
+      />
+    </button>
+    <div
+      className="lab-dialog__header"
+    >
+      <div
+        className="lab-dialog__title"
+      >
+        Sample Message Dialog
+      </div>
+      <button
+        className="lab-dialog__close-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="lab-icon lab-icon--remove lab-dialog__close-button-icon"
+        />
+      </button>
+    </div>
+    <p
+      className="lab-dialog__body"
+    >
+      This is the main content of a Message Dialog. You may want to put as much content as you want, as long as it's a string.
+    </p>
+    <div
+      className="lab-dialog__footer"
+    >
+      <button
+        className="lab-btn lab-btn--outline lab-btn--normal"
+        onClick={[Function]}
+        type="button"
+      >
+        
+        Optional button
+      </button>
+      <button
+        className="lab-btn lab-btn--default lab-btn--normal"
+        onClick={[Function]}
+        type="button"
+      >
+        
+        Required button
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`StandardDialog rendering with isOpen false 1`] = `null`;
