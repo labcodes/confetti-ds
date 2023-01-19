@@ -1,6 +1,6 @@
 {
   "name": "@labcodes/confetti-ds",
-  "version": "0.1.0-alpha.13",
+  "version": "0.1.0-alpha.14",
   "description": "Labcodes' design system, focused on accessibility and ease to use",
   "main": "dist/index.js",
   "husky": {
@@ -14,9 +14,9 @@
     "prepublishOnly": "npm run lint && npm test",
     "prepack": "babel src -d dist --ignore 'src/**/*.test.js'",
     "postpack": "rm -rf dist",
-    "publish": "npm publish",
     "publish-alpha": "npm publish --tag alpha",
-    "publish-beta": "npm publish --tag beta"
+    "publish-beta": "npm publish --tag beta",
+    "ts:build": "tsup src/index.js --format cjs,esm --loader .js=jsx"
   },
   "keywords": [
     "confetti",
@@ -64,7 +64,9 @@
     "jest": "^25.1.0",
     "jest-prop-type-error": "^1.1.0",
     "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.13.0"
+    "react-test-renderer": "^16.13.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
     "bulma": "^0.9.2",
