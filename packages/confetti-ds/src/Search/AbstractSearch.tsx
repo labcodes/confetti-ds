@@ -29,9 +29,9 @@ export default function AbstractSearch({
   onClear,
   onSearch,
   onChange,
-  defaultValue = '',
+  defaultValue,
 }) {
-  const [localValue, setLocalValue] = useState(defaultValue);
+  const [localValue, setLocalValue] = useState(value || defaultValue || '');
   const searchRef = useRef();
   const prevValue = useRef();
 
