@@ -1,14 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-/**
- *
- * @param isOverflowed sets whether the divider has the card's full width.
- * @returns {JSX.Element}
- * @constructor
- */
+interface CardDividerProps {
+  /** Sets whether the divider has the card's full width. */
+  isOverflowed?: boolean
+}
 
-export default function CardDivider({ isOverflowed }) {
+export default function CardDivider({ isOverflowed = false }) {
   return (
     <hr
       className={`lab-card-divider
@@ -17,12 +14,3 @@ export default function CardDivider({ isOverflowed }) {
     />
   );
 }
-
-CardDivider.propTypes = {
-  /** Sets whether the divider has the card's full width. */
-  isOverflowed: PropTypes.bool,
-};
-
-CardDivider.defaultProps = {
-  isOverflowed: false,
-};

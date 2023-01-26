@@ -1,12 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 
 import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
-import { ICON_TYPES } from "./constants";
+import { IconTypes, ICON_TYPES } from "./constants";
 
-export default function Banner({ text, type, icon, buttonProps }) {
+interface BannerProps {
+  /** This is the message text string. */
+  text?: string;
+  /** Type of the Banner. */
+  type: "info" | "warn" | "error";
+  /** Sets the icon related to the banner’s message. */
+  icon?: IconTypes;
+  /** Ojbect with information about the Banners's button. */
+  buttonProps: {
+    /** Banner's text button label. */
+    text: string;
+    /** Action to be executed when the button is clicked. */
+    onClick: (event: SyntheticEvent) => any;
+  };
+}
+
+export default function Banner({
+  text,
+  type = "info",
+  icon,
+  buttonProps = { text: "", onClick: () => {} },
+}: BannerProps) {
   const renderIcon = () =>
     icon ? (
       <Icon type={icon} color="white" className="lab-banner__icon" />
@@ -43,27 +63,3 @@ export default function Banner({ text, type, icon, buttonProps }) {
     </div>
   );
 }
-
-Banner.propTypes = {
-  /** This is the message text string. */
-  text: PropTypes.string.isRequired,
-  /** Type of the Banner. */
-  type: PropTypes.oneOf(["info", "warn", "error"]),
-  /** Sets the icon related to the banner’s message. */
-  icon: PropTypes.oneOf(ICON_TYPES).isRequired,
-  /** Ojbect with information about the Banners's button. */
-  buttonProps: PropTypes.shape({
-    /** Banner's text button label. */
-    text: PropTypes.string,
-    /** Action to be executed when the button is clicked. */
-    onClick: PropTypes.func,
-  }),
-};
-
-Banner.defaultProps = {
-  type: "info",
-  buttonProps: {
-    text: "",
-    onClick: () => {},
-  },
-};

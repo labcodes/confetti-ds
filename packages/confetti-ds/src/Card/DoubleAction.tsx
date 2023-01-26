@@ -1,36 +1,31 @@
 import React, { SyntheticEvent, useContext, useEffect } from "react";
-import PropTypes from "prop-types";
 
 import { Button, OutlineButton, TextButton } from "../Button";
 import { CardContext } from "./contexts";
-
-/**
- *
- * @param actionsProps sets button's attributes: label, action to be executed when the button is clicked, whether it is disabled/ariaDisabled or not, and the icon.
- * @param size sets buttons' height. Small = 32px, Normal = 40px, Large = 48px.
- * @param isText sets buttons to be Text Buttons.
- * @param isHorizontal sets whether buttons will pile on top of each other or be on the same line.
- * @returns {JSX.Element}
- * @constructor
- */
+import { IconTypes } from "../constants";
+interface DoubleActionProps {
+  /** Sets button's attributes: label, action to be executed when the button is clicked, whether it is disabled/ariaDisabled or not, and the icon. */
+  actionsProps: {
+    text: string;
+    onClick: (event?: SyntheticEvent) => any;
+    ariaDisabled?: boolean;
+    disabled?: boolean;
+    icon?: IconTypes;
+  }[];
+  /** Sets buttons' height. Small = 32px, Normal = 40px, Large = 48px. */
+  size?: "normal" | "small" | "large";
+  /** Sets whether buttons will pile on top of each other or be on the same line. */
+  isHorizontal?: boolean;
+  /** Sets buttons to be Text Buttons. */
+  isText?: boolean;
+}
 
 export default function DoubleAction({
   actionsProps,
-  size,
-  isText,
-  isHorizontal,
-}: {
-  actionsProps: {
-    text: string;
-    onClick: (e?: SyntheticEvent) => any;
-    ariaDisabled?: boolean;
-    disabled?: boolean;
-    icon?: string;
-  }[];
-  size?: string;
-  isText?: boolean;
-  isHorizontal?: boolean;
-}) {
+  size = "normal" as const,
+  isHorizontal = false,
+  isText = false,
+}: DoubleActionProps) {
   const cardContext = useContext(CardContext);
   const getButtonSkinFromCardContext = (context) => {
     const { color, skin, cardType } = context;
@@ -115,28 +110,3 @@ export default function DoubleAction({
     </section>
   );
 }
-
-DoubleAction.propTypes = {
-  /** Sets button's attributes: label, action to be executed when the button is clicked, whether it is disabled/ariaDisabled or not, and the icon. */
-  actionsProps: PropTypes.arrayOf(
-    PropTypes.exact({
-      text: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired,
-      ariaDisabled: PropTypes.bool,
-      disabled: PropTypes.bool,
-      icon: PropTypes.string,
-    })
-  ).isRequired,
-  /** Sets buttons' height. Small = 32px, Normal = 40px, Large = 48px. */
-  size: PropTypes.oneOf(["normal", "small", "large"]),
-  /** Sets whether buttons will pile on top of each other or be on the same line. */
-  isHorizontal: PropTypes.bool,
-  /** Sets buttons to be Text Buttons. */
-  isText: PropTypes.bool,
-};
-
-DoubleAction.defaultProps = {
-  size: "normal",
-  isHorizontal: false,
-  isText: false,
-};

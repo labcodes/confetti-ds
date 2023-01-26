@@ -35,7 +35,9 @@ export const ICON_TYPES = [
   "external",
   "wallet",
   "workspace",
-];
+] as const;
+
+export type IconTypes = typeof ICON_TYPES[number];
 
 export const ICON_COLORS = [
   "white",
@@ -56,6 +58,8 @@ export const ICON_COLORS = [
   "purple-70",
 ];
 
+export type IconColorTypes = typeof ICON_COLORS[number];
+
 export const TAG_COLORS = [
   "mineral",
   "teal",
@@ -67,3 +71,6 @@ export const TAG_COLORS = [
   "orange",
   "pink",
 ];
+
+
+export type TagTypes = typeof TAG_COLORS[number];

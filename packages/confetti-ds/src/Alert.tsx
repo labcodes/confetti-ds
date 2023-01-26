@@ -1,12 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, {SyntheticEvent} from "react";
 import { isUndefined } from "lodash";
 
 import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
-import { ICON_TYPES } from "./constants";
 
-export default function Alert({ text, type, icon, buttonProps }) {
+import { IconTypes, ICON_TYPES } from "./constants";
+
+interface AlertProps {
+  /** This is the message text string. */
+  text: string;
+  /** Type of the Alert. */
+  type?: "info" | "warn" | "error";
+  /** Sets the icon related to the alert’s message. */
+  icon?: IconTypes;
+  /** Adds props for buttons e.g.: [example of how to use]. Check buttons page for more information. */
+  buttonProps: {
+    /** Alert's text button label. */
+    text: string;
+    /** Action to be executed when the button is clicked. */
+    onClick: (event: SyntheticEvent) => any;
+  };
+}
+
+export default function Alert({
+  text,
+  icon,
+  type = "info",
+  buttonProps = { text: "", onClick: () => {} },
+}: AlertProps) {
   const handleClick = (event) => {
     if (!isUndefined(buttonProps.onClick)) {
       buttonProps.onClick(event);
@@ -31,24 +52,3 @@ export default function Alert({ text, type, icon, buttonProps }) {
     </div>
   );
 }
-
-Alert.propTypes = {
-  /** This is the message text string. */
-  text: PropTypes.string.isRequired,
-  /** Type of the Alert. */
-  type: PropTypes.oneOf(["info", "warn", "error"]),
-  /** Sets the icon related to the alert’s message. */
-  icon: PropTypes.oneOf(ICON_TYPES).isRequired,
-  /** Adds props for buttons e.g.: [example of how to use]. Check buttons page for more information. */
-  buttonProps: PropTypes.shape({
-    /** Alert's text button label. */
-    text: PropTypes.string,
-    /** Action to be executed when the button is clicked. */
-    onClick: PropTypes.func,
-  }),
-};
-
-Alert.defaultProps = {
-  type: "info",
-  buttonProps: { text: "", onClick: () => {} },
-};

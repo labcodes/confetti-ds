@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes, { string, number, bool } from "prop-types";
+import React, {SyntheticEvent} from "react";
 import { isUndefined } from "lodash";
 
 import { usePrevious } from "./hooks";
@@ -7,19 +6,44 @@ import Icon from "./Icon";
 
 // Checkbox //
 
+interface CheckboxProps {
+  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
+  id?: string,
+  /** Text that will specify the HTML name attribute of an `<input>` element. */
+  name?: string,
+  /** This is the checkbox's label. */
+  label?: string,
+  /** Disables the Checkbox. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled: boolean,
+  /** Disables the Checkbox. Won't be read by screen readers. */
+  disabled: boolean,
+  /** Defines if the Checkbox is currently checked. */
+  checked: boolean,
+  /** Marks Checkbox as indeterminate. Used on "check/uncheck all" Checkbox in a `fieldset` to display when some itens are checked and others are unchecked */
+  indeterminate: boolean,
+  /** Defines if the Checkbox is initialized as "checked". */
+  defaultChecked: boolean,
+  /** Callback action to be executed when the Checkbox is clicked. */
+  onChange: (event?: SyntheticEvent) => any;
+  /** Value that will specify the HTML `value` attribute of an `<input>` element. */
+  value: string | number | readonly string[];
+  /** Add a class name to make custom changes */
+  className: string,
+};
+
 export default function Checkbox({
   id,
   name,
   className,
   label,
-  ariaDisabled,
-  disabled,
+  ariaDisabled = false,
+  disabled = false,
   indeterminate,
   defaultChecked,
   checked,
   value,
   onChange,
-}) {
+}: CheckboxProps) {
   if (!isUndefined(defaultChecked) && !isUndefined(checked)) {
     // eslint-disable-next-line no-console
     console.warn(
@@ -86,39 +110,3 @@ export default function Checkbox({
     </React.Fragment>
   );
 }
-
-Checkbox.propTypes = {
-  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id: PropTypes.string.isRequired,
-  /** Text that will specify the HTML name attribute of an `<input>` element. */
-  name: PropTypes.string.isRequired,
-  /** This is the checkbox's label. */
-  label: PropTypes.string.isRequired,
-  /** Disables the Checkbox. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Checkbox. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Defines if the Checkbox is currently checked. */
-  checked: PropTypes.bool,
-  /** Marks Checkbox as indeterminate. Used on "check/uncheck all" Checkbox in a `fieldset` to display when some itens are checked and others are unchecked */
-  indeterminate: PropTypes.bool,
-  /** Defines if the Checkbox is initialized as "checked". */
-  defaultChecked: PropTypes.bool,
-  /** Callback action to be executed when the Checkbox is clicked. */
-  onChange: PropTypes.func,
-  /** Value that will specify the HTML `value` attribute of an `<input>` element. */
-  value: PropTypes.oneOfType([string, number, bool]),
-  /** Add a class name to make custom changes */
-  className: PropTypes.string,
-};
-
-Checkbox.defaultProps = {
-  disabled: false,
-  ariaDisabled: false,
-  checked: undefined,
-  value: undefined,
-  indeterminate: false,
-  defaultChecked: undefined,
-  className: undefined,
-  onChange: () => {},
-};

@@ -1,23 +1,55 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 
 import Icon from "../Icon";
-import { ICON_TYPES } from "../constants";
+import { IconTypes } from "../constants";
+
+export interface AbstractButtonProps {
+  /** This is the button label. */
+  text: string;
+  /** HTML type of the Button. */
+  type?: "button" | "submit" | "reset";
+  /** Button style variation. */
+  variant?: "default" | "outline" | "text";
+  /** Sets the icon related to the button label. Default state: no icon. */
+  icon?: IconTypes;
+  /** Sets a special color skin to the button. */
+  skin?:
+    | ""
+    | "light"
+    | "dark"
+    | "warning"
+    | "destructive"
+    | "warning-invert"
+    | "destructive-invert"
+    | "confirmation-invert";
+  /** Sets the button's height. Small = 32px, Normal = 40px, Large = 48px. */
+  size?: "normal" | "small" | "large";
+  /** Disables the Button. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled?: boolean;
+  /** Disables the Button. Won't be read by screen readers. */
+  disabled?: boolean;
+  /** Action to be executed when the button is clicked. */
+  onClick?: (event: SyntheticEvent) => any;
+  /** Makes the button expand to its container's full width. */
+  fullWidth?: boolean;
+  /* Sets the order of which the elements will be focused on. Default value: 0. */
+  tabIndex?: number;
+}
 
 export default function AbstractButton({
-  type,
   text,
-  variant,
-  skin,
-  size,
-  disabled,
-  fullWidth,
-  ariaDisabled,
-  tabIndex,
-  onClick,
-  icon,
-}) {
+  type = "button" as const,
+  variant = "default",
+  skin = "",
+  icon = undefined,
+  size = "normal",
+  disabled = false,
+  ariaDisabled = false,
+  onClick = (event) => {},
+  fullWidth = false,
+  tabIndex = undefined,
+}: AbstractButtonProps) {
   const renderIcon = () =>
     icon ? (
       <Icon type={icon} color="white" size="petit" className="lab-btn__icon" />
@@ -35,7 +67,6 @@ export default function AbstractButton({
   };
   return (
     <button
-      // eslint-disable-next-line react/button-has-type
       type={type}
       className={
         `lab-btn` +
@@ -53,49 +84,3 @@ export default function AbstractButton({
     </button>
   );
 }
-AbstractButton.propTypes = {
-  /** HTML type of the Button. */
-  type: PropTypes.oneOf(["button", "submit", "reset"]),
-  /** Button style variation. */
-  variant: PropTypes.oneOf(["default", "outline", "text"]),
-  /** This is the button label. */
-  text: PropTypes.string.isRequired,
-  /** Sets the icon related to the button label. Default state: no icon. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Sets a special color skin to the button. */
-  skin: PropTypes.oneOf([
-    "",
-    "light",
-    "dark",
-    "warning",
-    "destructive",
-    "warning-invert",
-    "destructive-invert",
-    "confirmation-invert",
-  ]),
-  /** Sets the button's height. Small = 32px, Normal = 40px, Large = 48px. */
-  size: PropTypes.oneOf(["normal", "small", "large"]),
-  /** Disables the Button. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Button. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Action to be executed when the button is clicked. */
-  onClick: PropTypes.func,
-  /** Makes the button expand to its container's full width. */
-  fullWidth: PropTypes.bool,
-  /* Sets the order of which the elements will be focused on. Default value: 0. */
-  tabIndex: PropTypes.string,
-};
-
-AbstractButton.defaultProps = {
-  type: "button",
-  variant: "default",
-  skin: "",
-  icon: undefined,
-  size: "normal",
-  disabled: false,
-  ariaDisabled: false,
-  onClick: () => {},
-  fullWidth: false,
-  tabIndex: undefined,
-};
