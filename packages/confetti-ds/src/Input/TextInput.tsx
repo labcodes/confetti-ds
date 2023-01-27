@@ -6,37 +6,37 @@ import { IconTypes, ICON_TYPES, IconColorTypes, ICON_COLORS } from "../constants
 
 interface TextInputProps {
     /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-    id?: string;
+    id: string;
     /** The Input's text label. */
-    label?: string;
+    label: string;
     /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-    ariaDisabled: boolean;
+    ariaDisabled?: boolean;
     /** Disables the text input. Won't be read by screen readers. */
-    disabled: boolean;
+    disabled?: boolean;
     /** Defines a default value for the Input initialization. */
-    defaultValue: string;
+    defaultValue?: string;
     /** Text that will be rendered inside the Input field. */
-    value: string;
+    value?: string;
     /** Defines which symbol to show. */
-    icon: IconTypes;
+    icon?: IconTypes;
     /** Defines the color of the displayed icon. */
-    iconColor: IconColorTypes;
+    iconColor?: IconColorTypes;
     /** Defines if the Input is required. */
-    required: boolean;
+    required?: boolean;
     /** Text that will be displayed as a help message below the input. */
-    helpMessage: string;
+    helpMessage?: string;
     /** Text that will be displayed at the left portion of the Input. */
-    prefix: string;
+    prefix?: string;
     /** Text that will be displayed at the right portion of the Input. */
-    suffix: string;
+    suffix?: string;
     /** Defines if the Input is valid. */
-    isValid: boolean;
+    isValid?: boolean;
     /** Custom error message displayed below the Input when the value is not valid. */
-    customErrorMsg: string;
+    customErrorMsg?: string;
     /** Callback action to be executed when the Input default value changes. */
-    onChange: (event?: SyntheticEvent) => any;
+    onChange?: (event?: SyntheticEvent) => any;
     /** Callback action to be executed when the Input's Icon is clicked.  */
-    onIconClick: (event?: SyntheticEvent) => any;
+    onIconClick?: (event?: SyntheticEvent) => any;
 }
 
 export default function TextInput({

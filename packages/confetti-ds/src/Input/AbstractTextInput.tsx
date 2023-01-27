@@ -3,51 +3,51 @@ import React, { SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 import Icon from "../Icon";
 
-import { IconTypes, ICON_TYPES, IconColorTypes, ICON_COLORS } from "../constants";
+import { IconTypes, IconColorTypes } from "../constants";
 import { usePrevious } from "../hooks";
 
 interface AbstractTextInputProps {
   /** Passes AbstractInput's type to the HTML Input `type` attribute of the `<input>` element. */
-  type: string;
+  type?: string;
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id?: string;
+  id: string;
   /** The Input's text label. */
-  label?: string;
+  label: string;
   /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: boolean;
+  ariaDisabled?: boolean;
   /** Disables the text input. Won't be read by screen readers. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Defines a default value for the Input initialization. */
-  defaultValue: string;
+  defaultValue?: string;
   /** Value that will be rendered inside the Input field. */
-  value: string;
+  value?: string;
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-  icon: IconTypes;
+  icon?: IconTypes;
   /** Defines the color of the displayed icon. */
-  iconColor: IconColorTypes;
+  iconColor?: IconColorTypes;
   /** Defines if the Input is required. */
-  required: boolean;
+  required?: boolean;
   /** Text that will be displayed as a help message below the input. */
-  helpMessage: string;
+  helpMessage?: string;
   /** Text that will be displayed at the left portion of the Input. */
-  prefix: string;
+  prefix?: string;
   /** Text that will be displayed at the right portion of the Input. */
-  suffix: string;
+  suffix?: string;
   /** Defines if the Input is valid. */
-  isValid: boolean;
+  isValid?: boolean;
   /** Custom error message displayed below the Input when the value is not valid. */
-  customErrorMsg: string;
+  customErrorMsg?: string;
   /** Callback action to be executed when the Input default value changes. */
-  onChange: (event?: SyntheticEvent) => any;
+  onChange?: (event?: SyntheticEvent) => any;
   /** Callback action to be executed when the Input's Icon is clicked. */
-  onIconClick: (event?: SyntheticEvent) => any;
+  onIconClick?: (event?: SyntheticEvent) => any;
 }
 
 export default function AbstractTextInput({
   type = "text",
   disabled = false,
   ariaDisabled = false,
-  iconColor = "mineral-70",
+  iconColor = "mineral-70" as const,
   required= false,
   onChange= () => {},
   onIconClick= () => {},
@@ -232,11 +232,11 @@ export default function AbstractTextInput({
 // ----- Auxiliary components ----- //
 
 interface TrailingIconProps {
-  icon?: string;
-  iconColor: string;
-  onIconClick: (event: SyntheticEvent) => any;
-  disabled: boolean;
-  ariaDisabled: boolean;
+  icon: IconTypes;
+  iconColor?: IconColorTypes;
+  onIconClick?: (event: SyntheticEvent) => any;
+  disabled?: boolean;
+  ariaDisabled?: boolean;
 }
 
 function TrailingIcon({
@@ -245,7 +245,7 @@ function TrailingIcon({
   disabled= false,
   ariaDisabled= false,
   icon
-}) {
+}: TrailingIconProps) {
   return (
     <button
       type="button"
@@ -273,7 +273,7 @@ function TextInputMessage({
   customErrorMsg,
   localIsValid,
   localValue,
-}) {
+}:TextInputMessageProps) {
   let message = null;
   if (helpMessage && localIsValid) {
     message = (

@@ -4,31 +4,31 @@ import AbstractTextInput from "./AbstractTextInput";
 
 interface PasswordInputProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id?: string;
+  id: string;
   /** The Input's text label. */
-  label?: string;
+  label: string;
   /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: boolean;
+  ariaDisabled?: boolean;
   /** Disables the text input. Won't be read by screen readers. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Defines a default value for the Input initialization. */
-  defaultValue: string;
+  defaultValue?: string;
   /** Value that will be rendered inside the Input field. */
-  value: string;
+  value?: string;
   /** Defines if the Input is required. */
-  required: boolean;
+  required?: boolean;
   /** Text that will be displayed as a help message below the input. */
-  helpMessage: string;
+  helpMessage?: string;
   /** Text that will be displayed at the left portion of the Input. */
-  prefix: string;
+  prefix?: string;
   /** Text that will be displayed at the end of the Input. */
-  suffix: string;
+  suffix?: string;
   /** Text that will be displayed at the right portion of the Input. */
-  isValid: boolean;
+  isValid?: boolean;
   /** Custom error message displayed below the Input when the value is not valid. */
-  customErrorMsg: string;
+  customErrorMsg?: string;
   /** Callback action to be executed when the Input default value changes. */
-  onChange: (event?: SyntheticEvent) => any;
+  onChange?: (event?: SyntheticEvent) => any;
 }
 
 const PasswordInput = ({
