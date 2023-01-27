@@ -3,8 +3,8 @@ import React, { SyntheticEvent } from "react";
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import {
-  IconColorTypes,
   IconTypes,
+  TagTypes,
 } from "../constants";
 
 interface DropdownTagProps {
@@ -13,7 +13,7 @@ interface DropdownTagProps {
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
   icon?: IconTypes;
   /** Sets Tag's color. */
-  color?: IconColorTypes;
+  color?: TagTypes;
   /** Skin of the rendered Tag. */
   skin?: "pale" | "vivid";
   /** Sets an outline style. */

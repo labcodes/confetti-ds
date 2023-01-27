@@ -38,7 +38,7 @@ describe("SimpleTag", () => {
 
   it("renders as expected with a purple color", async () => {
     const renderedComponent = renderer
-      .create(<SimpleTag text="Test render purple SimpleTag" color="purple-40" />)
+      .create(<SimpleTag text="Test render purple SimpleTag" color="purple" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 

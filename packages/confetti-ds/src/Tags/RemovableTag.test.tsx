@@ -46,13 +46,13 @@ describe("RemovableTag", () => {
   it("renders with a green color", async () => {
     const renderedComponent = renderer
       .create(
-        <RemovableTag text="Test render green RemovableTag" color="teal-40" />
+        <RemovableTag text="Test render green RemovableTag" color="green" />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <RemovableTag text="Test green RemovableTag" color="teal-40" />
+      <RemovableTag text="Test green RemovableTag" color="green" />
     ).html();
     expect(wrapper).toContain("lab-tag--green");
   });

@@ -3,7 +3,7 @@ import { isEmpty } from "lodash";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import { IconColorTypes, IconTypes } from "../constants";
+import { IconTypes, TagTypes } from "../constants";
 
 type BaseRemovableTagProps = {
   /** This is the Tag's text. */
@@ -11,7 +11,7 @@ type BaseRemovableTagProps = {
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
   icon?: IconTypes;
   /** Sets Tag's color. */
-  color?: IconColorTypes;
+  color?: TagTypes;
   /** Skin of the rendered Tag. */
   skin?: "pale" | "vivid";
   /** Sets an outline style. */
