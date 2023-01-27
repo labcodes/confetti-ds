@@ -17,7 +17,7 @@ interface BannerProps {
     /** Banner's text button label. */
     text: string;
     /** Action to be executed when the button is clicked. */
-    onClick: (event: SyntheticEvent) => any;
+    onClick: (event?: SyntheticEvent) => any;
   };
 }
 

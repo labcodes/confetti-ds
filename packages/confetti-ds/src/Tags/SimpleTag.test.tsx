@@ -38,7 +38,7 @@ describe("SimpleTag", () => {
 
   it("renders as expected with a purple color", async () => {
     const renderedComponent = renderer
-      .create(<SimpleTag text="Test render purple SimpleTag" color="purple" />)
+      .create(<SimpleTag text="Test render purple SimpleTag" color="purple-40" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
@@ -74,13 +74,18 @@ describe("SimpleTag", () => {
         <SimpleTag
           text="Test render SimpleTag with thumb"
           thumbSrc="fake-thumb"
+          thumbAlt="fake-thumb-alt"
         />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <SimpleTag text="Test SimpleTag with thumb" thumbSrc="fake-thumb" />
+      <SimpleTag
+        text="Test SimpleTag with thumb"
+        thumbSrc="fake-thumb"
+        thumbAlt="fake-thumb-alt"
+      />
     ).html();
     expect(wrapper).toContain(`src="fake-thumb"`);
   });
@@ -92,6 +97,7 @@ describe("SimpleTag", () => {
           text="Test to not render SimpleTag with with thumb and icon"
           icon="magnifying-glass"
           thumbSrc="fake-thumb"
+          thumbAlt="fake-thumb-alt"
         />
       );
     }).toThrow(

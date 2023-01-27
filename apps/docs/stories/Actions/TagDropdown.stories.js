@@ -1,14 +1,14 @@
 import React from "react";
 import { TAG_COLORS } from "../../../../packages/confetti-ds/src/constants";
 
-import { TagDropdown as Component } from "../../../../packages/confetti-ds/src/Dropdown";
+import { TagDropdown as Component, SectionTitle, TagDropdownItem } from "../../../../packages/confetti-ds/src/Dropdown";
 
 export default {
   title: "Actions/Tag Dropdown",
   component: Component,
   subcomponents: {
-    SectionTitle: Component.SectionTitle,
-    TagItem: Component.TagItem,
+    SectionTitle: SectionTitle,
+    TagItem: TagDropdownItem,
   },
   argTypes: {
     color: {
@@ -23,22 +23,22 @@ export default {
 export const TagDropdown = (args) => (
   <div style={{ height: "200px" }}>
     <Component {...args}>
-      <Component.SectionTitle text="Sort by" />
+      <SectionTitle text="Sort by" />
 
-      <Component.TagItem
+      <TagDropdownItem
         text="A to Z"
         value="title"
         isOutline
         color={args.color}
       />
-      <Component.TagItem
+      <TagDropdownItem
         text="Z to A"
         value="-title"
         isOutline
         color={args.color}
         disabled
       />
-      <Component.TagItem
+      <TagDropdownItem
         text="Avaibility"
         value="Avaibility"
         isOutline

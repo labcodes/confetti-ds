@@ -46,13 +46,13 @@ describe("RemovableTag", () => {
   it("renders with a green color", async () => {
     const renderedComponent = renderer
       .create(
-        <RemovableTag text="Test render green RemovableTag" color="green" />
+        <RemovableTag text="Test render green RemovableTag" color="teal-40" />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <RemovableTag text="Test green RemovableTag" color="green" />
+      <RemovableTag text="Test green RemovableTag" color="teal-40" />
     ).html();
     expect(wrapper).toContain("lab-tag--green");
   });
@@ -85,6 +85,7 @@ describe("RemovableTag", () => {
           text="Test to not render RemovableTag with thumb and icon"
           icon="calendar"
           thumbSrc="fake-thumb"
+          thumbAlt="fake-thumb-alt"
         />
       );
     }).toThrow(

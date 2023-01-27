@@ -1,15 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 
 import { NavbarWithDividersContext } from "./NarrowSidebar";
 
-/**
- *
- * @param children
- * @returns {JSX.Element} Components that will be rendered in the Body.
- * @constructor
- */
-export default function Body({ children }) {
+export default function Body({ children }: {children?: ReactNode}) {
   return (
     <NavbarWithDividersContext.Consumer>
       {(withDividers) => (
@@ -25,12 +18,3 @@ export default function Body({ children }) {
     </NavbarWithDividersContext.Consumer>
   );
 }
-
-Body.propTypes = {
-  /** Components that will be rendered in the Body. */
-  children: PropTypes.node,
-};
-
-Body.defaultProps = {
-  children: undefined,
-};

@@ -56,7 +56,7 @@ export const ICON_COLORS = [
   "purple-40",
   "purple-60",
   "purple-70",
-];
+] as const;
 
 export type IconColorTypes = typeof ICON_COLORS[number];
 
@@ -70,7 +70,6 @@ export const TAG_COLORS = [
   "cyan",
   "orange",
   "pink",
-];
-
+] as const;
 
 export type TagTypes = typeof TAG_COLORS[number];

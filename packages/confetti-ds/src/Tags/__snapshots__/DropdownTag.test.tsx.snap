@@ -6,7 +6,7 @@ exports[`DropdownTag render as outline 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   Test render outline DropdownTag
   <span
@@ -25,7 +25,7 @@ exports[`DropdownTag renders as disabled 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   Test render disabled DropdownTag
   <span
@@ -44,7 +44,7 @@ exports[`DropdownTag renders with a pink color 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   Test render pink DropdownTag
   <span
@@ -63,7 +63,7 @@ exports[`DropdownTag renders with base props 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   Test render DropdownTag
   <span

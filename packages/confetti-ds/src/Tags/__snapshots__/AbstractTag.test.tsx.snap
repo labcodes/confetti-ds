@@ -24,7 +24,7 @@ exports[`AbstractTag renders with base props for 'removable' type 1`] = `
 
 exports[`AbstractTag renders with base props for 'simple' type 1`] = `
 <span
-  className="lab-tag  lab-tag--pale"
+  className="lab-tag undefined lab-tag--pale"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"

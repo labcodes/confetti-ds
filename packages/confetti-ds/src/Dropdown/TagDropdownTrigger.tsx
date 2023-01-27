@@ -1,21 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  SyntheticEvent,
+} from "react";
 import AbstractTag from "../Tags/AbstractTag";
-import { ICON_TYPES } from "../constants";
+import { IconTypes, ICON_TYPES } from "../constants";
 import Icon from "../Icon";
 
 export default function TagDropdownTrigger({
   text,
   icon,
   color,
-  skin,
-  isOutline,
-  disabled,
-  ariaDisabled,
-  onInteraction,
   tabIndex,
-  setRef,
-}) {
+  isOutline = false,
+  skin = "pale",
+  disabled = false,
+  ariaDisabled = false,
+  onInteraction = () => {},
+  setRef = () => {},
+}: TagDropdownTriggerProps) {
   // eslint-disable-next-line react/display-name
   const handleIcon = () =>
     icon ? (
@@ -58,37 +62,25 @@ export default function TagDropdownTrigger({
   );
 }
 
-TagDropdownTrigger.propTypes = {
+interface TagDropdownTriggerProps {
   /** This is the Tag's text. */
-  text: PropTypes.string.isRequired,
+  text: string;
   /** Sets Tag's color. */
-  color: PropTypes.string,
+  color?: string;
   /** Skin of the rendered Tag. */
-  skin: PropTypes.string,
+  skin?: string;
   /** Sets an outline style. */
-  isOutline: PropTypes.bool,
+  isOutline?: boolean;
   /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
+  ariaDisabled?: boolean;
   /** Disables the Tag. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
+  disabled?: boolean;
   /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
-  tabIndex: PropTypes.string,
+  tabIndex?: number;
   /** This function is used to handle click or keydown interactions */
-  onInteraction: PropTypes.func,
+  onInteraction?: ({ event }: { event: SyntheticEvent }) => any;
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-  icon: PropTypes.oneOf(ICON_TYPES),
+  icon?: IconTypes;
   /** This function is used on AbstractTag to set the current Ref */
-  setRef: PropTypes.func,
-};
-
-TagDropdownTrigger.defaultProps = {
-  isOutline: false,
-  color: undefined,
-  skin: "pale",
-  disabled: false,
-  ariaDisabled: false,
-  onInteraction: () => {},
-  setRef: () => {},
-  tabIndex: undefined,
-  icon: undefined,
-};
+  setRef?: Dispatch<SetStateAction<MutableRefObject<HTMLButtonElement>>>;
+}

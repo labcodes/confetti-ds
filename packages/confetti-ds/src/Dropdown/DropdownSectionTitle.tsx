@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function DropdownSectionTitle({ text, color }) {
+export interface DropdownSectionTitleProps {
+  /** This is DropdownSectionTitle's title */
+  text: React.ReactNode;
+  /** This is DropdownSectionTitle's color. The color is inherit from dropdown color  */
+  color?: "white" | "mineral" | "teal" | "purple";
+}
+export default function DropdownSectionTitle({
+  text,
+  color = "teal",
+}: DropdownSectionTitleProps) {
   return (
     <span
       className={`lab-dropdown__section-title lab-dropdown__section-title--color-${color}`}
@@ -10,14 +19,3 @@ export default function DropdownSectionTitle({ text, color }) {
     </span>
   );
 }
-
-DropdownSectionTitle.propTypes = {
-  /** This is DropdownSectionTitle's title */
-  text: PropTypes.node.isRequired,
-  /** This is DropdownSectionTitle's color. The color is inherit from dropdown color  */
-  color: PropTypes.string,
-};
-
-DropdownSectionTitle.defaultProps = {
-  color: "teal",
-};

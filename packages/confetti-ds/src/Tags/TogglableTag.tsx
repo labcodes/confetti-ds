@@ -1,19 +1,34 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import { TAG_COLORS } from "../constants";
+
+interface TogglableTagProps {
+  /** This is the Tag's text. */
+  text: string;
+  /** Sets Tag's color. */
+  color?: string;
+  /** Sets an outline style. */
+  isOutline?: boolean;
+  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled?: boolean;
+  /** Disables the Tag. Won't be read by screen readers. */
+  disabled?: boolean;
+  /** Action to be executed when the Tag is clicked. */
+  onClick?: (event?: SyntheticEvent) => any;
+  /** Defines if the Tag is toggled on. */
+  isOn?: boolean,
+}
 
 export default function TogglableTag({
   text,
   color,
-  isOutline,
-  disabled,
-  ariaDisabled,
-  isOn,
-  onClick,
-}) {
+  isOutline = false,
+  disabled = false,
+  ariaDisabled = false,
+  isOn = false,
+  onClick = () => {},
+}: TogglableTagProps) {
   const selected = () => {
     let iconClass;
 
@@ -38,33 +53,7 @@ export default function TogglableTag({
       onClick={onClick}
       skin={isOn ? "vivid" : "pale"}
       renderPrefix={selected()}
-      tabIndex="0"
+      tabIndex={0}
     />
   );
 }
-
-TogglableTag.propTypes = {
-  /** This is the Tag's text. */
-  text: PropTypes.string.isRequired,
-  /** Sets Tag's color. */
-  color: PropTypes.oneOf(TAG_COLORS),
-  /** Sets an outline style. */
-  isOutline: PropTypes.bool,
-  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Tag. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Action to be executed when the Tag is clicked. */
-  onClick: PropTypes.func,
-  /** Defines if the Tag is toggled on. */
-  isOn: PropTypes.bool,
-};
-
-TogglableTag.defaultProps = {
-  color: undefined,
-  isOutline: false,
-  disabled: false,
-  ariaDisabled: false,
-  isOn: false,
-  onClick: () => {},
-};

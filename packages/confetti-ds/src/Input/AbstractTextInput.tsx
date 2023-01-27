@@ -1,31 +1,67 @@
 /* eslint-disable react/no-did-update-set-state */
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 import Icon from "../Icon";
 
-import { ICON_TYPES, ICON_COLORS } from "../constants";
+import { IconTypes, ICON_TYPES, IconColorTypes, ICON_COLORS } from "../constants";
 import { usePrevious } from "../hooks";
 
+interface AbstractTextInputProps {
+  /** Passes AbstractInput's type to the HTML Input `type` attribute of the `<input>` element. */
+  type: string;
+  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
+  id?: string;
+  /** The Input's text label. */
+  label?: string;
+  /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled: boolean;
+  /** Disables the text input. Won't be read by screen readers. */
+  disabled: boolean;
+  /** Defines a default value for the Input initialization. */
+  defaultValue: string;
+  /** Value that will be rendered inside the Input field. */
+  value: string;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+  icon: IconTypes;
+  /** Defines the color of the displayed icon. */
+  iconColor: IconColorTypes;
+  /** Defines if the Input is required. */
+  required: boolean;
+  /** Text that will be displayed as a help message below the input. */
+  helpMessage: string;
+  /** Text that will be displayed at the left portion of the Input. */
+  prefix: string;
+  /** Text that will be displayed at the right portion of the Input. */
+  suffix: string;
+  /** Defines if the Input is valid. */
+  isValid: boolean;
+  /** Custom error message displayed below the Input when the value is not valid. */
+  customErrorMsg: string;
+  /** Callback action to be executed when the Input default value changes. */
+  onChange: (event?: SyntheticEvent) => any;
+  /** Callback action to be executed when the Input's Icon is clicked. */
+  onIconClick: (event?: SyntheticEvent) => any;
+}
+
 export default function AbstractTextInput({
-  type,
-  id,
-  label,
-  disabled,
-  ariaDisabled,
-  icon,
-  iconColor,
-  required,
-  helpMessage,
-  prefix,
-  suffix,
-  customErrorMsg,
-  onChange,
-  onIconClick,
+  type = "text",
+  disabled = false,
+  ariaDisabled = false,
+  iconColor = "mineral-70",
+  required= false,
+  onChange= () => {},
+  onIconClick= () => {},
   defaultValue,
   value,
   isValid,
-}) {
+  icon,
+  prefix,
+  suffix,
+  id,
+  customErrorMsg,
+  label,
+  helpMessage
+}: AbstractTextInputProps) {
   const [localValue, setLocalValue] = React.useState(
     value || defaultValue || ""
   );
@@ -195,12 +231,20 @@ export default function AbstractTextInput({
 
 // ----- Auxiliary components ----- //
 
+interface TrailingIconProps {
+  icon?: string;
+  iconColor: string;
+  onIconClick: (event: SyntheticEvent) => any;
+  disabled: boolean;
+  ariaDisabled: boolean;
+}
+
 function TrailingIcon({
-  icon,
-  iconColor,
-  onIconClick,
-  disabled,
-  ariaDisabled,
+  iconColor= "mineral-70",
+  onIconClick= () => {},
+  disabled= false,
+  ariaDisabled= false,
+  icon
 }) {
   return (
     <button
@@ -217,19 +261,11 @@ function TrailingIcon({
   );
 }
 
-TrailingIcon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  iconColor: PropTypes.string,
-  onIconClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  ariaDisabled: PropTypes.bool,
-};
-
-TrailingIcon.defaultProps = {
-  iconColor: "mineral-70",
-  onIconClick: () => {},
-  disabled: false,
-  ariaDisabled: false,
+interface TextInputMessageProps {
+  helpMessage: string;
+  customErrorMsg: string;
+  localValue: string;
+  localIsValid: boolean;
 };
 
 function TextInputMessage({
@@ -263,72 +299,3 @@ function TextInputMessage({
 
   return message;
 }
-
-TextInputMessage.propTypes = {
-  helpMessage: PropTypes.string,
-  customErrorMsg: PropTypes.string,
-  localValue: PropTypes.string,
-  localIsValid: PropTypes.bool,
-};
-
-TextInputMessage.defaultProps = {
-  helpMessage: undefined,
-  customErrorMsg: undefined,
-  localValue: undefined,
-  localIsValid: undefined,
-};
-
-AbstractTextInput.propTypes = {
-  /** Passes AbstractInput's type to the HTML Input `type` attribute of the `<input>` element. */
-  type: PropTypes.string,
-  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id: PropTypes.string.isRequired,
-  /** The Input's text label. */
-  label: PropTypes.string.isRequired,
-  /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the text input. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Defines a default value for the Input initialization. */
-  defaultValue: PropTypes.string,
-  /** Value that will be rendered inside the Input field. */
-  value: PropTypes.string,
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Defines the color of the displayed icon. */
-  iconColor: PropTypes.oneOf(ICON_COLORS),
-  /** Defines if the Input is required. */
-  required: PropTypes.bool,
-  /** Text that will be displayed as a help message below the input. */
-  helpMessage: PropTypes.string,
-  /** Text that will be displayed at the left portion of the Input. */
-  prefix: PropTypes.string,
-  /** Text that will be displayed at the right portion of the Input. */
-  suffix: PropTypes.string,
-  /** Defines if the Input is valid. */
-  isValid: PropTypes.bool,
-  /** Custom error message displayed below the Input when the value is not valid. */
-  customErrorMsg: PropTypes.string,
-  /** Callback action to be executed when the Input default value changes. */
-  onChange: PropTypes.func,
-  /** Callback action to be executed when the Input's Icon is clicked. */
-  onIconClick: PropTypes.func,
-};
-
-AbstractTextInput.defaultProps = {
-  type: "text",
-  disabled: false,
-  ariaDisabled: false,
-  defaultValue: undefined,
-  value: undefined,
-  icon: undefined,
-  iconColor: "mineral-70",
-  required: false,
-  helpMessage: undefined,
-  prefix: undefined,
-  suffix: undefined,
-  isValid: undefined,
-  customErrorMsg: undefined,
-  onChange: () => {},
-  onIconClick: () => {},
-};

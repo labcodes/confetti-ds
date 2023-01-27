@@ -1,22 +1,55 @@
-import React, { useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent, useMemo } from "react";
 import { isEmpty } from "lodash";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import { ICON_TYPES, TAG_COLORS } from "../constants";
+import { IconColorTypes, IconTypes } from "../constants";
+
+type BaseRemovableTagProps = {
+  /** This is the Tag's text. */
+  text: string;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+  icon?: IconTypes;
+  /** Sets Tag's color. */
+  color?: IconColorTypes;
+  /** Skin of the rendered Tag. */
+  skin?: "pale" | "vivid";
+  /** Sets an outline style. */
+  isOutline?: boolean;
+  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled?: boolean;
+  /** Disables the Tag. Won't be read by screen readers. */
+  disabled?: boolean;
+  /** Callback to be executed when the Tag is clicked. */
+  onClick?: (event?: SyntheticEvent) => any;
+};
+
+type RemovableTagProps =
+  | (BaseRemovableTagProps & {
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbSrc?: undefined;
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbAlt?: undefined;
+    })
+  | (BaseRemovableTagProps & {
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbSrc: string;
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbAlt: string;
+    });
 
 export default function RemovableTag({
   text,
-  thumbSrc,
   icon,
   color,
-  skin,
-  isOutline,
-  disabled,
-  ariaDisabled,
-  onClick,
-}) {
+  thumbSrc = "",
+  thumbAlt = "",
+  skin = "pale",
+  isOutline = false,
+  disabled = false,
+  ariaDisabled = false,
+  onClick = () => {},
+}: RemovableTagProps) {
   const removeIcon = () => (
     <span className="lab-tag__remove-icon-wrapper">
       <Icon
@@ -29,8 +62,8 @@ export default function RemovableTag({
   );
 
   const thumb = () =>
-    thumbSrc ? (
-      <img className="lab-tag__thumb" src={thumbSrc} alt="" />
+    thumbSrc.length ? (
+      <img className="lab-tag__thumb" src={thumbSrc} alt={thumbAlt} />
     ) : undefined;
 
   const handleIcon = () =>
@@ -69,39 +102,7 @@ export default function RemovableTag({
       onClick={onClick}
       renderPrefix={thumb() || handleIcon()}
       renderSuffix={removeIcon()}
-      tabIndex="0"
+      tabIndex={0}
     />
   );
 }
-
-RemovableTag.propTypes = {
-  /** This is the Tag's text. */
-  text: PropTypes.string.isRequired,
-  /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
-  thumbSrc: PropTypes.string,
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Sets Tag's color. */
-  color: PropTypes.oneOf(TAG_COLORS),
-  /** Skin of the rendered Tag. */
-  skin: PropTypes.oneOf(["pale", "vivid"]),
-  /** Sets an outline style. */
-  isOutline: PropTypes.bool,
-  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Tag. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Callback to be executed when the Tag is clicked. */
-  onClick: PropTypes.func,
-};
-
-RemovableTag.defaultProps = {
-  thumbSrc: "",
-  icon: undefined,
-  color: undefined,
-  skin: "pale",
-  isOutline: false,
-  disabled: false,
-  ariaDisabled: false,
-  onClick: () => {},
-};

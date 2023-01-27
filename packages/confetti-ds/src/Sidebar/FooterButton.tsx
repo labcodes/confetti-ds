@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 import Icon from "../Icon";
-import { ICON_TYPES } from "../constants";
+import { IconTypes } from "../constants";
 
-/**
- *
- * @param label This is the button label.
- * @param icon Sets the icon related to the button label. Default state: no icon.
- * @param onClick Callback action to be executed when the FooterButton is clicked.
- * @returns {JSX.Element}
- * @constructor
- */
-export default function FooterButton({ label, icon, onClick }) {
+interface FooterButtonProps {
+  /** This is the button label. */
+  label: string,
+  /** Sets the icon related to the button label. Default state: no icon. */
+  icon?: IconTypes,
+  /** Callback action to be executed when the FooterButton is clicked. */
+  onClick: (event?: SyntheticEvent) => any,
+};
+
+export default function FooterButton({ label, icon, onClick }: FooterButtonProps) {
   return (
     <button
       type="button"
@@ -25,16 +25,3 @@ export default function FooterButton({ label, icon, onClick }) {
     </button>
   );
 }
-
-FooterButton.propTypes = {
-  /** This is the button label. */
-  label: PropTypes.string.isRequired,
-  /** Sets the icon related to the button label. Default state: no icon. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Callback action to be executed when the FooterButton is clicked. */
-  onClick: PropTypes.func.isRequired,
-};
-
-FooterButton.defaultProps = {
-  icon: undefined,
-};

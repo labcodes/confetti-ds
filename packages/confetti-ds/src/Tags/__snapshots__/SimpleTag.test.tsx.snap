@@ -33,7 +33,7 @@ exports[`SimpleTag renders as expected with a thumb 1`] = `
   role="button"
 >
   <img
-    alt=""
+    alt="fake-thumb-alt"
     className="lab-tag__thumb"
     src="fake-thumb"
   />

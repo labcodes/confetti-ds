@@ -1,13 +1,39 @@
-import PropTypes from "prop-types";
-import React, { useEffect, useRef } from "react";
+import React, { SyntheticEvent, useEffect, useRef } from "react";
+
+interface DropdownOptionProps {
+  /** This is a function is used to set a default option when the user pass the "selected" prop to a TagDropdownItem */
+  setDefaultOption: ({
+    text,
+    ref,
+  }: {
+    text: string;
+    ref: React.MutableRefObject<HTMLButtonElement>;
+  }) => any;
+  /** This function fires when keyboard interactions are detected. */
+  // /** This function sets the ref of the option if this is valid (meaning TagDropdownItem does not have the "disabled" prop). */
+  setRef: (ref: React.MutableRefObject<HTMLButtonElement>) => any;
+  /** TThis prop is used to set if an option is currently selected */
+  /** This children prop is the TagDropdownItem */
+  children: JSX.Element;
+  // This function is used to handle click or keydown interactions
+  handleInteraction: ({
+    event,
+    ref,
+  }: {
+    event: SyntheticEvent;
+    ref: React.MutableRefObject<HTMLButtonElement>;
+  }) => any;
+  // This prop is used to verify if the option is selected
+  isSelected: boolean;
+}
 
 export default function DropdownOption({
   children,
   handleInteraction,
   isSelected,
-  setDefaultOption,
   setRef,
-}) {
+  setDefaultOption = () => {},
+}: DropdownOptionProps) {
   const ref = useRef();
 
   const checkDisabled = () => {
@@ -53,22 +79,3 @@ export default function DropdownOption({
   );
 }
 
-DropdownOption.propTypes = {
-  /** This is a function is used to set a default option when the user pass the "selected" prop to a TagDropdownItem */
-  setDefaultOption: PropTypes.func,
-  /** This function fires when keyboard interactions are detected. */
-  // /** This function sets the ref of the option if this is valid (meaning TagDropdownItem does not have the "disabled" prop). */
-  setRef: PropTypes.func.isRequired,
-  /** TThis prop is used to set if an option is currently selected */
-  /** This children prop is the TagDropdownItem */
-  children: PropTypes.node.isRequired,
-  // This function is used to handle click or keydown interactions
-  handleInteraction: PropTypes.func.isRequired,
-  // This prop is used to verify if the option is selected
-  isSelected: PropTypes.bool.isRequired,
-};
-
-DropdownOption.defaultProps = {
-  // functions
-  setDefaultOption: () => {},
-};

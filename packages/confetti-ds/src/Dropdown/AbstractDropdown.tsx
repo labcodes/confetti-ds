@@ -1,26 +1,51 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import PropTypes from "prop-types";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  SyntheticEvent,
+  ReactNode,
+} from "react";
 import { isUndefined } from "lodash";
 
-import { Button } from "../Button";
-import { dropdownOptions } from "./propTypes";
 import DropdownSectionTitle from "./DropdownSectionTitle";
 import DropdownOption from "./DropdownOption";
 import TagDropdownItem from "./TagDropdownItem";
 import TagDropdownTrigger from "./TagDropdownTrigger";
+import { Button } from "../Button";
 import { usePrevious } from "../hooks";
+
+interface AbstractDropdownProps {
+  /** Function called after the dropdown is opened. */
+  onOpen?: (event?: SyntheticEvent) => any;
+  /** Function called after the dropdown is closed. */
+  onClose?: (event?: SyntheticEvent) => any;
+  /** Function called when the user selects one valid option. */
+  onSelect: (event?: SyntheticEvent) => any;
+  /** This is the dropdown type, and it can be a tag or button dropdown. */
+  dropdownType: "tag" | "button";
+  /** This is the dropdown color, and it will set the color of its section title and trigger. */
+  color?: "white" | "mineral" | "teal" | "purple";
+  /** This is the dropdown default trigger title. It will mount with this default text until the user selects an option. */
+  defaultText: string;
+  /** This is the dropdown of children. It can be a TagDropdownItem or a SectionTitle, and if the user doesn't pass a child, it will throw an error. */
+  children: any;
+  /** This is the dropdown id. It requires a unique id. */
+  id: string;
+  value?: string | number;
+}
 
 export default function AbstractDropdown({
   id,
-  color,
   dropdownType,
   children,
   onSelect,
-  onClose,
-  onOpen,
-  value,
   defaultText,
-}) {
+  color = "teal",
+  onOpen = () => {},
+  onClose = () => {},
+  value = "",
+}: AbstractDropdownProps) {
   const expectedKeys = [
     "ArrowDown",
     "ArrowUp",
@@ -344,13 +369,10 @@ export default function AbstractDropdown({
         {React.Children.map(children, (child, index) => {
           const isDropdownSectionTitle =
             child.type === DropdownSectionTitle ||
-            child.type.name === "DropdownSectionTitle" ||
-            child.displayName === "DropdownSectionTitle";
+            child.type === "DropdownSectionTitle";
           // change it to || child.type == OptionItem...
           const isDropdownItem =
-            child.type === TagDropdownItem ||
-            child.type.name === "TagDropdownItem" ||
-            child.displayName === "TagDropdownItem";
+            child.type === TagDropdownItem || child.type === "TagDropdownItem";
 
           if (isDropdownSectionTitle)
             return <child.type {...child.props} color={color} />;
@@ -373,32 +395,3 @@ export default function AbstractDropdown({
     </div>
   );
 }
-
-AbstractDropdown.propTypes = {
-  /** Function called after the dropdown is opened. */
-  onOpen: PropTypes.func,
-  /** Function called after the dropdown is closed. */
-  onClose: PropTypes.func,
-  /** Function called when the user selects one valid option. */
-  onSelect: PropTypes.func.isRequired,
-  /** This is the dropdown type, and it can be a tag or button dropdown. */
-  dropdownType: PropTypes.oneOf(dropdownOptions.types).isRequired,
-  /** This is the dropdown color, and it will set the color of its section title and trigger. */
-  color: PropTypes.string,
-  /** This is the dropdown default trigger title. It will mount with this default text until the user selects an option. */
-  defaultText: PropTypes.string.isRequired,
-  /** This is the dropdown of children. It can be a TagDropdownItem or a SectionTitle, and if the user doesn't pass a child, it will throw an error. */
-  children: PropTypes.node.isRequired,
-  /** This is the dropdown id. It requires a unique id. */
-  id: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-AbstractDropdown.defaultProps = {
-  // props
-  color: "teal",
-  // functions
-  onOpen: () => {},
-  onClose: () => {},
-  value: "",
-};

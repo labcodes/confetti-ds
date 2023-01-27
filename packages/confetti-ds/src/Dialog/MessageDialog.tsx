@@ -1,10 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 
 import Icon from "../Icon";
 import DialogWrapper from "./DialogWrapper";
 import { Button, OutlineButton } from "../Button";
-import { ICON_TYPES } from "../constants";
+import { IconTypes } from "../constants";
+import { AbstractButtonProps } from "../Button/AbstractButton";
+
+interface MessageDialogProps {
+  /** Components that will be rendered in the DialogWrapper (MessageDialog, StandardDialog) */
+  icon: IconTypes;
+  /** The title of the Dialog */
+  title: string;
+  /** The content of the Dialog */
+  content: string;
+  /** Props for the main button */
+  buttonProps: AbstractButtonProps;
+  /** Props for the secondary button */
+  outlineButtonProps?: AbstractButtonProps;
+  /** Toggles .lab-dialog--large classname to increase Dialog width */
+  isLarge?: boolean;
+  /** This function prop is called on a close button or outside click event */
+  handleClose?: (event?: SyntheticEvent) => any;
+  /** Toggles overflow based on is open state. It changes the state shouldToggleOverflow . */
+  isOpen?: boolean;
+  /** Toggles overflow based on is a modal state. It changes the state shouldToggleOverflow . */
+  isModal?: boolean;
+}
 
 export default function MessageDialog({
   icon,
@@ -12,11 +33,11 @@ export default function MessageDialog({
   content,
   buttonProps,
   outlineButtonProps,
-  isLarge,
-  isOpen,
-  handleClose,
-  isModal,
-}) {
+  isLarge = false,
+  isOpen = false,
+  isModal = false,
+  handleClose = () => {},
+}: MessageDialogProps) {
   const [swipeStartYCoordinate, setSwipeStartYCoordinate] =
     React.useState(undefined);
 
@@ -98,7 +119,7 @@ export default function MessageDialog({
               size="normal"
               text={outlineButtonProps.text}
               onClick={outlineButtonProps.onClick}
-              {...(isModal ? { tabIndex: "3" } : undefined)}
+              {...(isModal ? { tabIndex: 3 } : undefined)}
             />
           ) : undefined}
           <Button
@@ -106,36 +127,10 @@ export default function MessageDialog({
             {...(outlineButtonProps ? undefined : { fullWidth: true })}
             text={buttonProps.text}
             onClick={buttonProps.onClick}
-            {...(isModal ? { tabIndex: "1" } : undefined)}
+            {...(isModal ? { tabIndex: 1 } : undefined)}
           />
         </div>
       </div>
     </DialogWrapper>
   );
 }
-
-MessageDialog.propTypes = {
-  icon: PropTypes.oneOf(ICON_TYPES).isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  buttonProps: PropTypes.exact({
-    text: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-  }).isRequired,
-  outlineButtonProps: PropTypes.exact({
-    text: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-  }),
-  isLarge: PropTypes.bool,
-  handleClose: PropTypes.func,
-  isOpen: PropTypes.bool,
-  isModal: PropTypes.bool,
-};
-
-MessageDialog.defaultProps = {
-  outlineButtonProps: undefined,
-  isLarge: false,
-  handleClose: () => {},
-  isOpen: false,
-  isModal: false,
-};

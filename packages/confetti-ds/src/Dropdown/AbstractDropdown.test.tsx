@@ -163,14 +163,11 @@ describe("AbstractDropdown", () => {
         onSelect={onSelectMock}
         id="test"
       >
-        <div>Just some child 1</div>
         <DropdownSectionTitle text="First Section" />
 
         {expectedValues.map(({ value, text }) => (
           <TagDropdownItem key={value} value={value} text={text} />
         ))}
-
-        <div>Just some child 2</div>
       </AbstractDropdown>
     );
 

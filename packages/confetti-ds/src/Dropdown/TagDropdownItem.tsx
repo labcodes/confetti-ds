@@ -1,29 +1,81 @@
-import React, { useEffect, useCallback } from "react";
-import PropTypes from "prop-types";
+import React, {
+  SyntheticEvent,
+  useEffect,
+  useCallback,
+  MutableRefObject,
+} from "react";
 import { isEmpty } from "lodash";
 
 import Icon from "../Icon";
-import { ICON_TYPES, TAG_COLORS } from "../constants";
+import { IconTypes, ICON_TYPES, TagTypes, TAG_COLORS } from "../constants";
 import AbstractTag from "../Tags/AbstractTag";
+
+interface BaseTagDropdownItemProps {
+  /** This is the Tag's text. */
+  text: string;
+  /** Disables the Tag. Won't be read by screen readers. */
+  disabled?: boolean;
+  /** Action to be executed when the Tag is clicked. */
+  onClick?: (event: SyntheticEvent) => any;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+  icon?: IconTypes;
+  /** Sets Tag's color. */
+  color?: TagTypes;
+  /** Skin of the rendered Tag. */
+  skin?: "pale" | "vivid";
+  /** Sets an outline style. */
+  isOutline?: boolean;
+  /** Option tab index */
+  tabIndex?: number;
+  /** This function is used on AbstractTag's componenentDidMount to set the current Ref */
+  setRef?: (ref: MutableRefObject<HTMLButtonElement>) => any;
+  /** This function is used to handle click or keydown interactions */
+  onInteraction?: ({
+    event,
+    ref,
+  }: {
+    event: any;
+    ref: MutableRefObject<boolean>;
+  }) => any;
+  /** This is the option's value */
+  value?: string;
+  /** This prop is a boolean to verify if the option is current selected  */
+  isSelected?: boolean;
+}
+
+export type TagDropdownItemProps =
+  | (BaseTagDropdownItemProps & {
+      /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbSrc?: undefined;
+      /** Alt text of the thumb to be rendered. */
+      thumbAlt?: undefined;
+    })
+  | (BaseTagDropdownItemProps & {
+      /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbSrc: string;
+      /** Alt text of the thumb to be rendered. */
+      thumbAlt: string;
+    });
 
 export default function TagDropdownItem({
   text,
   thumbSrc,
+  thumbAlt,
   icon,
   color,
-  skin,
-  isOutline,
-  onClick,
-  disabled,
-  tabIndex,
-  onInteraction,
-  setRef,
   value,
-  isSelected,
-}) {
+  skin = "pale",
+  isOutline = false,
+  onClick = () => {},
+  disabled = false,
+  tabIndex = 0,
+  onInteraction = () => {},
+  setRef = () => {},
+  isSelected = false,
+}: TagDropdownItemProps) {
   const renderThumb = () =>
     thumbSrc ? (
-      <img className="lab-tag__thumb" src={thumbSrc} alt="" />
+      <img className="lab-tag__thumb" src={thumbSrc} alt={thumbAlt} />
     ) : undefined;
 
   const renderIcon = () =>
@@ -72,46 +124,3 @@ export default function TagDropdownItem({
     />
   );
 }
-
-TagDropdownItem.propTypes = {
-  /** This is the Tag's text. */
-  text: PropTypes.string.isRequired,
-  /** Disables the Tag. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Action to be executed when the Tag is clicked. */
-  onClick: PropTypes.func,
-  /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
-  thumbSrc: PropTypes.string,
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Sets Tag's color. */
-  color: PropTypes.oneOf(TAG_COLORS),
-  /** Skin of the rendered Tag. */
-  skin: PropTypes.oneOf(["pale", "vivid"]),
-  /** Sets an outline style. */
-  isOutline: PropTypes.bool,
-  /** Option tab index */
-  tabIndex: PropTypes.string,
-  /** This function is used on AbstractTag's componenentDidMount to set the current Ref */
-  setRef: PropTypes.func,
-  /** This function is used to handle click or keydown interactions */
-  onInteraction: PropTypes.func,
-  /** This is the option's value */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  /** This prop is a boolean to verify if the option is current selected  */
-  isSelected: PropTypes.bool,
-};
-
-TagDropdownItem.defaultProps = {
-  thumbSrc: "",
-  icon: undefined,
-  isOutline: false,
-  skin: "pale",
-  color: undefined,
-  disabled: false,
-  onClick: () => {},
-  setRef: () => {},
-  onInteraction: () => {},
-  tabIndex: "0",
-  isSelected: false,
-};

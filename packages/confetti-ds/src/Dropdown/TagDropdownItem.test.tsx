@@ -116,6 +116,7 @@ describe("TagDropdownItem", () => {
         <TagDropdownItem
           text="Test render TagDropdownItem with thumb"
           thumbSrc="fake-thumb"
+          thumbAlt="fake-thumb-alt"
           value="option1"
         />
       )
@@ -127,6 +128,7 @@ describe("TagDropdownItem", () => {
       <TagDropdownItem
         text="Test TagDropdownItem with thumb"
         thumbSrc="fake-thumb"
+        thumbAlt="fake-thumb-alt"
         value="option1"
       />
     ).html();
@@ -143,6 +145,7 @@ describe("TagDropdownItem", () => {
             text="Test to not render TagDropdownItem with with thumb and icon"
             icon="magnifying-glass"
             thumbSrc="fake-thumb"
+            thumbAlt="fake-thumb-alt"
             value="option1"
           />
         );

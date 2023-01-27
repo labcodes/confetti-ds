@@ -1,39 +1,47 @@
-import React, { useRef, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useRef, useState, useEffect, SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 import Icon from "../Icon";
 
-/**
- *
- * @param value is the text that will be rendered inside the Search field.
- * @param id  is the text that will serve as unique identifier. It's also an important accessibility tool.
- * @param disabled disables the Search. Won't be read by screen readers.
- * @param ariaDisabled disables the Search. Will be read by screen readers. When true, will override `disabled`.
- * @param placeholder it's the placeholder text when the Search field is empty. Usually used to describe the values accepted (e.g.: Search by keyword or status).
- * @param type it's a style variation of the Search.
- * @param onClear it's an action to be executed when the Search field is cleared out.
- * @param onSearch it's an action to be executed when the search is performed.
- * @param onChange  it's an action  to be executed when the Search default value changes.
- * @param defaultValue defines a default value for the Search initialization.
- * @returns {JSX.Element}
- * @constructor
- */
+interface AbstractSearchProps {
+  /** */
+  id: string;
+  /** Defines a default value for the Search initialization. */
+  defaultValue: string;
+  /** Disables the Search. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled: boolean;
+  /** Disables the Search. Won't be read by screen readers. */
+  disabled: boolean;
+  /** Text that will be rendered inside the Search field. */
+  value: string;
+  /** Action to be executed when the Search default value changes. */
+  onChange: (event?: SyntheticEvent) => any;
+  /** Action to be executed when the search is performed. */
+  onSearch: (event?: SyntheticEvent) => any;
+  /** Action to be executed when the Search field is cleared out. */
+  onClear: (event?: SyntheticEvent) => any;
+  /** The placeholder text when the Search field is empty. Usually used to describe the values accepted (e.g.: Search by keyword or status). */
+  placeholder: string;
+  /** Defines which type of search will be renderized*/
+  type: "inline" | "standard";
+  /** Previous valued stored on cache*/
+  prevValue: string;
 
+}
 export default function AbstractSearch({
-  value,
   id,
-  disabled,
-  ariaDisabled,
-  placeholder,
-  type,
-  onClear,
-  onSearch,
-  onChange,
   defaultValue,
-}) {
-  const [localValue, setLocalValue] = useState(value || defaultValue || '');
-  const searchRef = useRef();
-  const prevValue = useRef();
+  disabled = false,
+  ariaDisabled = false,
+  value,
+  onChange = () => {},
+  onSearch = () => {},
+  onClear = () => {},
+  placeholder = " ",
+  type
+}: AbstractSearchProps) {
+  const [localValue, setLocalValue] = useState(value || defaultValue || "");
+  const searchRef = useRef<string>();
+  const prevValue = useRef<string>();
 
   const handleOnChange = (event) => {
     setLocalValue(event.target.value);
@@ -42,7 +50,7 @@ export default function AbstractSearch({
     }
   };
 
-  const handleOnSearch = () => {
+  const handleOnSearch = (localValue) => {
     if (!isUndefined(onSearch)) {
       onSearch(localValue);
     }
@@ -54,7 +62,7 @@ export default function AbstractSearch({
     }
   };
 
-  const handleOnClear = () => {
+  const handleOnClear = (value) => {
     if (isUndefined(value)) {
       setLocalValue("");
     }
@@ -65,7 +73,7 @@ export default function AbstractSearch({
   };
 
   useEffect(() => {
-    if (value && value !== prevValue) {
+    if (value && value !== prevValue.current) {
       setLocalValue(value);
     }
   }, [defaultValue]);
@@ -122,45 +130,19 @@ export default function AbstractSearch({
   );
 }
 
-AbstractSearch.propTypes = {
-  /** */
-  id: PropTypes.string,
-  /** Defines a default value for the Search initialization. */
-  defaultValue: PropTypes.string,
-  /** Disables the Search. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Search. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Text that will be rendered inside the Search field. */
-  value: PropTypes.string,
-  /** Action to be executed when the Search default value changes. */
-  onChange: PropTypes.func,
-  /** Action to be executed when the search is performed. */
-  onSearch: PropTypes.func,
-  /** Action to be executed when the Search field is cleared out. */
-  onClear: PropTypes.func,
-  /** The placeholder text when the Search field is empty. Usually used to describe the values accepted (e.g.: Search by keyword or status). */
-  placeholder: PropTypes.string,
-  /** Style variation of the Search. */
-  type: PropTypes.oneOf(["standard", "inline"]).isRequired,
-};
-
-AbstractSearch.defaultProps = {
-  id: undefined,
-  defaultValue: undefined,
-  disabled: false,
-  ariaDisabled: false,
-  value: undefined,
-  onChange: () => {},
-  onSearch: () => {},
-  onClear: () => {},
-  placeholder: " ",
-};
-
 // ----- Auxiliary components ----- //
 
-function TrailingIcon(props) {
-  const { onClear, disabled, ariaDisabled } = props;
+interface TrailingIconProps {
+  disabled: boolean;
+  ariaDisabled: boolean;
+  onClear: (event?: SyntheticEvent) => any;
+}
+
+function TrailingIcon(
+  disabled = false,
+  ariaDisabled = false,
+  onClear = () => {},
+): TrailingIconProps {
   let className = "lab-search__remove-icon";
   if (!onClear) {
     className += " lab-input__icon--disabled"; // check this out
@@ -179,20 +161,18 @@ function TrailingIcon(props) {
   );
 }
 
-TrailingIcon.propTypes = {
-  onClear: PropTypes.func,
-  disabled: PropTypes.bool,
-  ariaDisabled: PropTypes.bool,
-};
-
-TrailingIcon.defaultProps = {
-  onClear: () => {},
-  disabled: false,
-  ariaDisabled: false,
-};
-
-function StandardSearchIcon(props) {
-  const { disabled, ariaDisabled, handleOnSearch } = props;
+interface StandardSearchIconProps {
+  disabled: boolean;
+  ariaDisabled: boolean;
+  handleOnSearch: (event?: SyntheticEvent) => any;
+  type: string
+}
+function StandardSearchIcon(
+  disabled = false,
+  ariaDisabled = false,
+  handleOnSearch: undefined
+): StandardSearchIconProps {
+  // const { disabled, ariaDisabled, handleOnSearch } = props;
   return (
     <React.Fragment>
       <button
@@ -213,20 +193,8 @@ function StandardSearchIcon(props) {
   );
 }
 
-StandardSearchIcon.propTypes = {
-  disabled: PropTypes.bool,
-  ariaDisabled: PropTypes.bool,
-  handleOnSearch: PropTypes.func,
-};
 
-StandardSearchIcon.defaultProps = {
-  disabled: false,
-  ariaDisabled: false,
-  handleOnSearch: undefined,
-};
-
-function InlineSearchIcon(props) {
-  const { disabled } = props;
+function InlineSearchIcon({ disabled }: {disabled: boolean}) {
   return (
     <Icon
       className={`lab-inline-search__icon ${
@@ -237,11 +205,3 @@ function InlineSearchIcon(props) {
     />
   );
 }
-
-InlineSearchIcon.propTypes = {
-  disabled: PropTypes.bool,
-};
-
-InlineSearchIcon.defaultProps = {
-  disabled: false,
-};

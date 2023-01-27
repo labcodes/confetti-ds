@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import Icon from "../Icon";
 import { SimpleTag } from "../Tags";
-import { IconTypes } from "../constants";
+import { IconColorTypes, IconTypes, TagTypes } from "../constants";
 
 interface CardHeaderProps {
   /** Sets card's title. */
@@ -18,11 +18,11 @@ interface CardHeaderProps {
   /** Sets a SimpleTag's text in the Card Header. Can be used instead of categoryText to highlight the group of which the Card is part of OR together with categoryText as a sub-category. Only use if categoryColor is not present.  */
   categoryTagText?: string;
   /** Always used with categoryTagText to set SimpleTag's color in the Card Header. If unset the Tag will be displayed with its default color. */
-  categoryTagColor?: string;
+  categoryTagColor?: TagTypes;
   /** Defines an Icon as visual support to categoryText in the Card Header. It must not be used together with categoryColor. */
   categoryIcon?: IconTypes;
   /** Defines a Color as visual support to categoryText in the Card Header. It must not be used together with categoryIcon. */
-  categoryColor?: string;
+  categoryColor?: TagTypes;
   /** Sets whether the header will go over the image or not. */
   isOverlay?: boolean;
 }

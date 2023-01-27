@@ -1,18 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 import FocusTrap from "focus-trap-react";
 
-/**
- *
- * @param isOpen Toggles overflow based on is open state. It changes the state shouldToggleOverflow
- * @param isModal Toggles overflow based on is a modal state. It changes the state shouldToggleOverflow
- * @param handleClose This function prop is called on a close button or outside click event
- * @param isLarge Toggles .lab-dialog--large classname to increase Dialog width
- * @param isMessageDialog Toggles .lab-dialog--large classname to increase Dialog width
- * @param children Components that will be rendered in the DialogWrapper (MessageDialog, StandardDialog)
- * @returns {JSX.Element}
- * @constructor
- */
+interface DialogWrapperProps {
+  /** This function prop is called on a close button or outside click event */
+  handleClose: (event: SyntheticEvent) => any;
+  /** Toggles overflow based on is a modal state. It changes the state shouldToggleOverflow . */
+  isModal: boolean;
+  /** Components that will be rendered in the DialogWrapper (MessageDialog, StandardDialog) */
+  children: React.ReactNode;
+  /** Toggles overflow based on is open state. It changes the state shouldToggleOverflow . */
+  isOpen?: boolean;
+  /** Toggles .lab-dialog--message classname */
+  isMessageDialog?: boolean;
+  /** Toggles .lab-dialog--large classname to increase Dialog width */
+  isLarge?: boolean;
+}
+
 export default function DialogWrapper({
   isOpen,
   isModal,
@@ -20,7 +23,7 @@ export default function DialogWrapper({
   isLarge,
   isMessageDialog,
   children,
-}) {
+}: DialogWrapperProps) {
   const deviceIsMobile = window.outerWidth <= 768;
   const [shouldToggleOverflow, setShouldToggleOverflow] = React.useState(
     isOpen && (isModal || deviceIsMobile)
@@ -79,23 +82,3 @@ export default function DialogWrapper({
     </React.Fragment>
   );
 }
-
-DialogWrapper.propTypes = {
-  /** This function prop is called on a close button or outside click event */
-  handleClose: PropTypes.func.isRequired,
-  /** Toggles overflow based on is open state. It changes the state shouldToggleOverflow . */
-  isOpen: PropTypes.bool.isRequired,
-  /** Toggles overflow based on is a modal state. It changes the state shouldToggleOverflow . */
-  isModal: PropTypes.bool.isRequired,
-  /** Components that will be rendered in the DialogWrapper (MessageDialog, StandardDialog) */
-  children: PropTypes.node.isRequired,
-  /** Toggles .lab-dialog--message classname */
-  isMessageDialog: PropTypes.bool,
-  /** Toggles .lab-dialog--large classname to increase Dialog width */
-  isLarge: PropTypes.bool,
-};
-
-DialogWrapper.defaultProps = {
-  isMessageDialog: undefined,
-  isLarge: undefined,
-};

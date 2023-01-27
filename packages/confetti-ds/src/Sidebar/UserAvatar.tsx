@@ -1,15 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-/**
- *
- * @param avatarSrc Source of the avatar to be rendered.
- * @param altText Text that will specify the HTML alt attribute of an <img> element.
- * @param caption Text that will be rendered as the avatar's caption.
- * @returns {JSX.Element}
- * @constructor
- */
-export default function UserAvatar({ avatarSrc, altText, caption }) {
+interface UserAvatarProps {
+  /** Source of the avatar to be rendered. */
+  avatarSrc: string,
+  /** Text that will specify the HTML alt attribute of an <img> element. */
+  altText: string,
+  /** Text that will be rendered as the avatar's caption. */
+  caption: string,
+};
+
+export default function UserAvatar({ avatarSrc, altText, caption }: UserAvatarProps) {
   return (
     <div className="lab-narrow-sidebar__avatar">
       <div className="lab-narrow-sidebar__avatar-photo">
@@ -22,12 +22,3 @@ export default function UserAvatar({ avatarSrc, altText, caption }) {
     </div>
   );
 }
-
-UserAvatar.propTypes = {
-  /** Source of the avatar to be rendered. */
-  avatarSrc: PropTypes.string.isRequired,
-  /** Text that will specify the HTML alt attribute of an <img> element. */
-  altText: PropTypes.string.isRequired,
-  /** Text that will be rendered as the avatar's caption. */
-  caption: PropTypes.string.isRequired,
-};

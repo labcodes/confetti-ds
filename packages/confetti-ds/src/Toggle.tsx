@@ -1,17 +1,35 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, {SyntheticEvent, useState, useEffect } from "react";
 import { isUndefined } from "lodash";
+
+interface TooggleProps {
+  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
+  id?: string;
+  /** Text that will specify the HTML `name` attribute of an `<input>` element. */
+  name?: string;
+  /** Defines a static value for the Toggle. If set, internal logic is deactivated. */
+  value: boolean;
+  /** Defines the Toggle color. */
+  color: "teal" | "purple";
+  /** Disables the Toggle. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled: boolean;
+  /** Disables the Toggle. Won't be read by screen readers. */
+  disabled: boolean;
+  /** Sets value to true by default. */
+  defaultValue: boolean;
+  /** Action executed when the Toggle is clicked. */
+  handleToggle: (event?: SyntheticEvent) => any;
+}
 
 export default function Toggle({
   defaultValue,
   id,
-  color,
+  color = "teal",
   name,
-  disabled,
-  ariaDisabled,
+  disabled = false,
+  ariaDisabled = false,
   value,
   handleToggle,
-}) {
+}: TooggleProps) {
   const [localValue, setLocalValue] = useState(
     !isUndefined(defaultValue) ? defaultValue : false
   );
@@ -56,31 +74,3 @@ export default function Toggle({
     </label>
   );
 }
-
-Toggle.propTypes = {
-  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id: PropTypes.string.isRequired,
-  /** Text that will specify the HTML `name` attribute of an `<input>` element. */
-  name: PropTypes.string.isRequired,
-  /** Defines a static value for the Toggle. If set, internal logic is deactivated. */
-  value: PropTypes.bool,
-  /** Defines the Toggle color. */
-  color: PropTypes.oneOf(["teal", "purple"]),
-  /** Disables the Toggle. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Toggle. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Sets value to true by default. */
-  defaultValue: PropTypes.bool,
-  /** Action executed when the Toggle is clicked. */
-  handleToggle: PropTypes.func,
-};
-
-Toggle.defaultProps = {
-  color: "teal",
-  disabled: false,
-  ariaDisabled: false,
-  defaultValue: undefined,
-  value: undefined,
-  handleToggle: () => {},
-};

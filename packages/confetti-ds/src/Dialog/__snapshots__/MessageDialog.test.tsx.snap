@@ -66,7 +66,7 @@ exports[`MessageDialog rendering with isLarge false 1`] = `
         <button
           className="lab-btn lab-btn--outline lab-btn--normal"
           onClick={[Function]}
-          tabIndex="3"
+          tabIndex={3}
           type="button"
         >
           
@@ -75,7 +75,7 @@ exports[`MessageDialog rendering with isLarge false 1`] = `
         <button
           className="lab-btn lab-btn--default lab-btn--normal"
           onClick={[Function]}
-          tabIndex="1"
+          tabIndex={1}
           type="button"
         >
           

@@ -1,23 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 
 export const NavbarWithDividersContext = React.createContext(false);
 
-/**
- *
- * @param children Components that will be rendered in the NarrowSidebar (Header, Item, Logotype, etc).
- * @param isOpenOnMobile In mobile environment, defines if the Sidebar is open.
- * @param isVivid Defines if the rendered Sidebar has a vivid style.
- * @param withDividers Defines if the Sidebar has dividers.
- * @returns {JSX.Element}
- * @constructor
- */
+interface NarrowSidebarProps {
+  /** Components that will be rendered in the NarrowSidebar (Header, Item, Logotype, etc). */
+  children: ReactNode;
+  /** In mobile environment, defines if the Sidebar is open. */
+  isOpenOnMobile?: boolean;
+  /** Defines if the rendered Sidebar has a vivid style. */
+  isVivid?: boolean;
+  /** Defines if the Sidebar has dividers. */
+  withDividers?: boolean;
+}
+
 export default function NarrowSidebar({
   children,
-  isOpenOnMobile,
-  isVivid,
-  withDividers,
-}) {
+  isVivid = false,
+  isOpenOnMobile = false,
+  withDividers = false,
+}: NarrowSidebarProps) {
   return (
     <NavbarWithDividersContext.Provider value={withDividers}>
       <div
@@ -32,20 +33,3 @@ export default function NarrowSidebar({
     </NavbarWithDividersContext.Provider>
   );
 }
-
-NarrowSidebar.propTypes = {
-  /** Components that will be rendered in the NarrowSidebar (Header, Item, Logotype, etc). */
-  children: PropTypes.node.isRequired,
-  /** In mobile environment, defines if the Sidebar is open. */
-  isOpenOnMobile: PropTypes.bool,
-  /** Defines if the rendered Sidebar has a vivid style. */
-  isVivid: PropTypes.bool,
-  /** Defines if the Sidebar has dividers. */
-  withDividers: PropTypes.bool,
-};
-
-NarrowSidebar.defaultProps = {
-  isVivid: false,
-  isOpenOnMobile: false,
-  withDividers: false,
-};

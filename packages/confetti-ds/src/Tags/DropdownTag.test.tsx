@@ -42,14 +42,14 @@ describe("DropdownTag", () => {
 
   it("renders with a pink color", async () => {
     const renderedComponent = renderer
-      .create(<DropdownTag text="Test render pink DropdownTag" color="pink" />)
+      .create(<DropdownTag text="Test render black-75 DropdownTag" color="black-75" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <DropdownTag text="Test pink DropdownTag" color="pink" />
+      <DropdownTag text="Test pink DropdownTag" color="black-75" />
     ).html();
-    expect(wrapper).toContain("lab-tag--pink");
+    expect(wrapper).toContain("lab-tag--black-75");
   });
 
   it("calls prop.onClick when clicked", async () => {

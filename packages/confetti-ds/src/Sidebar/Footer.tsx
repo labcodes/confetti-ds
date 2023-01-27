@@ -1,21 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 
-/**
- *
- * @param children Components that will be rendered in the Footer.
- * @returns {JSX.Element}
- * @constructor
- */
-export default function Footer({ children }) {
+export default function Footer({ children }: { children?: ReactNode }) {
   return <div className="lab-narrow-sidebar__footer">{children}</div>;
 }
-
-Footer.propTypes = {
-  /** Components that will be rendered in the Footer. */
-  children: PropTypes.node,
-};
-
-Footer.defaultProps = {
-  children: undefined,
-};

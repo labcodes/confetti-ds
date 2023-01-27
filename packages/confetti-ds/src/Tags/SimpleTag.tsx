@@ -1,22 +1,49 @@
 import React, { useMemo } from "react";
-import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import { ICON_TYPES, TAG_COLORS } from "../constants";
+import { IconTypes, TagTypes } from "../constants";
+
+type BaseSimpleTagProps = {
+  /** This is the Tag's text. */
+  text: string;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+  icon?: IconTypes;
+  /** Sets Tag's color. */
+  color?: TagTypes;
+  /** Skin of the rendered Tag. */
+  skin?: "pale" | "vivid";
+  /** Sets an outline style. */
+  isOutline?: boolean;
+};
+
+type SimpleTagProps =
+  | (BaseSimpleTagProps & {
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbSrc?: undefined;
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbAlt?: undefined;
+    })
+  | (BaseSimpleTagProps & {
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbSrc: string;
+      /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
+      thumbAlt: string;
+    });
 
 export default function SimpleTag({
   text,
-  thumbSrc,
   icon,
   color,
-  skin,
-  isOutline,
-}) {
+  thumbSrc = "",
+  thumbAlt = "",
+  isOutline = false,
+  skin = "pale",
+}: SimpleTagProps) {
   const thumb = () =>
-    thumbSrc ? (
-      <img className="lab-tag__thumb" src={thumbSrc} alt="" />
+    thumbSrc.length ? (
+      <img className="lab-tag__thumb" src={thumbSrc} alt={thumbAlt} />
     ) : undefined;
 
   const handleIcon = () =>
@@ -54,26 +81,3 @@ export default function SimpleTag({
     />
   );
 }
-
-SimpleTag.propTypes = {
-  /** This is the Tag's text. */
-  text: PropTypes.string.isRequired,
-  /** Source of the thumb to be rendered. Won't render a thumb if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
-  thumbSrc: PropTypes.string,
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Sets Tag's color. */
-  color: PropTypes.oneOf(TAG_COLORS),
-  /** Skin of the rendered Tag. */
-  skin: PropTypes.oneOf(["pale", "vivid"]),
-  /** Sets an outline style. */
-  isOutline: PropTypes.bool,
-};
-
-SimpleTag.defaultProps = {
-  thumbSrc: "",
-  icon: undefined,
-  isOutline: false,
-  skin: "pale",
-  color: undefined,
-};

@@ -1,26 +1,55 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React , {SyntheticEvent} from "react";
 
 import AbstractTextInput from "./AbstractTextInput";
-import { ICON_TYPES, ICON_COLORS } from "../constants";
+import { IconTypes, ICON_TYPES, IconColorTypes, ICON_COLORS } from "../constants";
 
+interface EmailInputProps {
+ /** Text that will serve as unique identifier. It's also an important accessibility tool. */
+ id?: string;
+ /** The Input's text label. */
+ label?: string;
+ /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
+ ariaDisabled: boolean;
+ /** Disables the text input. Won't be read by screen readers. */
+ disabled: boolean;
+ /** Defines a default value for the Input initialization. */
+ defaultValue: string;
+ /** Value that will be rendered inside the Input field. */
+ value: string;
+ /** Defines an icon type to display inside the input. */
+ icon: IconTypes;
+ /** Defines the Icon color. */
+ iconColor: IconColorTypes;
+ /** Defines if the Input is required. */
+ required: boolean;
+ /** Text that will be displayed as a help message below the input. */
+ helpMessage: string;
+ /** Text that will be displayed at the left portion of the Input. */
+ prefix: string;
+ /** Text that will be displayed at the right portion of the Input. */
+ suffix: string;
+ /** Custom error message displayed below the Input when the value is not valid. */
+ customErrorMsg: string;
+ /** Callback action to be executed when the Input default value changes. */
+ onChange: (event?: SyntheticEvent) => any;
+ /** Callback action to be executed when the Input's Icon is clicked.  */
+ onIconClick: (event?: SyntheticEvent) => any;
+}
 export default function EmailInput({
-  id,
-  label,
+  disabled= false,
+  ariaDisabled= false,
   defaultValue,
   value,
   icon,
-  iconColor,
-  required,
+  iconColor= "mineral-70",
+  required= false,
   helpMessage,
   prefix,
   suffix,
   customErrorMsg,
-  onChange,
-  onIconClick,
-  disabled,
-  ariaDisabled,
-}) {
+  onChange= () => {},
+  onIconClick= () => {},
+}: EmailInputProps) {
   return (
     <AbstractTextInput
       type="email"
@@ -42,52 +71,3 @@ export default function EmailInput({
     />
   );
 }
-
-EmailInput.propTypes = {
-  /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id: PropTypes.string.isRequired,
-  /** The Input's text label. */
-  label: PropTypes.string.isRequired,
-  /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the text input. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Defines a default value for the Input initialization. */
-  defaultValue: PropTypes.string,
-  /** Value that will be rendered inside the Input field. */
-  value: PropTypes.string,
-  /** Defines an icon type to display inside the input. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Defines the Icon color. */
-  iconColor: PropTypes.oneOf(ICON_COLORS),
-  /** Defines if the Input is required. */
-  required: PropTypes.bool,
-  /** Text that will be displayed as a help message below the input. */
-  helpMessage: PropTypes.string,
-  /** Text that will be displayed at the left portion of the Input. */
-  prefix: PropTypes.string,
-  /** Text that will be displayed at the right portion of the Input. */
-  suffix: PropTypes.string,
-  /** Custom error message displayed below the Input when the value is not valid. */
-  customErrorMsg: PropTypes.string,
-  /** Callback action to be executed when the Input default value changes. */
-  onChange: PropTypes.func,
-  /** Callback action to be executed when the Input's Icon is clicked.  */
-  onIconClick: PropTypes.func,
-};
-
-EmailInput.defaultProps = {
-  disabled: false,
-  ariaDisabled: false,
-  defaultValue: undefined,
-  value: undefined,
-  icon: undefined,
-  iconColor: "mineral-70",
-  required: false,
-  helpMessage: undefined,
-  prefix: undefined,
-  suffix: undefined,
-  customErrorMsg: undefined,
-  onChange: () => {},
-  onIconClick: () => {},
-};

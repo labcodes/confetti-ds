@@ -1,21 +1,41 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { SyntheticEvent } from "react";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import { ICON_TYPES, TAG_COLORS } from "../constants";
+import {
+  IconColorTypes,
+  IconTypes,
+} from "../constants";
+
+interface DropdownTagProps {
+  /** This is the Tag's text. */
+  text: string;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+  icon?: IconTypes;
+  /** Sets Tag's color. */
+  color?: IconColorTypes;
+  /** Skin of the rendered Tag. */
+  skin?: "pale" | "vivid";
+  /** Sets an outline style. */
+  isOutline?: boolean;
+  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled?: boolean;
+  /** Disables the Tag. Won't be read by screen readers. */
+  disabled?: boolean;
+  /** Action to be executed when the Tag is clicked. */
+  onClick?: (event?: SyntheticEvent) => any;
+}
 
 export default function DropdownTag({
   text,
   icon,
   color,
-  skin,
-  isOutline,
-  disabled,
-  ariaDisabled,
-  onClick,
-}) {
-  // eslint-disable-next-line react/display-name
+  skin = "pale",
+  isOutline = false,
+  disabled = false,
+  ariaDisabled = false,
+  onClick = () => {},
+}: DropdownTagProps) {
   const handleIcon = () =>
     icon ? (
       <Icon
@@ -51,36 +71,7 @@ export default function DropdownTag({
       onClick={onClick}
       renderPrefix={handleIcon()}
       renderSuffix={dropdownIcon()}
-      tabIndex="0"
+      tabIndex={0}
     />
   );
 }
-
-DropdownTag.propTypes = {
-  /** This is the Tag's text. */
-  text: PropTypes.string.isRequired,
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-  icon: PropTypes.oneOf(ICON_TYPES),
-  /** Sets Tag's color. */
-  color: PropTypes.oneOf(TAG_COLORS),
-  /** Skin of the rendered Tag. */
-  skin: PropTypes.oneOf(["pale", "vivid"]),
-  /** Sets an outline style. */
-  isOutline: PropTypes.bool,
-  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: PropTypes.bool,
-  /** Disables the Tag. Won't be read by screen readers. */
-  disabled: PropTypes.bool,
-  /** Action to be executed when the Tag is clicked. */
-  onClick: PropTypes.func,
-};
-
-DropdownTag.defaultProps = {
-  icon: undefined,
-  color: undefined,
-  skin: "pale",
-  isOutline: false,
-  disabled: false,
-  ariaDisabled: false,
-  onClick: () => {},
-};

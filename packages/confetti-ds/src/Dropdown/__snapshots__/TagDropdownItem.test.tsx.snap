@@ -9,7 +9,7 @@ exports[`TagDropdownItem renders as expected with a magnifying-glass icon 1`] = 
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  tabIndex="0"
+  tabIndex={0}
   type="button"
   value="option1"
 >
@@ -29,7 +29,7 @@ exports[`TagDropdownItem renders as expected with a purple color 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  tabIndex="0"
+  tabIndex={0}
   type="button"
   value="option1"
 >
@@ -46,12 +46,12 @@ exports[`TagDropdownItem renders as expected with a thumb 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  tabIndex="0"
+  tabIndex={0}
   type="button"
   value="option1"
 >
   <img
-    alt=""
+    alt="fake-thumb-alt"
     className="lab-tag__thumb"
     src="fake-thumb"
   />
@@ -68,7 +68,7 @@ exports[`TagDropdownItem renders as expected with a vivid skin 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  tabIndex="0"
+  tabIndex={0}
   type="button"
   value="option1"
 >
@@ -85,7 +85,7 @@ exports[`TagDropdownItem renders as expected with outline as true 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  tabIndex="0"
+  tabIndex={0}
   type="button"
   value="option1"
 >
@@ -102,7 +102,7 @@ exports[`TagDropdownItem renders with base props 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  tabIndex="0"
+  tabIndex={0}
   type="button"
   value="option1"
 >

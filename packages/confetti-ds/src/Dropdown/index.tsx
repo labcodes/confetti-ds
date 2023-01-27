@@ -5,4 +5,4 @@ import SectionTitle from "./DropdownSectionTitle";
 TagDropdown["TagItem"] = TagDropdownItem;
 TagDropdown["SectionTitle"] = SectionTitle;
 
-export { TagDropdown };
+export { TagDropdown, TagDropdownItem, SectionTitle };
