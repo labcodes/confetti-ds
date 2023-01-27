@@ -62,7 +62,7 @@ export default function CardHeader({
           {categoryIcon ? <Icon type={categoryIcon} /> : null}
           {categoryColor ? (
             <span
-              className={`lab-card-category__color lab-card-category__qcolor--${categoryColor}`}
+              className={`lab-card-category__color lab-card-category__color--${categoryColor}`}
             />
           ) : null}
           {categoryText ? (
