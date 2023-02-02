@@ -1,10 +1,11 @@
-import React, {SyntheticEvent} from "react";
+import React from "react";
 import { isUndefined } from "lodash";
 
 import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
 
-import { IconTypes, ICON_TYPES } from "./constants";
+import { IconTypes } from "./constants";
+import { AbstractButtonProps } from "./Button/AbstractButton";
 
 interface AlertProps {
   /** This is the message text string. */
@@ -14,12 +15,7 @@ interface AlertProps {
   /** Sets the icon related to the alert’s message. */
   icon?: IconTypes;
   /** Adds props for buttons e.g.: [example of how to use]. Check buttons page for more information. */
-  buttonProps: {
-    /** Alert's text button label. */
-    text: string;
-    /** Action to be executed when the button is clicked. */
-    onClick: (event?: SyntheticEvent) => any;
-  };
+  buttonProps?: AbstractButtonProps;
 }
 
 export default function Alert({

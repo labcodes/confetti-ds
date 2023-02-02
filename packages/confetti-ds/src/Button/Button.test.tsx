@@ -81,8 +81,7 @@ describe("Button", () => {
   it("renders as expected when tabIndex is passed", async () => {
     const renderedComponent = renderer
       .create(
-        // eslint-disable-next-line jsx-a11y/tabindex-no-positive
-        <Button text="Test tabIndex" fullWidth tabIndex="1" />
+        <Button text="Test tabIndex" fullWidth tabIndex={1} />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();

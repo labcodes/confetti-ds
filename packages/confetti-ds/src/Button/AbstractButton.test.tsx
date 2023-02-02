@@ -46,8 +46,7 @@ describe("AbstractButton", () => {
         <AbstractButton
           variant="default"
           text="Test tabIndex"
-          // eslint-disable-next-line jsx-a11y/tabindex-no-positive
-          tabIndex="1"
+          tabIndex={1}
         />
       )
       .toJSON();

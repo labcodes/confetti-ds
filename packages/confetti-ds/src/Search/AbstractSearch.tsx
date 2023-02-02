@@ -3,44 +3,42 @@ import { isUndefined } from "lodash";
 import Icon from "../Icon";
 
 interface AbstractSearchProps {
-  /** */
   id: string;
   /** Defines a default value for the Search initialization. */
-  defaultValue: string;
+  defaultValue?: string;
   /** Disables the Search. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: boolean;
+  ariaDisabled?: boolean;
   /** Disables the Search. Won't be read by screen readers. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Text that will be rendered inside the Search field. */
-  value: string;
+  value?: string;
   /** Action to be executed when the Search default value changes. */
-  onChange: (event?: SyntheticEvent) => any;
+  onChange?: (event?: SyntheticEvent) => any;
   /** Action to be executed when the search is performed. */
-  onSearch: (event?: SyntheticEvent) => any;
+  onSearch?: (event?: SyntheticEvent) => any;
   /** Action to be executed when the Search field is cleared out. */
-  onClear: (event?: SyntheticEvent) => any;
+  onClear?: (event?: SyntheticEvent) => any;
   /** The placeholder text when the Search field is empty. Usually used to describe the values accepted (e.g.: Search by keyword or status). */
-  placeholder: string;
+  placeholder?: string;
   /** Defines which type of search will be renderized*/
-  type: "inline" | "standard";
+  type?: "inline" | "standard";
   /** Previous valued stored on cache*/
-  prevValue: string;
-
+  prevValue?: string;
 }
 export default function AbstractSearch({
   id,
   defaultValue,
+  value,
+  type,
   disabled = false,
   ariaDisabled = false,
-  value,
   onChange = () => {},
   onSearch = () => {},
   onClear = () => {},
   placeholder = " ",
-  type
 }: AbstractSearchProps) {
   const [localValue, setLocalValue] = useState(value || defaultValue || "");
-  const searchRef = useRef<string>();
+  const searchRef = useRef<HTMLInputElement>();
   const prevValue = useRef<string>();
 
   const handleOnChange = (event) => {
@@ -62,7 +60,7 @@ export default function AbstractSearch({
     }
   };
 
-  const handleOnClear = (value) => {
+  const handleOnClear = () => {
     if (isUndefined(value)) {
       setLocalValue("");
     }
@@ -133,16 +131,16 @@ export default function AbstractSearch({
 // ----- Auxiliary components ----- //
 
 interface TrailingIconProps {
-  disabled: boolean;
-  ariaDisabled: boolean;
-  onClear: (event?: SyntheticEvent) => any;
+  disabled?: boolean;
+  ariaDisabled?: boolean;
+  onClear?: (event?: SyntheticEvent) => any;
 }
 
-function TrailingIcon(
+function TrailingIcon({
   disabled = false,
   ariaDisabled = false,
   onClear = () => {},
-): TrailingIconProps {
+}: TrailingIconProps) {
   let className = "lab-search__remove-icon";
   if (!onClear) {
     className += " lab-input__icon--disabled"; // check this out
@@ -162,17 +160,15 @@ function TrailingIcon(
 }
 
 interface StandardSearchIconProps {
-  disabled: boolean;
-  ariaDisabled: boolean;
-  handleOnSearch: (event?: SyntheticEvent) => any;
-  type: string
+  disabled?: boolean;
+  ariaDisabled?: boolean;
+  handleOnSearch?: (event?: SyntheticEvent) => any;
 }
-function StandardSearchIcon(
+function StandardSearchIcon({
   disabled = false,
   ariaDisabled = false,
-  handleOnSearch: undefined
-): StandardSearchIconProps {
-  // const { disabled, ariaDisabled, handleOnSearch } = props;
+  handleOnSearch = () => {},
+}: StandardSearchIconProps) {
   return (
     <React.Fragment>
       <button
@@ -193,8 +189,7 @@ function StandardSearchIcon(
   );
 }
 
-
-function InlineSearchIcon({ disabled }: {disabled: boolean}) {
+function InlineSearchIcon({ disabled }: { disabled: boolean }) {
   return (
     <Icon
       className={`lab-inline-search__icon ${

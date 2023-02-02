@@ -4,23 +4,23 @@ import { isUndefined } from "lodash";
 
 interface RadioProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id?: string;
+  id: string;
   /** Text that will specify the HTML `name` attribute of an `<input>` element. It's used to group a set of Radios. */
-  name?: string;
+  name: string;
   /** Text that will be rendered as the Radio's label. */
-  label?: string;
+  label: string;
   /** Disables the Radio. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: boolean;
+  ariaDisabled?: boolean;
   /** Disables the Radio. Won't be read by screen readers. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Defines if the Radio is currently checked. */
-  checked: boolean;
+  checked?: boolean;
   /** Callback action to be executed when the Radio current value changes. */
-  onChange: (event: SyntheticEvent) => any;
+  onChange?: (event: SyntheticEvent) => any;
   /** Value that will specify the HTML `value` attribute of an `<input>` element. */
   value?: string | number | readonly string[];
   /** Add a class name to make custom changes */
-  className: string;
+  className?: string;
 }
 
 export default function Radio({

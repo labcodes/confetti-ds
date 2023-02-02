@@ -13,14 +13,14 @@ describe("AbstractSearch", () => {
 
   it("renders with base props", async () => {
     const renderedComponent = renderer
-      .create(<AbstractSearch type="standard" />)
+      .create(<AbstractSearch id="test-search" type="standard" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it("renders as expected when passing disabled as true", async () => {
     const renderedComponent = mount(
-      <AbstractSearch type="standard" disabled />
+      <AbstractSearch id="test-search" type="standard" disabled />
     );
     expect(renderedComponent.find("input[disabled]")).toHaveLength(1);
   });
@@ -30,6 +30,7 @@ describe("AbstractSearch", () => {
 
     const component = mount(
       <AbstractSearch
+        id="test-search"
         type="standard"
         defaultValue="default value"
         value="test value"
@@ -43,7 +44,7 @@ describe("AbstractSearch", () => {
 
   it("sets state with value if it is passed by props", async () => {
     const component = mount(
-      <AbstractSearch type="standard" value="test value" />
+      <AbstractSearch id="test-search" type="standard" value="test value" />
     );
 
     const inputElement = component.find("input");
@@ -52,7 +53,11 @@ describe("AbstractSearch", () => {
 
   it("sets state with defaultValue if it is passed by props and value is not passed by props", async () => {
     const component = mount(
-      <AbstractSearch type="standard" defaultValue="default value" />
+      <AbstractSearch
+        id="test-search"
+        type="standard"
+        defaultValue="default value"
+      />
     );
     const inputElement = component.find("input");
     expect(inputElement.render().attr("value")).toBe("default value");
@@ -62,6 +67,7 @@ describe("AbstractSearch", () => {
     const onClearFn = jest.fn();
     const component = mount(
       <AbstractSearch
+        id="test-search"
         type="standard"
         defaultValue="default"
         onClear={onClearFn}
@@ -78,6 +84,7 @@ describe("AbstractSearch", () => {
     const onSearchFn = jest.fn();
     const component = mount(
       <AbstractSearch
+        id="test-search"
         type="standard"
         defaultValue="default"
         onSearch={onSearchFn}
@@ -91,6 +98,7 @@ describe("AbstractSearch", () => {
     const onSearchStandard = jest.fn();
     const componentStandard = mount(
       <AbstractSearch
+        id="test-search"
         type="standard"
         defaultValue="default"
         onSearch={onSearchStandard}
@@ -102,6 +110,7 @@ describe("AbstractSearch", () => {
     const onSearchInline = jest.fn();
     const componentInline = mount(
       <AbstractSearch
+        id="test-search"
         type="inline"
         defaultValue="default"
         onSearch={onSearchInline}
@@ -115,6 +124,7 @@ describe("AbstractSearch", () => {
     const onClearFn = jest.fn();
     const component = mount(
       <AbstractSearch
+        id="test-search"
         type="standard"
         ariaDisabled
         defaultValue="default"
@@ -132,6 +142,7 @@ describe("AbstractSearch", () => {
     const onSearchFn = jest.fn();
     const component = mount(
       <AbstractSearch
+        id="test-search"
         ariaDisabled
         type="standard"
         defaultValue="default"
@@ -146,6 +157,7 @@ describe("AbstractSearch", () => {
     const onSearchStandard = jest.fn();
     const componentStandard = mount(
       <AbstractSearch
+        id="test-search"
         ariaDisabled
         type="standard"
         defaultValue="default"

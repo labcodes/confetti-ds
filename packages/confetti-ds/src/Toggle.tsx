@@ -3,21 +3,21 @@ import { isUndefined } from "lodash";
 
 interface TooggleProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id?: string;
+  id: string;
   /** Text that will specify the HTML `name` attribute of an `<input>` element. */
-  name?: string;
+  name: string;
   /** Defines a static value for the Toggle. If set, internal logic is deactivated. */
-  value: boolean;
+  value?: boolean;
   /** Defines the Toggle color. */
-  color: "teal" | "purple";
+  color?: "teal" | "purple";
   /** Disables the Toggle. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled: boolean;
+  ariaDisabled?: boolean;
   /** Disables the Toggle. Won't be read by screen readers. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Sets value to true by default. */
-  defaultValue: boolean;
+  defaultValue?: boolean;
   /** Action executed when the Toggle is clicked. */
-  handleToggle: (event?: SyntheticEvent) => any;
+  handleToggle?: (event?: SyntheticEvent) => any;
 }
 
 export default function Toggle({

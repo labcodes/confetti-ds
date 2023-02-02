@@ -89,8 +89,7 @@ describe("OutlineButton", () => {
 
   it("renders as expected when tabIndex is passed", async () => {
     const renderedComponent = renderer
-      // eslint-disable-next-line jsx-a11y/tabindex-no-positive
-      .create(<OutlineButton text="Test tabIndex" tabIndex="1" />)
+      .create(<OutlineButton text="Test tabIndex" tabIndex={1} />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });

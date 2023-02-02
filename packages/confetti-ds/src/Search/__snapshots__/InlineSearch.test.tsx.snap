@@ -13,6 +13,7 @@ exports[`InlineSearch renders with base props 1`] = `
       <input
         autoComplete="off"
         className="lab-search__field"
+        id="test-inline"
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder="Search"

@@ -62,7 +62,7 @@ exports[`OutlineButton renders as expected when tabIndex is passed 1`] = `
 <button
   className="lab-btn lab-btn--outline lab-btn--normal"
   onClick={[Function]}
-  tabIndex="1"
+  tabIndex={1}
   type="button"
 >
   

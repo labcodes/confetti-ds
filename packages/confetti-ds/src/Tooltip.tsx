@@ -2,11 +2,11 @@ import React, { SyntheticEvent } from "react";
 
 interface TooltipProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id?: string;
+  id: string;
   /** Text that will be rendered inside the Tooltip. */
-  text?: string;
+  text: string;
   /** Defines the Tooltip's relative position from the target. */
-  placement:
+  placement?:
     | "top-start"
     | "top"
     | "top-end"
@@ -20,7 +20,7 @@ interface TooltipProps {
     | "bottom"
     | "bottom-end";
   /** Target component to which the Tooltip should be applied upon. */
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function Tooltip({

@@ -1,9 +1,10 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import { isUndefined } from "lodash";
 
 import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
-import { IconTypes, ICON_TYPES } from "./constants";
+import { IconTypes } from "./constants";
+import { AbstractButtonProps } from "./Button/AbstractButton";
 
 interface BannerProps {
   /** This is the message text string. */
@@ -12,13 +13,8 @@ interface BannerProps {
   type: "info" | "warn" | "error";
   /** Sets the icon related to the banner’s message. */
   icon?: IconTypes;
-  /** Ojbect with information about the Banners's button. */
-  buttonProps: {
-    /** Banner's text button label. */
-    text: string;
-    /** Action to be executed when the button is clicked. */
-    onClick: (event?: SyntheticEvent) => any;
-  };
+  /** Object with information about the Banners's button. */
+  buttonProps?: AbstractButtonProps;
 }
 
 export default function Banner({

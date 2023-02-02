@@ -10,6 +10,7 @@ exports[`AbstractSearch renders with base props 1`] = `
     <input
       autoComplete="off"
       className="lab-search__field"
+      id="test-search"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder=" "

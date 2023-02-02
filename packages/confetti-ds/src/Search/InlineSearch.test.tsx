@@ -12,12 +12,12 @@ describe("InlineSearch", () => {
   });
 
   it("renders with base props", async () => {
-    const renderedComponent = renderer.create(<InlineSearch />).toJSON();
+    const renderedComponent = renderer.create(<InlineSearch id="test-inline" />).toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it("renders as expected when passing disabled as true", async () => {
-    const renderedComponent = mount(<InlineSearch disabled />);
+    const renderedComponent = mount(<InlineSearch id="test-inline" disabled />);
     expect(renderedComponent.find("input[disabled]")).toHaveLength(1);
   });
 
@@ -25,7 +25,7 @@ describe("InlineSearch", () => {
     console.warn = jest.fn();
 
     const component = mount(
-      <InlineSearch defaultValue="default value" value="test value" />
+      <InlineSearch id="test-inline" defaultValue="default value" value="test value" />
     );
 
     expect(console.warn).toBeCalled();
@@ -34,14 +34,14 @@ describe("InlineSearch", () => {
   });
 
   it("sets state with value if it is passed by props", async () => {
-    const component = mount(<InlineSearch value="test value" />);
+    const component = mount(<InlineSearch id="test-inline" value="test value" />);
 
     const inputElement = component.find("input");
     expect(inputElement.render().attr("value")).toBe("test value");
   });
 
   it("sets state with defaultValue if it is passed by props and value is not passed by props", async () => {
-    const component = mount(<InlineSearch defaultValue="default value" />);
+    const component = mount(<InlineSearch id="test-inline" defaultValue="default value" />);
     const inputElement = component.find("input");
     expect(inputElement.render().attr("value")).toBe("default value");
   });
@@ -49,7 +49,7 @@ describe("InlineSearch", () => {
   it("clears the input and calls onClear prop when the remove icon is clicked", async () => {
     const onClearFn = jest.fn();
     const component = mount(
-      <InlineSearch defaultValue="default" onClear={onClearFn} />
+      <InlineSearch id="test-inline" defaultValue="default" onClear={onClearFn} />
     );
 
     expect(component.find("input").render().attr("value")).toBe("default");
@@ -61,7 +61,7 @@ describe("InlineSearch", () => {
   it("calls onSearch prop when the enter key is pressed down", async () => {
     const onSearchStandard = jest.fn();
     const componentStandard = mount(
-      <InlineSearch defaultValue="default" onSearch={onSearchStandard} />
+      <InlineSearch id="test-inline" defaultValue="default" onSearch={onSearchStandard} />
     );
     componentStandard.find("input").at(0).simulate("keydown", { keyCode: 13 });
     expect(onSearchStandard).toBeCalled();
@@ -70,7 +70,7 @@ describe("InlineSearch", () => {
   it("doesn't clear the input and calls onClear prop when ariaDisabled", async () => {
     const onClearFn = jest.fn();
     const component = mount(
-      <InlineSearch ariaDisabled defaultValue="default" onClear={onClearFn} />
+      <InlineSearch id="test-inline" ariaDisabled defaultValue="default" onClear={onClearFn} />
     );
 
     expect(component.find("input").render().attr("value")).toBe("default");
@@ -82,7 +82,7 @@ describe("InlineSearch", () => {
   it("doesn't call onSearch prop when ariaDisabled and the enter key is pressed down", async () => {
     const onSearchStandard = jest.fn();
     const componentStandard = mount(
-      <InlineSearch
+      <InlineSearch id="test-inline"
         ariaDisabled
         defaultValue="default"
         onSearch={onSearchStandard}
