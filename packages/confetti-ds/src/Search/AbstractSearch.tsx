@@ -25,6 +25,7 @@ interface AbstractSearchProps {
   /** Previous valued stored on cache*/
   prevValue?: string;
 }
+
 export default function AbstractSearch({
   id,
   defaultValue,
@@ -60,13 +61,13 @@ export default function AbstractSearch({
     }
   };
 
-  const handleOnClear = () => {
+  const handleOnClear = (event) => {
     if (isUndefined(value)) {
       setLocalValue("");
     }
 
     if (!isUndefined(onClear)) {
-      onClear();
+      onClear(event);
     }
   };
 
