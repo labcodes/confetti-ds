@@ -8,6 +8,29 @@ import AbstractTag from "../Tags/AbstractTag";
 import { IconTypes, ICON_TYPES } from "../constants";
 import Icon from "../Icon";
 
+interface TagDropdownTriggerProps {
+  /** This is the Tag's text. */
+  text: string;
+  /** Sets Tag's color. */
+  color?: string;
+  /** Skin of the rendered Tag. */
+  skin?: string;
+  /** Sets an outline style. */
+  isOutline?: boolean;
+  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
+  ariaDisabled?: boolean;
+  /** Disables the Tag. Won't be read by screen readers. */
+  disabled?: boolean;
+  /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
+  tabIndex?: number;
+  /** This function is used to handle click or keydown interactions */
+  onInteraction?: ({ event }: { event: SyntheticEvent }) => any;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+  icon?: IconTypes;
+  /** This function is used on AbstractTag to set the current Ref */
+  setRef?: Dispatch<SetStateAction<MutableRefObject<HTMLButtonElement>>>;
+}
+
 export default function TagDropdownTrigger({
   text,
   icon,
@@ -60,27 +83,4 @@ export default function TagDropdownTrigger({
       role="listbox"
     />
   );
-}
-
-interface TagDropdownTriggerProps {
-  /** This is the Tag's text. */
-  text: string;
-  /** Sets Tag's color. */
-  color?: string;
-  /** Skin of the rendered Tag. */
-  skin?: string;
-  /** Sets an outline style. */
-  isOutline?: boolean;
-  /** Disables the Tag. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled?: boolean;
-  /** Disables the Tag. Won't be read by screen readers. */
-  disabled?: boolean;
-  /** tabIndex is used to define the navigation order for focusable elements. If not undefined, it is passed to the tag component. */
-  tabIndex?: number;
-  /** This function is used to handle click or keydown interactions */
-  onInteraction?: ({ event }: { event: SyntheticEvent }) => any;
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-  icon?: IconTypes;
-  /** This function is used on AbstractTag to set the current Ref */
-  setRef?: Dispatch<SetStateAction<MutableRefObject<HTMLButtonElement>>>;
 }
