@@ -1,42 +1,27 @@
-import React, {SyntheticEvent} from "react";
+import React, { SyntheticEvent } from "react";
 import PropTypes from "prop-types";
 
 import AbstractTextInput from "./AbstractTextInput";
-import { IconTypes, ICON_TYPES, IconColorTypes, ICON_COLORS } from "../constants";
+import { BaseTextInputProps } from "./types";
 
-interface TextInputProps {
-    /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-    id: string;
-    /** The Input's text label. */
-    label: string;
-    /** Disables the text input. Will be read by screen readers. When true, will override `disabled`. */
-    ariaDisabled?: boolean;
-    /** Disables the text input. Won't be read by screen readers. */
-    disabled?: boolean;
-    /** Defines a default value for the Input initialization. */
-    defaultValue?: string;
-    /** Text that will be rendered inside the Input field. */
-    value?: string;
-    /** Defines which symbol to show. */
-    icon?: IconTypes;
-    /** Defines the color of the displayed icon. */
-    iconColor?: IconColorTypes;
-    /** Defines if the Input is required. */
-    required?: boolean;
-    /** Text that will be displayed as a help message below the input. */
-    helpMessage?: string;
-    /** Text that will be displayed at the left portion of the Input. */
-    prefix?: string;
-    /** Text that will be displayed at the right portion of the Input. */
-    suffix?: string;
-    /** Defines if the Input is valid. */
-    isValid?: boolean;
-    /** Custom error message displayed below the Input when the value is not valid. */
-    customErrorMsg?: string;
-    /** Callback action to be executed when the Input default value changes. */
-    onChange?: (event?: SyntheticEvent) => any;
-    /** Callback action to be executed when the Input's Icon is clicked.  */
-    onIconClick?: (event?: SyntheticEvent) => any;
+import {
+  IconTypes,
+  ICON_TYPES,
+  IconColorTypes,
+  ICON_COLORS,
+} from "../constants";
+
+export interface TextInputProps extends BaseTextInputProps {
+  /** Defines if the Input is valid. */
+  isValid?: boolean;
+  /** Defines which symbol to show. */
+  icon?: IconTypes;
+  /** Defines the color of the displayed icon. */
+  iconColor?: IconColorTypes;
+  /** Callback action to be executed when the Input default value changes. */
+  onChange?: (event?: SyntheticEvent) => any;
+  /** Callback action to be executed when the Input's Icon is clicked.  */
+  onIconClick?: (event?: SyntheticEvent) => any;
 }
 
 export default function TextInput({
@@ -52,10 +37,10 @@ export default function TextInput({
   suffix,
   isValid,
   customErrorMsg,
-  onChange= () => {},
-  onIconClick= () => {},
+  onChange = () => {},
+  onIconClick = () => {},
   id,
-  label
+  label,
 }: TextInputProps) {
   return (
     <AbstractTextInput
@@ -79,4 +64,3 @@ export default function TextInput({
     />
   );
 }
-
