@@ -42,13 +42,13 @@ export default function AbstractButton({
   type = "button" as const,
   variant = "default",
   skin = "",
-  icon = undefined,
+  icon,
   size = "normal",
-  disabled = false,
   ariaDisabled = false,
+  disabled = false,
   onClick = (event) => {},
   fullWidth = false,
-  tabIndex = undefined,
+  tabIndex,
 }: AbstractButtonProps) {
   const renderIcon = () =>
     icon ? (

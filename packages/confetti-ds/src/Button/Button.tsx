@@ -4,15 +4,16 @@ import AbstractButton, { AbstractButtonProps } from "./AbstractButton";
 
 export default function Button({
   text,
+  type = "button" as const,
+  variant = "default",
   skin = "",
-  icon = undefined,
-  type = "button",
+  icon,
   size = "normal",
-  disabled = false,
   ariaDisabled = false,
-  onClick = () => {},
+  disabled = false,
+  onClick = (event) => {},
   fullWidth = false,
-  tabIndex = undefined,
+  tabIndex,
 }: AbstractButtonProps) {
   return (
     <AbstractButton

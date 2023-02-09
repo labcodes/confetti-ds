@@ -4,15 +4,15 @@ import AbstractButton, { AbstractButtonProps } from "./AbstractButton";
 
 export default function OutlineButton({
   text,
-  skin = undefined,
-  icon = undefined,
   type = "button",
+  skin,
+  icon,
   size = "normal",
-  disabled = false,
   ariaDisabled = false,
+  disabled = false,
   onClick = () => {},
   fullWidth = false,
-  tabIndex = undefined,
+  tabIndex,
 }: AbstractButtonProps) {
   return (
     <AbstractButton
