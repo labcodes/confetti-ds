@@ -1,23 +1,15 @@
 import React, { useRef, useState, useEffect, SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 import Icon from "../Icon";
+import { BaseSearchProps } from "./types";
 
-interface AbstractSearchProps {
-  id: string;
+interface AbstractSearchProps extends BaseSearchProps {
   /** Defines a default value for the Search initialization. */
   defaultValue?: string;
   /** Disables the Search. Will be read by screen readers. When true, will override `disabled`. */
   ariaDisabled?: boolean;
   /** Disables the Search. Won't be read by screen readers. */
   disabled?: boolean;
-  /** Text that will be rendered inside the Search field. */
-  value?: string;
-  /** Action to be executed when the Search default value changes. */
-  onChange?: (event?: SyntheticEvent) => any;
-  /** Action to be executed when the search is performed. */
-  onSearch?: (event?: SyntheticEvent) => any;
-  /** Action to be executed when the Search field is cleared out. */
-  onClear?: (event?: SyntheticEvent) => any;
   /** The placeholder text when the Search field is empty. Usually used to describe the values accepted (e.g.: Search by keyword or status). */
   placeholder?: string;
   /** Defines which type of search will be renderized*/
