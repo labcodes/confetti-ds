@@ -1,4 +1,9 @@
-import React, { useRef, useEffect, SyntheticEvent, MutableRefObject } from "react";
+import React, {
+  useRef,
+  useEffect,
+  SyntheticEvent,
+  MutableRefObject,
+} from "react";
 import { isUndefined } from "lodash";
 
 interface AbstractTagProps {
@@ -46,22 +51,22 @@ interface AbstractTagProps {
 
 export default function AbstractTag({
   text,
-  color,
   renderPrefix,
   renderSuffix,
   className,
-  tabIndex,
-  isOutline = false,
+  color,
   skin = "pale",
-  disabled = false,
+  isOutline = false,
   ariaDisabled = false,
+  disabled = false,
   onClick = () => {},
-  onInteraction = () => {},
-  setRef = () => {},
+  tabIndex,
   isDropdown = false,
-  isSelected = false,
+  onInteraction = () => {},
   value = "",
+  isSelected = false,
   role = "",
+  setRef = () => {},
 }: AbstractTagProps) {
   const ref = useRef();
 

@@ -59,19 +59,19 @@ export type TagDropdownItemProps =
 
 export default function TagDropdownItem({
   text,
-  thumbSrc,
-  thumbAlt,
+  disabled = false,
+  onClick = () => {},
   icon,
   color,
-  value,
   skin = "pale",
   isOutline = false,
-  onClick = () => {},
-  disabled = false,
   tabIndex = 0,
-  onInteraction = () => {},
   setRef = () => {},
+  onInteraction = () => {},
+  value,
   isSelected = false,
+  thumbSrc,
+  thumbAlt,
 }: TagDropdownItemProps) {
   const renderThumb = () =>
     thumbSrc ? (

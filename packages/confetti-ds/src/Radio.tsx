@@ -24,15 +24,15 @@ interface RadioProps {
 }
 
 export default function Radio({
-  className,
   id,
-  label,
-  disabled = false,
-  ariaDisabled = false,
-  checked,
   name,
-  value,
+  label,
+  ariaDisabled = false,
+  disabled = false,
+  checked,
   onChange = () => {},
+  value,
+  className,
 }: RadioProps) {
   const handleOnChange = (event) => {
     if (!isUndefined(onChange)) {

@@ -36,14 +36,14 @@ interface AbstractDropdownProps {
 }
 
 export default function AbstractDropdown({
-  id,
-  dropdownType,
-  children,
-  onSelect,
-  defaultText,
-  color = "teal",
   onOpen = () => {},
   onClose = () => {},
+  onSelect,
+  dropdownType,
+  color = "teal",
+  defaultText,
+  children,
+  id,
   value = "",
 }: AbstractDropdownProps) {
   const expectedKeys = [

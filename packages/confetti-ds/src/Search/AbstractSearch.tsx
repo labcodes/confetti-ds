@@ -21,14 +21,14 @@ interface AbstractSearchProps extends BaseSearchProps {
 export default function AbstractSearch({
   id,
   defaultValue,
-  value,
-  type,
-  disabled = false,
   ariaDisabled = false,
+  disabled = false,
+  placeholder = " ",
+  type,
+  value,
   onChange = () => {},
   onSearch = () => {},
   onClear = () => {},
-  placeholder = " ",
 }: AbstractSearchProps) {
   const [localValue, setLocalValue] = useState(value || defaultValue || "");
   const searchRef = useRef<HTMLInputElement>();

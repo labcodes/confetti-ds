@@ -26,8 +26,8 @@ interface TooltipProps {
 export default function Tooltip({
   id,
   text,
-  children,
   placement = "top",
+  children,
 }: TooltipProps) {
   if (text.length > 180) {
     // eslint-disable-next-line no-console

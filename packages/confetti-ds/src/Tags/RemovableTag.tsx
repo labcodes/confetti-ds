@@ -42,13 +42,13 @@ export default function RemovableTag({
   text,
   icon,
   color,
-  thumbSrc = "",
-  thumbAlt = "",
   skin = "pale",
   isOutline = false,
-  disabled = false,
   ariaDisabled = false,
+  disabled = false,
   onClick = () => {},
+  thumbSrc = "",
+  thumbAlt = "",
 }: RemovableTagProps) {
   const removeIcon = () => (
     <span className="lab-tag__remove-icon-wrapper">

@@ -18,11 +18,11 @@ export default function StandardSearch({
   defaultValue,
   disabled = false,
   ariaDisabled = false,
+  placeholder = "Search",
   value,
   onChange = () => {},
   onSearch = () => {},
   onClear = () => {},
-  placeholder = "Search",
 }: StandardSearchProps) {
   return (
     <div className="lab-standard-search">

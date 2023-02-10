@@ -15,8 +15,8 @@ interface NarrowSidebarProps {
 
 export default function NarrowSidebar({
   children,
-  isVivid = false,
   isOpenOnMobile = false,
+  isVivid = false,
   withDividers = false,
 }: NarrowSidebarProps) {
   return (

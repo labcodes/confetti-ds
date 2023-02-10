@@ -17,17 +17,17 @@ interface TogglableTagProps {
   /** Action to be executed when the Tag is clicked. */
   onClick?: (event?: SyntheticEvent) => any;
   /** Defines if the Tag is toggled on. */
-  isOn?: boolean,
+  isOn?: boolean;
 }
 
 export default function TogglableTag({
   text,
   color,
   isOutline = false,
-  disabled = false,
   ariaDisabled = false,
-  isOn = false,
+  disabled = false,
   onClick = () => {},
+  isOn = false,
 }: TogglableTagProps) {
   const selected = () => {
     let iconClass;

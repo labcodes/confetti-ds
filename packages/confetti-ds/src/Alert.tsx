@@ -20,8 +20,8 @@ interface AlertProps {
 
 export default function Alert({
   text,
-  icon,
   type = "info",
+  icon,
   buttonProps = { text: "", onClick: () => {} },
 }: AlertProps) {
   const handleClick = (event) => {

@@ -17,13 +17,13 @@ interface InlineSearchProps extends BaseSearchProps {
 export default function InlineSearch({
   id,
   defaultValue,
-  disabled = false,
   ariaDisabled = false,
+  disabled = false,
+  placeholder = "Search",
   value,
   onChange = () => {},
   onSearch = () => {},
   onClear = () => {},
-  placeholder = "Search",
 }: InlineSearchProps) {
   return (
     <div className="lab-inline-search">

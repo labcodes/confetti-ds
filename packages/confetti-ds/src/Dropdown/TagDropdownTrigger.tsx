@@ -11,6 +11,8 @@ import Icon from "../Icon";
 interface TagDropdownTriggerProps {
   /** This is the Tag's text. */
   text: string;
+  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
+  icon?: IconTypes;
   /** Sets Tag's color. */
   color?: string;
   /** Skin of the rendered Tag. */
@@ -25,8 +27,6 @@ interface TagDropdownTriggerProps {
   tabIndex?: number;
   /** This function is used to handle click or keydown interactions */
   onInteraction?: ({ event }: { event: SyntheticEvent }) => any;
-  /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
-  icon?: IconTypes;
   /** This function is used on AbstractTag to set the current Ref */
   setRef?: Dispatch<SetStateAction<MutableRefObject<HTMLButtonElement>>>;
 }
@@ -35,11 +35,11 @@ export default function TagDropdownTrigger({
   text,
   icon,
   color,
-  tabIndex,
-  isOutline = false,
   skin = "pale",
-  disabled = false,
+  isOutline = false,
   ariaDisabled = false,
+  disabled = false,
+  tabIndex,
   onInteraction = () => {},
   setRef = () => {},
 }: TagDropdownTriggerProps) {

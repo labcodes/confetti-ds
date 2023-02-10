@@ -34,9 +34,9 @@ export default function MessageDialog({
   buttonProps,
   outlineButtonProps,
   isLarge = false,
+  handleClose = () => {},
   isOpen = false,
   isModal = false,
-  handleClose = () => {},
 }: MessageDialogProps) {
   const [swipeStartYCoordinate, setSwipeStartYCoordinate] =
     React.useState(undefined);

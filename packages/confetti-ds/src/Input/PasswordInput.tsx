@@ -10,13 +10,13 @@ interface PasswordInputProps extends BaseTextInputProps {
 
 const PasswordInput = ({
   id,
+  isValid,
   label,
   defaultValue,
   value,
   helpMessage,
   prefix,
   suffix,
-  isValid,
   customErrorMsg,
   disabled = false,
   ariaDisabled = false,

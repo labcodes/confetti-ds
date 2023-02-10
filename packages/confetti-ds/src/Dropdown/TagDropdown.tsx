@@ -22,13 +22,13 @@ interface TagDropdownProps {
 }
 
 export default function TagDropdown({
-  children,
-  defaultText,
-  onSelect,
-  id,
-  color = "teal",
   onOpen = () => {},
   onClose = () => {},
+  onSelect,
+  children,
+  color = "teal",
+  defaultText,
+  id,
   value = "",
 }: TagDropdownProps) {
   return (

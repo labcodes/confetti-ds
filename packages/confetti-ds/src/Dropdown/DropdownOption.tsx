@@ -28,11 +28,11 @@ interface DropdownOptionProps {
 }
 
 export default function DropdownOption({
+  setDefaultOption = () => {},
+  setRef,
   children,
   handleInteraction,
   isSelected,
-  setRef,
-  setDefaultOption = () => {},
 }: DropdownOptionProps) {
   const ref = useRef();
 
@@ -78,4 +78,3 @@ export default function DropdownOption({
     </div>
   );
 }
-

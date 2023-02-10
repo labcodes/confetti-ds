@@ -23,21 +23,21 @@ export interface AbstractTextInputProps extends BaseTextInputProps {
 }
 
 export default function AbstractTextInput({
+  id,
   type = "text",
-  disabled = false,
-  ariaDisabled = false,
+  icon,
   iconColor = "mineral-70" as const,
+  isValid,
+  customErrorMsg,
+  onIconClick = () => {},
+  ariaDisabled = false,
+  disabled = false,
   required = false,
   onChange = () => {},
-  onIconClick = () => {},
   defaultValue,
   value,
-  isValid,
-  icon,
   prefix,
   suffix,
-  id,
-  customErrorMsg,
   label,
   helpMessage,
 }: AbstractTextInputProps) {

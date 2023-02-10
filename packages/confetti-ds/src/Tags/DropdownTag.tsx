@@ -2,10 +2,7 @@ import React, { SyntheticEvent } from "react";
 
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
-import {
-  IconTypes,
-  TagTypes,
-} from "../constants";
+import { IconTypes, TagTypes } from "../constants";
 
 interface DropdownTagProps {
   /** This is the Tag's text. */
@@ -32,8 +29,8 @@ export default function DropdownTag({
   color,
   skin = "pale",
   isOutline = false,
-  disabled = false,
   ariaDisabled = false,
+  disabled = false,
   onClick = () => {},
 }: DropdownTagProps) {
   const handleIcon = () =>

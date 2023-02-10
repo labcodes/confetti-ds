@@ -4,14 +4,14 @@ import { IconTypes } from "../constants";
 
 interface ItemProps {
   /** This is the item's label. */
-  label: string,
+  label: string;
   /** Sets the icon related to the Item label. Default state: no icon. */
-  icon?: IconTypes,
-  /** Callback action to be executed when the Item is clicked. */
-  onClick: (event?: SyntheticEvent) => any,
+  icon?: IconTypes;
   /** Defines if the current Item is the active one in the Sidebar. */
-  isActive?: boolean,
-};
+  isActive?: boolean;
+  /** Callback action to be executed when the Item is clicked. */
+  onClick: (event?: SyntheticEvent) => any;
+}
 
 const Item = ({ label, icon, isActive = false, onClick }: ItemProps) => {
   return (

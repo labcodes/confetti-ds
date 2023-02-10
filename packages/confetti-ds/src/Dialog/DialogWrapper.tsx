@@ -17,12 +17,12 @@ interface DialogWrapperProps {
 }
 
 export default function DialogWrapper({
-  isOpen,
-  isModal,
   handleClose,
-  isLarge,
-  isMessageDialog,
+  isModal,
   children,
+  isOpen,
+  isMessageDialog,
+  isLarge,
 }: DialogWrapperProps) {
   const deviceIsMobile = window.outerWidth <= 768;
   const [shouldToggleOverflow, setShouldToggleOverflow] = React.useState(

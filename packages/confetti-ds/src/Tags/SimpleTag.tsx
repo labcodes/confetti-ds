@@ -36,10 +36,10 @@ export default function SimpleTag({
   text,
   icon,
   color,
+  skin = "pale",
+  isOutline = false,
   thumbSrc = "",
   thumbAlt = "",
-  isOutline = false,
-  skin = "pale",
 }: SimpleTagProps) {
   const thumb = () =>
     thumbSrc.length ? (

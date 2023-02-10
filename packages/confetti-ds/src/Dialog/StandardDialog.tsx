@@ -33,9 +33,9 @@ export default function StandardDialog({
   buttonProps,
   outlineButtonProps,
   isLarge,
+  handleClose = () => {},
   isOpen,
   isModal,
-  handleClose = () => {},
 }: StandardDialogProps) {
   const [swipeStartYCoordinate, setSwipeStartYCoordinate] =
     React.useState(undefined);

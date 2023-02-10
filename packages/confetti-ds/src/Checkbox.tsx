@@ -1,4 +1,4 @@
-import React, {SyntheticEvent} from "react";
+import React, { SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 
 import { usePrevious } from "./hooks";
@@ -8,41 +8,41 @@ import Icon from "./Icon";
 
 interface CheckboxProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
-  id: string,
+  id: string;
   /** Text that will specify the HTML name attribute of an `<input>` element. */
-  name: string,
+  name: string;
   /** This is the checkbox's label. */
-  label: string,
+  label: string;
   /** Disables the Checkbox. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled?: boolean,
+  ariaDisabled?: boolean;
   /** Disables the Checkbox. Won't be read by screen readers. */
-  disabled?: boolean,
+  disabled?: boolean;
   /** Defines if the Checkbox is currently checked. */
-  checked?: boolean,
+  checked?: boolean;
   /** Marks Checkbox as indeterminate. Used on "check/uncheck all" Checkbox in a `fieldset` to display when some itens are checked and others are unchecked */
-  indeterminate?: boolean,
+  indeterminate?: boolean;
   /** Defines if the Checkbox is initialized as "checked". */
-  defaultChecked?: boolean,
+  defaultChecked?: boolean;
   /** Callback action to be executed when the Checkbox is clicked. */
   onChange?: (event?: SyntheticEvent) => any;
   /** Value that will specify the HTML `value` attribute of an `<input>` element. */
   value?: string | number | readonly string[];
   /** Add a class name to make custom changes */
-  className?: string,
-};
+  className?: string;
+}
 
 export default function Checkbox({
   id,
   name,
-  className,
   label,
   ariaDisabled = false,
   disabled = false,
+  checked,
   indeterminate,
   defaultChecked,
-  checked,
-  value,
   onChange,
+  value,
+  className,
 }: CheckboxProps) {
   if (!isUndefined(defaultChecked) && !isUndefined(checked)) {
     // eslint-disable-next-line no-console

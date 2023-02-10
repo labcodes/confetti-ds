@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState, useEffect } from "react";
+import React, { SyntheticEvent, useState, useEffect } from "react";
 import { isUndefined } from "lodash";
 
 interface TooggleProps {
@@ -21,13 +21,13 @@ interface TooggleProps {
 }
 
 export default function Toggle({
-  defaultValue,
   id,
   color = "teal",
   name,
   disabled = false,
   ariaDisabled = false,
   value,
+  defaultValue,
   handleToggle,
 }: TooggleProps) {
   const [localValue, setLocalValue] = useState(

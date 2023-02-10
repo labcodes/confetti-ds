@@ -23,20 +23,20 @@ export interface EmailInputProps extends BaseTextInputProps {
 
 export default function EmailInput({
   id,
-  label,
-  disabled = false,
-  ariaDisabled = false,
-  defaultValue,
-  value,
   icon,
   iconColor = "mineral-70",
+  onIconClick = () => {},
+  label,
+  ariaDisabled = false,
+  disabled = false,
+  defaultValue,
+  value,
   required = false,
   helpMessage,
   prefix,
   suffix,
   customErrorMsg,
   onChange = () => {},
-  onIconClick = () => {},
 }: EmailInputProps) {
   return (
     <AbstractTextInput

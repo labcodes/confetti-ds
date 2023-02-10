@@ -25,21 +25,21 @@ export interface TextInputProps extends BaseTextInputProps {
 }
 
 export default function TextInput({
+  id,
+  isValid,
+  icon,
+  iconColor = "mineral-70",
+  onChange = () => {},
+  onIconClick = () => {},
   disabled = false,
   ariaDisabled = false,
   defaultValue,
   value,
-  icon,
-  iconColor = "mineral-70",
   required = false,
   helpMessage,
   prefix,
   suffix,
-  isValid,
   customErrorMsg,
-  onChange = () => {},
-  onIconClick = () => {},
-  id,
   label,
 }: TextInputProps) {
   return (
