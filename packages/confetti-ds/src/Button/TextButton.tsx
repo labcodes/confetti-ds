@@ -1,6 +1,11 @@
 import React from "react";
 
-import AbstractButton, { AbstractButtonProps } from "./AbstractButton";
+import AbstractButton from "./AbstractButton";
+import { BaseButtonProps } from "./types";
+
+export interface TextButtonProps extends BaseButtonProps {
+  skin?: "" | "light" | "dark";
+}
 
 export default function TextButton({
   text,
@@ -13,7 +18,7 @@ export default function TextButton({
   onClick = () => {},
   fullWidth = false,
   tabIndex,
-}: AbstractButtonProps) {
+}: TextButtonProps) {
   return (
     <AbstractButton
       variant="text"

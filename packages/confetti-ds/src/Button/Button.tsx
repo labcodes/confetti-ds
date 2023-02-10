@@ -1,12 +1,25 @@
 import React from "react";
 
-import AbstractButton, { AbstractButtonProps } from "./AbstractButton";
+import AbstractButton from "./AbstractButton";
+import { BaseButtonProps } from "./types";
+export interface ButtonProps extends BaseButtonProps {
+  /** Button style variation. */
+  variant?: "default" | "outline" | "text";
+  /** Sets the icon related to the button label. Default state: no icon. */
+  skin?:
+    | ""
+    | "light"
+    | "dark"
+    | "warning"
+    | "destructive"
+    | "warning-invert"
+    | "destructive-invert"
+    | "confirmation-invert";
+}
 
 export default function Button({
   text,
   type = "button" as const,
-  variant = "default",
-  skin = "",
   icon,
   size = "normal",
   ariaDisabled = false,
@@ -14,7 +27,9 @@ export default function Button({
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
-}: AbstractButtonProps) {
+  variant = "default",
+  skin = "",
+}: ButtonProps) {
   return (
     <AbstractButton
       variant="default"

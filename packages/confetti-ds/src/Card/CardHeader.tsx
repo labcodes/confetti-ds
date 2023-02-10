@@ -4,7 +4,7 @@ import Icon from "../Icon";
 import { SimpleTag } from "../Tags";
 import { IconColorTypes, IconTypes, TagTypes } from "../constants";
 
-interface CardHeaderProps {
+export interface CardHeaderProps {
   /** Sets card's title. */
   title?: string;
   /** Sets a className for card's title. */

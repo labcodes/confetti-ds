@@ -1,11 +1,37 @@
 import OutlineCard from "./OutlineCard";
+import FilledCard from "./FilledCard";
+import OutlineFilledCard from "./OutlineFilledCard";
+import CardImage from "./CardImage";
+import CardHeader from "./CardHeader";
+import CardDivider from "./CardDivider";
+import LinkAction from "./LinkAction";
+import DoubleAction from "./DoubleAction";
 
-export default OutlineCard;
-export { default as OutlineCard } from "./OutlineCard";
-export { default as FilledCard } from "./FilledCard";
-export { default as OutlineFilledCard } from "./OutlineFilledCard";
-export { default as CardImage } from "./CardImage";
-export { default as CardHeader } from "./CardHeader";
-export { default as CardDivider } from "./CardDivider";
-export { default as LinkAction } from "./LinkAction";
-export { default as DoubleAction } from "./DoubleAction";
+OutlineCard["CardHeader"] = CardHeader;
+OutlineCard["CardImage"] = CardImage;
+OutlineCard["CardDivider"] = CardDivider;
+OutlineCard["LinkAction"] = LinkAction;
+OutlineCard["DoubleAction"] = DoubleAction;
+
+FilledCard["CardHeader"] = CardHeader;
+FilledCard["CardImage"] = CardImage;
+FilledCard["CardDivider"] = CardDivider;
+FilledCard["LinkAction"] = LinkAction;
+FilledCard["DoubleAction"] = DoubleAction;
+
+OutlineFilledCard["CardHeader"] = CardHeader;
+OutlineFilledCard["CardImage"] = CardImage;
+OutlineFilledCard["CardDivider"] = CardDivider;
+OutlineFilledCard["LinkAction"] = LinkAction;
+OutlineFilledCard["DoubleAction"] = DoubleAction;
+
+export {
+  OutlineCard,
+  FilledCard,
+  OutlineFilledCard,
+  CardHeader,
+  CardImage,
+  CardDivider,
+  LinkAction,
+  DoubleAction,
+};

@@ -4,7 +4,7 @@ import { isUndefined } from "lodash";
 import Icon from "./Icon";
 import TextButton from "./Button/TextButton";
 import { IconTypes } from "./constants";
-import { AbstractButtonProps } from "./Button/AbstractButton";
+import { TextButtonProps } from "./Button/TextButton";
 
 interface BannerProps {
   /** This is the message text string. */
@@ -14,7 +14,7 @@ interface BannerProps {
   /** Sets the icon related to the banner’s message. */
   icon?: IconTypes;
   /** Object with information about the Banners's button. */
-  buttonProps?: AbstractButtonProps;
+  buttonProps?: TextButtonProps;
 }
 
 export default function Banner({

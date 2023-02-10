@@ -3,17 +3,12 @@ import { isUndefined } from "lodash";
 
 import Icon from "../Icon";
 import { IconTypes } from "../constants";
+import { BaseButtonProps } from "./types";
 
-export interface AbstractButtonProps {
-  /** This is the button label. */
-  text: string;
-  /** HTML type of the Button. */
-  type?: "button" | "submit" | "reset";
+interface AbstractButtonProps extends BaseButtonProps {
   /** Button style variation. */
   variant?: "default" | "outline" | "text";
   /** Sets the icon related to the button label. Default state: no icon. */
-  icon?: IconTypes;
-  /** Sets a special color skin to the button. */
   skin?:
     | ""
     | "light"
@@ -23,18 +18,6 @@ export interface AbstractButtonProps {
     | "warning-invert"
     | "destructive-invert"
     | "confirmation-invert";
-  /** Sets the button's height. Small = 32px, Normal = 40px, Large = 48px. */
-  size?: "normal" | "small" | "large";
-  /** Disables the Button. Will be read by screen readers. When true, will override `disabled`. */
-  ariaDisabled?: boolean;
-  /** Disables the Button. Won't be read by screen readers. */
-  disabled?: boolean;
-  /** Action to be executed when the button is clicked. */
-  onClick?: (event: SyntheticEvent) => any;
-  /** Makes the button expand to its container's full width. */
-  fullWidth?: boolean;
-  /* Sets the order of which the elements will be focused on. Default value: 0. */
-  tabIndex?: number;
 }
 
 export default function AbstractButton({

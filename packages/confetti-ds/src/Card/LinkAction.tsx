@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from "react";
 
-interface LinkActionProps {
+export interface LinkActionProps {
   /** Sets card's link text. */
   text: string;
   /** Sets link's destination. */

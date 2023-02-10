@@ -1,5 +1,5 @@
 import React from "react";
-interface CardImageProps {
+export interface CardImageProps {
   /** Specifies the path to the image. */
   src: string;
   /** Specifies an alternate text for the image if the image cannot be displayed for some reason. */

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { CardContext } from "./contexts";
+import CardHeader from "./CardHeader";
 
 interface OutlineFilledCardProps {
   /** Components that will be rendered in the Card (CardImage, CardHeader, CardAction, etc.) */
@@ -21,7 +22,7 @@ export default function OutlineFilledCard({
   isHorizontal = false,
   isCompact = false,
   className = undefined,
-}:OutlineFilledCardProps) {
+}: OutlineFilledCardProps) {
   return (
     <CardContext.Provider value={{ color, cardType: "outlineFilled" }}>
       <article

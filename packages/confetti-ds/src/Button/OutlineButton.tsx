@@ -1,6 +1,11 @@
 import React from "react";
 
-import AbstractButton, { AbstractButtonProps } from "./AbstractButton";
+import AbstractButton from "./AbstractButton";
+import { BaseButtonProps } from "./types";
+
+export interface OutlineButtonProps extends BaseButtonProps {
+  skin?: "" | "light" | "dark";
+}
 
 export default function OutlineButton({
   text,
@@ -13,7 +18,7 @@ export default function OutlineButton({
   onClick = () => {},
   fullWidth = false,
   tabIndex,
-}: AbstractButtonProps) {
+}: OutlineButtonProps) {
   return (
     <AbstractButton
       variant="outline"

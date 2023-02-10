@@ -2,7 +2,7 @@ import React from "react";
 
 import { CardContext } from "./contexts";
 
-interface FilledCardProps {
+export interface FilledCardProps {
   /** Components that will be rendered in the Filled Card (CardImage, CardHeader, CardAction, etc.) */
   children: React.ReactNode;
   /** Sets Filled Card's colors (mostly background colors) based on the chosen palette.  */

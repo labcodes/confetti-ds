@@ -4,8 +4,8 @@ import Icon from "../Icon";
 import { Button, OutlineButton } from "../Button";
 import DialogWrapper from "./DialogWrapper";
 import { IconTypes } from "../constants";
-import { AbstractButtonProps } from "../Button/AbstractButton";
-
+import { OutlineButtonProps } from "../Button/OutlineButton";
+import { ButtonProps } from "../Button/Button";
 interface StandardDialogProps {
   /** Components that will be rendered in the DialogWrapper (MessageDialog, StandardDialog) */
   icon: IconTypes;
@@ -14,9 +14,9 @@ interface StandardDialogProps {
   /** The content of the Dialog */
   content: string;
   /** Props for the main button */
-  buttonProps: AbstractButtonProps;
+  buttonProps: ButtonProps;
   /** Props for the secondary button */
-  outlineButtonProps?: AbstractButtonProps;
+  outlineButtonProps?: OutlineButtonProps;
   /** Toggles .lab-dialog--large classname to increase Dialog width */
   isLarge?: boolean;
   /** This function prop is called on a close button or outside click event */

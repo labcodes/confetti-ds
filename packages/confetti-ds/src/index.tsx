@@ -4,6 +4,7 @@ import { StandardSearch, InlineSearch } from "./Search";
 import { SimpleTag, TogglableTag, RemovableTag, DropdownTag } from "./Tags";
 import { StandardDialog, MessageDialog } from "./Dialog";
 import { TagDropdown } from "./Dropdown";
+import { FilledCard, OutlineCard, OutlineFilledCard } from "./Card";
 
 import NarrowSidebar from "./Sidebar";
 import Alert from "./Alert";
@@ -16,28 +17,31 @@ import Toggle from "./Toggle";
 import Tooltip from "./Tooltip";
 
 export {
+  Badge,
+  Icon,
   Button,
   OutlineButton,
   TextButton,
-  TextInput,
-  PasswordInput,
-  EmailInput,
-  StandardSearch,
-  InlineSearch,
-  NarrowSidebar,
+  TagDropdown,
+  Toggle,
+  FilledCard,
+  OutlineCard,
+  OutlineFilledCard,
   SimpleTag,
   TogglableTag,
   RemovableTag,
   DropdownTag,
-  Alert,
-  Badge,
-  Banner,
   Checkbox,
-  Icon,
   Radio,
-  TagDropdown,
-  Toggle,
-  Tooltip,
-  StandardDialog,
+  InlineSearch,
+  StandardSearch,
+  EmailInput,
+  PasswordInput,
+  TextInput,
+  NarrowSidebar,
   MessageDialog,
+  StandardDialog,
+  Alert,
+  Banner,
+  Tooltip,
 };

@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useContext, useEffect } from "react";
 import { Button, OutlineButton, TextButton } from "../Button";
 import { CardContext } from "./contexts";
 import { IconTypes } from "../constants";
-interface DoubleActionProps {
+export interface DoubleActionProps {
   /** Sets button's attributes: label, action to be executed when the button is clicked, whether it is disabled/ariaDisabled or not, and the icon. */
   actionsProps: {
     text: string;
