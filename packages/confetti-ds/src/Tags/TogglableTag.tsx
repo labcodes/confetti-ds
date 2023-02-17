@@ -3,7 +3,7 @@ import React, { SyntheticEvent } from "react";
 import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 
-interface TogglableTagProps {
+export interface TogglableTagProps {
   /** This is the Tag's text. */
   text: string;
   /** Sets Tag's color. */

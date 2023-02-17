@@ -1,6 +1,6 @@
 import React from "react";
 
-interface BadgeProps {
+export interface BadgeProps {
   /** HTML type of the Badge. */
   type: "floating-add" | "harvest" | "meta" | "ponto" | "star";
   /** Defines the Badge's wrapper background color. */

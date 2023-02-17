@@ -1,6 +1,6 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 
-interface TooltipProps {
+export interface TooltipProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
   id: string;
   /** Text that will be rendered inside the Tooltip. */

@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from "react";
 import Icon from "../Icon";
 import { IconTypes } from "../constants";
 
-interface ItemProps {
+export interface NavbarItemProps {
   /** This is the item's label. */
   label: string;
   /** Sets the icon related to the Item label. Default state: no icon. */
@@ -13,7 +13,7 @@ interface ItemProps {
   onClick: (event?: SyntheticEvent) => any;
 }
 
-const Item = ({ label, icon, isActive = false, onClick }: ItemProps) => {
+const Item = ({ label, icon, isActive = false, onClick }: NavbarItemProps) => {
   return (
     <button
       type="button"

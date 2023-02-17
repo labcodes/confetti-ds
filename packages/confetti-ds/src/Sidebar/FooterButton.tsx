@@ -2,16 +2,20 @@ import React, { SyntheticEvent } from "react";
 import Icon from "../Icon";
 import { IconTypes } from "../constants";
 
-interface FooterButtonProps {
+export interface NavbarFooterButtonProps {
   /** This is the button label. */
-  label: string,
+  label: string;
   /** Sets the icon related to the button label. Default state: no icon. */
-  icon?: IconTypes,
+  icon?: IconTypes;
   /** Callback action to be executed when the FooterButton is clicked. */
-  onClick: (event?: SyntheticEvent) => any,
-};
+  onClick: (event?: SyntheticEvent) => any;
+}
 
-export default function FooterButton({ label, icon, onClick }: FooterButtonProps) {
+export default function FooterButton({
+  label,
+  icon,
+  onClick,
+}: NavbarFooterButtonProps) {
   return (
     <button
       type="button"

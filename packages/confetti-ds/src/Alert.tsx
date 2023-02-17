@@ -5,7 +5,7 @@ import Icon from "./Icon";
 import TextButton, { TextButtonProps } from "./Button/TextButton";
 
 import { IconTypes } from "./constants";
-interface AlertProps {
+export interface AlertProps {
   /** This is the message text string. */
   text: string;
   /** Type of the Alert. */

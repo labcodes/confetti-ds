@@ -6,7 +6,7 @@ import Icon from "./Icon";
 
 // Checkbox //
 
-interface CheckboxProps {
+export interface CheckboxProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
   id: string;
   /** Text that will specify the HTML name attribute of an `<input>` element. */

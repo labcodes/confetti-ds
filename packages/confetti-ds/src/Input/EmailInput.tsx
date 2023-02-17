@@ -3,12 +3,7 @@ import React, { SyntheticEvent } from "react";
 import AbstractTextInput from "./AbstractTextInput";
 import { BaseTextInputProps } from "./types";
 
-import {
-  IconTypes,
-  ICON_TYPES,
-  IconColorTypes,
-  ICON_COLORS,
-} from "../constants";
+import { IconTypes, IconColorTypes } from "../constants";
 
 export interface EmailInputProps extends BaseTextInputProps {
   /** Defines if the Input is valid. */

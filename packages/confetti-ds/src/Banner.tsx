@@ -6,7 +6,7 @@ import TextButton from "./Button/TextButton";
 import { IconTypes } from "./constants";
 import { TextButtonProps } from "./Button/TextButton";
 
-interface BannerProps {
+export interface BannerProps {
   /** This is the message text string. */
   text?: string;
   /** Type of the Banner. */

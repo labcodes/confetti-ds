@@ -25,6 +25,14 @@ OutlineFilledCard["CardDivider"] = CardDivider;
 OutlineFilledCard["LinkAction"] = LinkAction;
 OutlineFilledCard["DoubleAction"] = DoubleAction;
 
+export { OutlineCardProps } from "./OutlineCard";
+export { FilledCardProps } from "./FilledCard";
+export { OutlineFilledCardProps } from "./OutlineFilledCard";
+export { CardImageProps } from "./CardImage";
+export { CardHeaderProps } from "./CardHeader";
+export { CardDividerProps } from "./CardDivider";
+export { LinkActionProps } from "./LinkAction";
+export { DoubleActionProps } from "./DoubleAction";
 export {
   OutlineCard,
   FilledCard,

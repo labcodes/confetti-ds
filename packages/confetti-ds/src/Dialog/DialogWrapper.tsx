@@ -24,7 +24,7 @@ export default function DialogWrapper({
   isMessageDialog,
   isLarge,
 }: DialogWrapperProps) {
-  const deviceIsMobile = window.outerWidth <= 768;
+  const deviceIsMobile = typeof window !== "undefined" && window.outerWidth <= 768;
   const [shouldToggleOverflow, setShouldToggleOverflow] = React.useState(
     isOpen && (isModal || deviceIsMobile)
   );

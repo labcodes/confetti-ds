@@ -1,22 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import {
-  IconTypes,
-  ICON_TYPES,
-  IconColorTypes,
-  ICON_COLORS,
-} from "./constants";
+import { IconTypes, IconColorTypes } from "./constants";
 
-interface IconProps {
+export interface IconProps {
   /** Type of the Icon to be rendered. */
-  type?: IconTypes;
+  type: IconTypes;
   /** Color of the rendered Icon. */
-  color: IconColorTypes;
+  color?: IconColorTypes;
   /** Size of the rendered Icon, petit = 16px, small = 20px. If omitted will render at 24px. */
-  size: "small" | "petit";
+  size?: "small" | "petit";
   /** Add a class name to make custom changes */
-  className: string;
+  className?: string;
 }
 export default function Icon({ type, color, size, className }: IconProps) {
   return (
@@ -30,9 +24,3 @@ export default function Icon({ type, color, size, className }: IconProps) {
     />
   );
 }
-
-Icon.defaultProps = {
-  color: undefined,
-  size: undefined,
-  className: undefined,
-};

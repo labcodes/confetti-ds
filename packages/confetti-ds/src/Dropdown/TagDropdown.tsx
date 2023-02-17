@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from "react";
 
 import AbstractDropdown from "./AbstractDropdown";
 
-interface TagDropdownProps {
+export interface TagDropdownProps {
   /** Function called after the dropdown is opened. */
   onOpen?: (event: SyntheticEvent) => any;
   /** Function called after the dropdown is closed. */

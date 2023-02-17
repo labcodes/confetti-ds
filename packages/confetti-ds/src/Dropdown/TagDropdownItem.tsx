@@ -7,10 +7,10 @@ import React, {
 import { isEmpty } from "lodash";
 
 import Icon from "../Icon";
-import { IconTypes, ICON_TYPES, TagTypes, TAG_COLORS } from "../constants";
+import { IconTypes, TagTypes } from "../constants";
 import AbstractTag from "../Tags/AbstractTag";
 
-interface BaseTagDropdownItemProps {
+export interface BaseTagDropdownItemProps {
   /** This is the Tag's text. */
   text: string;
   /** Disables the Tag. Won't be read by screen readers. */

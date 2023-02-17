@@ -2,7 +2,11 @@ import React, { ReactNode } from "react";
 
 import { NavbarWithDividersContext } from "./NarrowSidebar";
 
-export default function Body({ children }: {children?: ReactNode}) {
+export interface NavbarBodyProps {
+  children?: ReactNode;
+}
+
+export default function Body({ children }: NavbarBodyProps) {
   return (
     <NavbarWithDividersContext.Consumer>
       {(withDividers) => (

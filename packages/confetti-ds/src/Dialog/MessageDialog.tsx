@@ -7,7 +7,7 @@ import { IconTypes } from "../constants";
 import { OutlineButtonProps } from "../Button/OutlineButton";
 import { ButtonProps } from "../Button/Button";
 
-interface MessageDialogProps {
+export interface MessageDialogProps {
   /** Components that will be rendered in the DialogWrapper (MessageDialog, StandardDialog) */
   icon: IconTypes;
   /** The title of the Dialog */

@@ -24,7 +24,7 @@ type BaseRemovableTagProps = {
   onClick?: (event?: SyntheticEvent) => any;
 };
 
-type RemovableTagProps =
+export type RemovableTagProps =
   | (BaseRemovableTagProps & {
       /** Source of the thumbnail to be rendered. Won't render a thumbnail if not passed to the component. Can't have both 'icon' and 'thumbSrc' at the same time. */
       thumbSrc?: undefined;

@@ -2,7 +2,7 @@ import React from "react";
 
 import { CardContext } from "./contexts";
 
-interface OutlineCardProps {
+export interface OutlineCardProps {
   /** Components that will be rendered in the Card (CardImage, CardHeader, CardAction, etc.) */
   children: React.ReactNode;
   /** Sets Card's colors (mostly background colors) based on the chosen palette.  */

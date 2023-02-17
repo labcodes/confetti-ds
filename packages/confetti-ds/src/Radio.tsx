@@ -2,7 +2,7 @@
 import React, { SyntheticEvent } from "react";
 import { isUndefined } from "lodash";
 
-interface RadioProps {
+export interface RadioProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
   id: string;
   /** Text that will specify the HTML `name` attribute of an `<input>` element. It's used to group a set of Radios. */

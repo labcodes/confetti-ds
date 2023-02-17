@@ -1,13 +1,13 @@
 import React from "react";
 
-interface LogotypeProps {
+export interface NavbarLogotypeProps {
   /** Source of the logo to be rendered. */
-  logoSrc: string,
+  logoSrc: string;
   /** Text that will specify the HTML alt attribute of an <img> element. */
-  altText: string,
-};
+  altText: string;
+}
 
-export default function Logotype({ logoSrc, altText }: LogotypeProps) {
+export default function Logotype({ logoSrc, altText }: NavbarLogotypeProps) {
   return (
     <div className="lab-narrow-sidebar__logo">
       <img src={logoSrc} alt={altText} />

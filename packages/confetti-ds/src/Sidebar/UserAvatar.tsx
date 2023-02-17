@@ -1,6 +1,6 @@
 import React from "react";
 
-interface UserAvatarProps {
+export interface NavbarUserAvatarProps {
   /** Source of the avatar to be rendered. */
   avatarSrc: string;
   /** Text that will specify the HTML alt attribute of an <img> element. */
@@ -13,7 +13,7 @@ export default function UserAvatar({
   avatarSrc,
   altText,
   caption,
-}: UserAvatarProps) {
+}: NavbarUserAvatarProps) {
   return (
     <div className="lab-narrow-sidebar__avatar">
       <div className="lab-narrow-sidebar__avatar-photo">

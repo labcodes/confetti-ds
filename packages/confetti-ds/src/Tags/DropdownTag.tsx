@@ -4,7 +4,7 @@ import AbstractTag from "./AbstractTag";
 import Icon from "../Icon";
 import { IconTypes, TagTypes } from "../constants";
 
-interface DropdownTagProps {
+export interface DropdownTagProps {
   /** This is the Tag's text. */
   text: string;
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */

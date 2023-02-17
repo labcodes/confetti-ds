@@ -17,4 +17,14 @@ NarrowSidebar["Logotype"] = Logotype;
 NarrowSidebar["CollapseButton"] = CollapseButton;
 NarrowSidebar["Item"] = Item;
 
+export { NarrowSidebarProps } from "./NarrowSidebar";
+export { NavbarHeaderProps } from "./Header";
+export { NavbarBodyProps } from "./Body";
+export { NavbarFooterProps } from "./Footer";
+export { NavbarFooterButtonProps } from "./FooterButton";
+export { NavbarUserAvatarProps } from "./UserAvatar";
+export { NavbarLogotypeProps } from "./Logotype";
+export { NavbarCollapseButtonProps } from "./CollapseButton";
+export { NavbarItemProps } from "./Item";
+
 export default NarrowSidebar;

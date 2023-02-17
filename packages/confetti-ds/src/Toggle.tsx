@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useState, useEffect } from "react";
 import { isUndefined } from "lodash";
 
-interface TooggleProps {
+export interface ToggleProps {
   /** Text that will serve as unique identifier. It's also an important accessibility tool. */
   id: string;
   /** Text that will specify the HTML `name` attribute of an `<input>` element. */
@@ -29,7 +29,7 @@ export default function Toggle({
   value,
   defaultValue,
   handleToggle,
-}: TooggleProps) {
+}: ToggleProps) {
   const [localValue, setLocalValue] = useState(
     !isUndefined(defaultValue) ? defaultValue : false
   );

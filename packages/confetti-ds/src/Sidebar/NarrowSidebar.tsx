@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 export const NavbarWithDividersContext = React.createContext(false);
 
-interface NarrowSidebarProps {
+export interface NarrowSidebarProps {
   /** Components that will be rendered in the NarrowSidebar (Header, Item, Logotype, etc). */
   children: ReactNode;
   /** In mobile environment, defines if the Sidebar is open. */

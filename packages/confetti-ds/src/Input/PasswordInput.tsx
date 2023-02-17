@@ -3,7 +3,7 @@ import React, { useState, SyntheticEvent } from "react";
 import AbstractTextInput from "./AbstractTextInput";
 import { BaseTextInputProps } from "./types";
 
-interface PasswordInputProps extends BaseTextInputProps {
+export interface PasswordInputProps extends BaseTextInputProps {
   /** Text that will be displayed at the right portion of the Input. */
   isValid?: boolean;
 }

@@ -1,5 +1,9 @@
 import React, { ReactNode } from "react";
 
-export default function Footer({ children }: { children?: ReactNode }) {
+export interface NavbarFooterProps {
+  children?: ReactNode;
+}
+
+export default function Footer({ children }: NavbarFooterProps) {
   return <div className="lab-narrow-sidebar__footer">{children}</div>;
 }

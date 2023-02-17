@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import Icon from "../Icon";
 import { SimpleTag } from "../Tags";
-import { IconColorTypes, IconTypes, TagTypes } from "../constants";
+import { IconTypes, TagTypes } from "../constants";
 
 export interface CardHeaderProps {
   /** Sets card's title. */

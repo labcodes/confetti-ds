@@ -2,7 +2,11 @@ import React from "react";
 
 import Icon from "../Icon";
 
-export default function CollapseButton({ onClick }: { onClick: (event?) => any }) {
+export interface NavbarCollapseButtonProps {
+  onClick: (event?) => any;
+}
+
+export default function CollapseButton({ onClick }: NavbarCollapseButtonProps) {
   return (
     <button
       type="button"

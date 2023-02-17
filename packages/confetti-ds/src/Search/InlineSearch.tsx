@@ -3,7 +3,7 @@ import React, { SyntheticEvent } from "react";
 import AbstractSearch from "./AbstractSearch";
 import { BaseSearchProps } from "./types";
 
-interface InlineSearchProps extends BaseSearchProps {
+export interface InlineSearchProps extends BaseSearchProps {
   /** Defines a default value for the Search initialization. */
   defaultValue?: string;
   /** Disables the Search. Will be read by screen readers. When true, will override `disabled`. */
