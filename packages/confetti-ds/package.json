@@ -19,6 +19,7 @@
   },
   "sideEffects": false,
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./scss/*": "./scss/*"
