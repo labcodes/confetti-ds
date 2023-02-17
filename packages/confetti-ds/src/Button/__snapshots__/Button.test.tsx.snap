@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders as expected if full width 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal lab-btn--block"
+  onClick={[Function]}
+  type="button"
+>
+  
+  Test Default fullWidth Button
+</button>
+`;
+
+exports[`Button renders as expected when passing a small size 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--small"
+  onClick={[Function]}
+  type="button"
+>
+  
+  Test Default Small Button
+</button>
+`;
+
+exports[`Button renders as expected when passing a wallet icon 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="lab-icon lab-icon--wallet lab-icon--white lab-icon--petit lab-btn__icon"
+  />
+  Test Default Wallet Button
+</button>
+`;
+
+exports[`Button renders as expected when passing a warning skin 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal lab-btn--warning"
+  onClick={[Function]}
+  type="button"
+>
+  
+  Test Default Warning Button
+</button>
+`;
+
+exports[`Button renders as expected when passing disabled as true 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal"
+  disabled={true}
+  onClick={[Function]}
+  type="button"
+>
+  
+  Test Default Disabled Button 1
+</button>
+`;
+
+exports[`Button renders as expected when tabIndex is passed 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal lab-btn--block"
+  onClick={[Function]}
+  tabIndex={1}
+  type="button"
+>
+  
+  Test tabIndex
+</button>
+`;
+
+exports[`Button renders with base props 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal"
+  onClick={[Function]}
+  type="button"
+>
+  
+  Test Default Button
+</button>
+`;

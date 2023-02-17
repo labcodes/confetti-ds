@@ -7,7 +7,6 @@ import {
   CardDivider,
   LinkAction,
 } from "../../../../../packages/confetti-ds/src/Card";
-import { outlineCardChoices } from "../../../../../packages/confetti-ds/src/Card/propTypes";
 
 import { LinkAction as LinkActionStory } from "./subcomponents/LinkAction.stories";
 import { CardDivider as CardDividerStory } from "./subcomponents/CardDivider.stories";
@@ -19,12 +18,6 @@ export default {
   component: Component,
   subcomponents: { CardImage, CardHeader, CardDivider, LinkAction },
   argTypes: {
-    color: {
-      control: { type: "radio", options: outlineCardChoices.color },
-    },
-    skin: {
-      control: { type: "radio", options: outlineCardChoices.skin },
-    },
     children: {
       control: false,
     },

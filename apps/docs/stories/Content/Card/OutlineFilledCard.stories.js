@@ -7,7 +7,6 @@ import {
   CardDivider,
   DoubleAction,
 } from "../../../../../packages/confetti-ds/src/Card";
-import { outlineFilledCardChoices } from "../../../../../packages/confetti-ds/src/Card/propTypes";
 
 import { DoubleAction as DoubleActionStory } from "./subcomponents/DoubleAction.stories";
 import { CardDivider as CardDividerStory } from "./subcomponents/CardDivider.stories";
@@ -19,9 +18,6 @@ export default {
   component: Component,
   subcomponents: { CardImage, CardHeader, CardDivider, DoubleAction },
   argTypes: {
-    color: {
-      control: { type: "radio", options: outlineFilledCardChoices.color },
-    },
     children: {
       control: false,
     },

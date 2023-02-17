@@ -11,5 +11,8 @@
     "build": "npx turbo build --force",
     "test": "npx turbo test",
     "publish": "npx turbo publish"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.20.7"
   }
 }
