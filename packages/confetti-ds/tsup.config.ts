@@ -1,12 +1,13 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/**/!(*.test).tsx"],
+  entry: ["src/index.tsx"],
   sourcemap: true,
-  bundle: false,
   dts: true,
+  treeshake: true,
+  minify: true,
+  clean: true,
+  splitting: false,
   format: ["esm"],
-  loader: {
-    ".js": "jsx",
-  },
+  external: ["react"],
 });
