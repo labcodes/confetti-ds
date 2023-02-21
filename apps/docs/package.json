@@ -20,11 +20,14 @@
     "@storybook/react": "^6.4.19",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.2",
+    "css-loader": "^5",
     "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^4.2.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "sass": "^1.49.7",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10",
+    "style-loader": "^2"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.4.19"
