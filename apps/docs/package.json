@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run storybook",
-    "storybook": "start-storybook -p 8000",
-    "build": "build-storybook"
+    "start": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 8000",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   },
   "keywords": [],
   "author": "",
