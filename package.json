@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "chromatic": "^6.17.1",
     "turbo": "^1.6.3"
   },
   "workspaces": [
