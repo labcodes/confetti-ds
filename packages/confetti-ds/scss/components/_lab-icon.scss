@@ -1,7 +1,10 @@
+// TODO: vai de base tb
 $icon-size: 1.5rem !default;
 $icon-bg-color: map-get($icon-theme, "70") !default;
 
+
 .lab-icon {
+  // TODO: daqui pra baixo até color modifiers vai de base
   -webkit-mask-image: url($icons-svg);
   mask-image: url($icons-svg);
   -webkit-mask-repeat: no-repeat;
@@ -14,17 +17,18 @@ $icon-bg-color: map-get($icon-theme, "70") !default;
   flex-shrink: 0;
   background-color: $icon-bg-color;
 
+  // TODO: manter mas rever
   /* Color modifiers.
    * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
    * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
    * Each ones sets a different background color. */
-  &--black { background-color: $black; }
-  &--white { background-color: $white; }
+  &--black { color: $black; }
+  &--white { color: $white; }
 
   @each $key, $palette in $all-colors {
     @each $color-palette, $color in $palette {
       &--#{$key}-#{$color-palette} {
-          background-color: $color;
+          color: $color;
       }
     }
   }
@@ -33,6 +37,7 @@ $icon-bg-color: map-get($icon-theme, "70") !default;
   &--petit { transform: scale(0.66666); }
   &--small { transform: scale(0.83333); }
 
+  // TODO: daqui pra baixo vai de base
   /* Type modifiers */
   &--arrow-left { @include icon-position(0, 0); }
   &--arrow-right { @include icon-position(0, 1); }
@@ -76,6 +81,5 @@ $icon-bg-color: map-get($icon-theme, "70") !default;
   &--chevron-right { @include icon-position(6, 2); }
   &--chevron-left { @include icon-position(6, 3); }
   &--workspace { @include icon-position(6, 4); }
-
 
 }
