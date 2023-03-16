@@ -17,7 +17,7 @@ export const ICON_TYPES = [
   "upload",
   // Key
   "key",
-  //DocumentHeart
+  // DocumentHeart
   "sheet",
   //TextFont
   "type",
@@ -55,7 +55,7 @@ export const ICON_TYPES = [
   "dismiss",
   // Add
   "plus",
-  // Minus
+  // Subtract
   "minus",
   // Checkmark
   "confirm",
@@ -103,6 +103,30 @@ export const ICON_TYPES = [
   "chevrons",
   // ErrorCircle
   "star",
+  //SignOut
+  "logout",
+  //StackStar
+  "track",
+  // CalendarLtr
+  "calendar",
+  // Money
+  "coin",
+  // Open
+  "external",
+  // GridDots
+  "workspace",
+  // Phone
+  "phone",
+  // Wallet
+  "wallet",
+  // CubeRotate
+  "continuous-delivery",
+  // Cloud
+  "cloud",
+  // Mic
+  "microphone",
+  // CloudFlow
+  "api"
 ] as const;
 
 export type IconTypes = typeof ICON_TYPES[number];
