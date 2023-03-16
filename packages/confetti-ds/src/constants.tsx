@@ -1,40 +1,108 @@
 export const ICON_TYPES = [
-  "arrow-down",
+  // ArrowLeft
   "arrow-left",
+  // ArrowRight
   "arrow-right",
-  "arrow-top",
-  "calendar",
-  "coin",
-  "collapse-closed",
-  "collapse-open",
-  "check",
-  "dropdown-closed",
-  "dropdown-open",
-  "edit",
-  "eye-closed",
-  "eye-opened",
-  "track",
-  "key",
-  "logout",
-  "magnifying-glass",
-  "minus",
-  "plus",
-  "reload",
-  "remove",
+  // ArrowUp
+  "arrow-up",
+  // ArrowDown
+  "arrow-down",
+  // ArrowSort
   "sort",
+  // Star
   "star",
-  "trash",
+  // BookOpen
+  "book-open",
+  // CloudArrowUp
   "upload",
-  "arrow-fill-right",
-  "arrow-fill-left",
-  "chevron-right",
+  // Key
+  "key",
+  //DocumentHeart
+  "sheet",
+  //TextFont
+  "type",
+  //ChatEmpty
+  "message",
+  //CalligraphyPen
+  "pen",
+  //CaretRight
+  "select-right",
+  //CaretLeft
+  "select-left",
+  //CaretUp
+  "select-up",
+  //CaretDown
+  "select-down",
+  //ChevronUp
+  "chevron-up",
+  //ChevronDown
+  "chevron-down",
+  //ChevronLeft
   "chevron-left",
-  "menu-expand",
+  //ChevronRight
+  "chevron-right",
+  //ArrowClockwise
+  "reload",
+  // Heart
+  "heart",
+  // JavaScript
+  "js",
+  //CodeBlock
+  "code",
+  //Clock
+  "clock",
+  // Dismiss
+  "dismiss",
+  // Add
+  "plus",
+  // Minus
+  "minus",
+  // Checkmark
+  "confirm",
+  // ArrowMinimize
   "menu-collapse",
+  // ArrowMaximize
+  "menu-expand",
+  // Backspace
+  "delete",
+  // Important,
+  "exclamation",
+  // Edit
+  "edit",
+  // ArrowTrending
+  "growth",
+  //Lightbulb
+  "lamp",
+  // ProjectionScreen
+  "presentation",
+  // Add
+  "add-circle",
+  // Eye
+  "eye-opened",
+  // EyeOff
+  "eye-closed",
+  // Search
+  "lupe",
+  // Delete
+  "trash",
+  // Navigation
   "menu-default",
-  "external",
-  "wallet",
-  "workspace",
+  // Link
+  "link",
+  // Filter
+  "filter",
+  // Settings
+  "gear",
+  // Bookmark
+  "bookmark",
+  // WindowApps
+  "web-app",
+  // Cube
+  "pack",
+  // CodeBlock
+  "chevrons",
+  // ErrorCircle
+  "star",
 ] as const;
 
 export type IconTypes = typeof ICON_TYPES[number];
