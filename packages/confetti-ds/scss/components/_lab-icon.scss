@@ -1,23 +1,4 @@
-// TODO: vai de base tb
-$icon-size: 1.5rem !default;
-$icon-bg-color: map-get($icon-theme, "70") !default;
-
-
 .lab-icon {
-  // TODO: daqui pra baixo até color modifiers vai de base
-  -webkit-mask-image: url($icons-svg);
-  mask-image: url($icons-svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  height: $icon-size;
-  width: $icon-size;
-  font-size: $icon-size;
-  line-height: 1;
-  display: inline-block;
-  flex-shrink: 0;
-  background-color: $icon-bg-color;
-
-  // TODO: manter mas rever
   /* Color modifiers.
    * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
    * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
@@ -32,54 +13,5 @@ $icon-bg-color: map-get($icon-theme, "70") !default;
       }
     }
   }
-
-  /* Size modifiers */
-  &--petit { transform: scale(0.66666); }
-  &--small { transform: scale(0.83333); }
-
-  // TODO: daqui pra baixo vai de base
-  /* Type modifiers */
-  &--arrow-left { @include icon-position(0, 0); }
-  &--arrow-right { @include icon-position(0, 1); }
-  &--arrow-top { @include icon-position(0, 2); }
-  &--arrow-down { @include icon-position(0, 3); }
-  &--sort { @include icon-position(0, 4); }
-  &--star { @include icon-position(0, 5); }
-
-  &--dropdown-closed { @include icon-position(1, 0); }
-  &--dropdown-open { @include icon-position(1, 1); }
-  &--collapse-closed { @include icon-position(1, 2); }
-  &--collapse-open { @include icon-position(1, 3); }
-  &--menu-expand { @include icon-position(1, 4); }
-
-  &--remove { @include icon-position(2, 0); }
-  &--plus { @include icon-position(2, 1); }
-  &--minus { @include icon-position(2, 2); }
-  &--check { @include icon-position(2, 3); }
-  &--menu-collapse { @include icon-position(2, 4); }
-
-  &--eye-opened { @include icon-position(3, 0); }
-  &--eye-closed { @include icon-position(3, 1); }
-  &--magnifying-glass { @include icon-position(3, 2); }
-  &--trash { @include icon-position(3, 3); }
-  &--menu-default { @include icon-position(3, 4); }
-
-  &--logout { @include icon-position(4, 0); }
-  &--track { @include icon-position(4, 1); }
-  &--calendar { @include icon-position(4, 2); }
-  &--coin { @include icon-position(4, 3); }
-  &--external { @include icon-position(4, 4); }
-
-  &--edit { @include icon-position(5, 0); }
-  &--key { @include icon-position(5, 1); }
-  &--upload { @include icon-position(5, 2); }
-  &--reload { @include icon-position(5, 3); }
-  &--wallet { @include icon-position(5, 4); }
-
-  &--arrow-fill-right { @include icon-position(6, 0); }
-  &--arrow-fill-left { @include icon-position(6, 1); }
-  &--chevron-right { @include icon-position(6, 2); }
-  &--chevron-left { @include icon-position(6, 3); }
-  &--workspace { @include icon-position(6, 4); }
 
 }
