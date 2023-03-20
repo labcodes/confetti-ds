@@ -1,4 +1,4 @@
 # app netlify.toml
 [build]
-  command = "npm run build"
+  command = "npx pnpm build"
   publish = "apps/docs/storybook-static/"
