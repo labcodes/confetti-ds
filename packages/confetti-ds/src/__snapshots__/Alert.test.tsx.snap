@@ -4,9 +4,22 @@ exports[`Alert renders with base props 1`] = `
 <div
   className="lab-alert lab-alert--error"
 >
-  <span
-    className="lab-icon lab-icon--magnifying-glass lab-icon--mineral-70 lab-alert__icon"
-  />
+  <span>
+    <svg
+      aria-hidden={true}
+      className="lab-icon lab-icon--lupe lab-alert__icon ___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.5 3a5.5 5.5 0 0 1 4.23 9.02l4.12 4.13a.5.5 0 0 1-.63.76l-.07-.06-4.13-4.12A5.5 5.5 0 1 1 8.5 3Zm0 1a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
   <span
     className="lab-alert__message"
   >
@@ -33,9 +46,22 @@ exports[`Alert renders with button 1`] = `
 <div
   className="lab-alert lab-alert--warn"
 >
-  <span
-    className="lab-icon lab-icon--wallet lab-icon--mineral-70 lab-alert__icon"
-  />
+  <span>
+    <svg
+      aria-hidden={true}
+      className="lab-icon lab-icon--wallet lab-alert__icon ___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.5 11a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1ZM3 4.5C3 3.67 3.67 3 4.5 3H14a2 2 0 0 1 2 2v.27c.6.34 1 .99 1 1.73v8a2 2 0 0 1-2 2H5.5A2.5 2.5 0 0 1 3 14.5v-10ZM14 4H4.5a.5.5 0 0 0 0 1H15a1 1 0 0 0-1-1ZM4.5 6a1.5 1.5 0 0 1-.5-.09v8.59c0 .83.67 1.5 1.5 1.5H15a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H4.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
   <span
     className="lab-alert__message"
   >

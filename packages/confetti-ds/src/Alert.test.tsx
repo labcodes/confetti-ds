@@ -7,7 +7,7 @@ import Alert from "./Alert";
 describe("Alert", () => {
   it("renders with base props", async () => {
     const renderedComponent = renderer
-      .create(<Alert text="Error Alert" type="error" icon="magnifying-glass" />)
+      .create(<Alert text="Error Alert" type="error" icon="lupe" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });

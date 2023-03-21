@@ -63,20 +63,15 @@ import {
   CubeRotate20Regular,
   Cloud20Regular,
   Mic20Regular,
-  CloudFlow20Regular
+  CloudFlow20Regular,
 } from "@fluentui/react-icons";
 export interface IconProps {
   /** Type of the Icon to be rendered. */
   type: IconTypes;
-  /** Color of the rendered Icon. */
-  color?: IconColorTypes;
-  // TODO: vai de base tb
-  /** Size of the rendered Icon, petit = 16px, small = 20px. If omitted will render at 24px. */
-  size?: "small" | "petit";
   /** Add a class name to make custom changes */
   className?: string;
 }
-export default function Icon({ type, color, size, className }: IconProps) {
+export default function Icon({ type, className }: IconProps) {
   let IconComponent;
 
   if (type === "arrow-left") IconComponent = ArrowLeft20Regular;
@@ -211,7 +206,11 @@ export default function Icon({ type, color, size, className }: IconProps) {
 
   return (
     <span>
-      <IconComponent />
+      <IconComponent
+        className={
+          `lab-icon lab-icon--${type}` + `${className ? ` ${className}` : ""}`
+        }
+      />
     </span>
   );
 }

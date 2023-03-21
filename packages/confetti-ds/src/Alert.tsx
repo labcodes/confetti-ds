@@ -30,9 +30,7 @@ export default function Alert({
 
   return (
     <div className={`lab-alert lab-alert--${type}`}>
-      {icon ? (
-        <Icon type={icon} color="mineral-70" className="lab-alert__icon" />
-      ) : undefined}
+      {icon ? <Icon type={icon} className="lab-alert__icon" /> : undefined}
       <span className="lab-alert__message">{text}</span>
       <span
         className="lab-alert__button"
