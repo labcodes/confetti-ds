@@ -30,9 +30,9 @@ export const ICON_TYPES = [
   //CaretLeft
   "select-left",
   //CaretUp
-  "select-up",
+  "dropdown-open",
   //CaretDown
-  "select-down",
+  "dropdown-closed",
   //ChevronUp
   "chevron-up",
   //ChevronDown
@@ -52,7 +52,7 @@ export const ICON_TYPES = [
   //Clock
   "clock",
   // Dismiss
-  "dismiss",
+  "remove",
   // Add
   "plus",
   // Subtract
@@ -126,7 +126,7 @@ export const ICON_TYPES = [
   // Mic
   "microphone",
   // CloudFlow
-  "api"
+  "api",
 ] as const;
 
 export type IconTypes = typeof ICON_TYPES[number];

@@ -24,9 +24,7 @@ export default function Banner({
   buttonProps = { text: "", onClick: () => {} },
 }: BannerProps) {
   const renderIcon = () =>
-    icon ? (
-      <Icon type={icon} color="white" className="lab-banner__icon" />
-    ) : undefined;
+    icon ? <Icon type={icon} className="lab-banner__icon" /> : undefined;
 
   const button = () => {
     if (buttonProps.text) {

@@ -104,9 +104,9 @@ export default function Icon({ type, className }: IconProps) {
 
   if (type === "select-left") IconComponent = CaretLeft20Regular;
 
-  if (type === "select-up") IconComponent = CaretUp20Regular;
+  if (type === "dropdown-open") IconComponent = CaretUp20Regular;
 
-  if (type === "select-down") IconComponent = CaretDown20Regular;
+  if (type === "dropdown-closed") IconComponent = CaretDown20Regular;
 
   if (type === "chevron-up") IconComponent = ChevronUp20Regular;
 
@@ -126,7 +126,7 @@ export default function Icon({ type, className }: IconProps) {
 
   if (type === "clock") IconComponent = Clock20Regular;
 
-  if (type === "dismiss") IconComponent = Dismiss20Regular;
+  if (type === "remove") IconComponent = Dismiss20Regular;
 
   if (type === "plus") IconComponent = Add20Regular;
 
@@ -205,12 +205,12 @@ export default function Icon({ type, className }: IconProps) {
   if (!IconComponent) return null;
 
   return (
-    <span>
-      <IconComponent
-        className={
-          `lab-icon lab-icon--${type}` + `${className ? ` ${className}` : ""}`
-        }
-      />
+    <span
+      className={
+        `lab-icon lab-icon--${type}` + `${className ? ` ${className}` : ""}`
+      }
+    >
+      <IconComponent />
     </span>
   );
 }
