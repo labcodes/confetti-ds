@@ -10,8 +10,6 @@ export interface EmailInputProps extends BaseTextInputProps {
   isValid?: boolean;
   /** Defines an icon type to display inside the input. */
   icon?: IconTypes;
-  /** Defines the Icon color. */
-  iconColor?: IconColorTypes;
   /** Callback action to be executed when the Input's Icon is clicked.  */
   onIconClick?: (event?: SyntheticEvent) => any;
 }
@@ -19,7 +17,6 @@ export interface EmailInputProps extends BaseTextInputProps {
 export default function EmailInput({
   id,
   icon,
-  iconColor = "mineral-70",
   onIconClick = () => {},
   label,
   ariaDisabled = false,
@@ -41,7 +38,6 @@ export default function EmailInput({
       defaultValue={defaultValue}
       value={value}
       icon={icon}
-      iconColor={iconColor}
       required={required}
       helpMessage={helpMessage}
       prefix={prefix}

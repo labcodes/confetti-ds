@@ -48,24 +48,18 @@ describe("SimpleTag", () => {
     expect(wrapper).toContain("lab-tag--vivid");
   });
 
-  it("renders as expected with a magnifying-glass icon", async () => {
+  it("renders as expected with a lupe icon", async () => {
     const renderedComponent = renderer
       .create(
-        <SimpleTag
-          text="Test render SimpleTag with magnifying-glass icon"
-          icon="magnifying-glass"
-        />
+        <SimpleTag text="Test render SimpleTag with lupe icon" icon="lupe" />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const wrapper = shallow(
-      <SimpleTag
-        text="Test SimpleTag with magnifying-glass icon"
-        icon="magnifying-glass"
-      />
+      <SimpleTag text="Test SimpleTag with lupe icon" icon="lupe" />
     ).html();
-    expect(wrapper).toContain("lab-icon--magnifying-glass");
+    expect(wrapper).toContain("lab-icon--lupe");
   });
 
   it("renders as expected with a thumb", async () => {
@@ -95,7 +89,7 @@ describe("SimpleTag", () => {
       shallow(
         <SimpleTag
           text="Test to not render SimpleTag with with thumb and icon"
-          icon="magnifying-glass"
+          icon="lupe"
           thumbSrc="fake-thumb"
           thumbAlt="fake-thumb-alt"
         />

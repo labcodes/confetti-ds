@@ -89,7 +89,7 @@ export default function MessageDialog({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <Icon type="collapse-open" />
+          <Icon type="chevron-down" />
         </button>
         <div className="lab-dialog__header lab-dialog__header--message">
           <button

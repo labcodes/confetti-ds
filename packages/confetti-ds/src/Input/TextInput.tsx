@@ -44,7 +44,6 @@ export default function TextInput({
       defaultValue={defaultValue}
       value={value}
       icon={icon}
-      iconColor={iconColor}
       required={required}
       helpMessage={helpMessage}
       prefix={prefix}

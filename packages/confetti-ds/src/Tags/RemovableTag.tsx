@@ -52,12 +52,7 @@ export default function RemovableTag({
 }: RemovableTagProps) {
   const removeIcon = () => (
     <span className="lab-tag__remove-icon-wrapper">
-      <Icon
-        type="remove"
-        color="black-75"
-        size="petit"
-        className="lab-tag--remove-icon"
-      />
+      <Icon type="remove" className="lab-tag--remove-icon" />
     </span>
   );
 
@@ -67,14 +62,7 @@ export default function RemovableTag({
     ) : undefined;
 
   const handleIcon = () =>
-    icon ? (
-      <Icon
-        type={icon}
-        color="black-75"
-        size="petit"
-        className="lab-tag--left-icon"
-      />
-    ) : undefined;
+    icon ? <Icon type={icon} className="lab-tag--left-icon" /> : undefined;
 
   const checkThumbAndIcon = () => {
     const errorMessage =

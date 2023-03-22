@@ -83,7 +83,7 @@ export default function StandardDialog({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <Icon type="collapse-open" />
+          <Icon type="chevron-up" />
         </button>
 
         <div className="lab-dialog__header">
