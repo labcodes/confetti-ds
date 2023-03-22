@@ -39,9 +39,6 @@ exports[`OutlineButton renders as expected when passing a magnifying-glass icon 
   onClick={[Function]}
   type="button"
 >
-  <span
-    className="lab-icon lab-icon--magnifying-glass lab-icon--white lab-icon--petit lab-btn__icon"
-  />
   Test Outline magnifying-glass Button
 </button>
 `;

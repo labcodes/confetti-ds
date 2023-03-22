@@ -17,10 +17,12 @@ exports[`Checkbox renders as expected when passing a different className 1`] = `
     <span
       className="lab-checkbox__box"
     >
-      <span>
+      <span
+        className="lab-icon lab-icon--confirm"
+      >
         <svg
           aria-hidden={true}
-          className="lab-icon lab-icon--confirm ___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
           fill="currentColor"
           height={20}
           viewBox="0 0 20 20"
@@ -79,10 +81,12 @@ exports[`Checkbox renders as expected when passing indeterminate 1`] = `
     <span
       className="lab-checkbox__box"
     >
-      <span>
+      <span
+        className="lab-icon lab-icon--minus"
+      >
         <svg
           aria-hidden={true}
-          className="lab-icon lab-icon--minus ___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
           fill="currentColor"
           height={20}
           viewBox="0 0 20 20"
@@ -122,10 +126,12 @@ exports[`Checkbox renders as expected when passing indeterminate as true 1`] = `
     <span
       className="lab-checkbox__box"
     >
-      <span>
+      <span
+        className="lab-icon lab-icon--minus"
+      >
         <svg
           aria-hidden={true}
-          className="lab-icon lab-icon--minus ___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
           fill="currentColor"
           height={20}
           viewBox="0 0 20 20"

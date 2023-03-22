@@ -85,12 +85,12 @@ describe("TagDropdownItem", () => {
     expect(wrapper).toContain('id="option1"');
   });
 
-  it("renders as expected with a magnifying-glass icon", async () => {
+  it("renders as expected with a lupe icon", async () => {
     const renderedComponent = renderer
       .create(
         <TagDropdownItem
-          text="Test render TagDropdownItem with magnifying-glass icon"
-          icon="magnifying-glass"
+          text="Test render TagDropdownItem with lupe icon"
+          icon="lupe"
           value="option1"
         />
       )
@@ -100,12 +100,12 @@ describe("TagDropdownItem", () => {
 
     const wrapper = shallow(
       <TagDropdownItem
-        text="Test TagDropdownItem with magnifying-glass icon"
-        icon="magnifying-glass"
+        text="Test TagDropdownItem with lupe icon"
+        icon="lupe"
         value="option1"
       />
     ).html();
-    expect(wrapper).toContain("lab-icon--magnifying-glass");
+    expect(wrapper).toContain("lab-icon--lupe");
     expect(wrapper).toContain('id="option1"');
   });
 
@@ -142,7 +142,7 @@ describe("TagDropdownItem", () => {
       mount(
         <TagDropdownItem
           text="Test to not render TagDropdownItem with with thumb and icon"
-          icon="magnifying-glass"
+          icon="lupe"
           thumbSrc="fake-thumb"
           thumbAlt="fake-thumb-alt"
           value="option1"

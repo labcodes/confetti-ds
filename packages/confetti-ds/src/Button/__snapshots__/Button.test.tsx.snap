@@ -29,8 +29,23 @@ exports[`Button renders as expected when passing a wallet icon 1`] = `
   type="button"
 >
   <span
-    className="lab-icon lab-icon--wallet lab-icon--white lab-icon--petit lab-btn__icon"
-  />
+    className="lab-icon lab-icon--wallet lab-btn__icon"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.5 11a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1ZM3 4.5C3 3.67 3.67 3 4.5 3H14a2 2 0 0 1 2 2v.27c.6.34 1 .99 1 1.73v8a2 2 0 0 1-2 2H5.5A2.5 2.5 0 0 1 3 14.5v-10ZM14 4H4.5a.5.5 0 0 0 0 1H15a1 1 0 0 0-1-1ZM4.5 6a1.5 1.5 0 0 1-.5-.09v8.59c0 .83.67 1.5 1.5 1.5H15a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H4.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
   Test Default Wallet Button
 </button>
 `;

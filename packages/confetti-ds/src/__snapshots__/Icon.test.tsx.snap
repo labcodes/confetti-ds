@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icon renders with base props 1`] = `
-<span>
+<span
+  className="lab-icon lab-icon--cloud"
+>
   <svg
     aria-hidden={true}
-    className="lab-icon lab-icon--cloud ___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+    className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
     fill="currentColor"
     height={20}
     viewBox="0 0 20 20"
