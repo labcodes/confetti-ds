@@ -1,15 +1,34 @@
+//$icon-color: map-get($icon-theme, "70") !default;
+
 .lab-icon {
+  //-webkit-mask-image: url($icons-svg);
+  //mask-image: url($icons-svg);
+  //-webkit-mask-repeat: no-repeat;
+  //mask-repeat: no-repeat;
+  //height: $icon-size;
+  //width: $icon-size;
+  //font-size: $icon-size;
+  //line-height: 1;
+  //display: inline-block;
+  //flex-shrink: 0;
+  //color: $icon-color;
+
   /* Color modifiers.
    * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
    * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
    * Each ones sets a different background color. */
-  &--black { color: $black; }
-  &--white { color: $white; }
+  &--black {
+   color: $black;
+  }
+
+  &--white {
+   color: $white;
+  }
 
   @each $key, $palette in $all-colors {
     @each $color-palette, $color in $palette {
       &--#{$key}-#{$color-palette} {
-          color: $color;
+        color: $color;
       }
     }
   }

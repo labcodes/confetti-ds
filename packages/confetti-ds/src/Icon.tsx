@@ -68,11 +68,12 @@ import {
 export interface IconProps {
   /** Type of the Icon to be rendered. */
   type: IconTypes;
+  /** Color of the rendered Icon. */
+  color?: IconColorTypes;
   /** Add a class name to make custom changes */
   className?: string;
-  /* Add a color to the Icon*/
 }
-export default function Icon({ type, className }: IconProps) {
+export default function Icon({ type, color, className }: IconProps) {
   let IconComponent;
 
   if (type === "arrow-left") IconComponent = ArrowLeft20Regular;
@@ -208,7 +209,9 @@ export default function Icon({ type, className }: IconProps) {
   return (
     <span
       className={
-        `lab-icon lab-icon--${type}` + `${className ? ` ${className}` : ""}`
+        `lab-icon lab-icon--${type}` + +
+        `${color ? ` lab-icon--${color}` : ""}` +
+        `${className ? ` ${className}` : ""}`
       }
     >
       <IconComponent />
