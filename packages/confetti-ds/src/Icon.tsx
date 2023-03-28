@@ -70,6 +70,7 @@ export interface IconProps {
   type: IconTypes;
   /** Add a class name to make custom changes */
   className?: string;
+  /* Add a color to the Icon*/
 }
 export default function Icon({ type, className }: IconProps) {
   let IconComponent;
