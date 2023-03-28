@@ -201,7 +201,7 @@ export default function Icon({ type, className }: IconProps) {
 
   if (type === "microphone") IconComponent = Mic20Regular;
 
-  if (type === "api") IconComponent = CloudFlow20Regular;
+  if (type === "") IconComponent = CloudFlow20Regular;
 
   if (!IconComponent) return null;
 
