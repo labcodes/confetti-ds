@@ -23,7 +23,7 @@ const Item = ({ label, icon, isActive = false, onClick }: NavbarItemProps) => {
       onClick={onClick}
     >
       {icon ? (
-        <Icon type={icon} className="lab-narrow-sidebar__item-icon" />
+        <Icon type={icon} color="mineral-60" className="lab-narrow-sidebar__item-icon" />
       ) : null}
       <span className="lab-narrow-sidebar__item-label">{label}</span>
     </button>

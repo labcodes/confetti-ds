@@ -79,7 +79,9 @@ export default function TagDropdownItem({
     ) : undefined;
 
   const renderIcon = () =>
-    icon ? <Icon type={icon} className="lab-tag--left-icon" /> : undefined;
+    icon ? (
+      <Icon type={icon} color="black-75" className="lab-tag--left-icon" />
+    ) : undefined;
 
   // super constructor
   const checkThumbAndIcon = useCallback(() => {

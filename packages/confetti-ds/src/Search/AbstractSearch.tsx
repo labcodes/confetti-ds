@@ -147,7 +147,7 @@ function TrailingIcon({
       disabled={(!ariaDisabled && disabled) || undefined}
       aria-disabled={ariaDisabled || undefined}
     >
-      <Icon type="remove" />
+      <Icon type="remove" color="mineral-40"/>
     </button>
   );
 }
@@ -171,7 +171,7 @@ function StandardSearchIcon({
         disabled={(!ariaDisabled && disabled) || undefined}
         aria-disabled={ariaDisabled || undefined}
       >
-        <Icon className="lab-standard-search__icon" type="lupe" />
+        <Icon className="lab-standard-search__icon" type="lupe" color="mineral-40"/>
       </button>
       <span className="lab-standard-search__separator" />
     </React.Fragment>

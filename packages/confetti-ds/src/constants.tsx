@@ -150,7 +150,7 @@ export const ICON_COLORS = [
   "purple-70",
 ] as const;
 
-export type IconColorTypes = typeof ICON_COLORS[string];
+export type IconColorTypes = typeof ICON_COLORS[number];
 
 export const TAG_COLORS = [
   "mineral",

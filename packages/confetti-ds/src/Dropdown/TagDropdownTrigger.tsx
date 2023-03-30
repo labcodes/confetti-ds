@@ -45,7 +45,9 @@ export default function TagDropdownTrigger({
 }: TagDropdownTriggerProps) {
   // eslint-disable-next-line react/display-name
   const handleIcon = () =>
-    icon ? <Icon type={icon} className="lab-tag--left-icon" /> : undefined;
+    icon ? (
+      <Icon type={icon} color="black-75" className="lab-tag--left-icon" />
+    ) : undefined;
 
   const dropdownIcon = () => (
     <span className="lab-tag__dropdown-icon-wrapper">

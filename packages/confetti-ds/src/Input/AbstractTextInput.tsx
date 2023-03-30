@@ -12,6 +12,8 @@ export interface AbstractTextInputProps extends BaseTextInputProps {
   type?: string;
   /** Type of the icon to be rendered. Won't render an icon if not passed to the component. */
   icon?: IconTypes;
+  /** Defines the color of the displayed icon. */
+  iconColor?: IconColorTypes;
   /** Defines if the Input is valid. */
   isValid?: boolean;
   /** Custom error message displayed below the Input when the value is not valid. */
@@ -24,6 +26,7 @@ export default function AbstractTextInput({
   id,
   type = "text",
   icon,
+  iconColor = "mineral-70" as const,
   isValid,
   customErrorMsg,
   onIconClick = () => {},
@@ -116,7 +119,7 @@ export default function AbstractTextInput({
   const requiredIcon = () =>
     required ? (
       <span className="lab-input__required-icon">
-        <Icon type="star" />
+        <Icon type="star" color="white" />
       </span>
     ) : (
       ""
@@ -187,6 +190,7 @@ export default function AbstractTextInput({
         {icon ? (
           <TrailingIcon
             icon={icon}
+            iconColor={iconColor}
             onIconClick={onIconClick}
             disabled={(!ariaDisabled && disabled) || undefined}
             ariaDisabled={ariaDisabled || undefined}
@@ -231,7 +235,7 @@ function TrailingIcon({
       disabled={(!ariaDisabled && disabled) || undefined}
       aria-disabled={ariaDisabled || undefined}
     >
-      <Icon type={icon} />
+      <Icon type={icon} color={iconColor}/>
     </button>
   );
 }
