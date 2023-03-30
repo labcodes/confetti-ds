@@ -29,7 +29,7 @@ exports[`InlineSearch renders with base props 1`] = `
         type="button"
       >
         <span
-          className="lab-icon lab-icon--remove"
+          className="lab-icon lab-icon--remove lab-icon--mineral-40 "
         >
           <svg
             aria-hidden={true}
@@ -48,7 +48,7 @@ exports[`InlineSearch renders with base props 1`] = `
         </span>
       </button>
       <span
-        className="lab-icon lab-icon--lupe lab-inline-search__icon "
+        className="lab-icon lab-icon--lupe  lab-inline-search__icon "
       >
         <svg
           aria-hidden={true}

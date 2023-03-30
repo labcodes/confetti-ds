@@ -18,7 +18,7 @@ exports[`Checkbox renders as expected when passing a different className 1`] = `
       className="lab-checkbox__box"
     >
       <span
-        className="lab-icon lab-icon--confirm"
+        className="lab-icon lab-icon--confirm  "
       >
         <svg
           aria-hidden={true}
@@ -82,7 +82,7 @@ exports[`Checkbox renders as expected when passing indeterminate 1`] = `
       className="lab-checkbox__box"
     >
       <span
-        className="lab-icon lab-icon--minus"
+        className="lab-icon lab-icon--minus  "
       >
         <svg
           aria-hidden={true}
@@ -127,7 +127,7 @@ exports[`Checkbox renders as expected when passing indeterminate as true 1`] = `
       className="lab-checkbox__box"
     >
       <span
-        className="lab-icon lab-icon--minus"
+        className="lab-icon lab-icon--minus  "
       >
         <svg
           aria-hidden={true}

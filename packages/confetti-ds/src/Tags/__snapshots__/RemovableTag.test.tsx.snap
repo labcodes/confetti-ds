@@ -13,7 +13,7 @@ exports[`RemovableTag renders as disabled 1`] = `
     className="lab-tag__remove-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--remove lab-tag--remove-icon"
+      className="lab-icon lab-icon--remove  lab-tag--remove-icon"
     >
       <svg
         aria-hidden={true}
@@ -47,7 +47,7 @@ exports[`RemovableTag renders as outline 1`] = `
     className="lab-tag__remove-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--remove lab-tag--remove-icon"
+      className="lab-icon lab-icon--remove  lab-tag--remove-icon"
     >
       <svg
         aria-hidden={true}
@@ -81,7 +81,7 @@ exports[`RemovableTag renders with a green color 1`] = `
     className="lab-tag__remove-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--remove lab-tag--remove-icon"
+      className="lab-icon lab-icon--remove  lab-tag--remove-icon"
     >
       <svg
         aria-hidden={true}
@@ -115,7 +115,7 @@ exports[`RemovableTag renders with base props 1`] = `
     className="lab-tag__remove-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--remove lab-tag--remove-icon"
+      className="lab-icon lab-icon--remove  lab-tag--remove-icon"
     >
       <svg
         aria-hidden={true}

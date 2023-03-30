@@ -26,7 +26,7 @@ exports[`MessageDialog rendering with isLarge false 1`] = `
         type="button"
       >
         <span
-          className="lab-icon lab-icon--chevron-down"
+          className="lab-icon lab-icon--chevron-down  "
         >
           <svg
             aria-hidden={true}
@@ -54,7 +54,7 @@ exports[`MessageDialog rendering with isLarge false 1`] = `
           type="button"
         >
           <span
-            className="lab-icon lab-icon--remove lab-dialog__close-button-icon"
+            className="lab-icon lab-icon--remove  lab-dialog__close-button-icon"
           >
             <svg
               aria-hidden={true}
@@ -77,7 +77,7 @@ exports[`MessageDialog rendering with isLarge false 1`] = `
         className="lab-dialog__icon-wrapper"
       >
         <span
-          className="lab-icon lab-icon--star lab-dialog__icon"
+          className="lab-icon lab-icon--star  lab-dialog__icon"
         >
           <svg
             aria-hidden={true}
@@ -150,7 +150,7 @@ exports[`MessageDialog rendering with isModal false 1`] = `
       type="button"
     >
       <span
-        className="lab-icon lab-icon--chevron-down"
+        className="lab-icon lab-icon--chevron-down  "
       >
         <svg
           aria-hidden={true}
@@ -177,7 +177,7 @@ exports[`MessageDialog rendering with isModal false 1`] = `
         type="button"
       >
         <span
-          className="lab-icon lab-icon--remove lab-dialog__close-button-icon"
+          className="lab-icon lab-icon--remove  lab-dialog__close-button-icon"
         >
           <svg
             aria-hidden={true}
@@ -200,7 +200,7 @@ exports[`MessageDialog rendering with isModal false 1`] = `
       className="lab-dialog__icon-wrapper"
     >
       <span
-        className="lab-icon lab-icon--star lab-dialog__icon"
+        className="lab-icon lab-icon--star  lab-dialog__icon"
       >
         <svg
           aria-hidden={true}

@@ -21,7 +21,7 @@ exports[`Item renders with icon 1`] = `
   type="button"
 >
   <span
-    className="lab-icon lab-icon--star lab-narrow-sidebar__item-icon"
+    className="lab-icon lab-icon--star lab-icon--mineral-60 lab-narrow-sidebar__item-icon"
   >
     <svg
       aria-hidden={true}

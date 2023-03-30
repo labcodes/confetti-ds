@@ -28,7 +28,7 @@ exports[`CardHeader renders with categoryIcon 1`] = `
     className="lab-card-category"
   >
     <span
-      className="lab-icon lab-icon--star"
+      className="lab-icon lab-icon--star  "
     >
       <svg
         aria-hidden={true}

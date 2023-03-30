@@ -7,7 +7,7 @@ exports[`CollapseButton renders with base props 1`] = `
   type="button"
 >
   <span
-    className="lab-icon lab-icon--menu-collapse lab-narrow-sidebar__collapse-icon"
+    className="lab-icon lab-icon--menu-collapse  lab-narrow-sidebar__collapse-icon"
   >
     <svg
       aria-hidden={true}

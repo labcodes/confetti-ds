@@ -29,7 +29,7 @@ exports[`TextButton renders as expected when passing a plus icon 1`] = `
   type="button"
 >
   <span
-    className="lab-icon lab-icon--plus lab-btn__icon"
+    className="lab-icon lab-icon--plus lab-icon--white lab-btn__icon"
   >
     <svg
       aria-hidden={true}

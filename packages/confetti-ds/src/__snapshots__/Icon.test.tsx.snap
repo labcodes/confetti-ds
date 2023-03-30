@@ -2,7 +2,7 @@
 
 exports[`Icon renders with base props 1`] = `
 <span
-  className="lab-icon lab-icon--cloud"
+  className="lab-icon lab-icon--cloud  "
 >
   <svg
     aria-hidden={true}

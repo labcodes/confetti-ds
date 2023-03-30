@@ -26,7 +26,7 @@ exports[`StandardDialog rendering with isLarge false 1`] = `
         type="button"
       >
         <span
-          className="lab-icon lab-icon--chevron-up"
+          className="lab-icon lab-icon--chevron-up  "
         >
           <svg
             aria-hidden={true}
@@ -59,7 +59,7 @@ exports[`StandardDialog rendering with isLarge false 1`] = `
           type="button"
         >
           <span
-            className="lab-icon lab-icon--remove lab-dialog__close-button-icon"
+            className="lab-icon lab-icon--remove  lab-dialog__close-button-icon"
           >
             <svg
               aria-hidden={true}
@@ -128,7 +128,7 @@ exports[`StandardDialog rendering with isModal false 1`] = `
       type="button"
     >
       <span
-        className="lab-icon lab-icon--chevron-up"
+        className="lab-icon lab-icon--chevron-up  "
       >
         <svg
           aria-hidden={true}
@@ -160,7 +160,7 @@ exports[`StandardDialog rendering with isModal false 1`] = `
         type="button"
       >
         <span
-          className="lab-icon lab-icon--remove lab-dialog__close-button-icon"
+          className="lab-icon lab-icon--remove  lab-dialog__close-button-icon"
         >
           <svg
             aria-hidden={true}

@@ -13,7 +13,7 @@ exports[`DropdownTag render as outline 1`] = `
     className="lab-tag__dropdown-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--dropdown-closed lab-tag--dropdown-icon"
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-tag--dropdown-icon"
     >
       <svg
         aria-hidden={true}
@@ -47,7 +47,7 @@ exports[`DropdownTag renders as disabled 1`] = `
     className="lab-tag__dropdown-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--dropdown-closed lab-tag--dropdown-icon"
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-tag--dropdown-icon"
     >
       <svg
         aria-hidden={true}
@@ -81,7 +81,7 @@ exports[`DropdownTag renders with a pink color 1`] = `
     className="lab-tag__dropdown-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--dropdown-closed lab-tag--dropdown-icon"
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-tag--dropdown-icon"
     >
       <svg
         aria-hidden={true}
@@ -115,7 +115,7 @@ exports[`DropdownTag renders with base props 1`] = `
     className="lab-tag__dropdown-icon-wrapper"
   >
     <span
-      className="lab-icon lab-icon--dropdown-closed lab-tag--dropdown-icon"
+      className="lab-icon lab-icon--dropdown-closed lab-icon--black-75 lab-tag--dropdown-icon"
     >
       <svg
         aria-hidden={true}

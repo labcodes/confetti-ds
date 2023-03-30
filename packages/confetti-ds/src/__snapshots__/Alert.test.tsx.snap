@@ -5,7 +5,7 @@ exports[`Alert renders with base props 1`] = `
   className="lab-alert lab-alert--error"
 >
   <span
-    className="lab-icon lab-icon--lupe lab-alert__icon"
+    className="lab-icon lab-icon--lupe  lab-alert__icon"
   >
     <svg
       aria-hidden={true}
@@ -49,7 +49,7 @@ exports[`Alert renders with button 1`] = `
   className="lab-alert lab-alert--warn"
 >
   <span
-    className="lab-icon lab-icon--wallet lab-alert__icon"
+    className="lab-icon lab-icon--wallet  lab-alert__icon"
   >
     <svg
       aria-hidden={true}

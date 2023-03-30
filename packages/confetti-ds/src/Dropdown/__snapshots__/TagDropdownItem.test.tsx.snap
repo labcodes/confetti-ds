@@ -14,7 +14,7 @@ exports[`TagDropdownItem renders as expected with a lupe icon 1`] = `
   value="option1"
 >
   <span
-    className="lab-icon lab-icon--lupe lab-tag--left-icon"
+    className="lab-icon lab-icon--lupe lab-icon--black-75 lab-tag--left-icon"
   >
     <svg
       aria-hidden={true}

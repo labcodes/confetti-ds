@@ -21,7 +21,7 @@ exports[`TagDropdown renders as expected when passing color as teal 1`] = `
       className="lab-tag__dropdown-icon-wrapper"
     >
       <span
-        className="lab-icon lab-icon--dropdown-closed lab-tag--dropdown-icon"
+        className="lab-icon lab-icon--dropdown-closed  lab-tag--dropdown-icon"
       >
         <svg
           aria-hidden={true}
@@ -134,7 +134,7 @@ exports[`TagDropdown renders with base props 1`] = `
       className="lab-tag__dropdown-icon-wrapper"
     >
       <span
-        className="lab-icon lab-icon--dropdown-closed lab-tag--dropdown-icon"
+        className="lab-icon lab-icon--dropdown-closed  lab-tag--dropdown-icon"
       >
         <svg
           aria-hidden={true}
