@@ -133,7 +133,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $mineral-20;
 
     .lab-btn__icon {
-      background-color: $mineral-40;
+      color: $mineral-40;
     }
   }
 
@@ -177,29 +177,29 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white;
 
     .lab-btn__icon {
-      background-color: $mineral-90
+      color: $mineral-90
     }
 
     &:hover {
       @include border-shadow(hover, $white-20);
-      background-color: $white;
+      color: $white;
       border-color: $white;
     }
 
     &:focus {
       @include border-shadow(focus, $white);
-      background-color: $white;
+      color: $white;
       border-color: $mineral-90;
     }
 
     &:active {
-      background-color: $white-50;
+      color: $white-50;
       border-color: $white;
     }
 
     &:focus:hover {
       @include border-shadow(focus-hover, $white, $white-20);
-      background-color: $white;
+      color: $white;
       border-color: $black-75;
     }
 
@@ -216,7 +216,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $yellow-60;
 
     .lab-btn__icon {
-      background-color: $black-75;
+      color: $black-75;
     }
 
     &:hover {
@@ -236,7 +236,7 @@ $text-bg-active: map-get($button-theme, "20");
       background: mix($yellow-60, black, 50%);
 
       .lab-btn__icon {
-        background-color: white;
+        color: white;
       }
     }
 
@@ -258,7 +258,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $mineral-90;
 
     .lab-btn__icon {
-      background-color: $yellow-60;
+      color: $yellow-60;
     }
 
     &:hover {
@@ -330,7 +330,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white;
 
     .lab-btn__icon {
-      background-color: $red-60;
+      color: $red-60;
     }
 
     &:hover {
@@ -369,7 +369,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white;
 
     .lab-btn__icon {
-      background-color: $green-60;
+      color: $green-60;
     }
 
     &:hover {
@@ -408,7 +408,7 @@ $text-bg-active: map-get($button-theme, "20");
   background-color: transparent;
 
   .lab-btn__icon {
-    background-color: $btn-main-color;
+    color: $btn-main-color;
   }
 
   &:hover {
@@ -444,7 +444,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $mineral-20;
 
     .lab-btn__icon {
-      background-color: $mineral-30;
+      color: $mineral-30;
     }
   }
 
@@ -453,7 +453,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white-20;
 
     .lab-btn__icon {
-      background-color: $white-50;
+      color: $white-50;
     }
   }
 
@@ -463,7 +463,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $mineral-90;
 
     .lab-btn__icon {
-      background-color: $mineral-90;
+      color: $mineral-90;
     }
 
     &:hover {
@@ -504,7 +504,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white;
 
     .lab-btn__icon {
-      background-color: $white;
+      color: $white;
     }
 
     &:hover {
@@ -548,7 +548,7 @@ $text-bg-active: map-get($button-theme, "20");
   border-color: transparent;
 
   .lab-btn__icon {
-    background-color: $btn-main-color;
+    color: $btn-main-color;
   }
 
   &:hover {
@@ -581,7 +581,7 @@ $text-bg-active: map-get($button-theme, "20");
     color: $mineral-30;
 
     .lab-btn__icon {
-      background-color: $mineral-30;
+      color: $mineral-30;
     }
   }
 
@@ -589,7 +589,7 @@ $text-bg-active: map-get($button-theme, "20");
     color: $white-50;
 
     .lab-btn__icon {
-      background-color: $white-50;
+      color: $white-50;
     }
   }
 
@@ -597,7 +597,7 @@ $text-bg-active: map-get($button-theme, "20");
     color: $white;
 
     .lab-btn__icon {
-      background-color: $white;
+      color: $white;
     }
 
     &:hover {
@@ -618,7 +618,7 @@ $text-bg-active: map-get($button-theme, "20");
     color: $mineral-80;
 
     .lab-btn__icon {
-      background-color: $mineral-80;
+      color: $mineral-80;
     }
 
     &:hover {
