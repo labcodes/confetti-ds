@@ -1,35 +1,29 @@
-//$icon-color: map-get($icon-theme, "70") !default;
+@use "sass:map";
+
+$icon-colors: (
+  "white": $white,
+  "black-75": $black-75,
+  "mineral-10": $mineral-10,
+  "mineral-20": $mineral-20,
+  "mineral-30": $mineral-30,
+  "mineral-40": $mineral-40,
+  "mineral-60": $mineral-60,
+  "mineral-70": $mineral-70,
+  "mineral-80": $mineral-80,
+  "mineral-90": $mineral-90,
+  "teal-60": $teal-60,
+  "teal-70": $teal-70,
+  "purple-40": $purple-40,
+  "purple-60": $purple-60,
+  "purple-70": $purple-70,
+);
 
 .lab-icon {
-  //-webkit-mask-image: url($icons-svg);
-  //mask-image: url($icons-svg);
-  //-webkit-mask-repeat: no-repeat;
-  //mask-repeat: no-repeat;
-  //height: $icon-size;
-  //width: $icon-size;
-  //font-size: $icon-size;
-  //line-height: 1;
-  //display: inline-block;
-  //flex-shrink: 0;
-  //color: $icon-color;
-
-  /* Color modifiers.
-   * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
-   * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
-   * Each ones sets a different background color. */
-  &--black {
-   color: $black;
-  }
-
-  &--white {
-   color: $white;
-  }
-
-  @each $key, $palette in $all-colors {
-    @each $color-palette, $color in $palette {
-      &--#{$key}-#{$color-palette} {
-        color: $color;
-      }
+  // Color modifiers. * Create classes ".lab-icon--white" and ".lab-icon--black" directly. * Iterates over $all-colors
+  //     map to also create classes like ".lab-icon--white" . * Each ones sets a different background color. *
+  @each $color-name in map-keys($icon-colors) {
+    &--#{$color-name} {
+      color: map-get($icon-colors, $color-name);
     }
   }
 }

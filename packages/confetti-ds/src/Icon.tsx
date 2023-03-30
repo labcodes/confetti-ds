@@ -208,11 +208,9 @@ export default function Icon({ type, color, className }: IconProps) {
 
   return (
     <span
-      className={
-        `lab-icon lab-icon--${type}` + +
-        `${color ? ` lab-icon--${color}` : ""}` +
-        `${className ? ` ${className}` : ""}`
-      }
+      className={`lab-icon lab-icon--${type} ${
+        color ? `lab-icon--${color}` : ""
+      } ${className ? className : ""}`}
     >
       <IconComponent />
     </span>
