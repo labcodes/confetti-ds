@@ -119,7 +119,7 @@ export default function AbstractTextInput({
   const requiredIcon = () =>
     required ? (
       <span className="lab-input__required-icon">
-        <Icon type="star" color="white" />
+        <Icon type="StackStar" color="white" />
       </span>
     ) : (
       ""

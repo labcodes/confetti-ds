@@ -5,7 +5,7 @@ import Icon from "./Icon";
 
 describe("Icon", () => {
   it("renders with base props", () => {
-    const renderedComponent = renderer.create(<Icon type="cloud" />).toJSON();
+    const renderedComponent = renderer.create(<Icon type="Cloud" />).toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 });

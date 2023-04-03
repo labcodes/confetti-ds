@@ -13,7 +13,7 @@ describe("DropdownTag", () => {
 
     const wrapper = shallow(<DropdownTag text="Test DropdownTag" />).html();
     expect(wrapper).toContain("lab-tag--dropdown");
-    expect(wrapper).toContain("lab-icon--dropdown");
+    expect(wrapper).toContain("lab-icon--CaretDown");
   });
 
   it("renders as disabled", async () => {

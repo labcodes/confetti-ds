@@ -52,7 +52,7 @@ export default function RemovableTag({
 }: RemovableTagProps) {
   const removeIcon = () => (
     <span className="lab-tag__remove-icon-wrapper">
-      <Icon type="remove" className="lab-tag--remove-icon" />
+      <Icon type="Dismiss" className="lab-tag--remove-icon" />
     </span>
   );
 

@@ -38,7 +38,7 @@ export default function DropdownTag({
 
   const dropdownIcon = () => (
     <span className="lab-tag__dropdown-icon-wrapper">
-      <Icon type="dropdown-closed" color="black-75" className="lab-tag--dropdown-icon" />
+      <Icon type="CaretDown" color="black-75" className="lab-tag--dropdown-icon" />
     </span>
   );
 

@@ -38,7 +38,7 @@ export default function TogglableTag({
       iconClass = "lab-tag--check-icon lab-tag--check-icon-off";
     }
 
-    return <Icon type="confirm" className={iconClass} />;
+    return <Icon type="Checkmark" className={iconClass} />;
   };
   return (
     <AbstractTag

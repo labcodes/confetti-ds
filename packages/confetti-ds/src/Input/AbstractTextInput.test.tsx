@@ -270,14 +270,14 @@ describe("AbstractTextInput", () => {
   it("renders icon when it is passed by props", async () => {
     const renderedComponent = renderer
       .create(
-        <AbstractTextInput id="testInput" label="Test Input" icon="star" />
+        <AbstractTextInput id="testInput" label="Test Input" icon="StackStar" />
       )
       .toJSON();
 
     expect(renderedComponent).toMatchSnapshot();
 
     const mountedComponent = mount(
-      <AbstractTextInput id="testInput" label="Test Input" icon="star" />
+      <AbstractTextInput id="testInput" label="Test Input" icon="StackStar" />
     );
 
     expect(mountedComponent.find("span.lab-icon")).toHaveLength(1);
@@ -286,7 +286,7 @@ describe("AbstractTextInput", () => {
   it("renders required icon when it is passed by props", async () => {
     const renderedComponent = renderer
       .create(
-        <AbstractTextInput id="testInput" label="Test Input" icon="star" />
+        <AbstractTextInput id="testInput" label="Test Input" icon="StackStar" />
       )
       .toJSON();
 

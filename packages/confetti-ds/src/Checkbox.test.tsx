@@ -173,7 +173,7 @@ describe("Checkbox", () => {
       1
     );
     expect(
-      mountedComponent.find(Icon).find(".lab-icon").find(".lab-icon--confirm")
+      mountedComponent.find(Icon).find(".lab-icon").find(".lab-icon--Checkmark")
     ).toHaveLength(1);
   });
 
@@ -240,7 +240,7 @@ describe("Checkbox", () => {
         .find(Icon)
         .find("span")
         .find(".lab-icon")
-        .find(".lab-icon--confirm")
+        .find(".lab-icon--Checkmark")
     ).toHaveLength(1);
   });
 
@@ -271,7 +271,7 @@ describe("Checkbox", () => {
         .find(Icon)
         .find("span")
         .find(".lab-icon")
-        .find(".lab-icon--confirm")
+        .find(".lab-icon--Checkmark")
     ).toHaveLength(1);
     expect(mockOnChange).toBeCalled();
   });

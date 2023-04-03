@@ -83,7 +83,7 @@ export default function StandardDialog({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <Icon type="chevron-up" />
+          <Icon type="ChevronUp" />
         </button>
 
         <div className="lab-dialog__header">
@@ -94,7 +94,7 @@ export default function StandardDialog({
             onClick={handleClose}
             {...(isModal ? { tabIndex: 2 } : undefined)}
           >
-            <Icon type="remove" className="lab-dialog__close-button-icon" />
+            <Icon type="Dismiss" className="lab-dialog__close-button-icon" />
           </button>
         </div>
 

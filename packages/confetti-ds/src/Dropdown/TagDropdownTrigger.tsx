@@ -51,7 +51,7 @@ export default function TagDropdownTrigger({
 
   const dropdownIcon = () => (
     <span className="lab-tag__dropdown-icon-wrapper">
-      <Icon type="dropdown-closed" className="lab-tag--dropdown-icon" />
+      <Icon type="CaretDown" className="lab-tag--dropdown-icon" />
     </span>
   );
 

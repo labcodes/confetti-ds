@@ -147,7 +147,7 @@ function TrailingIcon({
       disabled={(!ariaDisabled && disabled) || undefined}
       aria-disabled={ariaDisabled || undefined}
     >
-      <Icon type="remove" color="mineral-40"/>
+      <Icon type="Dismiss" color="mineral-40"/>
     </button>
   );
 }
@@ -171,7 +171,7 @@ function StandardSearchIcon({
         disabled={(!ariaDisabled && disabled) || undefined}
         aria-disabled={ariaDisabled || undefined}
       >
-        <Icon className="lab-standard-search__icon" type="lupe" color="mineral-40"/>
+        <Icon className="lab-standard-search__icon" type="Search" color="mineral-40"/>
       </button>
       <span className="lab-standard-search__separator" />
     </React.Fragment>
@@ -184,7 +184,7 @@ function InlineSearchIcon({ disabled }: { disabled: boolean }) {
       className={`lab-inline-search__icon ${
         disabled ? "lab-inline-search__icon--disabled" : ""
       }`}
-      type="lupe"
+      type="Search"
     />
   );
 }
