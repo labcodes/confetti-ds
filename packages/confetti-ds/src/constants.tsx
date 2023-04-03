@@ -1,132 +1,49 @@
 export const ICON_TYPES = [
-  // ArrowLeft
-  "arrow-left",
-  // ArrowRight
-  "arrow-right",
-  // ArrowUp
-  "arrow-up",
-  // ArrowDown
-  "arrow-down",
-  // ArrowSort
-  "sort",
-  // Star
-  "star",
-  // BookOpen
-  "book-open",
-  // CloudArrowUp
-  "upload",
-  // Key
-  "key",
-  // DocumentHeart
-  "sheet",
-  //TextFont
-  "type",
-  //ChatEmpty
-  "message",
-  //CalligraphyPen
-  "pen",
-  //CaretRight
-  "select-right",
-  //CaretLeft
-  "select-left",
-  //CaretUp
-  "dropdown-open",
-  //CaretDown
-  "dropdown-closed",
-  //ChevronUp
-  "chevron-up",
-  //ChevronDown
-  "chevron-down",
-  //ChevronLeft
-  "chevron-left",
-  //ChevronRight
-  "chevron-right",
-  //ArrowClockwise
-  "reload",
-  // Heart
-  "heart",
-  // JavaScript
-  "js",
-  //CodeBlock
-  "code",
-  //Clock
-  "clock",
-  // Dismiss
-  "remove",
-  // Add
-  "plus",
-  // Subtract
-  "minus",
-  // Checkmark
-  "confirm",
-  // ArrowMinimize
-  "menu-collapse",
-  // ArrowMaximize
-  "menu-expand",
-  // Backspace
-  "delete",
-  // Important,
-  "exclamation",
-  // Edit
-  "edit",
-  // ArrowTrending
-  "growth",
-  //Lightbulb
-  "lamp",
-  // ProjectionScreen
-  "presentation",
-  // Add
-  "add-circle",
-  // Eye
-  "eye-opened",
-  // EyeOff
-  "eye-closed",
-  // Search
-  "lupe",
-  // Delete
-  "trash",
-  // Navigation
-  "menu-default",
-  // Link
-  "link",
-  // Filter
-  "filter",
-  // Settings
-  "gear",
-  // Bookmark
-  "bookmark",
-  // WindowApps
-  "web-app",
-  // Cube
-  "pack",
-  // CodeBlock
-  "chevrons",
-  // ErrorCircle
-  "star",
-  //SignOut
-  "logout",
-  //StackStar
-  "track",
-  // CalendarLtr
-  "calendar",
-  // Money
-  "coin",
-  // Open
-  "external",
-  // GridDots
-  "workspace",
-  // Phone
-  "phone",
-  // Wallet
-  "wallet",
-  // CubeRotate
-  "continuous-delivery",
-  // Cloud
-  "cloud",
-  // Mic
-  "microphone",
-  // CloudFlow
-  "api",
+  "ArrowClockwise",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowMaximize",
+  "ArrowMinimize",
+  "ArrowRight",
+  "ArrowSort",
+  "ArrowTrending",
+  "ArrowUp",
+  "Backspace",
+  "BookOpen",
+  "Bookmark",
+  "CalendarLtr",
+  "CalligraphyPen",
+  "CaretDown",
+  "CaretLeft",
+  "CaretRight",
+  "CaretUp",
+  "ChatEmpty",
+  "Checkmark",
+  "ChevronDown",
+  "ChevronLeft",
+  "ChevronRight",
+  "ChevronUp",
+  "Clock",
+  "CloudArrowUp",
+  "CloudFlow",
+  "CodeBlock",
+  "CodeBlock",
+  "CubeRotate",
+  "Dismiss",
+  "DocumentHeart",
+  "ErrorCircle",
+  "GridDots",
+  "Important",
+  "JavaScript",
+  "Lightbulb",
+  "Navigation",
+  "ProjectionScreen",
+  "Settings",
+  "SignOut",
+  "StackStar",
+  "Subtract",
+  "TextFont",
+  "WindowApps",
 ] as const;
 
 export type IconTypes = typeof ICON_TYPES[number];

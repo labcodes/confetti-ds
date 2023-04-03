@@ -76,133 +76,133 @@ export interface IconProps {
 export default function Icon({ type, color, className }: IconProps) {
   let IconComponent;
 
-  if (type === "arrow-left") IconComponent = ArrowLeft20Regular;
+  if (type === "ArrowLeft" ) IconComponent = ArrowLeft20Regular;
 
-  if (type === "arrow-right") IconComponent = ArrowRight20Regular;
+  if (type === "ArrowRight" ) IconComponent = ArrowRight20Regular;
 
-  if (type === "arrow-up") IconComponent = ArrowUp20Regular;
+  if (type === "ArrowUp" ) IconComponent = ArrowUp20Regular;
 
-  if (type === "arrow-down") IconComponent = ArrowDown20Regular;
+  if (type === "ArrowDown") IconComponent = ArrowDown20Regular;
 
-  if (type === "sort") IconComponent = ArrowSort20Regular;
+  if (type === "ArrowSort" ) IconComponent = ArrowSort20Regular;
 
-  if (type === "star") IconComponent = Star20Regular;
+  if (type === "Star" ) IconComponent = Star20Regular;
 
-  if (type === "book-open") IconComponent = BookOpen20Regular;
+  if (type === "BookOpen" ) IconComponent = BookOpen20Regular;
 
-  if (type === "upload") IconComponent = CloudArrowUp20Regular;
+  if (type === "CloudArrowUp" ) IconComponent = CloudArrowUp20Regular;
 
-  if (type === "key") IconComponent = Key20Regular;
+  if (type === "Key" ) IconComponent = Key20Regular;
 
-  if (type === "sheet") IconComponent = DocumentHeart20Regular;
+  if (type === "DocumentHeart" ) IconComponent = DocumentHeart20Regular;
 
-  if (type === "type") IconComponent = TextFont20Regular;
+  if (type === "TextFont" ) IconComponent = TextFont20Regular;
 
-  if (type === "message") IconComponent = ChatEmpty20Regular;
+  if (type === "ChatEmpty" ) IconComponent = ChatEmpty20Regular;
 
-  if (type === "pen") IconComponent = CalligraphyPen20Regular;
+  if (type === "CalligraphyPen" ) IconComponent = CalligraphyPen20Regular;
 
-  if (type === "select-right") IconComponent = CaretRight20Regular;
+  if (type === "CaretRight" ) IconComponent = CaretRight20Regular;
 
-  if (type === "select-left") IconComponent = CaretLeft20Regular;
+  if (type === "CaretLeft" ) IconComponent = CaretLeft20Regular;
 
-  if (type === "dropdown-open") IconComponent = CaretUp20Regular;
+  if (type === "CaretUp") IconComponent = CaretUp20Regular;
 
-  if (type === "dropdown-closed") IconComponent = CaretDown20Regular;
+  if (type === "CaretDown") IconComponent = CaretDown20Regular;
 
-  if (type === "chevron-up") IconComponent = ChevronUp20Regular;
+  if (type === "ChevronUp") IconComponent = ChevronUp20Regular;
 
-  if (type === "chevron-down") IconComponent = ChevronDown20Regular;
+  if (type === "ChevronDown") IconComponent = ChevronDown20Regular;
 
-  if (type === "chevron-left") IconComponent = ChevronLeft20Regular;
+  if (type === "ChevronLeft") IconComponent = ChevronLeft20Regular;
 
-  if (type === "chevron-right") IconComponent = ChevronRight20Regular;
+  if (type === "ChevronRight") IconComponent = ChevronRight20Regular;
 
-  if (type === "reload") IconComponent = ArrowClockwise20Regular;
+  if (type === "ArrowClockwise" ) IconComponent = ArrowClockwise20Regular;
 
-  if (type === "heart") IconComponent = Heart20Regular;
+  if (type === "Heart" ) IconComponent = Heart20Regular;
 
-  if (type === "js") IconComponent = Javascript20Regular;
+  if (type === "Javascript" ) IconComponent = Javascript20Regular;
 
-  if (type === "code") IconComponent = CodeBlock20Regular;
+  if (type === "CodeBlock" ) IconComponent = CodeBlock20Regular;
 
-  if (type === "clock") IconComponent = Clock20Regular;
+  if (type === "Clock" ) IconComponent = Clock20Regular;
 
-  if (type === "remove") IconComponent = Dismiss20Regular;
+  if (type === "Dismiss" ) IconComponent = Dismiss20Regular;
 
-  if (type === "plus") IconComponent = Add20Regular;
+  if (type === "Add" ) IconComponent = Add20Regular;
 
-  if (type === "minus") IconComponent = Subtract20Regular;
+  if (type === "Subtract" ) IconComponent = Subtract20Regular;
 
-  if (type === "confirm") IconComponent = Checkmark20Regular;
+  if (type === "Checkmark" ) IconComponent = Checkmark20Regular;
 
-  if (type === "menu-collapse") IconComponent = ArrowMinimize20Regular;
+  if (type === "ArrowMinimize") IconComponent = ArrowMinimize20Regular;
 
-  if (type === "menu-expand") IconComponent = ArrowMaximize20Regular;
+  if (type === "ArrowMaximize") IconComponent = ArrowMaximize20Regular;
 
-  if (type === "delete") IconComponent = Backspace20Regular;
+  if (type === "Backspace" ) IconComponent = Backspace20Regular;
 
-  if (type === "exclamation") IconComponent = Important20Regular;
+  if (type === "Important" ) IconComponent = Important20Regular;
 
-  if (type === "edit") IconComponent = Edit20Regular;
+  if (type === "Edit" ) IconComponent = Edit20Regular;
 
-  if (type === "growth") IconComponent = ArrowTrending20Regular;
+  if (type === "ArrowTrending" ) IconComponent = ArrowTrending20Regular;
 
-  if (type === "lamp") IconComponent = Lightbulb20Regular;
+  if (type === "Lightbulb" ) IconComponent = Lightbulb20Regular;
 
-  if (type === "presentation") IconComponent = ProjectionScreen20Regular;
+  if (type === "ProjectionScreen" ) IconComponent = ProjectionScreen20Regular;
 
-  if (type === "add-circle") IconComponent = Add20Regular;
+  if (type === "Add") IconComponent = Add20Regular;
 
-  if (type === "eye-opened") IconComponent = Eye20Regular;
+  if (type === "Eye" ) IconComponent = Eye20Regular;
 
-  if (type === "eye-closed") IconComponent = EyeOff20Regular;
+  if (type === "EyeOff" ) IconComponent = EyeOff20Regular;
 
-  if (type === "lupe") IconComponent = Search20Regular;
+  if (type === "Search" ) IconComponent = Search20Regular;
 
-  if (type === "trash") IconComponent = Delete20Regular;
+  if (type === "Delete" ) IconComponent = Delete20Regular;
 
-  if (type === "menu-default") IconComponent = Navigation20Regular;
+  if (type === "Navigation") IconComponent = Navigation20Regular;
 
-  if (type === "link") IconComponent = Link20Regular;
+  if (type === "Link") IconComponent = Link20Regular;
 
-  if (type === "filter") IconComponent = Filter20Regular;
+  if (type === "Filter" ) IconComponent = Filter20Regular;
 
-  if (type === "gear") IconComponent = Settings20Regular;
+  if (type === "Settings" ) IconComponent = Settings20Regular;
 
-  if (type === "bookmark") IconComponent = Bookmark20Regular;
+  if (type === "Bookmark" ) IconComponent = Bookmark20Regular;
 
-  if (type === "web-app") IconComponent = WindowApps20Regular;
+  if (type === "WindowApps") IconComponent = WindowApps20Regular;
 
-  if (type === "pack") IconComponent = Cube20Regular;
+  if (type === "Cube" ) IconComponent = Cube20Regular;
 
-  if (type === "chevrons") IconComponent = CodeBlock20Regular;
+  if (type === "CodeBlock" ) IconComponent = CodeBlock20Regular;
 
-  if (type === "star") IconComponent = ErrorCircle20Regular;
+  if (type === "ErrorCircle" ) IconComponent = ErrorCircle20Regular;
 
-  if (type === "logout") IconComponent = SignOut20Regular;
+  if (type === "SignOut" ) IconComponent = SignOut20Regular;
 
-  if (type === "track") IconComponent = StackStar20Regular;
+  if (type === "StackStar" ) IconComponent = StackStar20Regular;
 
-  if (type === "calendar") IconComponent = CalendarLtr20Regular;
+  if (type === "CalendarLtr" ) IconComponent = CalendarLtr20Regular;
 
-  if (type === "coin") IconComponent = Money20Regular;
+  if (type === "Money" ) IconComponent = Money20Regular;
 
-  if (type === "external") IconComponent = Open20Regular;
+  if (type === "Open" ) IconComponent = Open20Regular;
 
-  if (type === "workspace") IconComponent = GridDots20Regular;
+  if (type === "GridDots" ) IconComponent = GridDots20Regular;
 
-  if (type === "phone") IconComponent = Phone20Regular;
+  if (type === "Phone" ) IconComponent = Phone20Regular;
 
-  if (type === "wallet") IconComponent = Wallet20Regular;
+  if (type === "Wallet" ) IconComponent = Wallet20Regular;
 
-  if (type === "continuous-delivery") IconComponent = CubeRotate20Regular;
+  if (type === "CubeRotate") IconComponent = CubeRotate20Regular;
 
-  if (type === "cloud") IconComponent = Cloud20Regular;
+  if (type === "Cloud" ) IconComponent = Cloud20Regular;
 
-  if (type === "microphone") IconComponent = Mic20Regular;
+  if (type === "Mic" ) IconComponent = Mic20Regular;
 
-  if (type === "api") IconComponent = CloudFlow20Regular;
+  if (type === "CloudFlow" ) IconComponent = CloudFlow20Regular;
 
   if (!IconComponent) return null;
 
