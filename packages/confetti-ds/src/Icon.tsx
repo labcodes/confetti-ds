@@ -2,6 +2,7 @@ import React from "react";
 
 import { IconTypes, IconColorTypes } from "./constants";
 import {
+  AddCircle20Regular,
   ArrowLeft20Regular,
   ArrowRight20Regular,
   ArrowUp20Regular,
@@ -59,10 +60,11 @@ import {
   GridDots20Regular,
   Phone20Regular,
   Wallet20Regular,
-  CubeRotate20Regular,
   Cloud20Regular,
   Mic20Regular,
   CloudFlow20Regular,
+  Star20Regular,
+  Code20Regular
 } from "@fluentui/react-icons";
 export interface IconProps {
   /** Type of the Icon to be rendered. */
@@ -76,6 +78,8 @@ export default function Icon({ type, color, className }: IconProps) {
   let IconComponent;
 
   if (type === "Add") IconComponent = Add20Regular;
+
+  if (type === "AddCircle") IconComponent = AddCircle20Regular;
 
   if (type === "ArrowClockwise" ) IconComponent = ArrowClockwise20Regular;
 
@@ -133,9 +137,11 @@ export default function Icon({ type, color, className }: IconProps) {
 
   if (type === "CloudFlow" ) IconComponent = CloudFlow20Regular;
 
+  if (type === "Code") IconComponent = Code20Regular;
+
   if (type === "CodeBlock" ) IconComponent = CodeBlock20Regular;
 
-  if (type === "CubeRotate" ) IconComponent = Cube20Regular;
+  if (type === "Cube" ) IconComponent = Cube20Regular;
 
   if (type === "Delete" ) IconComponent = Delete20Regular;
 
@@ -186,6 +192,8 @@ export default function Icon({ type, color, className }: IconProps) {
   if (type === "SignOut" ) IconComponent = SignOut20Regular;
 
   if (type === "StackStar" ) IconComponent = StackStar20Regular;
+
+  if (type === "Star") IconComponent = Star20Regular;
 
   if (type === "Subtract" ) IconComponent = Subtract20Regular;
 
