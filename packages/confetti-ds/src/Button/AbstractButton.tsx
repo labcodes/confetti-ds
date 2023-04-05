@@ -7,31 +7,34 @@ import { BaseButtonProps } from "./types";
 
 interface AbstractButtonProps extends BaseButtonProps {
   /** Button style variation. */
-  variant?: "default" | "outline" | "text";
+  kind?: "default" | "outline" | "text";
   /** Sets the icon related to the button label. Default state: no icon. */
-  skin?:
-    | ""
+  theme?:
+    | "teal"
+    | "purple"
     | "light"
     | "dark"
     | "warning"
     | "destructive"
+    | "confirmation"
     | "warning-invert"
     | "destructive-invert"
     | "confirmation-invert";
 }
 
 export default function AbstractButton({
-  text,
+  label,
   type = "button" as const,
-  variant = "default",
+  kind = "default",
   icon,
-  skin = "",
+  theme = "teal",
   size = "normal",
   ariaDisabled = false,
   disabled = false,
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
+    hasIcon = false,
 }: AbstractButtonProps) {
   const renderIcon = () =>
     icon ? (
@@ -53,8 +56,8 @@ export default function AbstractButton({
       type={type}
       className={
         `lab-btn` +
-        ` lab-btn--${variant} lab-btn--${size}` +
-        `${skin ? ` lab-btn--${skin}` : ""}` +
+        ` lab-btn--${kind} lab-btn--${size}` +
+        `${theme ? ` lab-btn--${theme}` : ""}` +
         `${fullWidth ? ` lab-btn--block` : ""}`
       }
       onClick={!ariaDisabled ? handleOnClick : () => {}}
@@ -62,8 +65,8 @@ export default function AbstractButton({
       aria-disabled={ariaDisabled || undefined}
       {...(tabIndex ? { tabIndex } : undefined)}
     >
-      {renderIcon()}
-      {text}
+      {hasIcon ? renderIcon() : null}
+      {label}
     </button>
   );
 }
