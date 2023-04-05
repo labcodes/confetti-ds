@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TogglableTag renders as expected with a yellow color 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--yellow-pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--Checkmark  lab-tag--check-icon lab-tag--check-icon-off"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27l-3.65-4.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test render yellow TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders as expected with disabled as true 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--disabled lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--Checkmark  lab-tag--check-icon lab-tag--check-icon-off"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27l-3.65-4.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test nount disabled TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders as expected with outline as true 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--outline lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--Checkmark  lab-tag--check-icon lab-tag--check-icon-off"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27l-3.65-4.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test render outline TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders with a pale skin if not isOn 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--Checkmark  lab-tag--check-icon lab-tag--check-icon-off"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27l-3.65-4.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test render pale TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders with a vivid skin and a checked icon if isOn 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--selected lab-tag--vivid"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--Checkmark  lab-tag--check-icon lab-tag--check-icon-on"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27l-3.65-4.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test render isOn TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders with base props 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--Checkmark  lab-tag--check-icon lab-tag--check-icon-off"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27l-3.65-4.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test render TogglableTag
+</span>
+`;

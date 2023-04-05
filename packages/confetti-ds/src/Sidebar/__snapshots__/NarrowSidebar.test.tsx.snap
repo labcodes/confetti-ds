@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NarrowSidebar renders with base props 1`] = `
+<div
+  className="lab-narrow-sidebar
+            
+            
+            
+            "
+>
+  Test content
+</div>
+`;
+
+exports[`NarrowSidebar renders with dividers 1`] = `
+<div
+  className="lab-narrow-sidebar
+            
+             lab-narrow-sidebar--with-dividers
+            
+            "
+>
+  Test content
+</div>
+`;
+
+exports[`NarrowSidebar renders with isOpenOnMobile 1`] = `
+<div
+  className="lab-narrow-sidebar
+            
+            
+             lab-narrow-sidebar--open-on-mobile
+            "
+>
+  Test content
+</div>
+`;
+
+exports[`NarrowSidebar renders with isVivid 1`] = `
+<div
+  className="lab-narrow-sidebar
+             lab-narrow-sidebar--vivid
+            
+            
+            "
+>
+  Test content
+</div>
+`;

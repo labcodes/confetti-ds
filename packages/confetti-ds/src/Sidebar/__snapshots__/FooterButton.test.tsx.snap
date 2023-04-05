@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterButton renders with base props 1`] = `
+<button
+  className="lab-narrow-sidebar__item"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="lab-narrow-sidebar__item-label"
+  >
+    Test button
+  </span>
+</button>
+`;
+
+exports[`FooterButton renders with icon 1`] = `
+<button
+  className="lab-narrow-sidebar__item"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="lab-icon lab-icon--StackStar lab-icon--mineral-60 lab-narrow-sidebar__item-icon"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 4.75c.19 0 .36.1.44.27l.88 1.68 1.74.2a.5.5 0 0 1 .25.9l-1.25 1 .43 1.84a.5.5 0 0 1-.75.54L8 10.14l-1.74 1.04a.5.5 0 0 1-.75-.54l.43-1.85-1.25-1a.5.5 0 0 1 .25-.88l1.74-.21.88-1.68A.5.5 0 0 1 8 4.75ZM2 5c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5Zm2-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H4Zm2 11a2 2 0 0 1-1.73-1H12a3 3 0 0 0 3-3V5.27c.6.34 1 .99 1 1.73v4a4 4 0 0 1-4 4H6Zm2 2a2 2 0 0 1-1.73-1H12a5 5 0 0 0 5-5V7.27c.6.34 1 .99 1 1.73v2a6 6 0 0 1-6 6H8Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  <span
+    className="lab-narrow-sidebar__item-label"
+  >
+    Test button
+  </span>
+</button>
+`;
