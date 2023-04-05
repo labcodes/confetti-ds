@@ -30,6 +30,7 @@ $text-bg-active: map-get($button-theme, "20");
   line-height: $btn-line-heigt;
   font-variant-numeric: $font-aligned-numbers;
   text-decoration: none;
+  text-transform: uppercase;
   vertical-align: top;
   cursor: pointer;
   border: 2px solid;
@@ -51,7 +52,8 @@ $text-bg-active: map-get($button-theme, "20");
     transform: translateY(2px);
   }
 
-  &:disabled, &[aria-disabled] {
+  &:disabled,
+  &[aria-disabled] {
     pointer-events: none;
     cursor: default;
   }
@@ -70,17 +72,17 @@ $text-bg-active: map-get($button-theme, "20");
 // Button sizes modifiers
 .lab-btn--normal {
   height: 40px;
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .lab-btn--small {
   height: 32px;
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .lab-btn--large {
   height: 48px;
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .lab-btn--block {
@@ -137,6 +139,40 @@ $text-bg-active: map-get($button-theme, "20");
     }
   }
 
+  &.lab-btn--purple {
+    color: $white;
+    background-color: $purple-60;
+    border-color: $purple-60;
+
+    &:hover {
+      @include border-shadow(hover, $white);
+      background-color: $purple-60;
+      border-color: $purple-80;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $purple-30);
+      background-color: $purple-60;
+      border-color: $purple-70;
+    }
+
+    &:active {
+      background-color: $purple-60;
+    }
+
+    &:focus:hover {
+      @include border-shadow(focus-hover, $purple-60, $purple-20);
+      background-color: $purple-60;
+      border-color: $white;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $purple-60);
+      background-color: $purple-20;
+      border-color: $white;
+    }
+  }
+
   &.lab-btn--dark {
     color: $white;
     background-color: $mineral-90;
@@ -177,7 +213,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white;
 
     .lab-btn__icon {
-      background-color: $mineral-90
+      background-color: $mineral-90;
     }
 
     &:hover {
@@ -359,7 +395,7 @@ $text-bg-active: map-get($button-theme, "20");
     &:focus:active {
       @include border-shadow(focus, $white);
       background-color: $white-50;
-      border-color: $red-60
+      border-color: $red-60;
     }
   }
 
@@ -542,8 +578,7 @@ $text-bg-active: map-get($button-theme, "20");
 
 .lab-btn--text {
   color: $btn-main-color;
-  text-transform: uppercase;
-  letter-spacing: 1%;
+  letter-spacing: 2%;
   background-color: transparent;
   border-color: transparent;
 
