@@ -124,11 +124,13 @@ $text-bg-active: map-get($button-theme, "20");
   &:disabled,
   &[aria-disabled],
   &.lab-btn--dark:disabled,
+  &.lab-btn--purple:disabled,
   &.lab-btn--light:disabled,
   &.lab-btn--warning:disabled,
   &.lab-btn--warning-invert:disabled,
   &.lab-btn--destructive:disabled,
   &.lab-btn--destructive-invert:disabled,
+  &.lab-btn--confirmation:disabled,
   &.lab-btn--confirmation-invert:disabled {
     color: $mineral-40;
     background-color: $mineral-20;
@@ -399,6 +401,44 @@ $text-bg-active: map-get($button-theme, "20");
     }
   }
 
+  &.lab-btn--confirmation {
+    color: $white;
+    background-color: $green-60;
+    border-color: $green-60;
+
+    .lab-btn__icon {
+      background-color: $white;
+    }
+
+    &:hover {
+      @include border-shadow(hover, $green-20);
+      background-color: $green-60;
+      border-color: $green-60;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $green-60);
+      background-color: $green-60;
+      border-color: $white;
+    }
+
+    &:active {
+      background-color: $green-20;
+      border-color: $green-60;
+    }
+
+    &:focus:hover {
+      @include border-shadow(focus-hover, $white, $white-20);
+      background-color: $white;
+      border-color: $green-60;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $white);
+      background-color: $white-50;
+      border-color: $green-60;
+    }
+  }
   &.lab-btn--confirmation-invert {
     color: $green-60;
     background-color: $white;
@@ -475,6 +515,7 @@ $text-bg-active: map-get($button-theme, "20");
 
   &:disabled,
   &[aria-disabled],
+  &.lab-btn--purple:disabled,
   &.lab-btn--dark:disabled {
     color: $mineral-30;
     border-color: $mineral-20;
@@ -574,6 +615,34 @@ $text-bg-active: map-get($button-theme, "20");
       border-color: $white-35;
     }
   }
+
+  &.lab-btn--purple {
+    color: $purple-60;
+    background-color: transparent;
+    border-color: $purple-60;
+
+    .lab-btn__icon {
+      background-color: $purple-60;
+    }
+
+    &:hover {
+      @include border-shadow(hover, $purple-20);
+      color: $purple-60;
+      border-color: $purple-80;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $purple-20);
+      color: $purple-60;
+      border-color: $purple-60;
+    }
+
+    &:active {
+      color: $purple-60;
+      background-color: $white-10;
+      border-color: $purple-80;
+    }
+  }
 }
 
 .lab-btn--text {
@@ -667,6 +736,27 @@ $text-bg-active: map-get($button-theme, "20");
     &:active {
       color: $mineral-80;
       background-color: $black-20;
+    }
+  }
+
+  &.lab-btn--purple {
+    color: $purple-60;
+
+    .lab-btn__icon {
+      background-color: $purple-60;
+    }
+
+    &:hover {
+      background-color: $purple-10;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $purple-20);
+    }
+
+    &:active {
+      color: $purple-60;
+      background-color: $purple-20;
     }
   }
 }
