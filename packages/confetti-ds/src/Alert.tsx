@@ -20,7 +20,7 @@ export default function Alert({
   text,
   type = "info",
   icon,
-  buttonProps = { text: "", onClick: () => {} },
+  buttonProps = { label: "", onClick: () => {} },
 }: AlertProps) {
   const handleClick = (event) => {
     if (!isUndefined(buttonProps.onClick)) {
@@ -40,7 +40,7 @@ export default function Alert({
         role="presentation"
       >
         {text ? (
-          <TextButton size="normal" skin="dark" text={text} />
+          <TextButton size="normal" theme="dark" label={text} />
         ) : undefined}
       </span>
     </div>

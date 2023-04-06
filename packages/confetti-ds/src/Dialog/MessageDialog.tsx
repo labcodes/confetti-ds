@@ -118,7 +118,7 @@ export default function MessageDialog({
           {outlineButtonProps ? (
             <OutlineButton
               size="normal"
-              text={outlineButtonProps.text}
+              label={outlineButtonProps.label}
               onClick={outlineButtonProps.onClick}
               {...(isModal ? { tabIndex: 3 } : undefined)}
             />
@@ -126,7 +126,7 @@ export default function MessageDialog({
           <Button
             size="normal"
             {...(outlineButtonProps ? undefined : { fullWidth: true })}
-            text={buttonProps.text}
+            label={buttonProps.label}
             onClick={buttonProps.onClick}
             {...(isModal ? { tabIndex: 1 } : undefined)}
           />

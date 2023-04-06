@@ -104,14 +104,14 @@ export default function StandardDialog({
           {outlineButtonProps ? (
             <OutlineButton
               size="normal"
-              text={outlineButtonProps.text}
+              label={outlineButtonProps.label}
               onClick={outlineButtonProps.onClick}
               {...(isModal ? { tabIndex: 3 } : undefined)}
             />
           ) : undefined}
           <Button
             size="normal"
-            text={buttonProps.text}
+            label={buttonProps.label}
             onClick={buttonProps.onClick}
             {...(isModal ? { tabIndex: 1 } : undefined)}
           />

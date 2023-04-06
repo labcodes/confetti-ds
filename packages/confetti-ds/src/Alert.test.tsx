@@ -20,7 +20,7 @@ describe("Alert", () => {
           type="warn"
           icon="wallet"
           buttonProps={{
-            text: "Alert Button",
+            label: "Alert Button",
             onClick: () => {},
           }}
         />
@@ -37,7 +37,7 @@ describe("Alert", () => {
         type="info"
         icon="calendar"
         buttonProps={{
-          text: "Info Button",
+          label: "Info Button",
           onClick: mockOnClick,
         }}
       />

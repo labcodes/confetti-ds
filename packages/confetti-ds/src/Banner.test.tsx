@@ -20,7 +20,7 @@ describe("Banner", () => {
           type="warn"
           icon="coin"
           buttonProps={{
-            text: "Warn Button",
+            label: "Warn Button",
             onClick: () => {},
           }}
         />
@@ -37,7 +37,7 @@ describe("Banner", () => {
         type="info"
         icon="arrow-left"
         buttonProps={{
-          text: "Info Banner",
+          label: "Info Banner",
           onClick: mockOnClick,
         }}
       />

@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Icon renders with base props 1`] = `
-<span
-  className="lab-icon lab-icon--arrow-down"
-/>
-`;
