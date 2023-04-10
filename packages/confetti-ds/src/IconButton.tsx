@@ -1,4 +1,5 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
+import { isUndefined } from "lodash";
 
 import Icon from "./Icon";
 import { IconTypes } from "./constants";
@@ -34,10 +35,7 @@ export default function IconButton({
     ) : (
       ""
     );
-  /*
-  Set icon color to be the icon color of default button.
-  Icon color changes according to button type and exception on _buttons.scss
-  */
+
   const handleOnClick = (event) => {
     if (!isUndefined(onClick)) {
       onClick(event);
@@ -45,16 +43,14 @@ export default function IconButton({
   };
 
   return (
-    <span
-      className={`lab-iconbtn` + ` lab-iconbtn--${theme} lab-iconbtn--${icon}`}
+    <button
+      className={`lab-iconbtn` + `lab-iconbtn--${theme}`}
+      onClick={!ariaDisabled ? handleOnClick : () => {}}
+      disabled={(!ariaDisabled && disabled) || undefined}
+      aria-disabled={ariaDisabled || undefined}
     >
-      <button
-        onClick={!ariaDisabled ? handleOnClick : () => {}}
-        disabled={(!ariaDisabled && disabled) || undefined}
-        aria-disabled={ariaDisabled || undefined}
-      >
-        {renderIcon()}
-      </button>
-    </span>
+      {" "}
+      {renderIcon()}
+    </button>
   );
 }
