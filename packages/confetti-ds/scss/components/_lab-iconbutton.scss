@@ -1,0 +1,307 @@
+$iconbtn-radius: $radius-1; //4px
+$iconbtn-font-size: 16px;
+$iconbtn-line-heigt: 14px;
+
+//Button colors from theme.
+$iconbtn-main-color: map-get($button-theme, "60");
+$iconbtn-border-hover: map-get($button-theme, "80");
+$border-shadow-hover: map-get($button-theme, "10");
+$iconbtn-bg-active: map-get($button-theme, "70");
+$iconbtn-border-active: map-get($button-theme, "40");
+$iconbtn-border-focus: map-get($button-theme, "70");
+$border-shadow-focus: map-get($button-theme, "30");
+$iconbtn-bg-focus-active: map-get($button-theme, "80");
+
+$outline-color-active: map-get($button-theme, "70");
+$outline-color-focus-active: map-get($button-theme, "80");
+
+$text-bg-hover: map-get($button-theme, "10");
+$text-color-active: map-get($button-theme, "70");
+$text-bg-active: map-get($button-theme, "20");
+
+.lab-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-primary;
+  font-size: $iconbtn-font-size;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  line-height: $iconbtn-line-heigt;
+  font-variant-numeric: $font-aligned-numbers;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: top;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: $btn-radius;
+  outline: none;
+  transition: all $duration-base;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:focus:hover,
+  &:focus:active,
+  &:disabled,
+  &[aria-disabled] {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  &:disabled,
+  &[aria-disabled] {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+// Button elements
+
+// Button icon is scaled to 16x16px but it still occupies 24x24px, having a "native" margin of 4px.
+// We apply negative margin-left to remove this space and adds margin-right to match the expected
+// 8px spacing between icon and text on button.
+.lab-btn__icon {
+  margin-right: 4px;
+  margin-left: -4px;
+}
+
+// Button sizes modifiers
+.lab-btn--normal {
+  height: 40px;
+  padding: 0 12px;
+}
+
+.lab-btn--small {
+  height: 32px;
+  padding: 0 12px;
+}
+
+.lab-btn--large {
+  height: 48px;
+  padding: 0 12px;
+}
+
+.lab-btn--block {
+  width: 100%;
+}
+
+// Button variant modifiers
+.lab-iconbtn--default {
+  color: white;
+  background-color: $btn-main-color;
+  border-color: $btn-main-color;
+
+  &:hover {
+    @include border-shadow(hover, $border-shadow-hover);
+    border-color: $btn-border-hover;
+  }
+
+  &:focus {
+    @include border-shadow(focus, $border-shadow-focus);
+    border-color: $btn-border-focus;
+  }
+
+  &:active {
+    background-color: $btn-bg-active;
+    border-color: $btn-border-active;
+  }
+
+  &:focus:hover {
+    @include border-shadow(focus-hover, $border-shadow-focus, $border-shadow-hover);
+    border-color: $btn-border-hover;
+  }
+
+  &:focus:active {
+    @include border-shadow(focus, $border-shadow-focus);
+    background-color: $btn-bg-focus-active;
+    border-color: $btn-border-active;
+  }
+
+  &:disabled,
+  &[aria-disabled],
+  &.lab-btn--dark:disabled,
+  &.lab-btn--purple:disabled,
+  &.lab-btn--light:disabled {
+    color: $mineral-40;
+    background-color: $mineral-20;
+    border-color: $mineral-20;
+
+    .lab-btn__icon {
+      background-color: $mineral-40;
+    }
+  }
+
+  &.lab-btn--purple {
+    color: $white;
+    background-color: $purple-60;
+    border-color: $purple-60;
+
+    &:hover {
+      @include border-shadow(hover, $white);
+      background-color: $purple-60;
+      border-color: $purple-80;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $purple-30);
+      background-color: $purple-60;
+      border-color: $purple-70;
+    }
+
+    &:active {
+      background-color: $purple-60;
+    }
+
+    &:focus:hover {
+      @include border-shadow(focus-hover, $purple-60, $purple-20);
+      background-color: $purple-60;
+      border-color: $white;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $purple-60);
+      background-color: $purple-20;
+      border-color: $white;
+    }
+  }
+
+  &.lab-btn--dark {
+    color: $white;
+    background-color: $mineral-90;
+    border-color: $mineral-90;
+
+    &:hover {
+      @include border-shadow(hover, $black-20);
+      background-color: $mineral-90;
+      border-color: $mineral-90;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $mineral-90);
+      background-color: $mineral-90;
+      border-color: $white;
+    }
+
+    &:active {
+      background-color: $black-50;
+    }
+
+    &:focus:hover {
+      @include border-shadow(focus-hover, $mineral-90, $black-20);
+      background-color: $mineral-90;
+      border-color: $white;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $mineral-90);
+      background-color: $black-50;
+      border-color: $white;
+    }
+  }
+
+  &.lab-btn--light {
+    color: $mineral-90;
+    background-color: $white;
+    border-color: $white;
+
+    .lab-btn__icon {
+      background-color: $mineral-90;
+    }
+
+    &:hover {
+      @include border-shadow(hover, $white-20);
+      background-color: $white;
+      border-color: $white;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $white);
+      background-color: $white;
+      border-color: $mineral-90;
+    }
+
+    &:active {
+      background-color: $white-50;
+      border-color: $white;
+    }
+
+    &:focus:hover {
+      @include border-shadow(focus-hover, $white, $white-20);
+      background-color: $white;
+      border-color: $black-75;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $white);
+      background-color: $white-50;
+      border-color: $mineral-90;
+    }
+  }
+
+  &.lab-btn--light {
+    color: $white;
+
+    .lab-btn__icon {
+      background-color: $white;
+    }
+
+    &:hover {
+      background-color: $white-10;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $white-50);
+    }
+
+    &:active {
+      color: $white;
+      background-color: $white-20;
+    }
+  }
+
+  &.lab-btn--dark {
+    color: $mineral-80;
+
+    .lab-btn__icon {
+      background-color: $mineral-80;
+    }
+
+    &:hover {
+      background-color: $black-10;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $black-50);
+    }
+
+    &:active {
+      color: $mineral-80;
+      background-color: $black-20;
+    }
+  }
+
+  &.lab-iconbtn--purple {
+    color: $purple-60;
+
+    .lab-iconbtn__icon {
+      background-color: $purple-60;
+    }
+
+    &:hover {
+      background-color: $purple-10;
+    }
+
+    &:focus {
+      @include border-shadow(focus, $purple-20);
+    }
+
+    &:active {
+      color: $purple-60;
+      background-color: $purple-20;
+    }
+  }
+}
