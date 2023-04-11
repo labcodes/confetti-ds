@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with base props 1`] = `
+<button
+  className="lab-iconbtnlab-iconbtn--teal"
+  onClick={[Function]}
+>
+   
+  <span
+    className="lab-icon lab-icon--star lab-icon--white lab-icon--petit lab-iconbtn__icon"
+  />
+</button>
+`;

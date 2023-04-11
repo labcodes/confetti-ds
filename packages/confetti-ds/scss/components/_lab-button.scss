@@ -51,7 +51,8 @@ $text-bg-active: map-get($button-theme, "20");
     transform: translateY(2px);
   }
 
-  &:disabled, &[aria-disabled] {
+  &:disabled,
+  &[aria-disabled] {
     pointer-events: none;
     cursor: default;
   }
@@ -125,7 +126,7 @@ $text-bg-active: map-get($button-theme, "20");
   &.lab-btn--light:disabled,
   &.lab-btn--warning:disabled,
   &.lab-btn--warning-invert:disabled,
-  &.lab-btn--destructive:disabled,
+  &.lab-btn--destructive:dis\abled,
   &.lab-btn--destructive-invert:disabled,
   &.lab-btn--confirmation-invert:disabled {
     color: $mineral-40;
@@ -177,7 +178,7 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $white;
 
     .lab-btn__icon {
-      background-color: $mineral-90
+      background-color: $mineral-90;
     }
 
     &:hover {
@@ -359,7 +360,7 @@ $text-bg-active: map-get($button-theme, "20");
     &:focus:active {
       @include border-shadow(focus, $white);
       background-color: $white-50;
-      border-color: $red-60
+      border-color: $red-60;
     }
   }
 

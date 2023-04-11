@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ICON_TYPES } from "../../../../../packages/confetti-ds/src/constants";
-import { IconButton as Component } from "../../../../../packages/confetti-ds/src/IconButton";
+import { IconButton as Component } from "../../../../../packages/confetti-ds/src/";
 
 export default {
   title: "Actions/Button/Icon Button",
