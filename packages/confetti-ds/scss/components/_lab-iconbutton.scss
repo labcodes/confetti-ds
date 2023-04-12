@@ -73,11 +73,11 @@ $iconbtn-bg-active: map-get($button-theme, "20");
 
   &:focus:active {
     @include border-shadow(focus, $border-shadow-focus);
-    background-color: $btn-bg-focus-active;
-    border-color: $btn-border-active;
+    background-color: $teal-20;
+    border: none;
 
     .lab-iconbtn__icon {
-      background-color: $white;
+      background-color: $teal-60;
     }
   }
   &:disabled,
@@ -117,10 +117,10 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     &:focus:active {
       @include border-shadow(focus, $purple-30);
       background-color: $purple-20;
-      border: $btn-border $purple-30;
+      border: none;
 
       .lab-iconbtn__icon {
-        background-color: $white;
+        background-color: $purple-60;
       }
     }
   }
@@ -148,12 +148,12 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     }
 
     &:focus:active {
-      @include border-shadow(focus, $mineral-90);
-      background-color: $black-10;
-      border: $btn-border $black-20;
+      @include border-shadow(focus, $black-50);
+      background-color: $black-20;
+      border: none;
 
       .lab-iconbtn__icon {
-        background-color: $white;
+        background-color: $mineral-90;
       }
     }
   }
@@ -181,9 +181,9 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     }
 
     &:focus:active {
-      @include border-shadow(focus, $white-10);
+      @include border-shadow(focus, $white-50);
       background-color: $white-20;
-      border: $btn-border $white-50;
+      border: none;
 
       .lab-iconbtn__icon {
         background-color: $white;
