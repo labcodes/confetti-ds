@@ -118,37 +118,49 @@ Confetti's design specifications can be found on [Figma](https://www.figma.com/f
 Clone the project
 
 ```bash
-  git clone https://github.com/Labcodes/confetti-ds.git
+  git clone git@github.com:labcodes/confetti-ds.git
 ```
 
-Go to the project directory
-
-```bash
-  cd packages
-```
-
-Install dependencies
+Go to the project directory and instal its dependencies
 
 ```bash
   npm install
 ```
 
-Start the server
+<!-- Start the server -->
+
+Starting the server
 
 The project will run at `localhost:8000`
 
 ```bash
-  npm run dev
+  npx turbo start
+```
+Alternatively, you can perform the commands below:
+
+```bash
+  cd apps/docs
+  npm start
 ```
 
 <!-- Running Tests -->
 
 ### :test_tube: Running Tests
 
-To run tests, run the following command
+To run tests, run the following command inside at any folder
 
 ```bash
-  npm run test
+  npx turbo test
+```
+
+<!-- Rnunning the build-->
+
+### :gear: Running the Build
+
+In order to run the application build, run the following command inside at any folder
+
+```bash
+  npx turbo build
 ```
 
 <!-- Deployment -->
@@ -156,6 +168,12 @@ To run tests, run the following command
 ### :engine: Deployment
 
 We use Netlify for running checks for the review apps and deployment.
+
+<!-- CI/CD -->
+
+### :eyes: Continous Deployment
+
+The main tool to use the manage of Confetti CI is Github Actions, which runs all the test suite before opening a Pull Request. To check out the configuration, visit this [link with the configuration file source](https://github.com/labcodes/confetti-ds/blob/main/.github/workflows/ci.yml).
 
 <!-- Usage -->
 
