@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AbstractButton renders as expected when tabIndex is passed 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal lab-btn--teal"
+  onClick={[Function]}
+  tabIndex={1}
+  type="button"
+>
+  Test tabIndex
+</button>
+`;
+
+exports[`AbstractButton renders with base props for default kind 1`] = `
+<button
+  className="lab-btn lab-btn--default lab-btn--normal lab-btn--teal"
+  onClick={[Function]}
+  type="button"
+>
+  Test Default Button
+</button>
+`;
+
+exports[`AbstractButton renders with base props for label kind 1`] = `
+<button
+  className="lab-btn lab-btn--text lab-btn--normal lab-btn--teal"
+  onClick={[Function]}
+  type="button"
+>
+  Test Text Button
+</button>
+`;
+
+exports[`AbstractButton renders with base props for outline kind 1`] = `
+<button
+  className="lab-btn lab-btn--outline lab-btn--normal lab-btn--teal"
+  onClick={[Function]}
+  type="button"
+>
+  Test Outline Button
+</button>
+`;

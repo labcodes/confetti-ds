@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TogglableTag renders as expected with a yellow color 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--yellow-pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--check lab-icon--black-75 lab-icon--petit lab-tag--check-icon lab-tag--check-icon-off"
+  />
+  Test render yellow TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders as expected with disabled as true 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--disabled lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--check lab-icon--black-75 lab-icon--petit lab-tag--check-icon lab-tag--check-icon-off"
+  />
+  Test nount disabled TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders as expected with outline as true 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--outline lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--check lab-icon--black-75 lab-icon--petit lab-tag--check-icon lab-tag--check-icon-off"
+  />
+  Test render outline TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders with a pale skin if not isOn 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--check lab-icon--black-75 lab-icon--petit lab-tag--check-icon lab-tag--check-icon-off"
+  />
+  Test render pale TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders with a vivid skin and a checked icon if isOn 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--selected lab-tag--vivid"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--check lab-icon--black-75 lab-icon--petit lab-tag--check-icon lab-tag--check-icon-on"
+  />
+  Test render isOn TogglableTag
+</span>
+`;
+
+exports[`TogglableTag renders with base props 1`] = `
+<span
+  className="lab-tag lab-tag--togglable lab-tag--pale"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <span
+    className="lab-icon lab-icon--check lab-icon--black-75 lab-icon--petit lab-tag--check-icon lab-tag--check-icon-off"
+  />
+  Test render TogglableTag
+</span>
+`;

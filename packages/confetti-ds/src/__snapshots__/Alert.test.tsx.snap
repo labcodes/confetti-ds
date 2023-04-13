@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders with base props 1`] = `
+<div
+  className="lab-alert lab-alert--error"
+>
+  <span
+    className="lab-icon lab-icon--magnifying-glass lab-icon--mineral-70 lab-alert__icon"
+  />
+  <span
+    className="lab-alert__message"
+  >
+    Error Alert
+  </span>
+  <span
+    className="lab-alert__button"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <button
+      className="lab-btn lab-btn--text lab-btn--normal lab-btn--dark"
+      onClick={[Function]}
+      type="button"
+    >
+      Error Alert
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Alert renders with button 1`] = `
+<div
+  className="lab-alert lab-alert--warn"
+>
+  <span
+    className="lab-icon lab-icon--wallet lab-icon--mineral-70 lab-alert__icon"
+  />
+  <span
+    className="lab-alert__message"
+  >
+    Info Alert with button
+  </span>
+  <span
+    className="lab-alert__button"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <button
+      className="lab-btn lab-btn--text lab-btn--normal lab-btn--dark"
+      onClick={[Function]}
+      type="button"
+    >
+      Info Alert with button
+    </button>
+  </span>
+</div>
+`;
