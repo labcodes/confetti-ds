@@ -6,16 +6,14 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        'Elements',
-        'Actions',
-        'Content',
-        'Data Inputs', [
-          'Checkbox',
-          'Radio',
-        ],
-        'Navigation',
-        'Messaging',
+        "Icons",
+        "Actions",
+        "Content",
+        "Data Inputs",
+        ["Checkbox", "Radio"],
+        "Navigation",
+        "Messaging",
       ],
     },
   },
-}
+};
