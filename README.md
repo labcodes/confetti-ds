@@ -173,7 +173,7 @@ We use Netlify for running checks for the review apps and deployment.
 
 ### :eyes: Continous Deployment
 
-The main tool to use the manage of Confetti CI is Github Actions, which runs all the test suite before opening a Pull Request. To check out the configuration, visit this [link with the configuration file source](https://github.com/labcodes/confetti-ds/blob/main/.github/workflows/ci.yml).
+We use the manage of Confetti CI is Github Actions, which runs all the tests before opening a Pull Request. However, the deployment process itself is managed by the Netlify platform. To check our configurations, visit this [link with the configuration file source](https://github.com/labcodes/confetti-ds/blob/main/.github/workflows/ci.yml) and the Netlify [setup file](https://github.com/labcodes/confetti-ds/blob/main/netlify.toml).
 
 <!-- Usage -->
 
