@@ -48,10 +48,13 @@ describe("SimpleTag", () => {
     expect(wrapper).toContain("lab-tag--vivid");
   });
 
-  it("renders as expected with a lupe icon", async () => {
+  it("renders as expected with a Search icon", async () => {
     const renderedComponent = renderer
       .create(
-        <SimpleTag text="Test render SimpleTag with Search icon" icon="Search" />
+        <SimpleTag
+          text="Test render SimpleTag with Search icon"
+          icon="Search"
+        />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();

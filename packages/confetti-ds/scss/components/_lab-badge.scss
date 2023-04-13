@@ -7,28 +7,29 @@ $badge-color: white !default;
   mask-image: url($badges-svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  //height: $icon-size;
-  //width: $icon-size;
-  //font-size: $icon-size;
   line-height: 1;
   display: inline-block;
   flex-shrink: 0;
   background-color: $badge-color;
 
-    /* Color modifiers.
+  /* Color modifiers.
    * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
    * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
    * Each ones sets a different background color. */
-   &--black { background-color: $black; }
-   &--white { background-color: $white; }
+  &--black {
+    background-color: $black;
+  }
+  &--white {
+    background-color: $white;
+  }
 
-   @each $key, $palette in $all-colors {
-     @each $color-palette, $color in $palette {
-       &--#{$key}-#{$color-palette} {
-           background-color: $color;
-       }
-     }
-   }
+  @each $key, $palette in $all-colors {
+    @each $color-palette, $color in $palette {
+      &--#{$key}-#{$color-palette} {
+        background-color: $color;
+      }
+    }
+  }
 }
 
 .lab-badge__wrapper {
@@ -37,19 +38,22 @@ $badge-color: white !default;
   margin: 0.125rem;
   flex-shrink: 0;
 
-    /* Color modifiers.
+  /* Color modifiers.
    * Create classes '.lab-icon--white' and '.lab-icon--black' directly.
    * Iterates over $all-colors map to also create classes like '.lab-icon--white'.
    * Each ones sets a different background color. */
-   &--black { background-color: $black; }
-   &--white { background-color: $white; }
+  &--black {
+    background-color: $black;
+  }
+  &--white {
+    background-color: $white;
+  }
 
   @each $key, $palette in $all-colors {
     @each $color-palette, $color in $palette {
       &--#{$key}-#{$color-palette} {
-          background-color: $color;
+        background-color: $color;
       }
     }
   }
-
 }

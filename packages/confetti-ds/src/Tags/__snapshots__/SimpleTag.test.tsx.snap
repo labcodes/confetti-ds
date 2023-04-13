@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SimpleTag renders as expected with a lupe icon 1`] = `
+exports[`SimpleTag renders as expected with a Search icon 1`] = `
 <span
   className="lab-tag  lab-tag--has-left-icon lab-tag--pale"
   onClick={[Function]}
