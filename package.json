@@ -13,21 +13,6 @@
     "publish": "npx turbo publish"
   },
   "dependencies": {
-    "@babel/runtime": "^7.20.7",
-    "@fluentui/react-icons": "^2.0.199",
-    "@types/node": "^18.15.11",
-    "2.2.2": "^2.2.2",
-    "postcss": "^8.4.21",
-    "prop-types": "^15.8.1",
-    "react-docgen-typescript": "^2.2.2",
-    "require-from-string": "^2.0.2",
-    "webpack": "^5.79.0"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "react"
-      ]
-    }
+    "@babel/runtime": "^7.20.7"
   }
 }
