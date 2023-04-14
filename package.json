@@ -18,7 +18,9 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "ignoreMissing": ["react"]
+      "ignoreMissing": [
+        "react"
+      ]
     }
   }
 }
