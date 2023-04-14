@@ -15,5 +15,10 @@
   "dependencies": {
     "@babel/runtime": "^7.20.7",
     "@fluentui/react-icons": "^2.0.199"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": ["react"]
+    }
   }
 }
