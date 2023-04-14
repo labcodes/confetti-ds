@@ -24,17 +24,6 @@ export default function IconButton({
   disabled = false,
   onClick = (event) => {},
 }: IconButtonProps) {
-  const renderIcon = () =>
-    icon ? (
-      <Icon
-        type={icon}
-        color="mineral-80"
-        size="petit"
-        className="lab-iconbtn__icon"
-      />
-    ) : (
-      ""
-    );
 
   const handleOnClick = (event) => {
     if (!isUndefined(onClick)) {
@@ -50,7 +39,12 @@ export default function IconButton({
       aria-disabled={ariaDisabled || undefined}
     >
       {" "}
-      {renderIcon()}
+      <Icon
+        type={icon}
+        color="mineral-80"
+        size="petit"
+        className="lab-iconbtn__icon"
+      />
     </button>
   );
 }
