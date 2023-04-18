@@ -1,15 +1,16 @@
 import React from "react";
 
-import { NarrowSidebar } from "../../../../packages/confetti-ds/src";
+import { NarrowSidebar as Component } from "../../../../packages/confetti-ds/src";
 
 import { CollapseButton as CollapseButtonStory } from "./subcomponents/CollapseButton.stories";
 import { FooterButton as FooterButtonStory } from "./subcomponents/FooterButton.stories";
 import { Header as HeaderStory } from "./subcomponents/Header.stories";
 import { Item as ItemStory } from "./subcomponents/Item.stories";
-import { UserAvatar as UserAvatarStory } from "./subcomponents/UserAvatar.stories";
+import { UserAvat
+  ar as UserAvatarStory } from "./subcomponents/UserAvatar.stories";
 
 export default {
-  title: "Sidebar/Narrow",
+  title: "Sidebar/Narrow Sidebar",
   component: Component,
   argTypes: {
     children: {

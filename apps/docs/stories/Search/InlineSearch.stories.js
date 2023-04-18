@@ -3,7 +3,7 @@ import React from "react";
 import { InlineSearch as Component } from "../../../../packages/confetti-ds/src";
 
 export default {
-  title: "Search/Inline Search",
+  title: "Search Input/Inline Search",
   component: Component,
 };
 

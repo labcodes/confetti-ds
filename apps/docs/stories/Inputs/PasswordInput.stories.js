@@ -3,7 +3,7 @@ import React from "react";
 import { PasswordInput as Component } from "../../../../packages/confetti-ds/src/Input";
 
 export default {
-  title: "Inputs/Password Input",
+  title: "Text Inputs/Password Input",
   component: Component,
 };
 

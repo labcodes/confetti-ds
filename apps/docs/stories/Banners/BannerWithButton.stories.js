@@ -4,7 +4,7 @@ import { ICON_TYPES } from "../../../../packages/confetti-ds/src/constants";
 import { Banner as Component } from "../../../../packages/confetti-ds/src";
 
 export default {
-  title: "Banners/Banner with Button",
+  title: "System Messages/Banner",
   component: Component,
   argTypes: {
     icon: {

@@ -4,7 +4,7 @@ import { ICON_TYPES } from "../../../../../packages/confetti-ds/src/constants";
 import { Button as Component } from "../../../../../packages/confetti-ds/src/Button";
 
 export default {
-  title: "ButtonsNavigation//Button",
+  title: "Buttons/Button",
   component: Component,
   argTypes: {
     icon: {

@@ -10,7 +10,7 @@ import { Logotype as LogotypeStory } from "./subcomponents/Logotype.stories";
 import { UserAvatar as UserAvatarStory } from "./subcomponents/UserAvatar.stories";
 
 export default {
-  title: "Sidebar/Narrow With Footer Avatar",
+  title: "Sidebar/Narrow Sidebar With Footer Avatar",
   component: Component,
   argTypes: {
     children: {

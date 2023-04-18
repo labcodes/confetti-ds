@@ -7,7 +7,7 @@ import {
 import { TextInput as Component } from "../../../../packages/confetti-ds/src/Input";
 
 export default {
-  title: "Inputs/Text Input",
+  title: "Text Inputs/Text Input",
   component: Component,
   argTypes: {
     icon: {

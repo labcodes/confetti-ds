@@ -7,7 +7,7 @@ import {
 import { EmailInput as Component } from "../../../../packages/confetti-ds/src/Input";
 
 export default {
-  title: "Inputs/Email Input",
+  title: "Text Inputs/Email Input",
   component: Component,
   argTypes: {
     icon: {
