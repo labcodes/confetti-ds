@@ -19,9 +19,9 @@ exports[`DropdownTag render as outline 1`] = `
         aria-hidden={true}
         className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
         fill="currentColor"
-        height={20}
+        height="20"
         viewBox="0 0 20 20"
-        width={20}
+        width="20"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -53,9 +53,9 @@ exports[`DropdownTag renders as disabled 1`] = `
         aria-hidden={true}
         className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
         fill="currentColor"
-        height={20}
+        height="20"
         viewBox="0 0 20 20"
-        width={20}
+        width="20"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -87,9 +87,9 @@ exports[`DropdownTag renders with a pink color 1`] = `
         aria-hidden={true}
         className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
         fill="currentColor"
-        height={20}
+        height="20"
         viewBox="0 0 20 20"
-        width={20}
+        width="20"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -121,9 +121,9 @@ exports[`DropdownTag renders with base props 1`] = `
         aria-hidden={true}
         className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
         fill="currentColor"
-        height={20}
+        height="20"
         viewBox="0 0 20 20"
-        width={20}
+        width="20"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
