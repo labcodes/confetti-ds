@@ -7,7 +7,7 @@ import Alert from "./Alert";
 describe("Alert", () => {
   it("renders with base props", async () => {
     const renderedComponent = renderer
-      .create(<Alert text="Error Alert" type="error" icon="magnifying-glass" />)
+      .create(<Alert text="Error Alert" type="error" icon="Search" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
@@ -18,7 +18,7 @@ describe("Alert", () => {
         <Alert
           text="Info Alert with button"
           type="warn"
-          icon="wallet"
+          icon="Wallet"
           buttonProps={{
             text: "Alert Button",
             onClick: () => {},
@@ -35,7 +35,7 @@ describe("Alert", () => {
       <Alert
         text="Test click on Alert"
         type="info"
-        icon="calendar"
+        icon="CalendarLtr"
         buttonProps={{
           text: "Info Button",
           onClick: mockOnClick,

@@ -80,12 +80,7 @@ export default function TagDropdownItem({
 
   const renderIcon = () =>
     icon ? (
-      <Icon
-        type={icon}
-        color="black-75"
-        size="petit"
-        className="lab-tag--left-icon"
-      />
+      <Icon type={icon} color="black-75" className="lab-tag--left-icon" />
     ) : undefined;
 
   // super constructor

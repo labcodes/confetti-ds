@@ -14,7 +14,7 @@ export default function CollapseButton({ onClick }: NavbarCollapseButtonProps) {
       className="lab-narrow-sidebar__collapse"
     >
       <Icon
-        type="menu-collapse"
+        type="ArrowMinimize"
         className="lab-narrow-sidebar__collapse-icon"
       />
     </button>

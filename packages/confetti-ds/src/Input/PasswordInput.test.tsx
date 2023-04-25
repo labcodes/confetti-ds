@@ -33,7 +33,7 @@ describe("PasswordInput", () => {
     expect(
       mountedComponent.find("input").find({ type: "password" })
     ).toHaveLength(1);
-    const trailingIcon = mountedComponent.find("Icon[type='eye-closed']");
+    const trailingIcon = mountedComponent.find("Icon[type='EyeOff']");
     expect(trailingIcon).toHaveLength(1);
 
     trailingIcon.at(0).simulate("click");
@@ -41,7 +41,7 @@ describe("PasswordInput", () => {
     expect(mountedComponent.find("input").find({ type: "text" })).toHaveLength(
       1
     );
-    expect(mountedComponent.find("Icon[type='eye-opened']")).toHaveLength(1);
+    expect(mountedComponent.find("Icon[type='Eye']")).toHaveLength(1);
   });
 
   it("raises console.warn and sets state with value when passing value and defaultValue by props at the same time", async () => {

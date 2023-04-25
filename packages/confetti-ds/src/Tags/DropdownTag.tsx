@@ -34,23 +34,11 @@ export default function DropdownTag({
   onClick = () => {},
 }: DropdownTagProps) {
   const handleIcon = () =>
-    icon ? (
-      <Icon
-        type={icon}
-        color="black-75"
-        size="petit"
-        className="lab-tag--left-icon"
-      />
-    ) : undefined;
+    icon ? <Icon type={icon} className="lab-tag--left-icon" /> : undefined;
 
   const dropdownIcon = () => (
     <span className="lab-tag__dropdown-icon-wrapper">
-      <Icon
-        type="dropdown-closed"
-        color="black-75"
-        size="petit"
-        className="lab-tag--dropdown-icon"
-      />
+      <Icon type="CaretDown" color="black-75" className="lab-tag--dropdown-icon" />
     </span>
   );
 

@@ -119,7 +119,7 @@ export default function AbstractTextInput({
   const requiredIcon = () =>
     required ? (
       <span className="lab-input__required-icon">
-        <Icon type="star" color="white" />
+        <Icon type="StackStar" color="white" />
       </span>
     ) : (
       ""
@@ -235,7 +235,7 @@ function TrailingIcon({
       disabled={(!ariaDisabled && disabled) || undefined}
       aria-disabled={ariaDisabled || undefined}
     >
-      <Icon type={icon} color={iconColor} />
+      <Icon type={icon} color={iconColor}/>
     </button>
   );
 }

@@ -74,6 +74,7 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 ### :space_invader: Tech Stack
 
 - [Figma](https://www.figma.com)
+- [Fluent UI Icons](https://github.com/microsoft/fluentui-system-icons)
 - [Storybook](https://storybook.js.org/)
 - [React](https://reactjs.org/)
 - [Turborepo](https://turbo.build/)
@@ -88,7 +89,6 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 - Dropdowns
 - Tags
 - Inputs
-- Icons
 - Check box
 - Search Bar
 - Sidebar
@@ -100,6 +100,31 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 ## :art: Figma
 
 Confetti's design specifications can be found on [Figma](https://www.figma.com/file/Wx7jj5klQn3YsRA2XcIV3E/Confetti-%2F-%F0%9F%93%9A-Components?t=wwJ2zxNe5SyHBTlN-6).
+
+<!-- Iconography -->
+
+Nowadays, the Confetti imports some icons from the [Fluent UI](https://github.com/microsoft/fluentui-system-icons) repository. The `@fluentui/react-icons` are listed as a dev dependency, so the usage and the import must follow the Fluent UI guidelines. The all the Confetti icons at size of `20` and with the `Regular` theme as following:
+
+```jsx
+  Code20Regular
+
+  (...)
+
+  if (type === "Code") IconComponent = Code20Regular;
+```
+
+However, if you wish to import an Icon that is not listed at the Confetti's list you can import it as code below:
+
+``` jsx
+import { AccessTimeFilled20Regular } from '@fluentui/react-icons';
+
+```
+Hipotetically, you also might need to import an Icon with another size or theme, so you can import as the following example:
+
+``` jsx
+import { AccessTime24Filled } from '@fluentui/react-icons';
+
+```
 
 <!-- Getting Started -->
 

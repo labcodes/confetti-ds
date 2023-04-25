@@ -40,7 +40,7 @@ describe("TextButton", () => {
 
   it("renders as expected when passing a plus icon", async () => {
     const renderedComponent = renderer
-      .create(<TextButton text="Test Text Small Button" icon="plus" />)
+      .create(<TextButton text="Test Text Small Button" icon="Add" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });

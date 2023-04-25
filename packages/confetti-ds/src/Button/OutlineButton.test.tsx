@@ -38,12 +38,12 @@ describe("OutlineButton", () => {
     expect(renderedComponent).toMatchSnapshot();
   });
 
-  it("renders as expected when passing a magnifying-glass icon", async () => {
+  it("renders as expected when passing the Search icon", async () => {
     const renderedComponent = renderer
       .create(
         <OutlineButton
           text="Test Outline magnifying-glass Button"
-          icon="magnifying-glass"
+          icon="Search"
         />
       )
       .toJSON();
@@ -65,7 +65,7 @@ describe("OutlineButton", () => {
       <OutlineButton
         ariaDisabled
         onClick={mockOnClick}
-        text="Test Outl Button"
+        text="Test Outline Button"
       />
     );
     expect(mockOnClick.mock.calls.length).toEqual(0);

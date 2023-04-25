@@ -83,7 +83,7 @@ describe("RemovableTag", () => {
       shallow(
         <RemovableTag
           text="Test to not render RemovableTag with thumb and icon"
-          icon="calendar"
+          icon="CalendarLtr"
           thumbSrc="fake-thumb"
           thumbAlt="fake-thumb-alt"
         />

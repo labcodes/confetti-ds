@@ -40,7 +40,7 @@ describe("Button", () => {
 
   it("renders as expected when passing a wallet icon", async () => {
     const renderedComponent = renderer
-      .create(<Button text="Test Default Wallet Button" icon="wallet" />)
+      .create(<Button text="Test Default Wallet Button" icon="Wallet" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
@@ -80,9 +80,7 @@ describe("Button", () => {
 
   it("renders as expected when tabIndex is passed", async () => {
     const renderedComponent = renderer
-      .create(
-        <Button text="Test tabIndex" fullWidth tabIndex={1} />
-      )
+      .create(<Button text="Test tabIndex" fullWidth tabIndex={1} />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
