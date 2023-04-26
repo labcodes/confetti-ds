@@ -98,11 +98,7 @@ export default function Checkbox({
       <label className="lab-checkbox__label" htmlFor={id}>
         <span className="lab-checkbox__box">
           {localChecked || indeterminate ? (
-            <Icon
-              type={indeterminate ? "minus" : "check"}
-              color={ariaDisabled || disabled ? "mineral-40" : "white"}
-              size="small"
-            />
+            <Icon type={indeterminate ? "Subtract" : "Checkmark"} color={"white"} />
           ) : null}
         </span>
         {label}

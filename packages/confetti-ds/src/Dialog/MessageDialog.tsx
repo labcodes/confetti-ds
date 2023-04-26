@@ -89,7 +89,7 @@ export default function MessageDialog({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <Icon type="collapse-open" />
+          <Icon type="ChevronDown" />
         </button>
         <div className="lab-dialog__header lab-dialog__header--message">
           <button
@@ -98,7 +98,7 @@ export default function MessageDialog({
             {...(isModal ? { tabIndex: 2 } : undefined)}
             onClick={handleClose}
           >
-            <Icon type="remove" className="lab-dialog__close-button-icon" />
+            <Icon type="Dismiss" className="lab-dialog__close-button-icon" />
           </button>
         </div>
 
@@ -118,7 +118,7 @@ export default function MessageDialog({
           {outlineButtonProps ? (
             <OutlineButton
               size="normal"
-              text={outlineButtonProps.text}
+              label={outlineButtonProps.label}
               onClick={outlineButtonProps.onClick}
               {...(isModal ? { tabIndex: 3 } : undefined)}
             />
@@ -126,7 +126,7 @@ export default function MessageDialog({
           <Button
             size="normal"
             {...(outlineButtonProps ? undefined : { fullWidth: true })}
-            text={buttonProps.text}
+            label={buttonProps.label}
             onClick={buttonProps.onClick}
             {...(isModal ? { tabIndex: 1 } : undefined)}
           />

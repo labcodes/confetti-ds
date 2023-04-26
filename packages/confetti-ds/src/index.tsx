@@ -19,7 +19,6 @@ export {
   NavbarUserAvatarProps,
 } from "./Sidebar";
 export { default as Alert, AlertProps } from "./Alert";
-export { default as Badge, BadgeProps } from "./Badge";
 export { default as Banner, BannerProps } from "./Banner";
 export { default as Checkbox, CheckboxProps } from "./Checkbox";
 export { default as Icon, IconProps } from "./Icon";

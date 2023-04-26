@@ -243,7 +243,7 @@ describe("TextInput", () => {
 
   it("renders icon when it is passed by props", async () => {
     const renderedComponent = renderer
-      .create(<TextInput id="testInput" label="Test Input" icon="star" />)
+      .create(<TextInput id="testInput" label="Test Input" icon="StackStar" />)
       .toJSON();
 
     expect(renderedComponent).toMatchSnapshot();
@@ -252,7 +252,7 @@ describe("TextInput", () => {
       <TextInput
         id="testInput"
         label="Test Input"
-        icon="star"
+        icon="StackStar"
       />
     );
 
@@ -261,7 +261,7 @@ describe("TextInput", () => {
 
   it("renders required icon when it is passed by props", async () => {
     const renderedComponent = renderer
-      .create(<TextInput id="testInput" label="Test Input" icon="star" />)
+      .create(<TextInput id="testInput" label="Test Input" icon="StackStar" />)
       .toJSON();
 
     expect(renderedComponent).toMatchSnapshot();

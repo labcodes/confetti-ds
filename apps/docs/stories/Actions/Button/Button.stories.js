@@ -15,6 +15,6 @@ export default {
 
 export const Button = (args) => <Component {...args} />;
 Button.args = {
-  text: "Button",
+  label: "Button",
   onClick: () => alert("Button was clicked"),
 };
