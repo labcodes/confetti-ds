@@ -50,11 +50,11 @@ $iconbtn-bg-active: map-get($button-theme, "20");
   }
 
   .lab-iconbtn__icon {
-    background-color: $iconbtn-icon-color;
+    color: $iconbtn-icon-color;
   }
 
   &:hover {
-    background-color: $border-shadow-hover;
+    color: $border-shadow-hover;
   }
 
   &:focus {
@@ -62,12 +62,12 @@ $iconbtn-bg-active: map-get($button-theme, "20");
   }
 
   &:active {
-    background-color: $iconbtn-bg-active;
+    color: $iconbtn-bg-active;
     border: $btn-border $teal-30;
   }
 
   &:focus:hover {
-    background-color: $border-shadow-hover;
+    color: $border-shadow-hover;
     border: $btn-border $teal-30;
   }
 
@@ -77,7 +77,7 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     border: none;
 
     .lab-iconbtn__icon {
-      background-color: $teal-60;
+      color: $teal-60;
     }
   }
   &:disabled,
@@ -88,16 +88,16 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     pointer-events: none;
     cursor: default;
     .lab-iconbtn__icon {
-      background-color: $mineral-30;
+      color: $mineral-30;
     }
   }
 
   &.lab-iconbtn--purple {
     .lab-iconbtn__icon {
-      background-color: $purple-60;
+      color: $purple-60;
     }
     &:hover {
-      background-color: $purple-10;
+      color: $purple-10;
     }
 
     &:focus {
@@ -105,12 +105,12 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     }
 
     &:active {
-      background-color: $purple-20;
+      color: $purple-20;
       border: $btn-border $purple-30;
     }
 
     &:focus:hover {
-      background-color: $purple-10;
+      color: $purple-10;
       border: $btn-border $purple-30;
     }
 
@@ -120,17 +120,17 @@ $iconbtn-bg-active: map-get($button-theme, "20");
       border: none;
 
       .lab-iconbtn__icon {
-        background-color: $purple-60;
+        color: $purple-60;
       }
     }
   }
 
   &.lab-iconbtn--dark {
     .lab-iconbtn__icon {
-      background-color: $mineral-90;
+      color: $mineral-90;
     }
     &:hover {
-      background-color: $black-10;
+      color: $black-10;
     }
 
     &:focus {
@@ -138,12 +138,12 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     }
 
     &:active {
-      background-color: $black-20;
+      color: $black-20;
       border: $btn-border $black-50;
     }
 
     &:focus:hover {
-      background-color: $black-10;
+      color: $black-10;
       border: $btn-border $mineral-90;
     }
 
@@ -153,17 +153,17 @@ $iconbtn-bg-active: map-get($button-theme, "20");
       border: none;
 
       .lab-iconbtn__icon {
-        background-color: $mineral-90;
+        color: $mineral-90;
       }
     }
   }
 
   &.lab-iconbtn--light {
     .lab-iconbtn__icon {
-      background-color: $white;
+      color: $white;
     }
     &:hover {
-      background-color: $white-10;
+      color: $white-10;
     }
 
     &:focus {
@@ -171,12 +171,12 @@ $iconbtn-bg-active: map-get($button-theme, "20");
     }
 
     &:active {
-      background-color: $white-20;
+      color: $white-20;
       border: $btn-border $white-50;
     }
 
     &:focus:hover {
-      background-color: $white-10;
+      color: $white-10;
       border: $btn-border $white;
     }
 
@@ -186,7 +186,7 @@ $iconbtn-bg-active: map-get($button-theme, "20");
       border: none;
 
       .lab-iconbtn__icon {
-        background-color: $white;
+        color: $white;
       }
     }
   }
