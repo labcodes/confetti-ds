@@ -25,7 +25,7 @@ export const Tooltip = (args) => (
     }}
   >
     <Component {...args}>
-      <Button text="Hover me" />
+      <Button label="Hover me" />
     </Component>
   </div>
 );
