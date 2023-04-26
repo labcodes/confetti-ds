@@ -8,7 +8,7 @@ $radius-05: calc($baseline / 2); //2px
 $radius-1: $baseline; //4px
 $radius-2: (2 * $baseline); //8px
 $radius-3: (3 * $baseline); //12px
-
+$radius-10: (10 * $baseline); //40px
 // For mobile and smaller objects
 $radius-15: (15 * $baseline); // 60px
 $radius-20: (20 * $baseline); // 80px

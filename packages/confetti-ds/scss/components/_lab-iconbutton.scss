@@ -1,0 +1,193 @@
+$btn-border: $border-2; //2px
+$btn-radius: $radius-1; //4px
+$btn-padding: $radius-2; //8px
+
+$iconbtn-size: $radius-10;
+//Button colors from theme.
+$iconbtn-icon-color: map-get($button-theme, "60");
+$iconbtn-border-hover: map-get($button-theme, "80");
+$border-shadow-hover: map-get($button-theme, "10");
+$iconbtn-bg-active: map-get($button-theme, "70");
+$iconbtn-border-active: map-get($button-theme, "40");
+$iconbtn-border-focus: map-get($button-theme, "70");
+$border-shadow-focus: map-get($button-theme, "30");
+$iconbtn-bg-focus-active: map-get($button-theme, "80");
+
+$outline-color-active: map-get($button-theme, "70");
+$outline-color-focus-active: map-get($button-theme, "80");
+
+$text-bg-hover: map-get($button-theme, "10");
+$text-color-active: map-get($button-theme, "70");
+$iconbtn-bg-active: map-get($button-theme, "20");
+
+.lab-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: $btn-radius;
+  width: $iconbtn-size;
+  height: $iconbtn-size;
+  padding: $btn-padding;
+  border-radius: $btn-radius;
+  outline: none;
+  transition: all $duration-base;
+  background-color: transparent;
+  border-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:focus:hover,
+  &:focus:active,
+  &:disabled,
+  &[aria-disabled] {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  .lab-iconbtn__icon {
+    background-color: $iconbtn-icon-color;
+  }
+
+  &:hover {
+    background-color: $border-shadow-hover;
+  }
+
+  &:focus {
+    border: $btn-border $teal-30;
+  }
+
+  &:active {
+    background-color: $iconbtn-bg-active;
+    border: $btn-border $teal-30;
+  }
+
+  &:focus:hover {
+    background-color: $border-shadow-hover;
+    border: $btn-border $teal-30;
+  }
+
+  &:focus:active {
+    @include border-shadow(focus, $border-shadow-focus);
+    background-color: $teal-20;
+    border: none;
+
+    .lab-iconbtn__icon {
+      background-color: $teal-60;
+    }
+  }
+  &:disabled,
+  &[aria-disabled],
+  &.lab-iconbtn--dark:disabled,
+  &.lab-iconbtn--light:disabled,
+  &.lab-iconbtn--purple:disabled {
+    pointer-events: none;
+    cursor: default;
+    .lab-iconbtn__icon {
+      background-color: $mineral-30;
+    }
+  }
+
+  &.lab-iconbtn--purple {
+    .lab-iconbtn__icon {
+      background-color: $purple-60;
+    }
+    &:hover {
+      background-color: $purple-10;
+    }
+
+    &:focus {
+      border: $btn-border $purple-30;
+    }
+
+    &:active {
+      background-color: $purple-20;
+      border: $btn-border $purple-30;
+    }
+
+    &:focus:hover {
+      background-color: $purple-10;
+      border: $btn-border $purple-30;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $purple-30);
+      background-color: $purple-20;
+      border: none;
+
+      .lab-iconbtn__icon {
+        background-color: $purple-60;
+      }
+    }
+  }
+
+  &.lab-iconbtn--dark {
+    .lab-iconbtn__icon {
+      background-color: $mineral-90;
+    }
+    &:hover {
+      background-color: $black-10;
+    }
+
+    &:focus {
+      border: $btn-border $mineral-90;
+    }
+
+    &:active {
+      background-color: $black-20;
+      border: $btn-border $black-50;
+    }
+
+    &:focus:hover {
+      background-color: $black-10;
+      border: $btn-border $mineral-90;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $black-50);
+      background-color: $black-20;
+      border: none;
+
+      .lab-iconbtn__icon {
+        background-color: $mineral-90;
+      }
+    }
+  }
+
+  &.lab-iconbtn--light {
+    .lab-iconbtn__icon {
+      background-color: $white;
+    }
+    &:hover {
+      background-color: $white-10;
+    }
+
+    &:focus {
+      border: $btn-border $white;
+    }
+
+    &:active {
+      background-color: $white-20;
+      border: $btn-border $white-50;
+    }
+
+    &:focus:hover {
+      background-color: $white-10;
+      border: $btn-border $white;
+    }
+
+    &:focus:active {
+      @include border-shadow(focus, $white-50);
+      background-color: $white-20;
+      border: none;
+
+      .lab-iconbtn__icon {
+        background-color: $white;
+      }
+    }
+  }
+}
