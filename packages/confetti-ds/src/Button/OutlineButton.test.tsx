@@ -38,12 +38,12 @@ describe("OutlineButton", () => {
     expect(renderedComponent).toMatchSnapshot();
   });
 
-  it("renders as expected when passing a magnifying-glass icon", async () => {
+  it("renders as expected when passing the Search icon", async () => {
     const renderedComponent = renderer
       .create(
         <OutlineButton
           label="Test Outline magnifying-glass Button"
-          icon="magnifying-glass"
+          icon="Search"
         />
       )
       .toJSON();

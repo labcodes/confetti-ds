@@ -7,7 +7,7 @@ import { MessageDialog } from "./index";
 
 const args = {
   title: "Sample Message Dialog",
-  icon: "star" as const,
+  icon: "StackStar" as const,
   content:
     "This is the main content of a Message Dialog. You may want to put as much content as you want, as long as it's a string.",
   buttonProps: {

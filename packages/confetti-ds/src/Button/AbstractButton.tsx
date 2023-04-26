@@ -37,11 +37,7 @@ export default function AbstractButton({
     hasIcon = false,
 }: AbstractButtonProps) {
   const renderIcon = () =>
-    icon ? (
-      <Icon type={icon} color="white" size="petit" className="lab-btn__icon" />
-    ) : (
-      ""
-    );
+    icon ? <Icon type={icon} color="white"  className="lab-btn__icon" /> : "";
   /*
   Set icon color to be the icon color of default button.
   Icon color changes according to button type and exception on _buttons.scss

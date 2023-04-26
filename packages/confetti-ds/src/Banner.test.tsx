@@ -7,7 +7,7 @@ import Banner from "./Banner";
 describe("Banner", () => {
   it("renders with base props", () => {
     const renderedComponent = renderer
-      .create(<Banner text="Info Banner" type="info" icon="calendar" />)
+      .create(<Banner text="Info Banner" type="info" icon="CalendarLtr" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
@@ -18,7 +18,7 @@ describe("Banner", () => {
         <Banner
           text="Warn Banner with button"
           type="warn"
-          icon="coin"
+          icon="Money"
           buttonProps={{
             label: "Warn Button",
             onClick: () => {},
@@ -35,7 +35,7 @@ describe("Banner", () => {
       <Banner
         text="Test click on Banner"
         type="info"
-        icon="arrow-left"
+        icon="ArrowLeft"
         buttonProps={{
           label: "Info Banner",
           onClick: mockOnClick,

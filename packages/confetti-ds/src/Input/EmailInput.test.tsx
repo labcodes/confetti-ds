@@ -198,13 +198,13 @@ describe("EmailInput", () => {
 
   it("renders icon when it is passed by props", async () => {
     const renderedComponent = renderer
-      .create(<EmailInput id="testInput" label="Test Input" icon="star" />)
+      .create(<EmailInput id="testInput" label="Test Input" icon="StackStar" />)
       .toJSON();
 
     expect(renderedComponent).toMatchSnapshot();
 
     const mountedComponent = mount(
-      <EmailInput id="testInput" label="Test Input" icon="star" />
+      <EmailInput id="testInput" label="Test Input" icon="StackStar" />
     );
 
     expect(mountedComponent.find("span.lab-icon")).toHaveLength(1);
@@ -212,7 +212,7 @@ describe("EmailInput", () => {
 
   it("renders required icon when it is passed by props", async () => {
     const renderedComponent = renderer
-      .create(<EmailInput id="testInput" label="Test Input" icon="star" />)
+      .create(<EmailInput id="testInput" label="Test Input" icon="StackStar" />)
       .toJSON();
 
     expect(renderedComponent).toMatchSnapshot();

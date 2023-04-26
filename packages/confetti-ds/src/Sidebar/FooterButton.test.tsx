@@ -15,7 +15,7 @@ describe("FooterButton", () => {
   it("renders with icon", async () => {
     const renderedComponent = renderer
       .create(
-        <FooterButton label="Test button" onClick={() => {}} icon="star" />
+        <FooterButton label="Test button" onClick={() => {}} icon="StackStar" />
       )
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
