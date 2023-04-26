@@ -32,7 +32,7 @@ const PasswordInput = ({
   return (
     <AbstractTextInput
       type={showPassword ? "text" : "password"}
-      icon={showPassword ? "eye-opened" : "eye-closed"}
+      icon={showPassword ? "Eye" : "EyeOff"}
       onIconClick={toggleTrailingIcon}
       id={id}
       label={label}

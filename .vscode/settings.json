@@ -1,3 +1,4 @@
 {
-  "jest.rootPath": "packages/confetti-ds"
+  "jest.rootPath": "packages/confetti-ds",
+  "liveSassCompile.settings.showOutputWindowOn": "Debug"
 }

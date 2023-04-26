@@ -74,6 +74,7 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 ### :space_invader: Tech Stack
 
 - [Figma](https://www.figma.com)
+- [Fluent UI Icons](https://github.com/microsoft/fluentui-system-icons)
 - [Storybook](https://storybook.js.org/)
 - [React](https://reactjs.org/)
 - [Turborepo](https://turbo.build/)
@@ -88,7 +89,6 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 - Dropdowns
 - Tags
 - Inputs
-- Icons
 - Check box
 - Search Bar
 - Sidebar
@@ -100,6 +100,31 @@ Confetti is Labcodes Software Studio's Design System for digital experiences and
 ## :art: Figma
 
 Confetti's design specifications can be found on [Figma](https://www.figma.com/file/Wx7jj5klQn3YsRA2XcIV3E/Confetti-%2F-%F0%9F%93%9A-Components?t=wwJ2zxNe5SyHBTlN-6).
+
+<!-- Iconography -->
+
+Nowadays, the Confetti imports some icons from the [Fluent UI](https://github.com/microsoft/fluentui-system-icons) repository. The `@fluentui/react-icons` are listed as a dev dependency, so the usage and the import must follow the Fluent UI guidelines. The all the Confetti icons at size of `20` and with the `Regular` theme as following:
+
+```jsx
+  Code20Regular
+
+  (...)
+
+  if (type === "Code") IconComponent = Code20Regular;
+```
+
+However, if you wish to import an Icon that is not listed at the Confetti's list you can import it as code below:
+
+``` jsx
+import { AccessTimeFilled20Regular } from '@fluentui/react-icons';
+
+```
+Hipotetically, you also might need to import an Icon with another size or theme, so you can import as the following example:
+
+``` jsx
+import { AccessTime24Filled } from '@fluentui/react-icons';
+
+```
 
 <!-- Getting Started -->
 
@@ -118,37 +143,49 @@ Confetti's design specifications can be found on [Figma](https://www.figma.com/f
 Clone the project
 
 ```bash
-  git clone https://github.com/Labcodes/confetti-ds.git
+  git clone git@github.com:labcodes/confetti-ds.git
 ```
 
-Go to the project directory
-
-```bash
-  cd packages
-```
-
-Install dependencies
+Go to the project directory and instal its dependencies
 
 ```bash
   npm install
 ```
 
-Start the server
+<!-- Start the server -->
+
+Starting the server
 
 The project will run at `localhost:8000`
 
 ```bash
-  npm run dev
+  npx turbo start
+```
+Alternatively, you can perform the commands below:
+
+```bash
+  cd apps/docs
+  npm start
 ```
 
 <!-- Running Tests -->
 
 ### :test_tube: Running Tests
 
-To run tests, run the following command
+To run tests, run the following command inside at any folder
 
 ```bash
-  npm run test
+  npx turbo test
+```
+
+<!-- Rnunning the build-->
+
+### :gear: Running the Build
+
+In order to run the application build, run the following command inside at any folder
+
+```bash
+  npx turbo build
 ```
 
 <!-- Deployment -->
@@ -156,6 +193,12 @@ To run tests, run the following command
 ### :engine: Deployment
 
 We use Netlify for running checks for the review apps and deployment.
+
+<!-- CI/CD -->
+
+### :eyes: Continous Deployment
+
+We use the manage of Confetti CI is Github Actions, which runs all the tests before opening a Pull Request. However, the deployment process itself is managed by the Netlify platform. To check our configurations, visit this [link with the configuration file source](https://github.com/labcodes/confetti-ds/blob/main/.github/workflows/ci.yml) and the Netlify [setup file](https://github.com/labcodes/confetti-ds/blob/main/netlify.toml).
 
 <!-- Usage -->
 

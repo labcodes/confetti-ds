@@ -79,7 +79,7 @@ describe("TogglableTag", () => {
       <TogglableTag text="Test isOn TogglableTag" isOn />
     ).html();
     expect(wrapper).toContain("lab-tag--vivid");
-    expect(wrapper).toContain("lab-icon--check");
+    expect(wrapper).toContain("lab-icon--Checkmark");
   });
 
   it("calls prop.onClick when clicked", async () => {

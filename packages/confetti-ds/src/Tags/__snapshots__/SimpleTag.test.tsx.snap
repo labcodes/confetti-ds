@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SimpleTag renders as expected with a magnifying-glass icon 1`] = `
+exports[`SimpleTag renders as expected with a Search icon 1`] = `
 <span
   className="lab-tag  lab-tag--has-left-icon lab-tag--pale"
   onClick={[Function]}
@@ -8,9 +8,24 @@ exports[`SimpleTag renders as expected with a magnifying-glass icon 1`] = `
   role="button"
 >
   <span
-    className="lab-icon lab-icon--magnifying-glass lab-icon--black-75 lab-icon--petit lab-tag--left-icon"
-  />
-  Test render SimpleTag with magnifying-glass icon
+    className="lab-icon lab-icon--Search lab-icon--black-75 lab-tag--left-icon"
+  >
+    <svg
+      aria-hidden={true}
+      className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+      fill="currentColor"
+      height="20"
+      viewBox="0 0 20 20"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.5 3a5.5 5.5 0 0 1 4.23 9.02l4.12 4.13a.5.5 0 0 1-.63.76l-.07-.06-4.13-4.12A5.5 5.5 0 1 1 8.5 3Zm0 1a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+  Test render SimpleTag with Search icon
 </span>
 `;
 

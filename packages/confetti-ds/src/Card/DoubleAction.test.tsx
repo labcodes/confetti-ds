@@ -18,11 +18,11 @@ describe("DoubleAction", () => {
           <DoubleAction
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}
@@ -41,11 +41,11 @@ describe("DoubleAction", () => {
         <DoubleAction
           actionsProps={[
             {
-              text: "Action 1",
+              label: "Action 1",
               onClick: mockOnClick1,
             },
             {
-              text: "Action 2",
+              label: "Action 2",
               onClick: mockOnClick2,
             },
           ]}
@@ -72,7 +72,7 @@ describe("DoubleAction", () => {
           <DoubleAction
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
             ]}
@@ -91,15 +91,15 @@ describe("DoubleAction", () => {
           <DoubleAction
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
               {
-                text: "Action 3",
+                label: "Action 3",
                 onClick: () => {},
               },
             ]}
@@ -119,11 +119,11 @@ describe("DoubleAction", () => {
             isText
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}
@@ -142,11 +142,11 @@ describe("DoubleAction", () => {
             isHorizontal
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}
@@ -165,11 +165,11 @@ describe("DoubleAction", () => {
             size="small"
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}
@@ -189,11 +189,11 @@ describe("DoubleAction", () => {
           <DoubleAction
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}
@@ -213,11 +213,11 @@ describe("DoubleAction", () => {
           <DoubleAction
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}
@@ -235,11 +235,11 @@ describe("DoubleAction", () => {
           <DoubleAction
             actionsProps={[
               {
-                text: "Action 1",
+                label: "Action 1",
                 onClick: () => {},
               },
               {
-                text: "Action 2",
+                label: "Action 2",
                 onClick: () => {},
               },
             ]}

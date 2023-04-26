@@ -173,13 +173,7 @@ describe("Checkbox", () => {
       1
     );
     expect(
-      mountedComponent
-        .find(Icon)
-        .find("span")
-        .find(".lab-icon")
-        .find(".lab-icon--check")
-        .find(".lab-icon--white")
-        .find(".lab-icon--small")
+      mountedComponent.find(Icon).find(".lab-icon").find(".lab-icon--Checkmark")
     ).toHaveLength(1);
   });
 
@@ -196,11 +190,7 @@ describe("Checkbox", () => {
     expect(
       mountedComponent.find("input").find({ checked: false })
     ).toHaveLength(1);
-    expect(
-      mountedComponent.find(
-        Icon,
-      )
-    ).toHaveLength(0);
+    expect(mountedComponent.find(Icon)).toHaveLength(0);
   });
 
   it("initializes unchecked if defaultChecked is not passed", async () => {
@@ -211,11 +201,7 @@ describe("Checkbox", () => {
     expect(
       mountedComponent.find("input").find({ checked: false })
     ).toHaveLength(1);
-    expect(
-      mountedComponent.find(
-        Icon,
-      )
-    ).toHaveLength(0);
+    expect(mountedComponent.find(Icon)).toHaveLength(0);
   });
 
   it("sets input as indeterminate", async () => {
@@ -244,11 +230,7 @@ describe("Checkbox", () => {
     expect(
       mountedComponent.find("input").find({ checked: false })
     ).toHaveLength(1);
-    expect(
-      mountedComponent.find(
-        Icon,
-      )
-    ).toHaveLength(0);
+    expect(mountedComponent.find(Icon)).toHaveLength(0);
     mountedComponent.find("input").at(0).simulate("change");
     expect(mountedComponent.find("input").find({ checked: true })).toHaveLength(
       1
@@ -258,9 +240,7 @@ describe("Checkbox", () => {
         .find(Icon)
         .find("span")
         .find(".lab-icon")
-        .find(".lab-icon--check")
-        .find(".lab-icon--white")
-        .find(".lab-icon--small")
+        .find(".lab-icon--Checkmark")
     ).toHaveLength(1);
   });
 
@@ -278,11 +258,7 @@ describe("Checkbox", () => {
     expect(
       mountedComponent.find("input").find({ checked: false })
     ).toHaveLength(1);
-    expect(
-      mountedComponent.find(
-        Icon,
-      )
-    ).toHaveLength(0);
+    expect(mountedComponent.find(Icon)).toHaveLength(0);
     expect(mockOnChange).not.toBeCalled();
 
     mountedComponent.find("input").at(0).simulate("change", { test: "event" });
@@ -295,9 +271,7 @@ describe("Checkbox", () => {
         .find(Icon)
         .find("span")
         .find(".lab-icon")
-        .find(".lab-icon--check")
-        .find(".lab-icon--white")
-        .find(".lab-icon--small")
+        .find(".lab-icon--Checkmark")
     ).toHaveLength(1);
     expect(mockOnChange).toBeCalled();
   });

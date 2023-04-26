@@ -83,7 +83,7 @@ export default function StandardDialog({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <Icon type="collapse-open" />
+          <Icon type="ChevronUp" />
         </button>
 
         <div className="lab-dialog__header">
@@ -94,7 +94,7 @@ export default function StandardDialog({
             onClick={handleClose}
             {...(isModal ? { tabIndex: 2 } : undefined)}
           >
-            <Icon type="remove" className="lab-dialog__close-button-icon" />
+            <Icon type="Dismiss" className="lab-dialog__close-button-icon" />
           </button>
         </div>
 
@@ -104,14 +104,14 @@ export default function StandardDialog({
           {outlineButtonProps ? (
             <OutlineButton
               size="normal"
-              text={outlineButtonProps.text}
+              label={outlineButtonProps.label}
               onClick={outlineButtonProps.onClick}
               {...(isModal ? { tabIndex: 3 } : undefined)}
             />
           ) : undefined}
           <Button
             size="normal"
-            text={buttonProps.text}
+            label={buttonProps.label}
             onClick={buttonProps.onClick}
             {...(isModal ? { tabIndex: 1 } : undefined)}
           />

@@ -20,7 +20,7 @@ export default function Alert({
   text,
   type = "info",
   icon,
-  buttonProps = { text: "", onClick: () => {} },
+  buttonProps = { label: "", onClick: () => {} },
 }: AlertProps) {
   const handleClick = (event) => {
     if (!isUndefined(buttonProps.onClick)) {
@@ -30,9 +30,7 @@ export default function Alert({
 
   return (
     <div className={`lab-alert lab-alert--${type}`}>
-      {icon ? (
-        <Icon type={icon} color="mineral-70" className="lab-alert__icon" />
-      ) : undefined}
+      {icon ? <Icon type={icon} className="lab-alert__icon" /> : undefined}
       <span className="lab-alert__message">{text}</span>
       <span
         className="lab-alert__button"
@@ -40,7 +38,7 @@ export default function Alert({
         role="presentation"
       >
         {text ? (
-          <TextButton size="normal" skin="dark" text={text} />
+          <TextButton size="normal" theme="dark" label={text} />
         ) : undefined}
       </span>
     </div>

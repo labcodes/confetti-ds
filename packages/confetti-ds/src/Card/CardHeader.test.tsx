@@ -53,7 +53,7 @@ describe("CardHeader", () => {
 
   it("renders with categoryIcon", async () => {
     const renderedComponent = renderer
-      .create(<CardHeader categoryIcon="star" />)
+      .create(<CardHeader categoryIcon="StackStar" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });

@@ -14,7 +14,7 @@ describe("Item", () => {
 
   it("renders with icon", async () => {
     const renderedComponent = renderer
-      .create(<Item label="Test item" onClick={() => {}} icon="star" />)
+      .create(<Item label="Test item" onClick={() => {}} icon="StackStar" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });

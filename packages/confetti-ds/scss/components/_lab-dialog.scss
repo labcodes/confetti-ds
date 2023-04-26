@@ -213,31 +213,31 @@
     outline: unset;
 
     .lab-dialog__close-button-icon {
-      background-color: $teal-60;
+      color: $teal-60;
     }
   }
 
   &:hover {
     border-radius: $radius-1;
-    background-color: $teal-10;
+    color: $teal-10;
 
     .lab-dialog__close-button-icon {
-      background-color: $teal-60;
+      color: $teal-60;
     }
   }
 
   .lab-dialog__close-button-icon {
-    background-color: $mineral-60;
+   color: $mineral-60;
   }
 
   &:active {
     border-radius: $radius-1;
     box-shadow: 0 0 0 2px $teal-30;
-    background-color: $teal-20;
+    color: $teal-20;
     outline: unset;
 
     .lab-dialog__close-button-icon {
-      background-color: $teal-70;
+      color: $teal-70;
     }
   }
 
@@ -258,7 +258,7 @@
   border: none;
 
   .lab-icon {
-    background-color: $mineral-60;
+    color: $mineral-60;
   }
 
   &.lab-dialog__mobile-close-button--message {
@@ -272,7 +272,7 @@
     outline: unset;
 
     .lab-icon {
-      background-color: $teal-60;
+      color: $teal-60;
     }
   }
 
@@ -281,22 +281,22 @@
     background-color: $teal-10;
 
     .lab-icon {
-      background-color: $teal-60;
+      color: $teal-60;
     }
   }
 
   .lab-icon {
-    background-color: $mineral-60;
+    color: $mineral-60;
   }
 
   &:active {
     border-radius: $radius-1;
     box-shadow: 0 0 0 2px $teal-30;
-    background-color: $teal-20;
+    color: $teal-20;
     outline: unset;
 
     .lab-icon {
-      background-color: $teal-70;
+      color: $teal-70;
     }
   }
 
@@ -364,7 +364,7 @@
 
 .lab-dialog__icon {
   transform: scale(3);
-  background-color: $mineral-70;
+  color: $mineral-70;
 }
 
 .lab-dialog__header--message {

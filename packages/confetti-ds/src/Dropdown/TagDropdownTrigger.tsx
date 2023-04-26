@@ -46,22 +46,12 @@ export default function TagDropdownTrigger({
   // eslint-disable-next-line react/display-name
   const handleIcon = () =>
     icon ? (
-      <Icon
-        type={icon}
-        color="black-75"
-        size="petit"
-        className="lab-tag--left-icon"
-      />
+      <Icon type={icon} color="black-75" className="lab-tag--left-icon" />
     ) : undefined;
 
   const dropdownIcon = () => (
     <span className="lab-tag__dropdown-icon-wrapper">
-      <Icon
-        type="dropdown-closed"
-        color="black-75"
-        size="petit"
-        className="lab-tag--dropdown-icon"
-      />
+      <Icon type="CaretDown" className="lab-tag--dropdown-icon" />
     </span>
   );
 

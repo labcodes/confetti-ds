@@ -21,7 +21,7 @@ export default function Banner({
   text,
   type = "info",
   icon,
-  buttonProps = { text: "", onClick: () => {} },
+  buttonProps = { label: "", onClick: () => {} },
 }: BannerProps) {
   const renderIcon = () =>
     icon ? (
@@ -29,11 +29,11 @@ export default function Banner({
     ) : undefined;
 
   const button = () => {
-    if (buttonProps.text) {
+    if (buttonProps.label) {
       return type === "warn" ? (
-        <TextButton size="normal" skin="dark" text={buttonProps.text} />
+        <TextButton size="normal" theme="dark" label={buttonProps.label} />
       ) : (
-        <TextButton size="normal" skin="light" text={buttonProps.text} />
+        <TextButton size="normal" theme="light" label={buttonProps.label} />
       );
     }
     return null;
