@@ -7,33 +7,33 @@ import OutlineButton from "./OutlineButton";
 describe("OutlineButton", () => {
   it("renders with base props", async () => {
     const renderedComponent = renderer
-      .create(<OutlineButton text="Test Outline Button" />)
+      .create(<OutlineButton label="Test Outline Button" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it("renders as expected when passing disabled as true", async () => {
     const renderedComponent = renderer
-      .create(<OutlineButton text="Test Outline Disabled Button 1" disabled />)
+      .create(<OutlineButton label="Test Outline Disabled Button 1" disabled />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
 
     const mountedComponent = mount(
-      <OutlineButton text="Test Outline Disabled Button 2" disabled />
+      <OutlineButton label="Test Outline Disabled Button 2" disabled />
     );
     expect(mountedComponent.find("button").prop("disabled")).toEqual(true);
   });
 
   it("renders as expected when passing a light skin", async () => {
     const renderedComponent = renderer
-      .create(<OutlineButton text="Test Outline Light Button" skin="light" />)
+      .create(<OutlineButton label="Test Outline Light Button" theme="light" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it("renders as expected when passing a large size", async () => {
     const renderedComponent = renderer
-      .create(<OutlineButton text="Test Outline Large Button" size="large" />)
+      .create(<OutlineButton label="Test Outline Large Button" size="large" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
@@ -42,7 +42,7 @@ describe("OutlineButton", () => {
     const renderedComponent = renderer
       .create(
         <OutlineButton
-          text="Test Outline magnifying-glass Button"
+          label="Test Outline magnifying-glass Button"
           icon="Search"
         />
       )
@@ -53,7 +53,7 @@ describe("OutlineButton", () => {
   it("calls props.onClick when clicked", async () => {
     const mockOnClick = jest.fn();
     const shallowButton = shallow(
-      <OutlineButton text="Test Click on Outl Button" onClick={mockOnClick} />
+      <OutlineButton label="Test Click on Outl Button" onClick={mockOnClick} />
     );
     shallowButton.simulate("click");
     expect(mockOnClick.mock.calls.length).toEqual(1);
@@ -65,7 +65,7 @@ describe("OutlineButton", () => {
       <OutlineButton
         ariaDisabled
         onClick={mockOnClick}
-        text="Test Outline Button"
+        label="Test Outl Button"
       />
     );
     expect(mockOnClick.mock.calls.length).toEqual(0);
@@ -75,21 +75,21 @@ describe("OutlineButton", () => {
 
   it("renders as expected if full width", async () => {
     const renderedComponent = renderer
-      .create(<OutlineButton text="Test Outline fullWidth Button" fullWidth />)
+      .create(<OutlineButton label="Test Outline fullWidth Button" fullWidth />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it("renders with full width", async () => {
     const mountedComponent = mount(
-      <OutlineButton text="Test fullWidth Button" fullWidth />
+      <OutlineButton label="Test fullWidth Button" fullWidth />
     );
     expect(mountedComponent.find(".lab-btn--block")).toHaveLength(1);
   });
 
   it("renders as expected when tabIndex is passed", async () => {
     const renderedComponent = renderer
-      .create(<OutlineButton text="Test tabIndex" tabIndex={1} />)
+      .create(<OutlineButton label="Test tabIndex" tabIndex={1} />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });

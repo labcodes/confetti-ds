@@ -72,7 +72,6 @@ exports[`Banner renders with button 1`] = `
       onClick={[Function]}
       type="button"
     >
-      
       Warn Button
     </button>
   </span>

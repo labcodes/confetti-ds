@@ -5,23 +5,23 @@ import { shallow } from "enzyme";
 import AbstractButton from "./AbstractButton";
 
 describe("AbstractButton", () => {
-  it("renders with base props for default variant", async () => {
+  it("renders with base props for default kind", async () => {
     const renderedComponent = renderer
-      .create(<AbstractButton variant="default" text="Test Default Button" />)
+      .create(<AbstractButton kind="default" label="Test Default Button" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
-  it("renders with base props for outline variant", async () => {
+  it("renders with base props for outline kind", async () => {
     const renderedComponent = renderer
-      .create(<AbstractButton variant="outline" text="Test Outline Button" />)
+      .create(<AbstractButton kind="outline" label="Test Outline Button" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
-  it("renders with base props for text variant", async () => {
+  it("renders with base props for label kind", async () => {
     const renderedComponent = renderer
-      .create(<AbstractButton variant="text" text="Test Text Button" />)
+      .create(<AbstractButton kind="text" label="Test Text Button" />)
       .toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
@@ -32,8 +32,8 @@ describe("AbstractButton", () => {
       <AbstractButton
         ariaDisabled
         onClick={mockOnClick}
-        variant="text"
-        text="Test Text Button"
+        kind="text"
+        label="Test Text Button"
       />
     );
     expect(mockOnClick.mock.calls.length).toEqual(0);
@@ -44,8 +44,8 @@ describe("AbstractButton", () => {
     const renderedComponent = renderer
       .create(
         <AbstractButton
-          variant="default"
-          text="Test tabIndex"
+          kind="default"
+          label="Test tabIndex"
           tabIndex={1}
         />
       )

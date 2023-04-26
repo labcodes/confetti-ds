@@ -4,22 +4,25 @@ import AbstractButton from "./AbstractButton";
 import { BaseButtonProps } from "./types";
 export interface ButtonProps extends BaseButtonProps {
   /** Button style variation. */
-  variant?: "default" | "outline" | "text";
+  kind?: "default" | "outline" | "text";
   /** Sets the icon related to the button label. Default state: no icon. */
-  skin?:
-    | ""
+  theme?:
+    | "teal"
+    | "purple"
     | "light"
     | "dark"
     | "warning"
     | "destructive"
+    | "confirmation"
     | "warning-invert"
     | "destructive-invert"
     | "confirmation-invert";
 }
 
 export default function Button({
-  text,
+  label,
   type = "button" as const,
+  hasIcon = false,
   icon,
   size = "normal",
   ariaDisabled = false,
@@ -27,16 +30,17 @@ export default function Button({
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
-  variant = "default",
-  skin = "",
+  kind = "default",
+  theme = "teal",
 }: ButtonProps) {
   return (
     <AbstractButton
-      variant="default"
-      text={text}
+      kind="default"
+      label={label}
       type={type}
-      skin={skin}
+      theme={theme}
       icon={icon}
+      hasIcon={hasIcon}
       size={size}
       disabled={disabled}
       ariaDisabled={ariaDisabled}

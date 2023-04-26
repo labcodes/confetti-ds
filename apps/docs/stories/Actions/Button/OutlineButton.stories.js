@@ -15,6 +15,6 @@ export default {
 
 export const OutlineButton = (args) => <Component {...args} />;
 OutlineButton.args = {
-  text: "Outline Button",
+  label: "Outline Button",
   onClick: () => alert("OutlineButton was clicked"),
 };

@@ -1,9 +1,11 @@
 export interface BaseButtonProps {
   /** This is the button label. */
-  text: string;
+  label: string;
   /** HTML type of the Button. */
   type?: "button" | "submit" | "reset";
   /** Sets the icon related to the button label. Default state: no icon. */
+  hasIcon?: boolean;
+  /* Enables the Button to render an Icon */
   icon?: IconTypes;
   /** Sets the button's height. Small = 32px, Normal = 40px, Large = 48px. */
   size?: "normal" | "small" | "large";

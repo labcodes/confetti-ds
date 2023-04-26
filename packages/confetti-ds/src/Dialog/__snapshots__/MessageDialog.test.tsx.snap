@@ -109,21 +109,19 @@ exports[`MessageDialog rendering with isLarge false 1`] = `
         className="lab-dialog__footer lab-dialog__footer--message"
       >
         <button
-          className="lab-btn lab-btn--outline lab-btn--normal"
+          className="lab-btn lab-btn--outline lab-btn--normal lab-btn--teal"
           onClick={[Function]}
           tabIndex={3}
           type="button"
         >
-          
           Optional button
         </button>
         <button
-          className="lab-btn lab-btn--default lab-btn--normal"
+          className="lab-btn lab-btn--default lab-btn--normal lab-btn--teal"
           onClick={[Function]}
           tabIndex={1}
           type="button"
         >
-          
           Required button
         </button>
       </div>
@@ -232,19 +230,17 @@ exports[`MessageDialog rendering with isModal false 1`] = `
       className="lab-dialog__footer lab-dialog__footer--message"
     >
       <button
-        className="lab-btn lab-btn--outline lab-btn--normal"
+        className="lab-btn lab-btn--outline lab-btn--normal lab-btn--teal"
         onClick={[Function]}
         type="button"
       >
-        
         Optional button
       </button>
       <button
-        className="lab-btn lab-btn--default lab-btn--normal"
+        className="lab-btn lab-btn--default lab-btn--normal lab-btn--teal"
         onClick={[Function]}
         type="button"
       >
-        
         Required button
       </button>
     </div>

@@ -341,7 +341,7 @@ export default function AbstractDropdown({
 
   // Select the trigger by mapping the dropdown type
   const trigger = {
-    button: <Button text={displayText} />,
+    button: <Button label={displayText} />,
     tag: (
       <TagDropdownTrigger
         text={displayText}

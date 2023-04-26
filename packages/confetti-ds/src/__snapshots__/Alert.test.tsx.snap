@@ -37,7 +37,6 @@ exports[`Alert renders with base props 1`] = `
       onClick={[Function]}
       type="button"
     >
-      
       Error Alert
     </button>
   </span>
@@ -81,7 +80,6 @@ exports[`Alert renders with button 1`] = `
       onClick={[Function]}
       type="button"
     >
-      
       Info Alert with button
     </button>
   </span>

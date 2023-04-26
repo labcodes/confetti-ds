@@ -6,11 +6,12 @@ import { IconTypes } from "../constants";
 export interface DoubleActionProps {
   /** Sets button's attributes: label, action to be executed when the button is clicked, whether it is disabled/ariaDisabled or not, and the icon. */
   actionsProps: {
-    text: string;
+    label: string;
     onClick: (event?: SyntheticEvent) => any;
     ariaDisabled?: boolean;
     disabled?: boolean;
     icon?: IconTypes;
+    hasIcon?: boolean;
   }[];
   /** Sets buttons' height. Small = 32px, Normal = 40px, Large = 48px. */
   size?: "normal" | "small" | "large";
@@ -28,14 +29,14 @@ export default function DoubleAction({
 }: DoubleActionProps) {
   const cardContext = useContext(CardContext);
   const getButtonSkinFromCardContext = (context) => {
-    const { color, skin, cardType } = context;
-    if (cardType === "filled" && skin === "vivid" && color !== "white") {
+    const { color, theme, cardType } = context;
+    if (cardType === "filled" && theme === "vivid" && color !== "white") {
       return "light";
     }
 
     if (
       cardType !== "outline" &&
-      skin === "pale" &&
+      theme === "pale" &&
       (color === "purple" || color === "mineral")
     ) {
       return "dark";
@@ -63,17 +64,17 @@ export default function DoubleAction({
           `}
     >
       {actionsProps.map(
-        ({ text, onClick, icon, disabled, ariaDisabled }, index) => {
+        ({ label, onClick, hasIcon,  icon, disabled, ariaDisabled }, index) => {
           if (isText) {
             return (
               <TextButton
-                key={text}
-                text={text}
+                key={label}
+                label={label}
                 onClick={onClick}
                 size={size}
                 //  todo: reescrever para getContext
-                skin={getButtonSkinFromCardContext(cardContext)}
-                {...(icon ? { icon } : undefined)}
+                theme={getButtonSkinFromCardContext(cardContext)}
+                {...(hasIcon ? { icon } : undefined)}
                 {...(disabled ? { disabled } : undefined)}
                 {...(ariaDisabled ? { ariaDisabled } : undefined)}
               />
@@ -82,11 +83,11 @@ export default function DoubleAction({
           if (index === 0) {
             return (
               <Button
-                key={text}
-                text={text}
+                key={label}
+                label={label}
                 onClick={onClick}
                 size={size}
-                skin={getButtonSkinFromCardContext(cardContext)}
+                theme={getButtonSkinFromCardContext(cardContext)}
                 {...(icon ? { icon } : undefined)}
                 {...(disabled ? { disabled } : undefined)}
                 {...(ariaDisabled ? { ariaDisabled } : undefined)}
@@ -95,11 +96,11 @@ export default function DoubleAction({
           }
           return (
             <OutlineButton
-              key={text}
-              text={text}
+              key={label}
+              label={label}
               onClick={onClick}
               size={size}
-              skin={getButtonSkinFromCardContext(cardContext)}
+              theme={getButtonSkinFromCardContext(cardContext)}
               {...(icon ? { icon } : undefined)}
               {...(disabled ? { disabled } : undefined)}
               {...(ariaDisabled ? { ariaDisabled } : undefined)}

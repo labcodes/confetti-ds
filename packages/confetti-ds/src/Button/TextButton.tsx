@@ -4,13 +4,14 @@ import AbstractButton from "./AbstractButton";
 import { BaseButtonProps } from "./types";
 
 export interface TextButtonProps extends BaseButtonProps {
-  skin?: "" | "light" | "dark";
+  theme?: "teal" | "purple" | "light" | "dark";
 }
 
 export default function TextButton({
-  text,
+  label,
   type = "button",
-  skin,
+  theme = "teal",
+  hasIcon = false,
   icon,
   size = "normal",
   ariaDisabled = false,
@@ -21,11 +22,12 @@ export default function TextButton({
 }: TextButtonProps) {
   return (
     <AbstractButton
-      variant="text"
-      text={text}
+      kind="text"
+      label={label}
       type={type}
-      skin={skin}
+      theme={theme}
       icon={icon}
+      hasIcon={hasIcon}
       size={size}
       disabled={disabled}
       ariaDisabled={ariaDisabled}

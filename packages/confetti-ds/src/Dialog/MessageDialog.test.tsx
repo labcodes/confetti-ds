@@ -11,11 +11,11 @@ const args = {
   content:
     "This is the main content of a Message Dialog. You may want to put as much content as you want, as long as it's a string.",
   buttonProps: {
-    text: "Required button",
+    label: "Required button",
     onClick: () => alert("Required button clicked"),
   },
   outlineButtonProps: {
-    text: "Optional button",
+    label: "Optional button",
     onClick: () => alert("Optional button clicked"),
   },
   isModal: false,

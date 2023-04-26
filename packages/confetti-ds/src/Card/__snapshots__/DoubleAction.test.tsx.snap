@@ -8,19 +8,17 @@ exports[`DoubleAction renders buttons with dark skin 1`] = `
           "
 >
   <button
-    className="lab-btn lab-btn--default lab-btn--normal lab-btn--dark"
+    className="lab-btn lab-btn--default lab-btn--normal"
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
-    className="lab-btn lab-btn--outline lab-btn--normal lab-btn--dark"
+    className="lab-btn lab-btn--outline lab-btn--normal"
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>
@@ -34,19 +32,17 @@ exports[`DoubleAction renders buttons with dark skin 2`] = `
           "
 >
   <button
-    className="lab-btn lab-btn--default lab-btn--normal lab-btn--dark"
+    className="lab-btn lab-btn--default lab-btn--normal"
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
-    className="lab-btn lab-btn--outline lab-btn--normal lab-btn--dark"
+    className="lab-btn lab-btn--outline lab-btn--normal"
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>
@@ -60,19 +56,17 @@ exports[`DoubleAction renders buttons with light skin 1`] = `
           "
 >
   <button
-    className="lab-btn lab-btn--default lab-btn--normal lab-btn--light"
+    className="lab-btn lab-btn--default lab-btn--normal"
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
-    className="lab-btn lab-btn--outline lab-btn--normal lab-btn--light"
+    className="lab-btn lab-btn--outline lab-btn--normal"
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>
@@ -90,7 +84,6 @@ exports[`DoubleAction renders with base props 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
@@ -98,7 +91,6 @@ exports[`DoubleAction renders with base props 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>
@@ -116,7 +108,6 @@ exports[`DoubleAction renders with isHorizontal 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
@@ -124,7 +115,6 @@ exports[`DoubleAction renders with isHorizontal 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>
@@ -142,7 +132,6 @@ exports[`DoubleAction renders with size 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
@@ -150,7 +139,6 @@ exports[`DoubleAction renders with size 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>
@@ -168,7 +156,6 @@ exports[`DoubleAction renders with text buttons 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 1
   </button>
   <button
@@ -176,7 +163,6 @@ exports[`DoubleAction renders with text buttons 1`] = `
     onClick={[Function]}
     type="button"
   >
-    
     Action 2
   </button>
 </section>

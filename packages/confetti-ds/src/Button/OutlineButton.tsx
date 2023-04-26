@@ -4,13 +4,14 @@ import AbstractButton from "./AbstractButton";
 import { BaseButtonProps } from "./types";
 
 export interface OutlineButtonProps extends BaseButtonProps {
-  skin?: "" | "light" | "dark";
+  theme?: "teal" | "purple" | "light" | "dark";
 }
 
 export default function OutlineButton({
-  text,
+  label,
   type = "button",
-  skin,
+  theme = "teal",
+  hasIcon = false,
   icon,
   size = "normal",
   ariaDisabled = false,
@@ -21,11 +22,12 @@ export default function OutlineButton({
 }: OutlineButtonProps) {
   return (
     <AbstractButton
-      variant="outline"
-      text={text}
+      kind="outline"
+      label={label}
       type={type}
-      skin={skin}
+      theme={theme}
       icon={icon}
+      hasIcon={hasIcon}
       size={size}
       disabled={disabled}
       ariaDisabled={ariaDisabled}
