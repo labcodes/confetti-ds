@@ -200,6 +200,7 @@ export const ICON_TYPES = [
   "Sparkle",
   "StackStar",
   "Star",
+  "Subtract",
   "SubtractCircle",
   "SubtractSquare",
   "SubtractSquareMultiple",

@@ -136,7 +136,6 @@ import {
   Clock20Regular,
   ClockAlarm20Regular,
   Dismiss20Regular,
-  Subtract20Regular,
   Checkmark20Regular,
   ArrowMinimize20Regular,
   ArrowMaximize20Regular,
@@ -190,6 +189,7 @@ import {
   Wand20Regular,
   Warning20Regular,
   Wifi120Regular,
+  Subtract20Regular,
   WifiOff20Regular,
   SendCopy20Regular,
   ServiceBell20Regular,
@@ -388,7 +388,7 @@ export default function Icon({ type, color, className }: IconProps) {
 
   if (type === "ChatEmpty" ) IconComponent = ChatEmpty20Regular;
 
-  if (type === "Checkmark" ) IconComponent = Checkmark20Regular;
+  if (type === "Checkmark") IconComponent = Checkmark20Regular;
 
   if (type === "CheckmarkCircle") IconComponent = CheckmarkCircle20Regular;
 
@@ -639,6 +639,8 @@ export default function Icon({ type, color, className }: IconProps) {
   if (type === "StackStar" ) IconComponent = StackStar20Regular;
 
   if (type === "Star") IconComponent = Star20Regular;
+
+  if (type === "Subtract") IconComponent = Subtract20Regular;
 
   if (type === "SubtractCircle") IconComponent = SubtractCircle20Regular;
 
