@@ -177,7 +177,6 @@ import {
   Savings20Regular,
   Send20Regular,
   Tag20Regular,
-  TagList20Regular,
   Teddy20Regular,
   Temperature20Regular,
   TextSortAscending20Regular,
