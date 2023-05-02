@@ -78,6 +78,7 @@ $text-bg-active: map-get($button-theme, "20");
 .lab-btn--small {
   height: 32px;
   padding: 0 12px;
+  padding: 0 12px;
 }
 
 .lab-btn--large {
@@ -139,37 +140,37 @@ $text-bg-active: map-get($button-theme, "20");
     .lab-btn__icon {
       color: $mineral-40;
     }
-  }
 
-  &.lab-btn--purple {
-    color: $white;
-    background-color: $purple-60;
-    border-color: $purple-60;
-
-    &:hover {
-      @include border-shadow(hover, $purple-20);
-      border-color: $purple-80;
-    }
-
-    &:focus {
-      @include border-shadow(focus, $purple-30);
-      border-color: $purple-70;
-    }
-
-    &:active {
+    &.lab-btn--purple {
+      color: $white;
+      background-color: $purple-60;
       border-color: $purple-60;
-      background-color: $purple-80;
-    }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $purple-60, $purple-20);
-      border-color: $white;
-    }
+      &:hover {
+        @include border-shadow(hover, $purple-20);
+        border-color: $purple-80;
+      }
 
-    &:focus:active {
-      @include border-shadow(focus, $purple-60);
-      background-color: $purple-80;
-      border-color: $white;
+      &:focus {
+        @include border-shadow(focus, $purple-30);
+        border-color: $purple-70;
+      }
+
+      &:active {
+        border-color: $purple-60;
+        background-color: $purple-80;
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $purple-60, $purple-20);
+        border-color: $white;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $purple-60);
+        background-color: $purple-80;
+        border-color: $white;
+      }
     }
   }
 
@@ -505,8 +506,8 @@ $text-bg-active: map-get($button-theme, "20");
   }
 
   &:disabled,
-  &[aria-disabled],
   &.lab-btn--purple:disabled,
+  &[aria-disabled],
   &.lab-btn--dark:disabled {
     color: $mineral-30;
     border-color: $mineral-20;
@@ -605,267 +606,268 @@ $text-bg-active: map-get($button-theme, "20");
       background-color: $white-10;
       border-color: $white-35;
     }
-  }
 
-  &.lab-btn--purple {
-    color: $purple-60;
-    background-color: transparent;
-    border-color: $purple-60;
-
-    .lab-btn__icon {
-      background-color: $purple-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $purple-20);
+    &.lab-btn--purple {
       color: $purple-60;
-      border-color: $purple-80;
-    }
-
-    &:focus {
-      @include border-shadow(focus, $purple-20);
-      color: $purple-60;
+      background-color: transparent;
       border-color: $purple-60;
-    }
-
-    &:active {
-      color: $purple-60;
-      background-color: $white-10;
-      border-color: $purple-80;
-    }
-  }
-
-  &.lab-btn--warning {
-    color: $black-75;
-    background-color: $yellow-60;
-    border-color: $yellow-60;
-
-    .lab-btn__icon {
-      color: $black-75;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $yellow-20);
-      background-color: $yellow-60;
-      border-color: $yellow-60;
-    }
-
-    &:focus {
-      @include border-shadow(focus, $yellow-60);
-      background-color: $yellow-60;
-      border-color: $white;
-    }
-
-    &:active {
-      color: $white;
-      background: mix($yellow-60, black, 50%);
 
       .lab-btn__icon {
-        color: white;
+        background-color: $purple-60;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $purple-20);
+        color: $purple-60;
+        border-color: $purple-80;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $purple-20);
+        color: $purple-60;
+        border-color: $purple-60;
+      }
+
+      &:active {
+        color: $purple-60;
+        background-color: $white-10;
+        border-color: $purple-80;
       }
     }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $yellow-60, $yellow-20);
+    &.lab-btn--warning {
+      color: $black-75;
       background-color: $yellow-60;
-      border-color: $white;
+      border-color: $yellow-60;
+
+      .lab-btn__icon {
+        color: $black-75;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $yellow-20);
+        background-color: $yellow-60;
+        border-color: $yellow-60;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $yellow-60);
+        background-color: $yellow-60;
+        border-color: $white;
+      }
+
+      &:active {
+        color: $white;
+        background: mix($yellow-60, black, 50%);
+
+        .lab-btn__icon {
+          color: white;
+        }
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $yellow-60, $yellow-20);
+        background-color: $yellow-60;
+        border-color: $white;
+      }
+
+      &:focus:active {
+        background: mix($yellow-60, black, 50%);
+        border-color: $white;
+      }
     }
 
-    &:focus:active {
-      background: mix($yellow-60, black, 50%);
-      border-color: $white;
-    }
-  }
-
-  &.lab-btn--warning-invert {
-    color: $yellow-60;
-    background-color: $mineral-90;
-    border-color: $mineral-90;
-
-    .lab-btn__icon {
+    &.lab-btn--warning-invert {
       color: $yellow-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $black-20);
       background-color: $mineral-90;
       border-color: $mineral-90;
+
+      .lab-btn__icon {
+        color: $yellow-60;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $black-20);
+        background-color: $mineral-90;
+        border-color: $mineral-90;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $mineral-90);
+        background-color: $mineral-90;
+        border-color: $yellow-60;
+      }
+
+      &:active {
+        background-color: $black-50;
+        border-color: $mineral-90;
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $mineral-90, $black-20);
+        background-color: $mineral-90;
+        border-color: $yellow-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $mineral-90);
+        background-color: $black-50;
+        border-color: $yellow-60;
+      }
     }
 
-    &:focus {
-      @include border-shadow(focus, $mineral-90);
-      background-color: $mineral-90;
-      border-color: $yellow-60;
-    }
-
-    &:active {
-      background-color: $black-50;
-      border-color: $mineral-90;
-    }
-
-    &:focus:hover {
-      @include border-shadow(focus-hover, $mineral-90, $black-20);
-      background-color: $mineral-90;
-      border-color: $yellow-60;
-    }
-
-    &:focus:active {
-      @include border-shadow(focus, $mineral-90);
-      background-color: $black-50;
-      border-color: $yellow-60;
-    }
-  }
-
-  &.lab-btn--destructive {
-    color: $white;
-    background-color: $red-60;
-    border-color: $red-60;
-
-    &:hover {
-      @include border-shadow(hover, $red-20);
+    &.lab-btn--destructive {
+      color: $white;
       background-color: $red-60;
       border-color: $red-60;
+
+      &:hover {
+        @include border-shadow(hover, $red-20);
+        background-color: $red-60;
+        border-color: $red-60;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $red-60);
+        background-color: $red-60;
+        border-color: $white;
+      }
+
+      &:active {
+        background: mix($red-60, black, 50%);
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $red-60, $red-20);
+        background-color: $red-60;
+        border-color: $white;
+      }
+
+      &:focus:active {
+        background: mix($red-60, black, 50%);
+        border-color: $white;
+      }
     }
 
-    &:focus {
-      @include border-shadow(focus, $red-60);
-      background-color: $red-60;
-      border-color: $white;
-    }
-
-    &:active {
-      background: mix($red-60, black, 50%);
-    }
-
-    &:focus:hover {
-      @include border-shadow(focus-hover, $red-60, $red-20);
-      background-color: $red-60;
-      border-color: $white;
-    }
-
-    &:focus:active {
-      background: mix($red-60, black, 50%);
-      border-color: $white;
-    }
-  }
-
-  &.lab-btn--destructive-invert {
-    color: $red-60;
-    background-color: $white;
-    border-color: $white;
-
-    .lab-btn__icon {
+    &.lab-btn--destructive-invert {
       color: $red-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $mineral-10);
       background-color: $white;
       border-color: $white;
+
+      .lab-btn__icon {
+        color: $red-60;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $mineral-10);
+        background-color: $white;
+        border-color: $white;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $white);
+        background-color: $white;
+        border-color: $red-60;
+      }
+
+      &:active {
+        background-color: $white-50;
+        border-color: $white;
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $white, $white-20);
+        background-color: $white;
+        border-color: $red-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $white);
+        background-color: $white-50;
+        border-color: $red-60;
+      }
     }
 
-    &:focus {
-      @include border-shadow(focus, $white);
-      background-color: $white;
-      border-color: $red-60;
-    }
-
-    &:active {
-      background-color: $white-50;
-      border-color: $white;
-    }
-
-    &:focus:hover {
-      @include border-shadow(focus-hover, $white, $white-20);
-      background-color: $white;
-      border-color: $red-60;
-    }
-
-    &:focus:active {
-      @include border-shadow(focus, $white);
-      background-color: $white-50;
-      border-color: $red-60;
-    }
-  }
-
-  &.lab-btn--confirmation {
-    color: $white;
-    background-color: $green-60;
-    border-color: $green-60;
-
-    .lab-btn__icon {
-      background-color: $white;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $green-20);
+    &.lab-btn--confirmation {
+      color: $white;
       background-color: $green-60;
       border-color: $green-60;
-    }
 
-    &:focus {
-      @include border-shadow(focus, $green-60);
-      background-color: $green-60;
-      border-color: $white;
-    }
+      .lab-btn__icon {
+        background-color: $white;
+      }
 
-    &:active {
-      background-color: $green-20;
-      border-color: $green-60;
-    }
+      &:hover {
+        @include border-shadow(hover, $green-20);
+        background-color: $green-60;
+        border-color: $green-60;
+      }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $white, $white-20);
-      background-color: $white;
-      border-color: $green-60;
-    }
+      &:focus {
+        @include border-shadow(focus, $green-60);
+        background-color: $green-60;
+        border-color: $white;
+      }
 
-    &:focus:active {
-      @include border-shadow(focus, $white);
-      background-color: $white-50;
-      border-color: $green-60;
-    }
-  }
-  &.lab-btn--confirmation-invert {
-    color: $green-60;
-    background-color: $white;
-    border-color: $white;
+      &:active {
+        background-color: $green-20;
+        border-color: $green-60;
+      }
 
-    .lab-btn__icon {
+      &:focus:hover {
+        @include border-shadow(focus-hover, $white, $white-20);
+        background-color: $white;
+        border-color: $green-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $white);
+        background-color: $white-50;
+        border-color: $green-60;
+      }
+    }
+    &.lab-btn--confirmation-invert {
       color: $green-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $white-50);
       background-color: $white;
       border-color: $white;
-    }
 
-    &:focus {
-      @include border-shadow(focus, $white);
-      border-color: $green-60;
-    }
+      .lab-btn__icon {
+        color: $green-60;
+      }
 
-    &:active {
-      @include border-shadow(focus, $green-60);
-    }
+      &:hover {
+        @include border-shadow(hover, $white-50);
+        background-color: $white;
+        border-color: $white;
+      }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $white, $white-20);
-      border-color: $green-60;
-    }
+      &:focus {
+        @include border-shadow(focus, $white);
+        border-color: $green-60;
+      }
 
-    &:focus:active {
-      @include border-shadow(focus, $white);
-      background-color: $white;
-      border-color: $green-60;
+      &:active {
+        @include border-shadow(focus, $green-60);
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $white, $white-20);
+        border-color: $green-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $white);
+        background-color: $white;
+        border-color: $green-60;
+      }
     }
   }
 }
 
 .lab-btn--text {
-  color: $btn-main-color;
   letter-spacing: 2%;
+  letter-spacing: 2%;
+  letter-spacing: 1%;
   background-color: transparent;
   border-color: transparent;
 
@@ -955,253 +957,253 @@ $text-bg-active: map-get($button-theme, "20");
       color: $mineral-80;
       background-color: $black-20;
     }
-  }
 
-  &.lab-btn--purple {
-    color: $purple-60;
-
-    .lab-btn__icon {
-      background-color: $purple-60;
-    }
-
-    &:hover {
-      background-color: $purple-10;
-    }
-
-    &:focus {
-      @include border-shadow(focus, $purple-20);
-    }
-
-    &:active {
+    &.lab-btn--purple {
       color: $purple-60;
-      background-color: $purple-20;
-    }
-  }
-
-  &.lab-btn--warning {
-    color: $black-75;
-    background-color: $yellow-60;
-    border-color: $yellow-60;
-
-    .lab-btn__icon {
-      color: $black-75;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $yellow-20);
-      background-color: $yellow-60;
-      border-color: $yellow-60;
-    }
-
-    &:focus {
-      @include border-shadow(focus, $yellow-60);
-      background-color: $yellow-60;
-      border-color: $white;
-    }
-
-    &:active {
-      color: $white;
-      background: mix($yellow-60, black, 50%);
 
       .lab-btn__icon {
-        color: white;
+        background-color: $purple-60;
+      }
+
+      &:hover {
+        background-color: $purple-10;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $purple-20);
+      }
+
+      &:active {
+        color: $purple-60;
+        background-color: $purple-20;
       }
     }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $yellow-60, $yellow-20);
+    &.lab-btn--warning {
+      color: $black-75;
       background-color: $yellow-60;
-      border-color: $white;
+      border-color: $yellow-60;
+
+      .lab-btn__icon {
+        color: $black-75;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $yellow-20);
+        background-color: $yellow-60;
+        border-color: $yellow-60;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $yellow-60);
+        background-color: $yellow-60;
+        border-color: $white;
+      }
+
+      &:active {
+        color: $white;
+        background: mix($yellow-60, black, 50%);
+
+        .lab-btn__icon {
+          color: white;
+        }
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $yellow-60, $yellow-20);
+        background-color: $yellow-60;
+        border-color: $white;
+      }
+
+      &:focus:active {
+        background: mix($yellow-60, black, 50%);
+        border-color: $white;
+      }
     }
 
-    &:focus:active {
-      background: mix($yellow-60, black, 50%);
-      border-color: $white;
-    }
-  }
-
-  &.lab-btn--warning-invert {
-    color: $yellow-60;
-    background-color: $mineral-90;
-    border-color: $mineral-90;
-
-    .lab-btn__icon {
+    &.lab-btn--warning-invert {
       color: $yellow-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $black-20);
       background-color: $mineral-90;
       border-color: $mineral-90;
+
+      .lab-btn__icon {
+        color: $yellow-60;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $black-20);
+        background-color: $mineral-90;
+        border-color: $mineral-90;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $mineral-90);
+        background-color: $mineral-90;
+        border-color: $yellow-60;
+      }
+
+      &:active {
+        background-color: $black-50;
+        border-color: $mineral-90;
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $mineral-90, $black-20);
+        background-color: $mineral-90;
+        border-color: $yellow-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $mineral-90);
+        background-color: $black-50;
+        border-color: $yellow-60;
+      }
     }
 
-    &:focus {
-      @include border-shadow(focus, $mineral-90);
-      background-color: $mineral-90;
-      border-color: $yellow-60;
-    }
-
-    &:active {
-      background-color: $black-50;
-      border-color: $mineral-90;
-    }
-
-    &:focus:hover {
-      @include border-shadow(focus-hover, $mineral-90, $black-20);
-      background-color: $mineral-90;
-      border-color: $yellow-60;
-    }
-
-    &:focus:active {
-      @include border-shadow(focus, $mineral-90);
-      background-color: $black-50;
-      border-color: $yellow-60;
-    }
-  }
-
-  &.lab-btn--destructive {
-    color: $white;
-    background-color: $red-60;
-    border-color: $red-60;
-
-    &:hover {
-      @include border-shadow(hover, $red-20);
+    &.lab-btn--destructive {
+      color: $white;
       background-color: $red-60;
       border-color: $red-60;
+
+      &:hover {
+        @include border-shadow(hover, $red-20);
+        background-color: $red-60;
+        border-color: $red-60;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $red-60);
+        background-color: $red-60;
+        border-color: $white;
+      }
+
+      &:active {
+        background: mix($red-60, black, 50%);
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $red-60, $red-20);
+        background-color: $red-60;
+        border-color: $white;
+      }
+
+      &:focus:active {
+        background: mix($red-60, black, 50%);
+        border-color: $white;
+      }
     }
 
-    &:focus {
-      @include border-shadow(focus, $red-60);
-      background-color: $red-60;
-      border-color: $white;
-    }
-
-    &:active {
-      background: mix($red-60, black, 50%);
-    }
-
-    &:focus:hover {
-      @include border-shadow(focus-hover, $red-60, $red-20);
-      background-color: $red-60;
-      border-color: $white;
-    }
-
-    &:focus:active {
-      background: mix($red-60, black, 50%);
-      border-color: $white;
-    }
-  }
-
-  &.lab-btn--destructive-invert {
-    color: $red-60;
-    background-color: $white;
-    border-color: $white;
-
-    .lab-btn__icon {
+    &.lab-btn--destructive-invert {
       color: $red-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $mineral-10);
       background-color: $white;
       border-color: $white;
+
+      .lab-btn__icon {
+        color: $red-60;
+      }
+
+      &:hover {
+        @include border-shadow(hover, $mineral-10);
+        background-color: $white;
+        border-color: $white;
+      }
+
+      &:focus {
+        @include border-shadow(focus, $white);
+        background-color: $white;
+        border-color: $red-60;
+      }
+
+      &:active {
+        background-color: $white-50;
+        border-color: $white;
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $white, $white-20);
+        background-color: $white;
+        border-color: $red-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $white);
+        background-color: $white-50;
+        border-color: $red-60;
+      }
     }
 
-    &:focus {
-      @include border-shadow(focus, $white);
-      background-color: $white;
-      border-color: $red-60;
-    }
-
-    &:active {
-      background-color: $white-50;
-      border-color: $white;
-    }
-
-    &:focus:hover {
-      @include border-shadow(focus-hover, $white, $white-20);
-      background-color: $white;
-      border-color: $red-60;
-    }
-
-    &:focus:active {
-      @include border-shadow(focus, $white);
-      background-color: $white-50;
-      border-color: $red-60;
-    }
-  }
-
-  &.lab-btn--confirmation {
-    color: $white;
-    background-color: $green-60;
-    border-color: $green-60;
-
-    .lab-btn__icon {
-      background-color: $white;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $green-20);
+    &.lab-btn--confirmation {
+      color: $white;
       background-color: $green-60;
       border-color: $green-60;
-    }
 
-    &:focus {
-      @include border-shadow(focus, $green-60);
-      background-color: $green-60;
-      border-color: $white;
-    }
+      .lab-btn__icon {
+        background-color: $white;
+      }
 
-    &:active {
-      background-color: $green-20;
-      border-color: $green-60;
-    }
+      &:hover {
+        @include border-shadow(hover, $green-20);
+        background-color: $green-60;
+        border-color: $green-60;
+      }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $white, $white-20);
-      background-color: $white;
-      border-color: $green-60;
-    }
+      &:focus {
+        @include border-shadow(focus, $green-60);
+        background-color: $green-60;
+        border-color: $white;
+      }
 
-    &:focus:active {
-      @include border-shadow(focus, $white);
-      background-color: $white-50;
-      border-color: $green-60;
-    }
-  }
-  &.lab-btn--confirmation-invert {
-    color: $green-60;
-    background-color: $white;
-    border-color: $white;
+      &:active {
+        background-color: $green-20;
+        border-color: $green-60;
+      }
 
-    .lab-btn__icon {
+      &:focus:hover {
+        @include border-shadow(focus-hover, $white, $white-20);
+        background-color: $white;
+        border-color: $green-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $white);
+        background-color: $white-50;
+        border-color: $green-60;
+      }
+    }
+    &.lab-btn--confirmation-invert {
       color: $green-60;
-    }
-
-    &:hover {
-      @include border-shadow(hover, $white-50);
       background-color: $white;
       border-color: $white;
-    }
 
-    &:focus {
-      @include border-shadow(focus, $white);
-      border-color: $green-60;
-    }
+      .lab-btn__icon {
+        color: $green-60;
+      }
 
-    &:active {
-      @include border-shadow(focus, $green-60);
-    }
+      &:hover {
+        @include border-shadow(hover, $white-50);
+        background-color: $white;
+        border-color: $white;
+      }
 
-    &:focus:hover {
-      @include border-shadow(focus-hover, $white, $white-20);
-      border-color: $green-60;
-    }
+      &:focus {
+        @include border-shadow(focus, $white);
+        border-color: $green-60;
+      }
 
-    &:focus:active {
-      @include border-shadow(focus, $white);
-      background-color: $white;
-      border-color: $green-60;
+      &:active {
+        @include border-shadow(focus, $green-60);
+      }
+
+      &:focus:hover {
+        @include border-shadow(focus-hover, $white, $white-20);
+        border-color: $green-60;
+      }
+
+      &:focus:active {
+        @include border-shadow(focus, $white);
+        background-color: $white;
+        border-color: $green-60;
+      }
     }
   }
 }
