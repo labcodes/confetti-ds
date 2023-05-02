@@ -24,13 +24,13 @@ export default function Button({
   type = "button" as const,
   hasIcon = false,
   icon,
-  kind = "default",
   size = "normal",
   ariaDisabled = false,
   disabled = false,
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
+  kind = "default",
   theme = "teal",
 }: ButtonProps) {
   return (

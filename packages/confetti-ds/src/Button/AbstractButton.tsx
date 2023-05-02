@@ -28,7 +28,7 @@ export default function AbstractButton({
   kind,
   icon,
   theme = "teal",
-  size = "small",
+  size = "normal",
   ariaDisabled = false,
   disabled = false,
   onClick = (event) => {},
@@ -55,8 +55,6 @@ export default function AbstractButton({
   return (
     <button
       type={type}
-      size={size}
-      kind={kind}
       className={
         `lab-btn` +
         ` lab-btn--${kind} lab-btn--${size}` +

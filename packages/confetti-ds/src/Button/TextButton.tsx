@@ -11,7 +11,6 @@ export default function TextButton({
   label,
   type = "button",
   theme = "teal",
-  kind = "text",
   hasIcon = false,
   icon,
   size = "normal",
@@ -23,7 +22,7 @@ export default function TextButton({
 }: TextButtonProps) {
   return (
     <AbstractButton
-      kind={kind}
+      kind="text"
       label={label}
       type={type}
       theme={theme}

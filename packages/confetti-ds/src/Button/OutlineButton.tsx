@@ -9,7 +9,6 @@ export interface OutlineButtonProps extends BaseButtonProps {
 
 export default function OutlineButton({
   label,
-  kind = "outline",
   type = "button",
   theme = "teal",
   hasIcon = false,
@@ -23,7 +22,7 @@ export default function OutlineButton({
 }: OutlineButtonProps) {
   return (
     <AbstractButton
-      kind={kind}
+      kind="outline"
       label={label}
       type={type}
       theme={theme}
