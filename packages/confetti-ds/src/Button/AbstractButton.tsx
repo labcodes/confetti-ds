@@ -28,20 +28,25 @@ export default function AbstractButton({
   kind = "default",
   icon,
   theme = "teal",
-  size = "normal",
+  size = "small",
   ariaDisabled = false,
   disabled = false,
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
-    hasIcon = false,
+  hasIcon = false,
 }: AbstractButtonProps) {
   const renderIcon = () =>
-    icon ? <Icon type={icon} color="white"  className="lab-btn__icon" /> : "";
+    icon ? (
+      <Icon type={icon} color="white" className="lab-btn__icon" />
+    ) : (
+      <Icon type={"Add"} color="white" className="lab-btn__icon" />
+    );
   /*
   Set icon color to be the icon color of default button.
   Icon color changes according to button type and exception on _buttons.scss
   */
+
   const handleOnClick = (event) => {
     if (!isUndefined(onClick)) {
       onClick(event);
@@ -50,6 +55,8 @@ export default function AbstractButton({
   return (
     <button
       type={type}
+      size={size}
+      kind={kind}
       className={
         `lab-btn` +
         ` lab-btn--${kind} lab-btn--${size}` +
