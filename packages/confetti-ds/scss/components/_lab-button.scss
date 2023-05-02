@@ -147,30 +147,28 @@ $text-bg-active: map-get($button-theme, "20");
     border-color: $purple-60;
 
     &:hover {
-      @include border-shadow(hover, $white);
-      background-color: $purple-60;
+      @include border-shadow(hover, $purple-20);
       border-color: $purple-80;
     }
 
     &:focus {
       @include border-shadow(focus, $purple-30);
-      background-color: $purple-60;
       border-color: $purple-70;
     }
 
     &:active {
-      background-color: $purple-60;
+      border-color: $purple-60;
+      background-color: $purple-80;
     }
 
     &:focus:hover {
       @include border-shadow(focus-hover, $purple-60, $purple-20);
-      background-color: $purple-60;
       border-color: $white;
     }
 
     &:focus:active {
       @include border-shadow(focus, $purple-60);
-      background-color: $purple-20;
+      background-color: $purple-80;
       border-color: $white;
     }
   }
@@ -220,24 +218,20 @@ $text-bg-active: map-get($button-theme, "20");
 
     &:hover {
       @include border-shadow(hover, $white-20);
-      color: $white;
       border-color: $white;
     }
 
     &:focus {
       @include border-shadow(focus, $white);
-      color: $white;
       border-color: $mineral-90;
     }
 
     &:active {
-      color: $white-50;
       border-color: $white;
     }
 
     &:focus:hover {
       @include border-shadow(focus-hover, $white, $white-20);
-      color: $white;
       border-color: $black-75;
     }
 
@@ -372,7 +366,7 @@ $text-bg-active: map-get($button-theme, "20");
     }
 
     &:hover {
-      @include border-shadow(hover, $white-20);
+      @include border-shadow(hover, $mineral-10);
       background-color: $white;
       border-color: $white;
     }
@@ -449,31 +443,28 @@ $text-bg-active: map-get($button-theme, "20");
     }
 
     &:hover {
-      @include border-shadow(hover, $white-20);
+      @include border-shadow(hover, $white-50);
       background-color: $white;
       border-color: $white;
     }
 
     &:focus {
       @include border-shadow(focus, $white);
-      background-color: $white;
       border-color: $green-60;
     }
 
     &:active {
-      background-color: $white-50;
-      border-color: $white;
+      @include border-shadow(focus, $green-60);
     }
 
     &:focus:hover {
       @include border-shadow(focus-hover, $white, $white-20);
-      background-color: $white;
       border-color: $green-60;
     }
 
     &:focus:active {
       @include border-shadow(focus, $white);
-      background-color: $white-50;
+      background-color: $white;
       border-color: $green-60;
     }
   }
