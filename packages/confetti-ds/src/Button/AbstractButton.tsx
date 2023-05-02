@@ -25,7 +25,7 @@ interface AbstractButtonProps extends BaseButtonProps {
 export default function AbstractButton({
   label,
   type = "button" as const,
-  kind = "default",
+  kind,
   icon,
   theme = "teal",
   size = "small",

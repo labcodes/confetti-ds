@@ -24,18 +24,18 @@ export default function Button({
   type = "button" as const,
   hasIcon = false,
   icon,
+  kind = "default",
   size = "normal",
   ariaDisabled = false,
   disabled = false,
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
-  kind = "default",
   theme = "teal",
 }: ButtonProps) {
   return (
     <AbstractButton
-      kind="default"
+      kind={kind}
       label={label}
       type={type}
       theme={theme}
