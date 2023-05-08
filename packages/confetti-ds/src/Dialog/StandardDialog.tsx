@@ -80,7 +80,7 @@ export default function StandardDialog({
         <div className="lab-dialog__header">
           <div className="lab-dialog__title">{title}</div>
           <IconButton
-            icon="Teddy"
+            icon="Dismiss"
             {...(isModal ? { tabIndex: 2 } : undefined)}
             onClick={handleClose}
           />
