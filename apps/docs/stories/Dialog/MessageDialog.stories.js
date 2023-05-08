@@ -3,6 +3,7 @@ import React from "react";
 import { ICON_TYPES } from "../../../../packages/confetti-ds/src/constants";
 import {
   Button,
+  IconButton,
   MessageDialog as Component,
 } from "../../../../packages/confetti-ds/src";
 import { usePrevious } from "../hooks";
@@ -39,7 +40,7 @@ export const Message = (args) => {
 
   return (
     <React.Fragment>
-      <Button onClick={() => setIsOpen(true)} text="Open Dialog" />
+      <Button onClick={() => setIsOpen(true)} label="Open Dialog" />
       <Component
         {...args}
         isOpen={isOpen}
@@ -55,11 +56,11 @@ Message.args = {
   content:
     "This is the main content of a Message Dialog. You may want to put as much content as you want, as long as it's a string.",
   buttonProps: {
-    text: "Required button",
+    label: "Required button",
     onClick: () => alert("Required button clicked"),
   },
   outlineButtonProps: {
-    text: "Optional button",
+    label: "Optional button",
     onClick: () => alert("Optional button clicked"),
   },
 };

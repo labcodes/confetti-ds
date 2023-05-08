@@ -35,7 +35,7 @@ export const Standard = (args) => {
 
   return (
     <React.Fragment>
-      <Button onClick={() => setIsOpen(true)} text="Open Dialog" />
+      <Button onClick={() => setIsOpen(true)} label="Open Dialog" />
       <Component
         {...args}
         isOpen={isOpen}
@@ -50,11 +50,11 @@ Standard.args = {
   content:
     "This is the main content of a Standard Dialog. You may want to put as much content as you want, as long as it's a string.",
   buttonProps: {
-    text: "Required button",
+    label: "Required button",
     onClick: () => alert("Required button clicked"),
   },
   outlineButtonProps: {
-    text: "Optional button",
+    label: "Optional button",
     onClick: () => alert("Optional button clicked"),
   },
 };

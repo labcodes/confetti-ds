@@ -2,6 +2,7 @@ import React, { SyntheticEvent } from "react";
 
 import Icon from "../Icon";
 import { Button, OutlineButton } from "../Button";
+import IconButton from "../IconButton";
 import DialogWrapper from "./DialogWrapper";
 import { IconTypes } from "../constants";
 import { OutlineButtonProps } from "../Button/OutlineButton";
@@ -76,26 +77,13 @@ export default function StandardDialog({
       isLarge={isLarge}
     >
       <div className="lab-dialog__content" role="dialog" aria-modal="true">
-        <button
-          type="button"
-          className="lab-dialog__mobile-close-button"
-          onClick={handleClose}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <Icon type="ChevronUp" />
-        </button>
-
         <div className="lab-dialog__header">
           <div className="lab-dialog__title">{title}</div>
-          <button
-            className="lab-dialog__close-button"
-            type="button"
-            onClick={handleClose}
+          <IconButton
+            icon="Dismiss"
             {...(isModal ? { tabIndex: 2 } : undefined)}
-          >
-            <Icon type="Dismiss" className="lab-dialog__close-button-icon" />
-          </button>
+            onClick={handleClose}
+          />
         </div>
 
         <p className="lab-dialog__body">{content}</p>

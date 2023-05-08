@@ -3,6 +3,7 @@ import React, { SyntheticEvent } from "react";
 import Icon from "../Icon";
 import DialogWrapper from "./DialogWrapper";
 import { Button, OutlineButton } from "../Button";
+import IconButton from "../IconButton";
 import { IconTypes } from "../constants";
 import { OutlineButtonProps } from "../Button/OutlineButton";
 import { ButtonProps } from "../Button/Button";
@@ -48,19 +49,6 @@ export default function MessageDialog({
     }
   };
 
-  const handleTouchStart = (event) => {
-    setSwipeStartYCoordinate(event.changedTouches[0].screenY);
-  };
-
-  const handleTouchEnd = (event) => {
-    if (event.changedTouches[0].screenY - swipeStartYCoordinate >= 75) {
-      setSwipeStartYCoordinate(undefined);
-      handleClose();
-    } else {
-      setSwipeStartYCoordinate(undefined);
-    }
-  };
-
   React.useEffect(() => {
     document.addEventListener("keydown", handleKeyDown, false);
     return () => {
@@ -82,25 +70,14 @@ export default function MessageDialog({
         role="dialog"
         aria-modal="true"
       >
-        <button
-          type="button"
-          className="lab-dialog__mobile-close-button lab-dialog__mobile-close-button--message"
-          onClick={handleClose}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <Icon type="ChevronDown" />
-        </button>
-        <div className="lab-dialog__header lab-dialog__header--message">
-          <button
-            className="lab-dialog__close-button"
-            type="button"
+        <div className="lab-dialog__close-iconbutton is-flex is-justify-content-right">
+          <IconButton
+            icon="Dismiss"
             {...(isModal ? { tabIndex: 2 } : undefined)}
             onClick={handleClose}
-          >
-            <Icon type="Dismiss" className="lab-dialog__close-button-icon" />
-          </button>
+          />
         </div>
+        <div className="lab-dialog__header lab-dialog__header--message"></div>
 
         <div className="lab-dialog__icon-wrapper">
           <Icon type={icon} className="lab-dialog__icon" />
