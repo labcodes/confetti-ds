@@ -18,32 +18,6 @@ exports[`StandardDialog rendering with isLarge false 1`] = `
       className="lab-dialog__content"
       role="dialog"
     >
-      <button
-        className="lab-dialog__mobile-close-button"
-        onClick={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}
-        type="button"
-      >
-        <span
-          className="lab-icon lab-icon--ChevronUp  "
-        >
-          <svg
-            aria-hidden={true}
-            className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-            fill="currentColor"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M4.15 12.35a.5.5 0 0 1 0-.7L9.6 6.16a.55.55 0 0 1 .78 0l5.46 5.49a.5.5 0 0 1-.7.7L10 7.2l-5.15 5.16a.5.5 0 0 1-.7 0Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
       <div
         className="lab-dialog__header"
       >
@@ -53,13 +27,12 @@ exports[`StandardDialog rendering with isLarge false 1`] = `
           Sample Message Dialog
         </div>
         <button
-          className="lab-dialog__close-button"
+          className="lab-iconbtn lab-iconbtn--teal"
           onClick={[Function]}
-          tabIndex={2}
-          type="button"
         >
+           
           <span
-            className="lab-icon lab-icon--Dismiss  lab-dialog__close-button-icon"
+            className="lab-icon lab-icon--Teddy lab-icon--mineral-80 lab-iconbtn__icon"
           >
             <svg
               aria-hidden={true}
@@ -71,7 +44,7 @@ exports[`StandardDialog rendering with isLarge false 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"
+                d="M2 6.5a3.5 3.5 0 0 0 1.4 2.8c-.26.69-.4 1.43-.4 2.2 0 3.63 3.17 6.5 7 6.5s7-2.87 7-6.5c0-.77-.14-1.51-.4-2.2a3.5 3.5 0 1 0-5.31-4.19 7.54 7.54 0 0 0-2.58 0A3.5 3.5 0 0 0 2 6.5ZM5.5 4c.97 0 1.8.55 2.22 1.35a6.92 6.92 0 0 0-3.87 3.03A2.5 2.5 0 0 1 5.5 4Zm6.78 1.35a2.5 2.5 0 1 1 3.87 3.03 6.92 6.92 0 0 0-3.87-3.03ZM10 6c3.35 0 6 2.5 6 5.5a5.2 5.2 0 0 1-1.2 3.3 5.5 5.5 0 0 0-9.6 0A5.2 5.2 0 0 1 4 11.5C4 8.5 6.65 6 10 6Zm4.06 9.55A6.27 6.27 0 0 1 10 17c-1.57 0-3-.55-4.06-1.45a4.51 4.51 0 0 1 2.73-2.35 1.5 1.5 0 0 0 2.66 0c1.2.37 2.19 1.23 2.73 2.35Z"
                 fill="currentColor"
               />
             </svg>
@@ -118,32 +91,6 @@ exports[`StandardDialog rendering with isModal false 1`] = `
     className="lab-dialog__content"
     role="dialog"
   >
-    <button
-      className="lab-dialog__mobile-close-button"
-      onClick={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      type="button"
-    >
-      <span
-        className="lab-icon lab-icon--ChevronUp  "
-      >
-        <svg
-          aria-hidden={true}
-          className="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-          fill="currentColor"
-          height="20"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4.15 12.35a.5.5 0 0 1 0-.7L9.6 6.16a.55.55 0 0 1 .78 0l5.46 5.49a.5.5 0 0 1-.7.7L10 7.2l-5.15 5.16a.5.5 0 0 1-.7 0Z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-    </button>
     <div
       className="lab-dialog__header"
     >
@@ -153,12 +100,12 @@ exports[`StandardDialog rendering with isModal false 1`] = `
         Sample Message Dialog
       </div>
       <button
-        className="lab-dialog__close-button"
+        className="lab-iconbtn lab-iconbtn--teal"
         onClick={[Function]}
-        type="button"
       >
+         
         <span
-          className="lab-icon lab-icon--Dismiss  lab-dialog__close-button-icon"
+          className="lab-icon lab-icon--Teddy lab-icon--mineral-80 lab-iconbtn__icon"
         >
           <svg
             aria-hidden={true}
@@ -170,7 +117,7 @@ exports[`StandardDialog rendering with isModal false 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"
+              d="M2 6.5a3.5 3.5 0 0 0 1.4 2.8c-.26.69-.4 1.43-.4 2.2 0 3.63 3.17 6.5 7 6.5s7-2.87 7-6.5c0-.77-.14-1.51-.4-2.2a3.5 3.5 0 1 0-5.31-4.19 7.54 7.54 0 0 0-2.58 0A3.5 3.5 0 0 0 2 6.5ZM5.5 4c.97 0 1.8.55 2.22 1.35a6.92 6.92 0 0 0-3.87 3.03A2.5 2.5 0 0 1 5.5 4Zm6.78 1.35a2.5 2.5 0 1 1 3.87 3.03 6.92 6.92 0 0 0-3.87-3.03ZM10 6c3.35 0 6 2.5 6 5.5a5.2 5.2 0 0 1-1.2 3.3 5.5 5.5 0 0 0-9.6 0A5.2 5.2 0 0 1 4 11.5C4 8.5 6.65 6 10 6Zm4.06 9.55A6.27 6.27 0 0 1 10 17c-1.57 0-3-.55-4.06-1.45a4.51 4.51 0 0 1 2.73-2.35 1.5 1.5 0 0 0 2.66 0c1.2.37 2.19 1.23 2.73 2.35Z"
               fill="currentColor"
             />
           </svg>
