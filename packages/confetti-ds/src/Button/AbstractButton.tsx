@@ -25,7 +25,7 @@ interface AbstractButtonProps extends BaseButtonProps {
 export default function AbstractButton({
   label,
   type = "button" as const,
-  kind = "default",
+  kind,
   icon,
   theme = "teal",
   size = "normal",
@@ -34,14 +34,19 @@ export default function AbstractButton({
   onClick = (event) => {},
   fullWidth = false,
   tabIndex,
-    hasIcon = false,
+  hasIcon = false,
 }: AbstractButtonProps) {
   const renderIcon = () =>
-    icon ? <Icon type={icon} color="white"  className="lab-btn__icon" /> : "";
+    icon ? (
+      <Icon type={icon} color="white" className="lab-btn__icon" />
+    ) : (
+      <Icon type={"Add"} color="white" className="lab-btn__icon" />
+    );
   /*
   Set icon color to be the icon color of default button.
   Icon color changes according to button type and exception on _buttons.scss
   */
+
   const handleOnClick = (event) => {
     if (!isUndefined(onClick)) {
       onClick(event);

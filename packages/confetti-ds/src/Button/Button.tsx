@@ -35,7 +35,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <AbstractButton
-      kind="default"
+      kind={kind}
       label={label}
       type={type}
       theme={theme}
