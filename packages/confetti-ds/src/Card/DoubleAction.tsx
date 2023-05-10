@@ -73,7 +73,8 @@ export default function DoubleAction({
                 onClick={onClick}
                 size={size}
                 theme={getButtonSkinFromCardContext(cardContext)}
-                {...(hasIcon ? { icon } : undefined)}
+                hasIcon
+                {...(icon ? { icon } : undefined)}
                 {...(disabled ? { disabled } : undefined)}
                 {...(ariaDisabled ? { ariaDisabled } : undefined)}
               />
@@ -87,7 +88,8 @@ export default function DoubleAction({
                 onClick={onClick}
                 size={size}
                 theme={getButtonSkinFromCardContext(cardContext)}
-                {...(hasIcon ? { icon } : undefined)}
+                hasIcon
+                {...(icon ? { icon } : undefined)}
                 {...(disabled ? { disabled } : undefined)}
                 {...(ariaDisabled ? { ariaDisabled } : undefined)}
               />
@@ -100,6 +102,7 @@ export default function DoubleAction({
               onClick={onClick}
               size={size}
               theme={getButtonSkinFromCardContext(cardContext)}
+              hasIcon
               {...(icon ? { icon } : undefined)}
               {...(disabled ? { disabled } : undefined)}
               {...(ariaDisabled ? { ariaDisabled } : undefined)}

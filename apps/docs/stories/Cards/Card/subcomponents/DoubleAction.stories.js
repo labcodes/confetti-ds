@@ -23,12 +23,12 @@ DoubleAction.args = {
   actionsProps: [
     {
       label: "Action 1",
-      onClick: (e) => console.log("Action 1 clicked", e),
+      onClick: (e) => alert("Action 1 clicked", e),
       icon: "AddCircle",
     },
     {
       label: "Action 2",
-      onClick: (e) => console.log("Action 2 clicked", e),
+      onClick: (e) => alert("Action 2 clicked", e),
       icon: "SubtractCircle",
     },
   ],
