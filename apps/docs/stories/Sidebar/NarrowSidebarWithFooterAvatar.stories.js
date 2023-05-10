@@ -39,7 +39,7 @@ export const NarrowWithFooterAvatar = (args) => (
     <Component.Body>
       <Component.Item {...ItemStory.args} isActive />
       <Component.Item {...ItemStory.args} label="With Long Ellipsed Label" />
-      <Component.Item {...ItemStory.args} label="With Icon" icon="star" />
+      <Component.Item {...ItemStory.args} label="With Icon" icon="Star" />
     </Component.Body>
 
     <Component.Footer>
@@ -47,7 +47,7 @@ export const NarrowWithFooterAvatar = (args) => (
       <Component.FooterButton
         {...FooterButtonStory.args}
         label="Password"
-        icon="key"
+        icon="Key"
       />
     </Component.Footer>
   </Component>

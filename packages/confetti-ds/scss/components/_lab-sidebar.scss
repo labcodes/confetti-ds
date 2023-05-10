@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 
 $radius-default: 60px;
 $border-default: $border-2;
@@ -159,7 +159,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
 }
 
 .lab-narrow-sidebar__collapse-icon {
-  background-color: $item-active-color;
+  color: $item-active-color;
 }
 
 //Body
@@ -249,7 +249,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     color: $item-active-color;
 
     .lab-narrow-sidebar__item-icon {
-      background-color: $item-active-color;
+      color: $item-active-color;
     }
   }
 }
@@ -283,7 +283,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
   .lab-narrow-sidebar__avatar {
     margin-bottom: 18px;
 
-    @include mobile(){
+    @include mobile() {
       margin-left: 28px;
     }
   }
@@ -333,13 +333,13 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     font-weight: $weight-semibold;
 
     .lab-narrow-sidebar__footer-icon {
-      background-color: $item-active-color;
+      color: $item-active-color;
     }
   }
 }
 
 .lab-narrow-sidebar__footer-icon {
-  background-color: $footer-button-color;
+  color: $footer-button-color;
   margin-right: $spacing-2;
 
   @include from($tablet) {
@@ -383,7 +383,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     }
 
     .lab-narrow-sidebar__item-icon {
-      background-color: $white;
+      color: $white;
     }
   }
 
@@ -396,7 +396,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
       color: $white;
 
       .lab-narrow-sidebar__item-icon {
-        background-color: $white;
+        color: $white;
       }
     }
 
@@ -417,7 +417,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     }
 
     .lab-narrow-sidebar__item-icon {
-      background-color: $vivid-bg;
+      color: $vivid-bg;
     }
   }
 
@@ -425,7 +425,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     color: $white;
 
     .lab-narrow-sidebar__footer-icon {
-      background-color: $white;
+      color: $white;
     }
 
     &:focus {
@@ -433,11 +433,11 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     }
 
     &:hover {
-      background-color: $white-20;
+      color: $white-20;
     }
 
     &:active {
-      background-color: $vivid-bg;
+      color: $vivid-bg;
     }
   }
 
@@ -446,7 +446,7 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
     color: $vivid-bg;
 
     .lab-narrow-sidebar__footer-icon {
-      background-color: $vivid-bg;
+      color: $vivid-bg;
     }
   }
 
@@ -470,12 +470,12 @@ $vivid-bg: map-get($narrow-sidebar-theme, "60");
       background-color: $white-75;
 
       .lab-narrow-sidebar__collapse-icon {
-        background-color: $vivid-bg;
+        color: $vivid-bg;
       }
     }
   }
 
   .lab-narrow-sidebar__collapse-icon {
-    background-color: $white;
+    color: $white;
   }
 }

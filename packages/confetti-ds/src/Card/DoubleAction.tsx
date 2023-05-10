@@ -64,7 +64,7 @@ export default function DoubleAction({
           `}
     >
       {actionsProps.map(
-        ({ label, onClick, hasIcon,  icon, disabled, ariaDisabled }, index) => {
+        ({ label, onClick, hasIcon, icon, disabled, ariaDisabled }, index) => {
           if (isText) {
             return (
               <TextButton
@@ -72,7 +72,6 @@ export default function DoubleAction({
                 label={label}
                 onClick={onClick}
                 size={size}
-                //  todo: reescrever para getContext
                 theme={getButtonSkinFromCardContext(cardContext)}
                 {...(hasIcon ? { icon } : undefined)}
                 {...(disabled ? { disabled } : undefined)}
@@ -88,7 +87,7 @@ export default function DoubleAction({
                 onClick={onClick}
                 size={size}
                 theme={getButtonSkinFromCardContext(cardContext)}
-                {...(icon ? { icon } : undefined)}
+                {...(hasIcon ? { icon } : undefined)}
                 {...(disabled ? { disabled } : undefined)}
                 {...(ariaDisabled ? { ariaDisabled } : undefined)}
               />

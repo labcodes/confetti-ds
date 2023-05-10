@@ -22,14 +22,14 @@ export const DoubleAction = (args) => (
 DoubleAction.args = {
   actionsProps: [
     {
-      text: "Action 1",
+      label: "Action 1",
       onClick: (e) => console.log("Action 1 clicked", e),
-      icon: "plus",
+      icon: "AddCircle",
     },
     {
-      text: "Action 2",
+      label: "Action 2",
       onClick: (e) => console.log("Action 2 clicked", e),
-      icon: "minus",
+      icon: "SubtractCircle",
     },
   ],
 };

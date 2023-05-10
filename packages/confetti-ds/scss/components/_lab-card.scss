@@ -111,11 +111,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
     width: 100%;
     border-top-left-radius: $radius-2;
     border-top-right-radius: $radius-2;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.87) 0%,
-      rgba(0, 0, 0, 0.1) 100%
-    );
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.87) 0%, rgba(0, 0, 0, 0.1) 100%);
     margin-top: -$card-default-padding;
     margin-left: -$card-default-padding;
     margin-right: -$card-default-padding;
@@ -175,14 +171,12 @@ $card-compact-padding: $spacing-3 $spacing-4;
 }
 
 // Body
-.lab-card
-  p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
+.lab-card p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
   margin-top: unset;
   margin-bottom: $spacing-3;
 }
 
-.lab-card:not(.lab-card--vivid)
-  p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
+.lab-card:not(.lab-card--vivid) p:not(.lab-card-title):not(.lab-card-subtitle):not(.lab-card-category) {
   color: $black-75;
 }
 
@@ -273,7 +267,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
 
     // Pale outlineCard Elements
     .lab-card-category .lab-icon {
-      background-color: map-get($palette, "80");
+      color: map-get($palette, "80");
     }
 
     .lab-card-header .lab-card-category__text,
@@ -289,7 +283,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
       }
 
       .lab-card-category .lab-icon {
-        background-color: $white;
+        color: $white;
       }
     }
 
@@ -334,7 +328,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
         // Vivid filledCard Elements
         @if $name != "white" {
           .lab-card-category .lab-icon {
-            background-color: map-get($palette, "10");
+            color: map-get($palette, "10");
           }
 
           .lab-card-category__text,
@@ -362,7 +356,7 @@ $card-compact-padding: $spacing-3 $spacing-4;
             }
 
             .lab-card-category .lab-icon {
-              background-color: $white;
+              color: $white;
             }
           }
         }
