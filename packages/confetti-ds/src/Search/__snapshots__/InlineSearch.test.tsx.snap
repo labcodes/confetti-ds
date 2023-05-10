@@ -48,7 +48,7 @@ exports[`InlineSearch renders with base props 1`] = `
         </span>
       </button>
       <span
-        className="lab-icon lab-icon--Search  lab-inline-search__icon "
+        className="lab-icon lab-icon--Search lab-icon--mineral-40 lab-inline-search__icon "
       >
         <svg
           aria-hidden={true}
