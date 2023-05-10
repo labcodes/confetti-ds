@@ -145,7 +145,8 @@ $remove-icon-focus: map-get($search-theme, "30");
   background-color: $white;
   border-radius: $radius-1;
 
-  .lab-search__field:disabled ~ &, .lab-search__field[aria-disabled] ~ & {
+  .lab-search__field:disabled ~ &,
+  .lab-search__field[aria-disabled] ~ & {
     background-color: $search-separator-disabled;
   }
 }
@@ -182,30 +183,28 @@ $remove-icon-focus: map-get($search-theme, "30");
   }
 
   .lab-search__field:focus ~ & {
-    background-color: $search-button-focus;
+    color: $search-button-focus;
   }
 
   .lab-search__field:not(:placeholder-shown) ~ & {
-    background-color: $search-button-idle-filled;
+    color: $search-button-idle-filled;
   }
 
   .lab-search__field:not(:placeholder-shown):focus ~ & {
-    background-color: $search-button-focus;
+    color: $search-button-focus;
   }
 
   .lab-search__field:not(:placeholder-shown):hover ~ & {
-    background-color: $search-button-idle-filled;
+    color: $search-button-idle-filled;
   }
 
   .lab-search__field:not(:placeholder-shown):focus:hover ~ & {
-    background-color: $search-button-focus-hover;
+    color: $search-button-focus-hover;
   }
 }
 
 .lab-search__field:not(:placeholder-shown) ~ .lab-inline-search__icon--disabled,
-.lab-search__field:not(:placeholder-shown)
-  ~ .lab-inline-search__icon--disabled:hover,
-.lab-search__field:not(:placeholder-shown):hover
-  ~ .lab-inline-search__icon--disabled {
-  background-color: $search-button-idle;
+.lab-search__field:not(:placeholder-shown) ~ .lab-inline-search__icon--disabled:hover,
+.lab-search__field:not(:placeholder-shown):hover ~ .lab-inline-search__icon--disabled {
+  color: $search-button-idle;
 }
