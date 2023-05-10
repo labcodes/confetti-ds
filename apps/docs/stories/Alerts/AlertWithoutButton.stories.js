@@ -10,9 +10,6 @@ export default {
     icon: {
       control: { type: "select", options: ICON_TYPES },
     },
-    buttonProps: {
-      control: false,
-    },
   },
 };
 

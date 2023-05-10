@@ -53,7 +53,7 @@ exports[`StandardSearch renders with base props 1`] = `
         type="button"
       >
         <span
-          className="lab-icon lab-icon--Search lab-icon--mineral-40 lab-standard-search__icon"
+          className="lab-icon lab-icon--Search lab-icon--white lab-standard-search__icon"
         >
           <svg
             aria-hidden={true}
